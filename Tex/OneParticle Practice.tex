@@ -1,0 +1,259 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{mathtools,graphicx}
+\usepackage{tikz}
+\newcommand\vertarrowbox[2]{%
+    \begin{array}[t]{@{}c@{}} #1 \\
+    \rotatebox{90}{$\xrightarrow{\hphantom{a}}$} \\[-1ex]
+    \mathclap{\scriptstyle\text{#2}}%
+    \end{array}}
+\newcommand\encircle[1]{%
+    \tikz[baseline=(X.base)] 
+      \node (X) [draw, shape=circle, inner sep=0] {\strut #1};}
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}  
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=25mm,
+ bottom=30mm
+ }
+ \begin{document}
+ \title{Derivation of the Second Quantization of Operators}
+ \author{Seok Ha Nul}
+ \date{2023.January}
+ \maketitle
+ \\
+\section{Second Quantization of the one-particle Operator}
+ The N-single particle system, the state of the system can be written as $\ket{\psi_{\nu_{\alpha_j}}(\textbf{r}_j)}$, which satisfies the following condition:
+\begin{equation*}
+    1\leq j \leq N \qquad 1\leq \alpha \leq M , \qquad M \leq N \qquad {(M,N=\text{integer})}
+\end{equation*}
+Where ${\alpha}$ indicates the $\alpha^{th}$ quantum state $\nu_{\alpha}=\{\nu_1,\nu_2,...\nu_M\}$, 
+j indicates the $j^{th}$ particle in the system, 
+(e.g : 3-particle system $\nu$, distinguishable particle 1 and particle 2 in 1st state, particle 3 in 2nd state, can be written as : 
+$\psi_\nu (\textbf{r})=\psi_{\nu_{1_1}}(\textbf{r}_1) \psi_{\nu_{1_2}} (\textbf{r}_2) \psi_{\nu_{2_3}} (\textbf{r}_3) $. 
+here, the normalization factor was ignored.) \\
+\\
+A N-single particle operator $\hat{T}$ can be written the form of first quantization :
+\begin{align*}
+    &\hat{T}_{tot}\ket{\psi_{{\nu_{\alpha}_1}}(\textbf{r}_1)}\ket{\psi_{{\nu_{\alpha}_2}}(\textbf{r}_2)},\cdots,\ket{\psi_{{\nu_{\alpha}_N}}(\textbf{r}_N)} \\
+    &=\sum_{j=1}^{N}\sum_{\nu_a,\nu_b}T_{\nu_b,\nu_a}\ket{\psi_{\nu_b}(r_j)}\bra{\psi_{\nu_a}(r_j)}
+    \big(\ket{\psi_{{\nu_{\alpha}_1}}(\textbf{r}_1)}\ket{\psi_{{\nu_{\alpha}_2}}(\textbf{r}_2)},\cdots,\ket{\psi_{{\nu_{\alpha}_N}}(\textbf{r}_N)}\big )\\
+    &=\sum_{j=1}^{N}\sum_{\nu_a,\nu_b}T_{\nu_b,\nu_a}\delta_{\nu_a,\nu_j}
+    \ket{\psi_{{\nu_{\alpha}_1}}(\textbf{r}_1)},\ket{\psi_{{\nu_{\alpha}_2}}(\textbf{r}_2)}
+    \cdots\ket{\psi_{\nu_{b}}(\textbf{r}_j)},\cdots,\ket{\psi_{{\nu_{\alpha}_N}}(\textbf{r}_N)}
+\end{align*}
+ Here, $\nu_a$, $\nu_b$ indicates the arbitrary states, which is an element of set $\{\nu_{\alpha}\}$.
+Applying the Bosonic Operator on both sides of the equation, 
+\begin{align*}
+    & S^+ \hat{T}_{tot}\ket{\psi_{{\nu_{\alpha}_1}}(\textbf{r}_1)}\ket{\psi_{{\nu_{\alpha}_2}}(\textbf{r}_2)},\cdots,\ket{\psi_{{\nu_{\alpha}_N}}(\textbf{r}_N)} \\
+    &=\hat{T}_{tot} b^{\dagger}_{{\nu_{\alpha}_1}}b^{\dagger}_{{\nu_{\alpha}_2}}\cdots b^{\dagger}_{{\nu_{\alpha}_N}}\ket{0}\\
+    &=\sum_{j=1}^{N}\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}\delta_{\nu_a,\nu_j}b^{\dagger}_{\nu_{\alpha_1}}b^{\dagger}_{{\nu_{\alpha}_2}}\cdots b^{\dagger}_{\nu_b} \cdots b^{\dagger}_{{\nu_{\alpha}_N}}\ket{0}\\
+    &=\sum_{j=1}^{N}\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}\delta_{\nu_a,\nu_j}(b^{\dagger}_{\nu_1})^{n_1} (b^{\dagger}_{\nu_{2}})^{n_2}\cdots b^{\dagger}_{\nu_b} \cdots (b^{\dagger}_{\nu_{M}})^{n_M}\ket{0}\\
+    &=\sum_{j=1}^{N}\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}\delta_{\nu_a,\nu_j} \sqrt{n_1 !} \ket{n_1}\sqrt{n_2 !}\ket{n_2}\cdots \ket{\nu_b} \cdots \sqrt{n_M !}\ket{n_M}\\
+\end{align*}
+ $n_1$,$n_2$,...$n_M$ are the number of times the $\nu_1$, $\nu_2$,...,${\nu_M}$ state appears in the N-particle system, $\sum_{\alpha =1}^{M} n_{\alpha}=N$.
+Assume in the case of single-particle system, with N particles in $\nu_{\alpha}$ states
+\begin{align*}
+    &= \sum_{j=1}^{N}\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}\delta_{\nu_a,\nu_j} \sqrt{n_1 !} \ket{\nu_1}\cdots\ket{\nu_1} \sqrt{n_2 !}\ket{\nu_2}\cdots\ket{\nu_2}\cdots \ket{\nu_b} \cdots \sqrt{n_M !}\ket{\nu_M}\cdots\ket{\nu_M}\\
+    &= B^+ \sum_{j=1}^{N}\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}\delta_{\nu_a,\nu_j} \underbrace{\ket{\nu_1}\cdots\ket{\nu_1}}_{n_1} \underbrace{\ket{\nu_2}\cdots\ket{\nu_2}}_{n_2} \cdots \ket{\nu_b} \cdots \underbrace{\ket{\nu_M}\cdots\ket{\nu_M}}_{n_M}\\
+\end{align*}
+Here, $B^+ = \Pi_{n_{\alpha}} \sqrt{n_{\alpha}!}$.
+\begin{align*}    
+    = B^+ \sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}
+    \[
+        \left\{
+            \begin{array}{ll}
+                &\delta_{\nu_a,\nu_1}\ket{\nu_b}\overbrace{\ket{\nu_1}\cdots\ket{\nu_1}}^{n_1 - 1}\ket{\nu_2}\cdots \ket{\nu_M}\\
+                &+\delta_{\nu_a,\nu_1}\ket{\nu_1}\ket{\nu_b}\cdots\ket{\nu_1}\ket{\nu_2}\cdots \ket{\nu_M}\\
+                &\vdots\\
+                &+\delta_{\nu_a,\nu_2}\ket{\nu_1}\cdots\ket{\nu_b}\overbrace{\ket{\nu_2}\cdots\ket{\nu_2}}^{n_2 -1}\cdots \ket{\nu_M}\\
+                &\vdots\\
+                &+\delta_{\nu_a,\nu_2}\ket{\nu_1}\cdots\ket{\nu_2}\cdots\overbrace{\ket{\nu_M}\cdots \ket{\nu_M}}^{n_M-1} \ket{\nu_b}\\
+        \end{array}
+        \right.
+    \]
+\end{align*}
+\begin{align*}
+    = \sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}
+    \[
+        \left\{
+            \begin{array}{ll}
+            & n_1\delta_{\nu_a,\nu_1}b^{\dagger}_{\nu_b} (b^{\dagger}_{\nu_1})^{n_1 - 1} (b^{\dagger}_{\nu_2})^{n_2} \cdots (b^{\dagger}_{\nu_M})^{n_M} \ket{0}\\
+            & + n_2\delta_{\nu_a,\nu_2} (b^{\dagger}_{\nu_1})^{n_1} b^{\dagger}_{\nu_b}(b^{\dagger}_{\nu_2})^{n_2 - 1} \cdots (b^{\dagger}_{\nu_M})^{n_M} \ket{0}\\
+            & \vdots \\
+            & + n_M\delta_{\nu_a,\nu_M} (b^{\dagger}_{\nu_1})^{n_1 - 1} (b^{\dagger}_{\nu_2})^{n_2} \cdots b^{\dagger}_{\nu_b}(b^{\dagger}_{\nu_M})^{n_M -1} \ket{0}\\
+            \end{array}
+        \right.
+    \]
+\end{align*}
+Use the calculation
+\begin{equation} 
+    b^{\dagger}_{\nu_b}(b^{\dagger}_{\nu_{\alpha}})^{\alpha-1}\ket{0}= \frac{1}{\alpha} b^{\dagger}_{\nu_b} b_{\nu_\alpha} b^{\dagger}_{\nu_\alpha} (b^{\dagger}_{\nu_\alpha})^{\alpha-1} \ket{0},
+\end{equation}
+\begin{align*}
+    = \sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a} 
+    \[
+        \left\{
+            \begin{array}{ll}
+                & \frac{n_1}{n_1} \delta_{\nu_a,\nu_1} b^{\dagger}_{\nu_b} b_{\nu_1} b^{\dagger}_{\nu_1} (b^{\dagger}_{\nu_1})^{n_1 - 1} (b^{\dagger}_{\nu_2})^{n_2} \cdots (b^{\dagger}_{\nu_M})^{n_M} \ket{0}\\
+                & + \frac{n_2}{n_2} \delta_{\nu_a,\nu_2} (b^{\dagger}_{\nu_1})^{n_1} b^{\dagger}_{\nu_b} b_{\nu_2} b^{\dagger}_{\nu_2} (b^{\dagger}_{\nu_2})^{n_2 -1} \cdots (b^{\dagger}_{\nu_M})^{n_M} \ket{0}\\
+                &\vdots\\
+                & + \frac{n_M}{n_M} \delta_{\nu_a,\nu_M} (b^{\dagger}_{\nu_1})^{n_1} (b^{\dagger}_{\nu_2})^{n_2} \cdots b^{\dagger}_{\nu_b} b^{\dagger}_{\nu_M} b_{\nu_2} b^{\dagger}_{\nu_M} (b^{\dagger}_{\nu_M})^{n_M -1} \ket{0}
+            \end{array}
+        \right.
+    \]
+\end{align*}
+\begin{align*}
+    = \sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a} (\delta_{\nu_a,\nu_1} b^{\dagger}_{\nu_b} b_{\nu_1} + \delta_{\nu_a,\nu_2}b^{\dagger}_{\nu_b} b_{\nu_2} \cdots \delta_{\nu_a,\nu_M} b^{\dagger}_{\nu_b} b^{\dagger}_{\nu_M}) 
+    ((b^{\dagger}_{\nu_1})^{n_1} (b^{\dagger}_{\nu_{2}})^{n_2}  \cdots (b^{\dagger}_{\nu_{M}})^{n_M})\ket{0}
+\end{align*}
+\\
+Considering only the case of $\nu_i = \nu_a$,
+\\
+\begin{align*}
+    =\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a} \big(b^{\dagger}_{\nu_b} b_{\nu_a}\big) b^{\dagger}_{\nu_{\alpha_1}}b^{\dagger}_{{\nu_{\alpha}_2}} \cdots b^{\dagger}_{{\nu_{\alpha}_N}} \ket{0}
+\end{align*}
+\begin{align*}
+    = \hat{T}_{tot} b^{\dagger}_{\nu_{\alpha_1}}b^{\dagger}_{\nu_{\alpha}_2} \cdots b^{\dagger}_{{\nu_{\alpha}_N}} \ket{0}
+\end{align*}
+Therefore,
+\begin{align*}
+    \therefore \hat{T}_{tot}=\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a} b^{\dagger}_{\nu_b} b_{\nu_a}
+\end{align*}
+\section{Derivation of the Second Quantization of the two-particle Operator}
+\subsection{V $\propto \frac{1}{r_j - r_k} $ in two-particle states}
+Suppose there are two different vectors representing the two-particle states,  $\ket{\psi_{a} ( \textbf{r}_j )} \ket{\psi_{b} ( \textbf{r}_k )}$ and $\ket{\psi_{c} ( \textbf{r}_j )} \ket{\psi_{d} ( \textbf{r}_k )} $,
+Let V is a linear Operator which can be thought of as a function of ($\frac{1}{r_j - r_k}$). 
+The index j and k represents the $j^{th}$ and $k^{th}$ coordinate of N-particle quantum system, where $1\leq j,k \leq N$.
+\\
+The expectation value of $V_{jk}$ is : 
+\begin{align*}
+    V_{jk}=\int \bra{\psi_{c} ( \textbf{r}_j )} \bra{\psi_{d} ( \textbf{r}_k )} \frac{\gamma}{r_j - r_k} \ket{\psi_{a} ( \textbf{r}_j )} \ket{\psi_{b} ( \textbf{r}_k )}
+\end{align*}
+and of $V_{kj}$:
+\begin{align*}
+    V_{kj}=\int \bra{\psi_{c} ( \textbf{r}_k )} \bra{\psi_{d} ( \textbf{r}_j )} \frac{\gamma}{r_k - r_j} \ket{\psi_{a} ( \textbf{r}_k )} \ket{\psi_{b} ( \textbf{r}_kj)}
+\end{align*} 
+Here, $\gamma$ indicates the constant of proportionality. \\
+\\
+Notice that the particles in N-particle quantum system are indistinguishable and thus result of the given integral will not change even if the given position of each particle was swapped. According to the symmetric properties of given system,
+\begin{align*}
+    V_{jk}=V_{kj}, \qquad \sum^{N}_{j<k} V_{jk} = \frac{1}{2} \sum^{N}_{j}\sum^{N}_{k} V_{jk} \quad (j\neq k)
+\end{align*}
+\subsection{2nd Quantization of two-body operator}
+A similar method with the second quantization of single-particle operator can be used.  Here, Operator V considered as :  $V=\frac{e^2}{4\pi \epsilon _0} \frac{1}{|r_j-r_k|}$. 
+\\
+Apply the symmetric operator $S^{\pm}$ in both side of first quantized two-particle operator equation,
+\begin{align*}
+    &S^{\pm}\hat{V}_{tot}\ket{\psi_{\nu_{\alpha_1}}(\textbf{r}_1)}\ket{\psi_{\nu_{\alpha_2}}(\textbf{r}_2)},\cdots,\ket{\psi_{\nu_{\alpha_N}}(\textbf{r}_N)}\\
+    &=\hat{V}_{tot} a^{\dagger}_{\nu_{\alpha_1}}a^{\dagger}_{\nu_{\alpha_2}}\cdots a^{\dagger}_{\nu_{\alpha_N}}\ket{0}
+\end{align*}
+\begin{align*}
+    &=S^{\pm}\frac{1}{2}\sum_{j\neq k}^{N}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}\delta_{\nu_a,\nu_{\alpha_j}}\delta_{\nu_b,\nu_{\alpha_k}}\ket{\psi_{\nu_{\alpha_1}}(\textbf{r}_1)},\cdots\ket{\psi_{\nu_{c}}(\textbf{r}_j)}, \cdots\ket{\psi_{\nu_{d}}(\textbf{r}_k)}, \cdots,\ket{\psi_{\nu_{\alpha_N}}(\textbf{r}_N)}\\
+    &=\frac{1}{2}\sum_{j\neq k}^{N}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}
+    \delta_{\nu_a,\nu_{\alpha_j}}\delta_{\nu_b,\nu_{\alpha_k}} \big( a^{\dagger}_{\nu_{\alpha_1}}a^{\dagger}_{\nu_{\alpha_2}}\cdots \vertarrowbox{a^{\dagger}_{\nu_c}}{\text{jth}}, \cdots \vertarrowbox{a^{\dagger}_{\nu_d}}{\text{kth}} \cdots a^{\dagger}_{\nu{\alpha_N}}\big)\ket{0} 
+\end{align*}
+To get the final result of summation, first, count each calculation process of equation term which stated as $\encircle{a}$ for j and k indices,
+\begin{align*}
+    &=\frac{1}{2}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b} \bigg( \underbrace{\sum_{j}^{N}\sum_{k}^{N}
+    \delta_{\nu_a,\nu_{\alpha_j}}\delta_{\nu_b,\nu_{\alpha_k}} {\big( a^{\dagger}_{\nu_{\alpha_1}}a^{\dagger}_{\nu_{\alpha_2}}\cdots a^{\dagger}_{\nu_c}, \cdots a^{\dagger}_{\nu_d} \cdots a^{\dagger}_{\nu{\alpha_N}}\big) \ket{0}}}_{\encircle{a}} \bigg)
+\end{align*}
+If the given operator represents a Coulomb interaction between two electrons, 
+the difference compared to the case of single particle operator $\hat{T}$ is a using fermionic creation operator $c^{\dagger}$ and annihilation operator $c$ instead of bosonic operators ${b^{\dagger} , b}$, due to the fermion property of electrons.
+\\ \\ In the procedure below, \underline{all creation and annihilation operators $a^{\dagger} \text{and} \; a$ are considered fermionic operators} during the calculation, so it can be deduced that : $n_{\alpha}$ = 1, and the range of a value of $\alpha$ is the same as the range of j, 
+ $1\leq \alpha,\; j \leq N$. \\
+ \\
+The following 3 conditions are used to analyze the $\encircle{a}$.
+\begin{align*}
+    & \text{(1) :} \quad a^{\dagger}\ket{0} = a^{\dagger}_j a_i a^{\dagger}_i \ket{0}\\
+    & \text{(2) :} \quad \{ c_i , c^{\dagger}_j \} = \delta_{ij}, \quad [b_i , b^{\dagger}_j] = \delta_{ij}\\ 
+    & \text{(3) :} \quad \text{if} \quad \lambda=-\lambda, \quad \lambda=0 , \qquad \text{if} \quad \lambda \neq 0, \quad \lambda \neq- \lambda
+    \qquad (\text{$\lambda$ is a real number})
+\end{align*}
+First, counts each summation result for k indices, k=1,2,...,k'...,N.
+\begin{align*}
+    \text{k=1} \qquad &\delta_{\nu_b \nu_{\alpha_1}} (a^{\dagger}_{\nu_d} a^{\dagger}_{\nu_{\alpha_2}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    & =\delta_{\nu_b \nu_{\alpha_1}} (\underbrace{a^{\dagger}_{\nu_d} a_{\nu_{\alpha_1}} a^{\dagger}_{\nu_{\alpha_1}}}_{\text{condition (1)}}a^{\dagger}_{\nu_{\alpha_2}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    & =\delta_{\nu_b \nu_{\alpha_1}} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_1}} (a^{\dagger}_{\nu_{\alpha_1}}a^{\dagger}_{\nu_{\alpha_2}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0} \qquad \rightarrow \quad (1,\encircle{})
+\end{align*}
+(1,$\;\encircle{}$) refers the result of the calculation of the left side of the right-headed-arrow. 
+A $\encircle{}$ means that it is blank, the value will be given in the calculation process for j indices.
+\begin{align*}
+    \text{k=2} \qquad &\delta_{\nu_b \nu_{\alpha_2}} (a^{\dagger}_{\nu_{\alpha_1}} a^{\dagger}_{\nu_d} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    & =\delta_{\nu_b \nu_{\alpha_2}} (\vertarrowbox{a^{\dagger}_{\nu_{\alpha_1}}}{\text{two operators are in ordered place, first one is in 1st place, and after 2nd place. }} \vertarrowbox{a^{\dagger}_{\nu_d}}{} a_{\nu_{\alpha_2}} a^{\dagger}_{\nu_{\alpha_2}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    & =\vertarrowbox{(-1)}{\text{condition(2), by swapping the order}} \delta_{\nu_b \nu_{\alpha_2}} a^{\dagger}_{\nu_d} (a^{\dagger}_{\nu_{\alpha_1}} a_{\nu_{\alpha_2}} a^{\dagger}_{\nu_{\alpha_2}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    & =(-1)^2 \delta_{\nu_b \nu_{\alpha_2}} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_2}} (a^{\dagger}_{\nu_{\alpha_1}}  a^{\dagger}_{\nu_{\alpha_2}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0} \qquad \rightarrow \quad (2,\encircle{})
+\end{align*}
+Notice that swapping the order of $\nu_d$ and $\nu_c$ is necessary because a sign of the overall summation process should be equal to 
+sign of $\hat{V}_{tot} a^{\dagger}_{\nu_{\alpha_1}}a^{\dagger}_{\nu_{\alpha_2}}\cdots a^{\dagger}_{\nu_{\alpha_N}}\ket{0}$, which requires the condition (3).
+\begin{align*}
+    \vdots
+\end{align*}
+\begin{align*}
+    \text{k=k'} \qquad &\delta_{\nu_b \nu_{\alpha_2}} (a^{\dagger}_{\nu_{\alpha_1}} a^{\dagger}_{\nu_{\alpha_2}} \cdots a^{\dagger}_{\nu_d} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    & =\delta_{\nu_b \nu_{\alpha_2}} (\underbrace{a^{\dagger}_{\nu_{\alpha_1}} a^{\dagger}_{\nu_{\alpha_2}} \cdots }_{\text{k'-1 operators}}a^{\dagger}_{\nu_d} a_{\nu_{\alpha_{k'}}} a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    &\\
+    & =(-1)^{\text{k'-1}}\delta_{\nu_b \nu_{\alpha_2}} a^{\dagger}_{\nu_d} (a^{\dagger}_{\nu_{\alpha_1}} a^{\dagger}_{\nu_{\alpha_2}} \cdots a_{\nu_{\alpha_{k'}}} a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    & =(-1)^{2( \text{k'-1})}\delta_{\nu_b \nu_{\alpha_{k'}}} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_{k'}}} (a^{\dagger}_{\nu_{\alpha_1}} a^{\dagger}_{\nu_{\alpha_2}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0} \qquad \rightarrow \quad (k',\encircle{})
+\end{align*}
+Successively, count the summation for the j index, where k=k' and j=1,2,...j',...,N
+\begin{align*}
+    \text{k=k', j=1} \qquad &(-1)^{2(\text{k'-1})}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_{k'}}} (a^{\dagger}_{\nu_c} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    &= (-1)^{2(\text{k'-1})}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_{k'}}} (a^{\dagger}_{\nu_c} a_{\nu_{\alpha_1}} a^{\dagger}_{\nu_{\alpha_1}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    &= (-1)^{2(\text{k'-1})}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_{k'}}} a^{\dagger}_{\nu_c} a_{\nu_{\alpha_1}} ( a^{\dagger}_{\nu_{\alpha_1}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    &= (-1)^{|2(\text{k'-1})+1|}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} \vertarrowbox{a^{\dagger}_{\nu_d}}{two operators are in ordered place} (\vertarrowbox{{a^{\dagger}_{\nu_c}}}{} a_{\nu_{\alpha_1}} - \delta_{\nu_c {\nu_{\alpha_1}}}) a_{\nu_{\alpha_{k'}}}( a^{\dagger}_{\nu_{\alpha_1}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    &\\
+    &= (-1)^{|2(\text{k'-1})+2|}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} a^{\dagger}_{\nu_c} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_1}} a_{\nu_{\alpha_{k'}}}( a^{\dagger}_{\nu_{\alpha_1}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\ 
+    & - \delta_{\nu_c {\nu_{\alpha_1}}}(\text{products of operators})\ket{0} \qquad \rightarrow \quad (k', 1)
+\end{align*}
+\begin{align*}
+    \vdots
+\end{align*}
+\begin{align*}
+    \text{k=k', j=j'} \qquad &(-1)^{2(\text{k'-1})}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_{k'}}} (a^{\dagger}_{\nu_{\alpha_1}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}} \cdots a^{\dagger}_{\nu_c}  \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    &= (-1)^{2(\text{k'-1})}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_{k'}}} (\underbrace{a^{\dagger}_{\nu_{\alpha_1}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots }_{\text{j'-1 operators}}a^{\dagger}_{\nu_c} a_{\nu_{\alpha_{j'}}} a^{\dagger}_{\nu_{\alpha_{j'}}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\
+    &\\
+    &= (-1)^{|2(\text{k'-1})+2(\text{j'-1})|}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_{k'}}} a^{\dagger}_{\nu_c} a_{\nu_{\alpha_{j'}}} (a^{\dagger}_{\nu_{\alpha_1}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_{j'}}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\ 
+    &= (-1)^{|2(\text{k'-1})+2(\text{j'-1})+1|}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} \vertarrowbox{a^{\dagger}_{\nu_d}}{two operators are in ordered place} (\vertarrowbox{a^{\dagger}_{\nu_c}}{} a_{\nu_{\alpha_{k'}}}-\delta_{\nu_c \nu_{\alpha_{k'}}}) a_{\nu_{\alpha_{j'}}} (a^{\dagger}_{\nu_{\alpha_1}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_{j'}}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\ 
+    &= (-1)^{|2(\text{k'-1})+2(\text{j'-1})+2|}\delta_{\nu_a \nu_{\alpha_1}}\delta_{\nu_b \nu_{\alpha_{k'}}} a^{\dagger}_{\nu_c} a^{\dagger}_{\nu_d} a_{\nu_{\alpha_{k'}}} a_{\nu_{\alpha_{j'}}} (a^{\dagger}_{\nu_{\alpha_1}} \cdots a^{\dagger}_{\nu_{\alpha_{k'}}}  \cdots a^{\dagger}_{\nu_{\alpha_{j'}}} \cdots a^{\dagger}_{\nu_{\alpha_N}})\ket{0}\\ 
+    &-\delta_{\nu_c \nu_{\alpha_{k'}}}(\text{product of operators})\ket{0} \qquad \rightarrow \quad (k', j')
+\end{align*}
+Now arrange each number set in a square formation, ordering (k,j) as kth row and jth column. The arranged form can be shown as a matrix,
+so let the corresponding matrix named A, then each number set (k,j) is an element of a matrix $A_{kj}$. The result of summation $\encircle{a}$ corresponds to the sum of all elements in matrix A. 
+\begin{align*}
+    A= \left(
+        \begin{matrix}
+            0 & (1,2) & (1,3) & \cdots & (1,N) \\
+            (2,1) & 0 & (2,3) & \cdots & (2,N) \\
+            \\
+            \vdots & & &(k'j') & \\
+            \\
+            (N,1) & (N,2) & (N,3) & \cdots & 0 \\
+        \end{matrix}
+      \right)
+    \qquad , \qquad \encircle{a} = \sum_{j}^{N}\sum_{k}^{N} A_{jk} \end{align*}
+If $\nu_a=\nu_{j}'$ and $\nu_b = \nu_{k'}$ , value of the ${\encircle{a}}$ corresponds to the matrix element $A_{k'j'}$,
+\begin{align*}
+    &\frac{1}{2}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}\bigg(\encircle{a}\bigg) \\ 
+    &=\frac{1}{2}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}\bigg( A_{k'j'} \bigg) \\
+    &=\frac{1}{2}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}(-1)^{2(|k'-1|+|j'-1|+1)}c^{\dagger}_{\nu_c}c^{\dagger}_{\nu_d} c_{\nu_b}c_{\nu_a}\big(c^{\dagger}_{\nu_1}c^{\dagger}_{\nu_2} \cdots c^{\dagger}_{\nu_N}\big) \ket{0}\\
+    & - \delta_{\nu_c \nu_{\alpha_{k'}}}(\text{product of operators})\ket{0}
+\end{align*}
+Since $\nu_c \neq \nu_b =\nu_{\alpha_{k'}}$, and $(-1)^{2(|k'-1|+|j'-1|+1)}=1$,
+\begin{align*}
+    &=\frac{1}{2}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b} c^{\dagger}_{\nu_c}c^{\dagger}_{\nu_d} c_{\nu_b}c_{\nu_a}\big(c^{\dagger}_{\nu_1}c^{\dagger}_{\nu_2} \cdots c^{\dagger}_{\nu_N}\big) \ket{0}
+\end{align*}
+Therefore,
+\begin{align*}
+    V_{tot}=\frac{1}{2}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}c^{\dagger}_{\nu_c}c^{\dagger}_{\nu_d}c_{\nu_a}c_{\nu_b}
+\end{align*}
+\end{document}

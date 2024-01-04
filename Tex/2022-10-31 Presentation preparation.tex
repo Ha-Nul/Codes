@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\begin{document}
+\subsection{Dressed atom model}
+\begin{equation*}
+    \ket{\RN{1},n}= -sin\theta \ket{1,n+1}+cos\theta \ket{2,n}
+\end{equation*}
+\begin{equation*}
+    \ket{\RN{2},n}= cos\theta \ket{1,n+1}+sin\theta \ket{2,n}
+\end{equation*}
+\begin{equation*}
+    cos\theta = \frac{\Omega_n -\delta}{\sqrt{(\Omega_n -\delta)^2+4g^2(n+1)}}
+\end{equation*}
+\begin{equation*}
+    sin\theta = \frac{2g\sqrt{n+1}}{\sqrt{(\Omega_n-\delta)^2+4g^2(n+1)}}
+\end{equation*}
+\begin{equation*}
+    H=H_0+H'
+\end{equation*}
+\begin{equation*}
+    H_0=H_0^{atom}+H_0^{field}=\frac{1}{2}\hbar\omega_0\sigma_z + \hbar\omega(a^\dagger a _\frac{1}{2})
+\end{equation*}
+\begin{equation*}
+    H'=\hbar(g_{12}a^\dagger\sigma_{-}+g_{21}a\sigma_{+})
+\end{equation*}
+\subsection{Expressions for the New Eigen states}
+\begin{equation*}
+    \hat{H}_{xp}=\hat{H}_P+\hat{H}_x+\hat{H}_i
+\end{equation*}
+\begin{equation*}
+    \hat{H}_p=E_c\hat{f}^\dagger \hat{f}
+\end{equation*}
+\begin{equation*}
+    \hat{H}_x=E_x\hat{e}^\dagger \hat{e}
+\end{equation*}
+\begin{equation*}
+    \hat{H}_i=\hbar \Omega (\hat{f}^\dagger \hat{e} + \hat{f} \hat{e}^\dagger)
+\end{equation*}
+\begin{equation*}
+    M=|\langle \phi _X|d\cdot E | \phi_C|
+\end{equation*}
+\begin{equation*}
+    \omega_R=\frac{e|E_0|M}{m\hbar\omega_0}
+\end{equation*}
+\begin{equation*}
+    f^{(3D)}=\frac{2m_rE_{res}}{\hbar^2} M^2 \frac{V}{\pi a^3_B}
+\end{equation*}
+\begin{equation*}
+    f^{(2D)}=N_{QW}\frac{8f^{(3D)}}{\pi a^2_{B(3D)}}
+\end{equation*}
+\begin{equation*}
+    g \propto \sqrt{\frac{f^{(2D)}}{m_e n^2_{eff} L_{eff}}} \propto \sqrt{N_{QW}}
+\end{equation*}
+\begin{equation*}
+    \hat{l}_{k_\parallel}=X_{k_\parallel}\hat{e}_{k_\parallel} + C_k\hat{f}_{k_\parallel}
+\end{equation*}
+\begin{equation*}
+    \hat{u}_{k_\parallel}=-C_{k_\parallel}\hat{e}_{k_\parallel}+X_{k_\parallel}\hat{f}_{k_\parallel}
+\end{equation*}
+\begin{equation*}
+    \hat{H}_{xp}=\Sigma_{N,{k_\parallel}}E_{LP}({k_\parallel})\hat{l}^\dagger_{k_\parallel}\hat{l}_{k_\parallel}
+    + \Sigma_{N,{k_\parallel}} E_{UP}(k_\parallel)\hat{u}_{k_\parallel}^\dagger \hat{u}_{k\parallel} 
+\end{equation*}
+\begin{equation*}
+    \hat{H}_{xp} \ket{\Psi} = 
+    \begin{pmatrix}
+        E_c & \hbar\Omega \\
+        \hbar\Omega & E_X
+    \end{pmatrix}
+    \begin{pmatrix}
+        C \\
+        X
+    \end{pmatrix}
+    = E_{XP}\ket{\Psi}
+\end{equation*}
+\begin{equation*}
+    |C_{k_\parallel}|^2 + |X_{k_\parallel}|^2 = 1 
+\end{equation*}
+\begin{equation*}
+    |C_{k_\parallel}|^2=\frac{1}{2}(1-\frac{\Delta k_\parallel}{(\Delta k_\parallel)^2+(2\hbar\Omega)^2})
+\end{equation*}
+\begin{equation*}
+    |X_{k_\parallel}|^2=\frac{1}{2}(1+\frac{\Delta k_\parallel}{(\Delta k_\parallel)^2+(2\hbar\Omega)^2})
+\end{equation*}
+\begin{equation*}
+    \Delta k_\parallel = E_c(k_\parallel) - E_x(k_\parallel)
+\end{equation*}
+\begin{equation*}
+    E_{LP,UP}(k_\parallel)=\frac{1}{2}[E_C(k_\parallel)+E_X(k_\parallel)\pm\sqrt{(2\hbar\Omega)^2+(\Delta(k_\parallel))^2}]
+\end{equation*}
+\subsection{equations for presentation}
+$$ ABX_3 $$
+$$ (LA)_2(A)_{n-1}B_n X_{3n-1} $$
+$$ 0.9<t<1 $$ 
+$$ 0.8<t<0.9 $$
+$$ Cs^+ $$
+$$ MA^+ $$
+$$ FA^+ $$
+$$ CsPbBr_3 $$
+$$ Cs_4 Pb Br_6 $$
+$$ MAPBI_3 $$
+``''
+\end{document}

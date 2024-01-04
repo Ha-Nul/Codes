@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{esint}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\author{Ha Nul Seok}
+\begin{document}
+\title{Green function for Vertex solver}
+\maketitle{}
+\section*{Imaginary time and tau}
+Answering the following question : Why is the reason that $\tau$ has its boundary condition in range : $0<\tau<\beta$?\\
+In Statistical mechanics, quantities of interest are the partition function of the system, $Z(\beta)=Tr[e^{-\beta H}]$
+and it's form is the same as the time-evolution operator $e^{iHt/\hbar}$. The Imaginary time $\tau$ is : $\tau = it$.
+\begin{flalign}
+    Z(\beta) & = \sum_n \bra{n} e^{\beta H} \ket{n} \\
+            & = \sum_n \sum_{m_1,m_2,\dots m_N} \bra{n}e^{(1/\hbar)\delta \tau H}\ket{m_1} \bra{m_1}e^{(1/\hbar)\delta \tau H}\ket{m_2} \dots 
+            \bra{m_N}e^{(1/\hbar)\delta \tau H}\ket{n} 
+\end{flalign}
+Where,
+\begin{flalign}
+    e^{-\beta H} = [e^{(-1/\hbar)\delta \tau H}]^n
+\end{flalign}
+The time interval $\delta \tau = \hbar \Gamma$ is small on the time scales of interest. Thus, $0<\tau<\beta$ can be deduced.
+\section*{Fourier transformation of Matsubara Green function}
+Below, Only bosonic case considered.
+\begin{flalign*}
+    C_{AB}(\tau) &= - \langle\textit{T} (A(\tau)B(0)) \rangle \\
+            &= -\langle \textit{T}(e^{\tau H_0}a_k e^{-\tau H_0}a_k^\dagger)\rangle
+\end{flalign*}
+\begin{flalign*}
+    &\leftrightarrow \quad C_{AB}(\tau) = -\theta(\tau)\langle a_k(\tau)a_k^\dagger \rangle - \theta(-\tau)\langle a_k^\dagger a_k (\tau) \rangle
+    \\ &\frac{\partial}{\partial \tau} C_{AB}(\tau) = -\delta(\tau) \langle a_k(\tau) a_k^\dagger \rangle -\theta(\tau)\frac{\partial}{\partial \tau}\langle a_k (\tau) a_k^\dagger \rangle +
+    \delta(-\tau)\langle a_k^\dagger a_k(\tau)\rangle -\theta(-\tau)\frac{\partial}{\partial \tau}\langle a_k^\dagger a_k (\tau) \rangle
+\end{flalign*}
+At given condition, $H_0 = \sum_k \omega_k a^\dagger_k a_k$.
+\begin{flalign*}
+    \frac{\partial}{\partial \tau}\langle a_k (\tau) a_k^\dagger \rangle & =  \langle \partial_\tau e^{\tau H_0} a_k e^{-\tau H_0} a_k^\dagger - e^{\tau H_0} a_k \partial_\tau e^{-\tau H_0} a_k^\dagger \rangle \\
+                          &= \langle e^{\tau H_0} H_0 a_k e^{-\tau H_0} a_k^\dagger - e^{\tau H_0} a_k H_0 e^{-\tau H_0} a_k^\dagger \rangle \\
+                          &= \langle e^{\tau H_0} [H_0,a] e^{-\tau H_0} a_k^\dagger \rangle\\
+  &\Leftrightarrow  \langle e^{\tau H_0} (\sum_{k'} \omega_{k'} a_{k'}a_{k'}) a_k e^{-\tau H_0} a_k^\dagger \rangle 
+  - \langle e^{\tau H_0} a_k (\sum_{k'} \omega_{k'} a_{k'}a_{k'}) e^{-\tau H_0} a_k^\dagger \rangle
+\end{flalign*}
+If $k\neq k'$ , 
+\begin{flalign*}
+  \langle e^{\tau H_0} \sum_{k'} a_{k'}^\dagger a_{k'} a_k e^{\tau H_0} a_k^\dagger \rangle - \langle e^{\tau H_0} a_k \sum_{k'} a_{k'}^\dagger a_{k'} e^{\tau H_0} a_k^\dagger \rangle = 0 \qquad (\ast) \quad [a_{k'},a_k] = 0 
+\end{flalign*}
+If $k=k'$,
+\begin{flalign*}
+  \Leftrightarrow \quad &= \omega_k \langle e^{\tau H_0} a_{k}^\dagger a_{k} a_k e^{-\tau H_0} a_k^\dagger \rangle 
+  - \omega_k \langle e^{\tau H_0} a_k a^\dagger_{k}a_{k} e^{-\tau H_0} a_k^\dagger \rangle \\
+                        &= \omega_k \langle e^{\tau H_0} (a_{k}a^\dagger_k-1) a_{k} e^{-\tau H_0} a_k^\dagger \rangle 
+  - \omega_k \langle e^{\tau H_0} a_k a^\dagger_{k}a_{k} e^{-\tau H_0} a_k^\dagger \rangle \\
+                        &= -\omega_k \langle e^{\tau H_0} a_{k} e^{-\tau H_0} a_k^\dagger \rangle 
+  + \omega_k \langle e^{\tau H_0} a_k a_{k}^\dagger a_{k} e^{-\tau H_0} a_k^\dagger \rangle -\omega_k \langle e^{\tau H_0} a_k a^\dagger_{k}a_{k} e^{-\tau H_0} a_k^\dagger \rangle
+\end{flalign*}
+\begin{flalign*}
+  \Leftrightarrow \quad &=-\omega_k \langle e^{\tau H_0} a_{k} e^{-\tau H_0} a_k^\dagger \rangle \\ 
+\end{flalign*} 
+So for $\tau > 0$, the green function $C_{AB}$ become:
+\begin{flalign*}
+    \frac{\partial}{\partial \tau} C_{AB} (\tau) = -\delta(\tau) + \omega_k C_{AB}
+\end{flalign*}
+The definition of Fourier transform of Matsubara Green function in time-domain(time interval is $0<t<\beta$) to frequency domain is : $C_{AB} = \frac{1}{\beta} \sum_n e^{i\omega_n \tau} C_{AB}(i\omega_n)$,
+and its bosonic frequency is : $\omega_n = \frac{2n\pi}{\beta}$. Using these definition, for $\tau > 0$,
+\begin{flalign*}
+    \frac{1}{\beta} \sum_n i\omega_n e^{i\omega_n \tau}C_{AB}(i \omega_n) - \frac{1}{\beta} \sum_n \omega_k e^{i\omega_n \tau}C_{AB}(i \omega_n) 
+    = -\frac{1}{\beta}\sum_n e^{\omega_n \tau}
+\end{flalign*}
+So the Green's function at matsubara freqency domain is,
+\begin{flalign*}
+    C_{AB}(\tau) = \frac{1}{-\omega_k + i\omega_n} \quad \leftrightarrow \quad \bigg( \frac{1}{iq_n - \xi} \bigg)
+\end{flalign*}
+Where $\omega_n (q_n)$ is bosonic matsubara frequency.
+\subsection*{Steps to derive Matsubara Green's function at frequency domain}
+The Basic form of Matsubara green's function at $\tau$ domain is given as :
+\begin{flalign*}
+    S^B(\tau) = \frac{1}{\beta} \sum_{i\omega_n} g(i\omega_n) e^{i\omega_n\tau }
+\end{flalign*}
+If we derive the inverse fourier transform of given function, then we can get the matsubara frequency green's function. 
+Begin with the $\frac{1}{\beta}$,
+\begin{flalign*}
+    n_B(\tau) = \frac{1}{e^{\beta z }-1}
+\end{flalign*}
+\begin{flalign*}
+    \mathop{\mathrm{Res}}_{z = i\omega_n}[n_B(z)] & = \lim_{z \rightarrow i\omega_n}\frac{(z-i\omega_n)}{e^{\beta z}-1} \\
+                                & = \lim_{z \rightarrow i\omega_n}\frac{1}{\beta e^{\beta z}} \\
+                                & = \frac{1}{\beta}
+\end{flalign*}
+\begin{flalign*}
+    \oint dz n_B(z)g(z) & = 2\pi i \sum \mathop{\mathrm{Res}}_{z = i\omega_n}(n_B(z)g_B(i\omega_n)) \\
+                        & = \frac{2 \pi i}{\beta} \sum g(i\omega_n)
+\end{flalign*}
+Thus the time-domain green's function can be written in contour integral form,
+\begin{flalign*}
+    S^B(\tau) = \frac{1}{\beta} \sum_{i\omega_n} g(i\omega_n) e^{i\omega_n\tau } = \int_C \frac{dz}{2\pi i} n_B(z)g(z)e^{z\tau}
+\end{flalign*}
+Where $z=i\omega_n$. Now calculate the contour term, while $z\rightarrow \infty$,
+\begin{flalign*}
+    \int_C \frac{dz}{2\pi i} n_B(z)g(z)e^{z\tau} = 2\pi i \sum \mathop{\mathrm{Res}}
+\end{flalign*}
+Residue for $g(z)$,
+\begin{flalign*}
+    \lim_{z \rightarrow \omega_k}g(z)\frac{n_B(z)g(z)e^{z\tau}}{2\pi i} &=\lim_{z \rightarrow \omega_k}(z-\omega_k)\frac{n_B(z)e^{z\tau}}{2\pi i(z-\omega_k)}\\
+                                &=\lim_{z \rightarrow \omega_k}\frac{n_B(z)e^{z\tau}}{2\pi i}\\
+                                &=\frac{n_B(\omega_k)e^{\omega_k \tau}}{2\pi i}
+\end{flalign*}
+and to get Residue for $n_B$,
+\begin{flalign*}
+    n_B \rightarrow 0, \quad \text{if} &\quad z\rightarrow \infty,\quad \frac{e^{z\tau}}{e^{\beta z}-1} \sim \frac{e^{\infty \tau}}{e^{\infty \beta}}\\
+        &\quad z \rightarrow -\infty,\quad \frac{0}{-1} \sim 0
+\end{flalign*}
+Thus, Matsubara green's function at imaginary time domain is:
+\begin{flalign*}
+    \sum_{iq_n}\frac{1}{\beta}g(iq_n)e^{iq_n\tau} = n_B(\omega_k)e^{\omega_k \tau}
+\end{flalign*}
+\end{document}

@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\title{Matsubara Summary(2)}
+\maketitle
+\section*{Trial for Deriving Matsubara frequency}
+
+ At given condition, $H_0 = \sum_k \omega_k a^\dagger_k a_k$.
+\begin{flalign*}
+    \partial_\tau C_{AB} & =  \langle \partial_\tau e^{\tau H_0} a_k e^{-\tau H_0} a_k^\dagger - e^{\tau H_0} a_k \partial_\tau e^{-\tau H_0} a_k^\dagger \rangle \\
+                          &= \langle e^{\tau H_0} H_0 a_k e^{-\tau H_0} a_k^\dagger - e^{\tau H_0} a_k H_0 e^{-\tau H_0} a_k^\dagger \rangle \\
+                          &= \langle e^{\tau H_0} [H_0,a] e^{-\tau H_0} a_k^\dagger \rangle
+\end{flalign*}
+\begin{flalign*}
+  \Leftrightarrow \quad \partial_\tau C_{AB} & =  \langle e^{\tau H_0} (\sum_{k'} a_{k'}a_{k'}) a_k e^{-\tau H_0} a_k^\dagger \rangle 
+  - \langle e^{\tau H_0} a_k (\sum_{k'} a_{k'}a_{k'}) e^{-\tau H_0} a_k^\dagger \rangle
+\end{flalign*}
+Considering bosonic case, If $k\neq k'$ , 
+\begin{flalign*}
+  & \langle e^{\tau H_0} \sum_{k'} a_{k'}^\dagger a_{k'} a_k e^{\tau H_0} a_k^\dagger \rangle - \langle e^{\tau H_0} a_k \sum_{k'} a_{k'}^\dagger a_{k'} e^{\tau H_0} a_k^\dagger \rangle \\
+  & = 0 \qquad (\ast [a_{k'},a_k] = 0 \quad , \quad \text{if} \quad k\neq k')
+\end{flalign*}
+If $k=k'$,
+\begin{flalign*}
+  \Leftrightarrow \quad &= \langle e^{\tau H_0} a_{k}a_{k} a_k e^{-\tau H_0} a_k^\dagger \rangle 
+  - \langle e^{\tau H_0} a_k a_{k}a_{k} e^{-\tau H_0} a_k^\dagger \rangle \\
+                        &= \langle e^{\tau H_0} a_{k}(1+a_k a_{k}) e^{-\tau H_0} a_k^\dagger \rangle 
+  - \langle e^{\tau H_0} a_k a_{k}a_{k} e^{-\tau H_0} a_k^\dagger \rangle \\
+                        &= \langle e^{\tau H_0} a_{k} e^{-\tau H_0} a_k^\dagger \rangle 
+  + \langle e^{\tau H_0} a_k a_{k}a_{k} e^{-\tau H_0} a_k^\dagger \rangle -\langle e^{\tau H_0} a_k a_{k}a_{k} e^{-\tau H_0} a_k^\dagger \rangle
+\end{flalign*}
+\begin{flalign*}
+  \Leftrightarrow \quad &=\langle e^{\tau H_0} a_{k} e^{-\tau H_0} a_k^\dagger \rangle \\       
+                        &= C_{AB}(\tau)
+\end{flalign*} 
+\subsection*{Using Diff.equation}
+\begin{flalign*}
+\partial_\tau C_{AB}(\tau) = C_{AB}(\tau) \quad \Leftrightarrow \quad C_{AB}(\tau) = e^{\alpha \tau}
+\end{flalign*}
+Where $\alpha$ comes from initial condition. To apply Fourier transform
+\begin{flalign*}
+  G(n) & = \frac{1}{2} \int^{\beta}_{-\beta} d\tau  e^{\frac{i\pi n \tau}{\beta}} C_{AB}(\tau) \\
+      & = \frac{1}{2} \int^{\beta}_{-\beta} d\tau  e^{\frac{i\pi n \tau}{\beta}} A_0 e^{\tau} \\
+      & = \frac{1}{2} \int^{\beta}_{-\beta} d\tau  A_0 e^{\frac{i\pi n}{\beta}+1}\tau \\
+      & = \frac{1}{2} \frac{A_0}{\frac{i\pi n}{\beta}+1} (e^{(\frac{i\pi n}{\beta}+1)\beta} - e^{- (\frac{i\pi n}{\beta}+1)\beta}) \\
+      & = \frac{A_0 i}{\frac{i\pi n}{\beta}+1} \bigg(\frac{e^{(\frac{i\pi n}{\beta}+1)\beta} - e^{- (\frac{i\pi n}{\beta}+1)\beta}}{2i}\bigg) \\
+      & = \frac{A_0 i}{\frac{i\pi n}{\beta}+1} \sin(\pi n - i\beta) \\
+      & = \frac{A_0 i}{\frac{i\pi n}{\beta}+1} \cos(i\beta)
+\end{flalign*} 
+\subsection*{Using distribution function}
+Started from $k=k'$ condition,
+\begin{flalign*}
+  \partial_\tau C_{AB}(\tau) = 1+ n_B = \frac{e^{\beta E_k}}{{e^{\beta E_k}-1}}
+\end{flalign*}
+Where $n_B$ is Bosonic distribution Function. The form of $1+n_B$ comes from :
+\begin{flalign*}
+  C_{AB}(\tau) & = \langle e^{\tau H_0} a_k e^-{\tau H_0} a_k^\dagger \rangle \\
+              & = \langle e^{\tau H_0} e^-{\tau H_0} a_k a_k^\dagger \rangle \\
+              & = \langle a_k a_k^\dagger \rangle \\
+              & = \langle 1 + a_k^\dagger a_k \rangle \quad = 1 + \langle a_k^\dagger a_k \rangle
+\end{flalign*}
+Since $\langle a_k^\dagger a_k \rangle$ represents particle density function, substituting it to $n_B$ could be possible.
+\begin{flalign*}
+  \Leftrightarrow \quad C_{AB}(\tau) = \int^\tau_0 (1+n_B) = (1+n_B)\tau = \frac{e^{\beta E_k} \tau}{1+n_B}
+\end{flalign*}
+\begin{flalign*}
+  C_{AB}(n) & = \frac{e^{\beta E_k}}{2} \int^\beta_{-\beta} \tau e^{\frac{i\pi n \tau}{\beta}} (e^{\beta E-1} - 1)^{-1} d\tau \\
+            & = \frac{e^{\beta E_k}}{2}[( \text{odd function})] - \frac{e^{\beta E_k}}{2}\int^\beta_{-\beta} \frac{\beta}{i\pi n} \big( e^{i\pi n} - e^{i \pi -n}\big)(e^{\beta E} -1 )^{-1} \\
+            & = -\frac{\beta e^{\beta E}}{\pi n} \int^\beta_{-\beta} \sin(\pi n)(e^{\beta E} -1 )^{-1} d\tau \\
+            & = -\frac{2\beta^2}{\pi n} \sin(\pi n) \frac{e^{\beta E}}{e^{\beta E} -1} \\
+            & = -\frac{2\beta^2}{\pi n} \sin(\pi n) (1 + C_{AB}(\tau))
+\end{flalign*}
+\end{document}

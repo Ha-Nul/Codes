@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/opt/local/include/openmpi-mp"
+        
+            ],
+            "defines": [],
+            "macFrameworkPath": [],
+            "compilerPath": "/opt/local/libexec/openmpi-mp/mpic++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-gcc-x64"
+        }
+    ],
+    "version": 4
+}

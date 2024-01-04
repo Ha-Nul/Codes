@@ -1,0 +1,215 @@
+Last login: Thu Apr 27 14:49:01 on ttys001
+e2_602_qma@E2602QMA-MacBook-Pro ~ %                                     
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ %      
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % ls -l
+total 0
+drwx------@  6 e2_602_qma  staff   192  3 24 09:25 Applications
+drwx------+  4 e2_602_qma  staff   128  4 25 05:54 Desktop
+drwx------@ 11 e2_602_qma  staff   352  4 18 23:54 Documents
+drwx------@ 77 e2_602_qma  staff  2464  4 26 03:00 Downloads
+drwx------@ 91 e2_602_qma  staff  2912  4 25 12:46 Library
+drwxr-xr-x   4 e2_602_qma  staff   128  4  2 20:47 Link
+drwx------   4 e2_602_qma  staff   128  3 20 16:39 Movies
+drwx------+  5 e2_602_qma  staff   160  4 26 02:21 Music
+drwx------+  5 e2_602_qma  staff   160  3 21 14:53 Pictures
+drwxr-xr-x   5 e2_602_qma  staff   160  4 27 14:56 Programs
+drwxr-xr-x+  4 e2_602_qma  staff   128  3 20 16:36 Public
+drwxr-xr-x@ 10 e2_602_qma  staff   320  4 17 01:19 Zotero
+drwxr-xr-x  26 e2_602_qma  staff   832  4 17 04:07 anaconda3
+drwxr-xr-x   3 e2_602_qma  staff    96  4 17 01:16 opt
+e2_602_qma@E2602QMA-MacBook-Pro ~ % set -o vi
+e2_602_qma@E2602QMA-MacBook-Pro ~ % cd Programs 
+e2_602_qma@E2602QMA-MacBook-Pro Programs % ls
+Test0427	doutzen
+e2_602_qma@E2602QMA-MacBook-Pro Programs % cd doutzen 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % ls -lrt
+total 16
+drwxr-xr-x   3 e2_602_qma  staff    96  4 25 10:58 input
+drwxr-xr-x  15 e2_602_qma  staff   480  4 25 11:12 include
+-rw-r--r--@  1 e2_602_qma  staff  2274  4 25 11:16 CMakeLists.txt
+-rw-r--r--   1 e2_602_qma  staff  1803  4 25 11:16 CMakeLists.bak
+drwxr-xr-x  14 e2_602_qma  staff   448  4 25 13:21 build
+drwxr-xr-x  23 e2_602_qma  staff   736  4 25 13:43 src
+drwxr-xr-x   7 e2_602_qma  staff   224  4 27 14:45 test
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % cd build 
+e2_602_qma@E2602QMA-MacBook-Pro build % ls -lrt
+total 4328
+-rw-r--r--   1 e2_602_qma  staff    1583  4 25 11:03 cmake_install.cmake
+-rwxr-xr-x   1 e2_602_qma  staff  229016  4 25 11:06 doutzen_NCA
+-rwxr-xr-x   1 e2_602_qma  staff  229016  4 25 11:06 doutzen_OCA
+-rwxr-xr-x   1 e2_602_qma  staff  229019  4 25 11:06 doutzen_Order2
+-rwxr-xr-x@  1 e2_602_qma  staff  229019  4 25 11:06 doutzen_Ladder
+-rwxr-xr-x   1 e2_602_qma  staff  229016  4 25 11:06 doutzen_TCA
+-rwxr-xr-x   1 e2_602_qma  staff  229019  4 25 11:06 doutzen_Order3
+-rwxr-xr-x   1 e2_602_qma  staff  229015  4 25 11:06 doutzen_Q3
+-rw-r--r--   1 e2_602_qma  staff   21400  4 25 13:17 CMakeCache.txt
+-rw-r--r--@  1 e2_602_qma  staff   12060  4 25 13:21 Makefile
+-rwxr-xr-x@  1 e2_602_qma  staff  568751  4 25 13:21 doutzen_smw_diagMC
+drwxr-xr-x  22 e2_602_qma  staff     704  4 25 13:21 CMakeFiles
+e2_602_qma@E2602QMA-MacBook-Pro build % cd ../
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % cd test 
+e2_602_qma@E2602QMA-MacBook-Pro test % ls -lrt
+total 8
+drwxr-xr-x  12 e2_602_qma  staff  384  4 25 13:45 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g1.4000e+00_Omega11_5.0000e-01_omega_c1.0000e+01_Ntau200_NWtau200_Nkx100_Nmc10000000_Nscl1-0
+drwxr-xr-x  14 e2_602_qma  staff  448  4 25 13:57 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl2-0
+-rw-r--r--@  1 e2_602_qma  staff  522  4 25 13:59 test.json
+drwxr-xr-x  20 e2_602_qma  staff  640  4 25 14:05 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl10-0
+e2_602_qma@E2602QMA-MacBook-Pro test % mpirun ~/Programs/doutzen/build/doutzen_smw_diagMC test.json 
+************************
+** DiagMC calculation **
+************************
+** information of parameters **
+Nordermax = 3
+beta = 10
+epsilon = 0
+B_field = 0.5
+g_coupling = 0.340856
+Omega11 = 1
+omega_c = 30
+Nkx = 200
+Ntau = 200
+NWtau = 200
+Nth = 10000000
+Nmc = 40000000 (4000000)
+Nscl = 10
+*******************************
+iteration (10): 0^C%                                                                                                                                                                                                e2_602_qma@E2602QMA-MacBook-Pro test % fg
+fg: no current job
+e2_602_qma@E2602QMA-MacBook-Pro test % vi test.json 
+e2_602_qma@E2602QMA-MacBook-Pro test % 
+e2_602_qma@E2602QMA-MacBook-Pro test % 
+e2_602_qma@E2602QMA-MacBook-Pro test % 
+e2_602_qma@E2602QMA-MacBook-Pro test % mpirun ~/Programs/doutzen/build/doutzen_smw_diagMC test.json
+************************
+** DiagMC calculation **
+************************
+** information of parameters **
+Nordermax = 3
+beta = 10
+epsilon = 0
+B_field = 0.5
+g_coupling = 0.340856
+Omega11 = 1
+omega_c = 30
+Nkx = 200
+Ntau = 200
+NWtau = 200
+Nth = 10000000
+Nmc = 20000000 (2000000)
+Nscl = 2
+*******************************
+iteration (2): 01
+
+e2_602_qma@E2602QMA-MacBook-Pro test % ls -lrt
+total 8
+drwxr-xr-x  12 e2_602_qma  staff  384  4 25 13:45 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g1.4000e+00_Omega11_5.0000e-01_omega_c1.0000e+01_Ntau200_NWtau200_Nkx100_Nmc10000000_Nscl1-0
+drwxr-xr-x  14 e2_602_qma  staff  448  4 25 13:57 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl2-0
+drwxr-xr-x  20 e2_602_qma  staff  640  4 25 14:05 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl10-0
+drwxr-xr-x   5 e2_602_qma  staff  160  4 27 15:56 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl10-1
+-rw-r--r--@  1 e2_602_qma  staff  521  4 27 15:57 test.json
+drwxr-xr-x  14 e2_602_qma  staff  448  4 27 15:58 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-0
+e2_602_qma@E2602QMA-MacBook-Pro test % ls dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl10-1
+G05beta.iter	Gt.in		Wt.in
+e2_602_qma@E2602QMA-MacBook-Pro test % rm -r dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl10-1
+e2_602_qma@E2602QMA-MacBook-Pro test % 
+e2_602_qma@E2602QMA-MacBook-Pro test % 
+e2_602_qma@E2602QMA-MacBook-Pro test % 
+e2_602_qma@E2602QMA-MacBook-Pro test % ls dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-0
+G05beta.iter	Gt.dat		Gt.dat0		Gt.dat1		Gt.in		Qseries.dat	Qseries_err.dat	St.dat		StS0.dat	StS0.dat0	StS0.dat1	Wt.in
+e2_602_qma@E2602QMA-MacBook-Pro test % cd dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-0
+e2_602_qma@E2602QMA-MacBook-Pro dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-0 % ls
+G05beta.iter	Gt.dat		Gt.dat0		Gt.dat1		Gt.in		Qseries.dat	Qseries_err.dat	St.dat		StS0.dat	StS0.dat0	StS0.dat1	Wt.in
+e2_602_qma@E2602QMA-MacBook-Pro dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-0 % gnuplot
+
+	G N U P L O T
+	Version 5.4 patchlevel 3    last modified 2021-12-24 
+
+	Copyright (C) 1986-1993, 1998, 2004, 2007-2021
+	Thomas Williams, Colin Kelley and many others
+
+	gnuplot home:     http://www.gnuplot.info
+	faq, bugs, etc:   type "help FAQ"
+	immediate help:   type "help"  (plot window: hit 'h')
+
+Terminal type is now 'aqua'
+gnuplot> p 'StS0.dat0' u 1:2 w lp
+gnuplot> 
+gnuplot> repp 'StS0.dat1' u 1:2 w lp
+         ^
+         invalid command
+
+gnuplot> rep 'StS0.dat1' u 1:2 w lp
+gnuplot> ^C
+gnuplot> 
+gnuplot> 
+gnuplot> ^C
+gnuplot> ^C
+gnuplot> ^C
+gnuplot> exit
+e2_602_qma@E2602QMA-MacBook-Pro dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-0 % cd ../
+e2_602_qma@E2602QMA-MacBook-Pro test % ls -lrt
+total 8
+drwxr-xr-x  12 e2_602_qma  staff  384  4 25 13:45 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g1.4000e+00_Omega11_5.0000e-01_omega_c1.0000e+01_Ntau200_NWtau200_Nkx100_Nmc10000000_Nscl1-0
+drwxr-xr-x  14 e2_602_qma  staff  448  4 25 13:57 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl2-0
+drwxr-xr-x  20 e2_602_qma  staff  640  4 25 14:05 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl10-0
+-rw-r--r--@  1 e2_602_qma  staff  521  4 27 15:57 test.json
+drwxr-xr-x  14 e2_602_qma  staff  448  4 27 15:58 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-0
+e2_602_qma@E2602QMA-MacBook-Pro test % ls dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl10-0/Gt.dat >> test.json 
+e2_602_qma@E2602QMA-MacBook-Pro test % vi test.json 
+e2_602_qma@E2602QMA-MacBook-Pro test % mpirun ~/Programs/doutzen/build/doutzen_smw_diagMC test.json                                                                                                 
+************************
+** DiagMC calculation **
+************************
+** information of parameters **
+Nordermax = 3
+beta = 10
+epsilon = 0
+B_field = 0.5
+g_coupling = 0.340856
+Omega11 = 1
+omega_c = 30
+Nkx = 200
+Ntau = 200
+NWtau = 200
+Nth = 10000000
+Nmc = 20000000 (2000000)
+Nscl = 2
+*******************************
+iteration (2): 01
+
+e2_602_qma@E2602QMA-MacBook-Pro test % ls -lrt
+total 8
+drwxr-xr-x  12 e2_602_qma  staff  384  4 25 13:45 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g1.4000e+00_Omega11_5.0000e-01_omega_c1.0000e+01_Ntau200_NWtau200_Nkx100_Nmc10000000_Nscl1-0
+drwxr-xr-x  14 e2_602_qma  staff  448  4 25 13:57 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl2-0
+drwxr-xr-x  20 e2_602_qma  staff  640  4 25 14:05 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc40000000_Nscl10-0
+drwxr-xr-x  14 e2_602_qma  staff  448  4 27 15:58 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-0
+-rw-r--r--@  1 e2_602_qma  staff  682  4 27 16:01 test.json
+drwxr-xr-x  14 e2_602_qma  staff  448  4 27 16:02 dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-1
+e2_602_qma@E2602QMA-MacBook-Pro test % gnuplot
+
+	G N U P L O T
+	Version 5.4 patchlevel 3    last modified 2021-12-24 
+
+	Copyright (C) 1986-1993, 1998, 2004, 2007-2021
+	Thomas Williams, Colin Kelley and many others
+
+	gnuplot home:     http://www.gnuplot.info
+	faq, bugs, etc:   type "help FAQ"
+	immediate help:   type "help"  (plot window: hit 'h')
+
+Terminal type is now 'aqua'
+gnuplot> p 'dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-0/StS0.dat0' u 1:2 w lp
+gnuplot> 
+gnuplot> rep 'dir_Nordermax3_beta10.0000_ep0.0000_B0.5000_g3.4086e-01_Omega11_1.0000e+00_omega_c3.0000e+01_Ntau200_NWtau200_Nkx200_Nmc20000000_Nscl2-1/StS0.dat0' u 1:2 w lp
+gnuplot> 
+gnuplot> 

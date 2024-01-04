@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\title{Ch.9 Equation of motion (1)}
+\author{Ha Nul Seok}
+\maketitle
+\section{Bruus}
+\subsection{Derivation of Green's function}
+The given schrodinger equation is:
+\begin{equation*}
+    [H_0(\textbf{r})+H_{i}(\textbf{r})]\Psi_E=\Psi_E
+\end{equation*}
+Define the corresponding Green's function as :
+\begin{equation*}
+    [E-H_0(r)]G_0(\textbf{r},\textbf{r}'\textit{E})=\delta(\textbf{r}-\textbf{r}')
+\end{equation*}
+Once more, Define the inverse $G_0^{-1}(\textbf{r},\textit{E})=E-H_0(\textbf{r})$ , Then
+\begin{equation*}
+    G_0^{-1}(\textbf{r},\textit{E})G_0(\textbf{r},\textbf{r}',\textit{E})=\delta(\textbf{r}-\textbf{r}')
+\end{equation*}
+Then Schrodinger equation rewritten as:
+\begin{flalign*}
+[G_0^{-1}(\textbf{r},\textit{E})-H_{i}(\textbf(r))]\Psi_E&=0\\
+    &=(G_0^{-1}(\textbf{r},\textit{E})-H_i(\textbf{r}))\Psi_E=0\\
+    &=G_0^{-1}(\textbf{r},\textit{E})\Psi_E-H_i(\textbf{r})\Psi_E=0\\
+    &=\delta(\textbf{r}-\textbf{r}')G_0^{-1}(\textbf{r},\textbf{r}'E)\Psi_E-H_i(\textbf{r})\Psi_E=0\\
+    &=\delta(\textbf{r}-\textbf{r}')\Psi_E=G_0(\textbf{r},\textbf{r}'E)H_i(\textbf{r})\Psi_E
+\end{flalign*}
+Then solution may be written as an integral equation
+\begin{equation*}
+    \Psi_
+    E(\textbf{r})=\Psi_E^0(\textbf{r})+\int\textbf{r}'G_0(\textbf{r},\textbf{r}',\textit{E})H_i(\textbf{r}')\Psi_E(\textbf{r}')
+\end{equation*}
+Solving integral equation by iteration, and up to first order:
+\begin{equation*}
+    \Psi_E(\textbf{r})=\Psi_E^0(\textbf{r})+\int\textbf{r}'G_0(\textbf{r},\textbf{r}',\textit{E})H_i(\textbf{r}')\Psi^0_E(\textbf{r}') + \mathcal{O}(\textit{V}^2)
+\end{equation*}
+Now based upon above discussion, in the case of time-dependent Hamiltonian, $H=H_0+H_i$,
+\begin{equation*}
+    [i\partial_t-H_0(\textbf{r})-H_{i}(\textbf{r})]\Psi(\textbf{r},t)=0
+\end{equation*}
+Define Green's function by:
+\begin{flalign*}
+    &[i\partial_t-H_0(\textbf{r})]G_0(\textbf{r}t,\textbf{r}'t')=\delta(\textbf{r}-\textbf{r}')\delta(t-t')\\
+    &[i\partial_t-H_0(\textbf{r})-H_i(\textbf{r})]G(\textbf{r}t,\textbf{r}'t')=\delta(\textbf{r}-\textbf{r}')\delta(t-t')
+\end{flalign*}
+Then inverse of Green's function is:
+\begin{flalign*}
+    &G_0^{-1}(\textbf{r},t)=i\partial_t-H_0(\textbf{r})\\
+    &G^{-1}((\textbf{r},t))=i\partial_t-H_0(\textbf{r})-H_i(\textbf{r})
+\end{flalign*}
+Adjust as a integral equation form:
+\begin{flalign*}
+    &G_0^{-1}(\textbf{r},t)G_0(\textbf{r}t,\textbf{r}'t')=\delta(\textbf{r}-\textbf{r}')\delta(t-t')\\
+    &G^{-1}((\textbf{r},t))G(\textbf{r}t,\textbf{r}'t')=\delta(\textbf{r}-\textbf{r}')\delta(t-t')\\
+    \\
+    &G_0^{-1}(\textbf{r},t)\Psi(\textbf{r},t)-H_{i}(\textbf{r})\Psi(\textbf{r},t)=0\\
+    &G^{-1}(\textbf{r},t)\Psi(\textbf{r},t)-H_{i}(\textbf{r})\Psi(\textbf{r},t)=0
+    \\
+    \\
+    &\delta(\textbf{r}-\textbf{r}')\delta(t-t')\Psi(\textbf{r},t)=G_0(\textbf{r}t,\textbf{r}'t')\Psi(\textbf{r},t)\\
+    &\delta(\textbf{r}-\textbf{r}')\delta(t-t')\Psi(\textbf{r},t)=G(\textbf{r}t,\textbf{r}'t')H_{i}(\textbf{r})\Psi(\textbf{r},t)
+\end{flalign*}
+Solution to time-dependent Schrodinger equation,
+\begin{equation*}
+    \Psi(\textbf{r},t)=\Psi^0(\textbf{r},t)+\int d\textbf{r}'\int dt' G_0(\textbf{r},\textbf{r}';t,t')H_i(\textbf{r}')\Psi^0(\textbf{r}',t')
+\end{equation*}
+\subsection{Fourier transforms of advanced and retarded functions}
+Retarded : a physical observable due to the action of some force or interaction at times prior to the measurement\\
+This means that the observing(standard of calculation) time $t'$ must be small than the measurment time $t$,
+General form of retarded function is : 
+\begin{flalign*}
+    C^R_{AB}(t,t')&=-i\theta(t-t') \bigg< \big[ A(t),B(t')\big] \bigg>
+                \\ &=-i\theta(t-t') \bigg< A(t)B(t')-B(t')A(t) \bigg>
+\end{flalign*}
+Thermal average of $A(t)B(t')$ is, because of the time-dependent operator of interaction picture can be written as:
+\begin{flalign*}
+    \hat{O}(t)=e^{iH_0t}\hat{O}e^{-iH_0t'}
+\end{flalign*}
+Thus,
+\begin{flalign*}
+    \langle A(t)B(t') \rangle &= \frac{1}{Z} Tr \bigg[e^{\beta H_0}e^{iH_0t}Ae^{-iH_0t'}e^{iH_0t}Be^{-iH_0t'}\bigg]
+    \\ &=\frac{1}{Z} Tr \bigg[e^{-iH_0t'}e^{\beta H_0}e^{iH_0t}Ae^{-iH_0t'}e^{iH_0t}B\bigg]
+    \\ &=\frac{1}{Z} Tr \bigg[e^{\beta H_0}e^{iH_0(t-t')}Ae^{iH_0(t-t')}B\bigg]
+\end{flalign*}
+$C_{AB}$ depends on time variable, Fourier transform of $C^R(t-t')$ is :
+\begin{flalign*}
+    C^R_{AB}(\omega)=\int^\infty_\infty dt e^{i\omega t}C^R_{AB}(t)
+\end{flalign*}
+This is available when time difference $t-t' \rightarrow \infty$. Guess $t'=0$ and because of long time interval, there are no interaction between two time dependent operators,
+\begin{flalign*}
+    C^R_{AB}(t,t') &=i\theta(t-0)\bigg(\langle A(t)B(t') \rangle- \langle B(t')A(t) \rangle \bigg)\\
+                &=\bigg(\langle A(t)B(t') \rangle- \langle B(t')A(t) \rangle \bigg)\\
+                &=\bigg(\langle A(t)\rangle \langle B(t')\rangle - \langle B(t')\rangle \langle A(t) \rangle \bigg)\\
+                &=C^R_{AB}(t)
+\end{flalign*}
+\section{Abriskov}
+\subsection{Derivation of Green's fucntion}
+From the change of basis, the Quantum field operator is written by using eigenfunction which notes 'some state $\nu$',
+and 'position basis $\textbf{r}$',
+\begin{flalign}
+    \Psi(\textbf{r})\equiv\sum_\nu\braket{r}{\psi_\nu}a_\nu=\sum_\nu\psi_\nu(r)a_\nu \quad , \quad \Psi^\dagger(\textbf{r})\equiv\sum_\nu\braket{r}{\psi_\nu^*}a^\dagger_\nu=\sum_\nu\psi^*_\nu(r)a^\dagger_\nu
+\end{flalign}
+and its Fourier transform for momentum basis k is :
+\begin{flalign}
+    \Psi(\textbf{r}) \equiv\sum_k e^{i\textbf{k$\cdot$r}} a_\nu \quad , \quad \Psi^\dagger(\textbf{r})\equiv\sum_k e^{-i\textbf{k$\cdot$r}} a^\dagger_\nu
+\end{flalign}
+Now Using these features, lets begin the derivation for Green's function.
+The one-particle operator $F^{(1)}$can be written as:
+\begin{flalign}
+    F^{(1)}=\int \Psi^\dagger(\xi)f^{(1)}\Psi(\xi) d\xi
+\end{flalign}
+Now we are treating the free-particle system, and guess that the Hamiltoniam become a quadratic form,
+\begin{flalign}
+    H=\sum\epsilon_0(p)n_p = \sum \epsilon_0 a^\dagger_p a_p
+\end{flalign}
+according to equation (2),and guess that the $\psi$ is the free-particles eigenfunction, $\Psi$ in the Heisenberg picture can be described as
+\begin{flalign}
+    \hat{\Psi}(r,t) &= \frac{1}{\sqrt{V}} \sum_p e^{i\sum_{p'}\epsilon_0(p')n_p t} a_p e^{-i\sum_{p"}\epsilon_0(p")n_p t} = \frac{1}{\sqrt{V}} \sum_p e^{iH t} a_p e^{-iH t}\\
+        &=\frac{1}{\sqrt{V}} \sum_p e^{i[(p\cdot t)-\epsilon_0(p)t]}
+\end{flalign}
+Now, the Definition of Green's function is,
+\begin{flalign}
+    G_{\alpha \beta}(x,x')=-i\langle T(\hat{\Psi}_\alpha(x)\hat{\Psi}^\dagger_\beta(x'))\rangle
+\end{flalign}
+Using the Green's function, the average over the ground state of any one-particle operator is :
+\begin{flalign}
+    F^{(1)}=\pm i \int d^3\textbf{r} \bigg[\lim_{x'\rightarrow x+0}f^{(1)}_{\alpha\beta}(x)G_{\alpha \beta}(x,x')\bigg]
+\end{flalign}
+here $x=\{\textbf{r},r\}$.Same method, expand G into a Fourier integral :
+\begin{flalign}
+    G(x-x')=\int \frac{d^4p}{(2\pi)^4} G(p,\omega) e^{i[(p\cdot r -r')-\omega(t-t')]} (d^4p = d^3\textbf{p}d\omega)
+\end{flalign}
+\end{document}

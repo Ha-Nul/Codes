@@ -1,0 +1,315 @@
+\documentclass[9pt]{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\title{Derivation of the equations}
+\date{}
+\begin{document}
+\maketitle
+\section{Ch.1}
+This is a section about properties of photon.
+\begin{equation*}
+    m=0
+\end{equation*}
+\begin{equation*}
+    \mathscr{E}=h\nu=\frac{hc}{\lambda}
+\end{equation*}
+\begin{equation*}
+    p=\frac{h\nu}{c} = \frac{h}{\lambda}
+\end{equation*}
+Mean photon flux can be wrote as:
+\begin{equation*}
+    \Phi=\frac{AI}{h\nu_0}=\frac{P}{h\nu_0}
+\end{equation*}
+Notice that the number of the photon can be count by using equation above. Unit of P is Watt, and $h\nu$ is eV.
+\section{Ch.2}
+\subsection{2.1 Quantization of the radiation field}
+\begin{equation}
+    \vec{\nabla}\cdot\vec{A}=0
+\end{equation}
+\begin{equation}
+    \nabla^2\vec{A}-\frac{1}{c^2}\frac{\partial^2\vec{A}}{\partial t^2}
+\end{equation}
+\begin{equation}
+    \vec{E} = -\frac{\partial \vec{A}}{\partial t}, \vec{B}=\vec{\nabla}\times\vec{A}
+\end{equation}
+fourier series expansion of A:
+\begin{equation}
+    \vec{A}(\vec{r},t)=\sum_k(\vec{A_k}(t)e^{i\vec{k}\cdot\vec{r}}+\vec{{A_k}^*}(t)e^{-i\vec{k}\cdot\vec{r}})
+\end{equation}
+\begin{equation}
+    k_x=\frac{2\pi n_x}{L},k_y=\frac{2\pi n_y}{L},k_z=\frac{2\pi n_z}{L}
+\end{equation}
+\begin{equation}
+    \vec{k}\cdot\vec{A_k}=\vec{k}\cdot\vec{A_k}^*=0
+\end{equation}
+substitute eq(2.4) with (2.2)
+\begin{equation*}
+    \nabla^2=(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2})
+\end{equation*}
+\begin{equation*}
+    \sum_k(\vec{A_k}(t)(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2})
+    e^{i(k_x x + k_y y + k_z z)} + c.c)
+\end{equation*}
+\begin{equation*}
+    \sum_k(-k^2\vec{A_k}(t)e^{i\vec{k}\cdot\vec{r}} + -k^2\vec{A_k}^*(t)e^{-i\vec{k}\cdot\vec{r}})
+\end{equation*}
+for single k, 
+\begin{equation}
+    k^2\vec{A_k}(t)+\frac{1}{c^2}\frac{\partial^2 \vec{A_k}(t)}{\partial t^2}=0
+\end{equation}
+\begin{equation}
+    \vec{A_k}=\vec{A_k}e^{-i{\omega}_k t} , {\omega}_k = ck
+\end{equation}
+\begin{equation}
+    \vec{A}(\vec{r},t)=\sum_k(\vec{A_k}e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \vec{{A_k}^*}e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation}
+\begin{equation}
+    \vec{E_k}(\vec{r},t)=\sum_k\vec{E_k}=i\sum_k\omega_k(\vec{A_k}e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \vec{{A_k}^*}e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation}
+\begin{equation}
+    \vec{B_k}(\vec{r},t)=\sum_k\vec{B_k}=i\sum_k\vec{k}\times(\vec{A_k}e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \vec{{A_k}^*}e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation}
+calculation process for eq(11):
+\begin{equation*}
+    \nabla\times\vec{A}=\nabla\times(\vec{A_k}e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \vec{{A_k}^*}e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation*}
+\begin{equation*}
+    (\frac{\partial}{\partial{y}}A_{k_z}e^{i\omega_k t + i\vec{k}\cdot\vec{r}}-
+    \frac{\partial}{\partial{z}}A_{k_y}e^{i\omega_k t + i\vec{k}\cdot\vec{r}})\hat{i}
+\end{equation*}
+\begin{equation*}
+    + (\frac{\partial}{\partial{z}}A_{k_x}e^{i\omega_k t + i\vec{k}\cdot\vec{r}}-
+    \frac{\partial}{\partial{x}}A_{k_z}e^{i\omega_k t + i\vec{k}\cdot\vec{r}})\hat{j}
+\end{equation*}
+\begin{equation*}
+    + (\frac{\partial}{\partial{x}}A_{k_y}e^{i\omega_k t + i\vec{k}\cdot\vec{r}}-
+    \frac{\partial}{\partial{y}}A_{k_x}e^{i\omega_k t + i\vec{k}\cdot\vec{r}})\hat{z}
+\end{equation*}
+\begin{equation}
+    \overline{\mathscr{E}_k}=\frac{1}{2}\int(\epsilon_0 \overline{E^2_k}+\frac{\overline{B^2_k}}{\mu_0})dV
+\end{equation}
+\begin{equation}
+    \overline{\vec{E^2_k}}=\frac{1}{T}\int^T_0 dt E^2_k = 2\omega^2_k \abs{\vec{A_k}}^2
+\end{equation}
+\begin{equation}
+    \overline{\vec{B^2_k}}=\frac{1}{T}\int^T_0 dt E^2_k = 2k^2_k \abs{\vec{A_k}}^2
+\end{equation}
+\begin{equation}
+    \overline{\mathscr{E}_k}=(\epsilon_0\omega^2_k \abs{\vec{A_k}}^2 + \frac{k^2_k}{\mu_0} \abs{\vec{A_k}}^2)
+    =2\epsilon_0\omega^2_k V \abs{\vec{A_k}}^2
+\end{equation}
+\begin{equation}
+    \vec{A_k}=\frac{\vec{\epsilon_k}}{\sqrt{4\epsilon_0 V \omega^2_k}}(\omega_k q_k + ip_k)
+\end{equation}
+\begin{equation}
+    \overline{\mathscr{E}_k}=\frac{1}{2}(\omega^2_k q^2_k + p^2_k)
+\end{equation}
+\begin{equation}
+    \overline{\mathscr{E}}=\sum_k\overline{\mathscr{E}_k}=2\epsilon_0 V \sum_k\omega^2_k \abs{\vec{A_k}}^2
+    =\frac{1}{2}\sum_k(\omega^2_k q^2_k + p^2_k)
+\end{equation}
+\begin{equation}
+    \hat{H}=\frac{1}{2}\sum_k(\omega^2_k \hat{q}^2_k + \hat{p}^2_k)
+\end{equation}
+since $$ [\hat{q}_k,\hat{p}_k]=i\hbar $$
+\begin{equation}
+    \hat{a}_k=\frac{1}{\sqrt{2\hbar \omega_k}}(\omega_k \hat{q}_k + i\hat{p}_k)
+\end{equation}
+\begin{equation}
+    \hat{a^\dagger}_k=\frac{1}{\sqrt{2\hbar \omega_k}}(\omega_k \hat{q}_k - i\hat{p}_k)
+\end{equation}
+\# calculation process
+\begin{equation*}
+    [\hat{a}_k,\hat{a^\dagger}_k]=\hat{a}_k\hat{a^\dagger}_k-\hat{a^\dagger}_k\hat{a}_k
+\end{equation*}
+\begin{equation*}
+    \hat{a}_k\hat{a^\dagger}_k = 
+    \frac{1}{2\hbar \omega_k}(\omega_k \hat{q}_k + i\hat{p}_k)(\omega_k \hat{q}_k - i\hat{p}_k)
+\end{equation*}
+\begin{equation*}
+    =\frac{1}{2\hbar \omega_k}(\omega^2_k \hat{q}^2_k + \hat{p}^2_k  -i\omega_k\hat{q}\hat{p}+i\omega_k\hat{p}\hat{q})
+\end{equation*}
+\begin{equation*}
+    =\frac{1}{2\hbar \omega_k}(\omega^2_k \hat{q}^2_k + \hat{p}^2_k-i\omega_k[\hat{q}_k,\hat{p}_k])
+\end{equation*}
+\begin{equation*}
+    \hat{a^\dagger}_k\hat{a}_k =\frac{1}{2\hbar \omega_k}(\omega^2_k \hat{q}^2_k + \hat{p}^2_k+i\omega_k[\hat{q}_k,\hat{p}_k])
+\end{equation*}
+\begin{equation*}
+    [\hat{a}_k,\hat{a^\dagger}_k]=\frac{1}{2\hbar \omega_k}(-2i\omega_k [\hat{q}_k,\hat{p}_k])
+    =-\frac{i}{\hbar} [\hat{q}_k,\hat{p}_k] = -\frac{i}{\hbar} i\hbar = 1
+\end{equation*}
+end.
+\begin{equation}
+    [\hat{a}_k,\hat{a^\dagger}_k]= \delta_{kk^*}
+\end{equation}
+\begin{equation}
+    \hat{\vec{A_k}}=\vec{\epsilon_k}\sqrt{\frac{\hbar}{2\epsilon_0\omega_k V}}\hat{A}_k
+\end{equation}
+\begin{equation}
+    \vec{A}(\vec{r},t)=\sum_k\vec{\epsilon_k}\sqrt{\frac{\hbar}{2\epsilon_0\omega_k V}}(\hat{a}_k e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \hat{a}_k^\dagger e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation}
+\begin{equation}
+    \vec{E}(\vec{r},t)=i\sum_k\vec{\epsilon_k}\sqrt{\frac{\hbar\omega_k}{2\epsilon_0 V}}(\hat{a}_k e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \hat{a}_k^\dagger e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation}
+\begin{equation}
+    \vec{B}(\vec{r},t)=i\sum_k\vec{k}\times\vec{\epsilon_k}\sqrt{\frac{\hbar}{2\epsilon_0\omega_k V}}(\hat{a}_k e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \hat{a}_k^\dagger e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation}
+\subsection{2.2 Quantized single mode radiation field}
+In this section, the word "mode" is defined as value of wave vector k varies.
+single mode, wave vector k, angular frequency $\omega=ck$
+\begin{equation}
+    \hat{H}=\frac{1}{2} (\omega^2\hat{q}^2+\hat{p}^2)
+\end{equation}
+$\hat{q}$ : position operator , $\hat{p}$ : momentum operator
+\begin{equation}
+    \hat{q}=\sqrt{\frac{\hbar}{2\omega}}(\hat{a}+\hat{a}^\dagger)
+\end{equation}
+\begin{equation}
+    \hat{p}=i\sqrt{\frac{\hbar\omega}{2}}(\hat{a}^\dagger-\hat{a})
+\end{equation}
+\begin{equation}
+    \hat{H}=\frac{\hbar\omega}{2}(\hat{a}^\dagger\hat{a}+\hat{a}\hat{a}^\dagger+\frac{1}{2})
+\end{equation}
+\begin{equation}
+    \hat{H}\ket{n}=\hbar\omega(\hat{a}^\dagger\hat{a}+\frac{1}{2})\ket{n}=\mathscr{E}_n\ket{n}
+\end{equation}
+\begin{equation}
+    \hbar\omega{\hat{a}^\dagger\hat{a}a^\dagger\hat{a}+\frac{1}{2}\hat{a}^\dagger}\ket{n}=\hbar\omega(\hat{a}^\dagger\hat{a}-\frac{1}{2})\ket{n}
+\end{equation}
+\begin{equation*}
+    =\mathscr{E}_n\hat{a}^\dagger\ket{n}
+\end{equation*}
+\begin{equation}
+    \hat{H}\hat{a}^\dagger\ket{n}=
+    \hbar\omega(\hat{a}^\dagger\hat{a}+\frac{1}{2})\hat{a}^\dagger\ket{n}=(\mathscr{E}_n+\hbar\omega)\hat{a}^\dagger\ket{n}
+\end{equation}
+\begin{equation}
+    \hat{H}\hat{a}\ket{n}=(\mathscr{E}_n-\hbar\omega)(\hat{a}\ket{n})
+\end{equation}
+\begin{equation}
+    \hat{a}^\dagger\ket{n}\propto\ket{n+1} , \mathscr{E}_{n+1}=\mathscr{E}_n+\hbar\omega
+\end{equation}
+\begin{equation}
+    \hat{a}\ket{n}\propto\ket{n-1} , \mathscr{E}_{n-1}=\mathscr{E}_n-\hbar\omega
+\end{equation}
+\begin{equation}
+    \hat{H}\hat{a}\ket{0}=(\mathscr{E}_0-\hbar\omega)(\hat{a}\ket{0})
+\end{equation}
+\begin{equation}
+    \hat{a}\ket{0}=0
+\end{equation}
+\begin{equation}
+    \hat{H}\ket{0}=\frac{1}{2}\hbar\omega\ket{0}=\mathscr{E}\ket{0}
+\end{equation}
+\begin{equation}
+    \hat{a}^\dagger\hat{a}\ket{n}=n\ket{n}
+\end{equation}
+\begin{equation}
+    \hat{a}^\dagger=c_n\ket{n+1} \hat{a}^\dagger=\sqrt{n+1}\ket{n+1}
+\end{equation}
+\begin{equation}
+    \hat{a}=d_n\ket{n-1}
+\end{equation}
+\begin{equation}
+    \hat{a}^\dagger=\sqrt{n+1}\ket{n+1}
+\end{equation}
+\begin{equation}
+    \hat{a}=\sqrt{n}\ket{n-1}
+\end{equation}
+\begin{equation}
+    \ket{n}=\frac{1}{\sqrt{n!}}(\hat{a}^\dagger)^n\ket{0}
+\end{equation}
+\subsection{2.3 quantized multi mode radiation field}
+\begin{equation}
+    \hat{H}=\sum_k\hbar\omega_k(\hat{a}^\dagger\hat{a}+\frac{1}{2})
+\end{equation}
+\begin{equation*}
+    \mathscr{E}_{k_1}+\mathscr{E}_{k_2}+\mathscr{E}_{k_3}+...+\mathscr{E}_{k_n}=\sum^N_{i=1}(n_{k_1}+\frac{1}{2})\hbar\omega_k
+\end{equation*}
+\begin{equation}
+    \hat{H}\ket{n_k}=(\sum_k\hbar\omega_k(\hat{a}^\dagger\hat{a}+\frac{1}{2}))\ket{n_k}=(\sum_k\hbar\omega_k(n_k+\frac{1}{2}))\ket{n_k}
+\end{equation}
+\subsection{2.4 General states of the quantized radiation field}
+If single mode light is in a pure state, Generally we can describe its state as linear superposition.
+\begin{equation}
+    \ket{\phi}=\sum_n a_n\ket{n}
+\end{equation}
+Probability, Expectation value, Uncertainty:
+\begin{equation*}
+    P_n=\abs{a_n}^2 , <n>=\sum_n nP_n = \sum_n n\abs{a_n}^2
+\end{equation*}
+\begin{equation}
+    \Delta{n}=\sqrt{(n-<n>)^2} = \sqrt{(<n^2>-<n>^2)}= \sqrt{\sum_n n^2 P_n-(\sum_n nP_n)^2}
+\end{equation}
+\begin{equation}
+    a_n=e^{-\frac{\abs{\alpha^2}}{2}}\frac{\alpha^n}{\sqrt{n!}}
+\end{equation}
+If single mode light is in a mixed state, than we can describe its state by using density operator, $\hat{\rho}=\sum_\phi P_\phi \ket{\phi}\bra{\phi}$
+\begin{equation}
+    \hat{\rho}=\sum_n P_n \ket{n}\bra{n}
+\end{equation}
+Expectation value of number of the photon n is:
+\begin{equation}
+    <n>=<\hat{a}^\dagger\hat{a}>=Tr\{ \hat{\rho}\hat{a}^\dagger\hat{a}\}
+\end{equation}
+\# calculation process Using Eq 40
+\begin{equation*}
+    <\hat{a}^\dagger\hat{a}>=\bra{n}\hat{a}^\dagger\hat{a}\ket{a}=n\braket{n}{n}
+\end{equation*}
+In case of the blackbody radiation, which is an general example of the mixed state light,  probability of the state is:
+\begin{equation}
+    P_n=e^{\frac{-n\hbar\omega}{kT}}(1-e^{\frac{-\hbar\omega}{kT}})
+\end{equation}
+density operator is:
+\begin{equation}
+    \hat{\rho}=(1-e^{\hbar\omega}{kT})\sum_n e^{\frac{-n\hbar\omega}{kT}}\ket{n}\bra{n}
+\end{equation}
+\subsection{2.5 Vacuum fluctuation and zero point energy}
+\begin{equation}
+    \hat{\vec{A}}(\vec{r},t)=\vec{\epsilon_k}\sqrt{\frac{\hbar}{2\epsilon_0\omega_k V}}(\hat{a}_k e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \hat{a}_k^\dagger e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation}
+\begin{equation}
+    \hat{\vec{E}}(\vec{r},t)=i\vec{\epsilon_k}\sqrt{\frac{\hbar\omega_k}{2\epsilon_0 V}}(\hat{a}_k e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \hat{a}_k^\dagger e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation}
+\begin{equation}
+    \hat{\vec{B}}(\vec{r},t)=i\vec{k}\times\vec{\epsilon_k}\sqrt{\frac{\hbar}{2\epsilon_0\omega_k V}}(\hat{a}_k e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \hat{a}_k^\dagger e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation}
+Eigenstate $\ket{n}$ of the hamiltonian H, expectation value of operators turn out to be 0. For instance, 
+\begin{equation*}
+    \bra{n}\hat{\vec{E}}\ket{n}=i\vec{\epsilon_k}\sqrt{\frac{\hbar\omega_k}{2\epsilon_0 V}}(\bra{n}\hat{a}_k\ket{n} e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \bra{n}\hat{a}_k^\dagger\ket{n} e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation*}
+\begin{equation*}
+    =i\vec{\epsilon_k}\sqrt{\frac{\hbar\omega_k}{2\epsilon_0 V}}(\sqrt{n}\bra{n}\ket{n-1} e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \sqrt{n+1}\bra{n}\ket{n+1} e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation*}
+\begin{equation}
+    \bra{n}\hat{\vec{E}}\ket{n}=0
+\end{equation}
+Expectation value of $\hat{E^2}=\hat{\vec{E}}\cdot\hat{\vec{E}}$ :
+\begin{equation}
+    \bra{n}\hat{\vec{E}}\cdot\hat{\vec{E}}\ket{n}=\frac{\hbar\omega}{2\epsilon_0 V}\bra{n}\hat{a}\hat{a}^\dagger+\hat{a}\hat{a}\dagger\ket{n}
+    =\frac{\hbar\omega}{2\epsilon_0 V}(n+\frac{1}{2})
+\end{equation}
+Equation states that there are always fluctuation exists in a Electronic field. When light is in fock state, uncertainty of field is:
+\begin{equation}
+    \Delta{E}=\sqrt{<\hat{E}^2>-<\hat{E}>^2} = \sqrt{\frac{\hbar\omega}{\epsilon_0 V}}(n+\frac{1}{2})
+\end{equation}
+
+\end{document}
+
+

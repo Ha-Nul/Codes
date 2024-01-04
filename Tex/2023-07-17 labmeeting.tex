@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\begin{flalign*}
+    G^R(\textbf{r}t,\textbf{r}'t')=-i\theta(t-t')\langle[\Psi(\textbf{r}t),\Psi^\dagger(\textbf{r}'t')_{B,F}]\rangle
+\end{flalign*}
+\begin{flalign*}
+    i\frac{\partial}{\partial t}G^R(\textbf{r}t,\textbf{r}'t') &=(-i)(i\partial_t\theta(t-t'))\langle[\Psi(\textbf{r}t),\Psi^\dagger(\textbf{r}'t')_{B,F}]\rangle
+    +(-i)\theta(t-t')\langle[i\partial\Psi(\textbf{r}t),\Psi^\dagger(\textbf{r}'t')_{B,F}]\rangle\\
+    &=\nabla(t-t')\nabla(\textbf{r}-\textbf{r}')+(-i)\theta(t-t')\langle[i\partial\Psi(\textbf{r}t),\Psi^\dagger(\textbf{r}'t')_{B,F}]\rangle
+\end{flalign*}
+\begin{flalign*}
+    i\partial_t\Psi(\textbf{r}t)=-[H,\Psi(\textbf{r})](t) = -[H_0,\Psi(\textbf{r})](t)-[V_{int},\Psi(\textbf{r})](t)
+\end{flalign*}
+\begin{flalign*}
+    -[H_0,\Psi(r)]&=\frac{1}{2m}\int d\textbf{r}' [\Psi^\dagger(\textbf{r}')\nabla^2_{\textbf{r}'}\Psi^\dagger(\textbf{r}'),\Psi(\textbf{r})]\\
+        &= \frac{1}{2m} \nabla^2_{\textbf{r}}\Psi(\textbf{r})
+\end{flalign*}
+\begin{flalign*}
+    \bigg(i\partial_t + \frac{1}{2m}\nabla^2_{\textbf{r}}\bigg)&G^R(\textbf{r}t,\textbf{r}'t')=\nabla(t-t')\nabla(\textbf{r}-\textbf{r}') + D^R(\textbf{r}t,\textbf{r}'t'),
+    & D^R(\textbf{r}t,\textbf{r}'t')=-i\theta(t-t')\langle[-V_{int},\psi(\textbf{r})(t),\psi^\dagger(\textbf{r}'t')]_{B,F}\rangle
+\end{flalign*}
+\begin{flalign*}
+    H_0=\sum_{\nu\nu'}t_{\nu'\nu}a^\dagger_{\nu'}a_{\nu'}
+\end{flalign*}
+\begin{flalign*}
+    G^R(\nu t,\nu't')=-i\theta(t-t')\langle[a_{\nu}(t)a_{\nu'}^\dagger(t')]_{B,F}\rangle
+\end{flalign*}
+\begin{flalign*}
+    -[H_0,a_{\nu}]=\sum_{\nu"}t_{\nu\nu"}a_{\nu"}
+\end{flalign*}
+\begin{flalign*}
+    \sum_{\nu"}(i\delta_{\nu\nu"}\partial_t-t_{\nu\nu"})&G^R(\nu"t,\nu't')=\delta(t-t')\delta_{\nu\nu'}+D^R(\nu t,\nu't')\\
+     &D^R(\nu t,\nu't')=-i\theta(t-t')\langle\big[-[V_{int},a_\nu](t),a_nu^\dagger]_{B,F}\rangle
+\end{flalign*}
+\begin{flalign*}
+    \sum_{\nu"}[\delta_{\nu\nu"}(\omega + i\eta)-t_{\nu\nu"}]G^R(\nu"\nu';\omega)=\delta_{\nu\nu'}+D^R(\nu\nu';\omega)\\
+    D^R(\nu,\nu';\omega)=-i\int^\infty_{-\infty}dt e^{i(\omega+i\eta)(t-t')}\theta(t-t')\langle\bigg[-[V_{int},a_\nu](t),a^\dagger_{\nu'}(t')]_{B,F}\rangle
+\end{flalign*}
+\begin{flalign*}
+    \sum_{\nu"}[\delta_{\nu\nu"}(\omega + i\eta)-t_{\nu\nu"}]G^R(\nu"\nu';\omega)=\delta_{\nu\nu'}
+\end{flalign*}
+\begin{flalign*}
+    (G_0^R)^{-1}(\nu\nu';\omega)=\delta_{\nu\nu'}(\omega+i\eta)-t_{\nu\nu'}\equiv(\textbf{G}_0^R)^{-1}_{\nu\nu'}
+\end{flalign*}
+\begin{flalign*}
+    (\textbf{G}^R_0)^{-1}(\textbf{G}^R_0)=\textbf{1}
+\end{flalign*}
+\begin{flalign*}
+    (\textbf{G}^R_0)_{\nu\nu'}=G^R_0(\nu,\omega)\delta_{\nu\nu'}=\frac{1}{\omega-\epsilon_\nu+i\eta}\delta_{\nu\nu'}
+\end{flalign*}
+\begin{flalign*}
+    H=H_0+H_{hyb} + H_l
+\end{flalign*}
+\begin{flalign*}
+    H_0=\sum_\nu\xi_\nu c_\nu^\dagger c_\nu
+\end{flalign*}
+\begin{flalign*}
+    H_l = \xi_0c_l^\dagger c_l
+\end{flalign*}
+\begin{flalign*}
+    H_{hyb}=\sum_{\nu}(t*_\nu c_\nu^\dagger c_l + t_\nu c_l^\dagger c_\nu)
+\end{flalign*}
+\begin{flalign*}
+    G^R(l,l,t-t')&=-i\theta(t-t')\langle\{c_l(t),c_l^\dagger(t')\}\rangle\\
+    G^R(\nu,l,t-t')&=-i\theta(t-t')\langle1\{c_\nu(t),c_.^\dagger(t')\}\rangle
+\end{flalign*}
+\begin{flalign*}
+    (\omega+i\eta-\xi_0)G^R(l,l,\omega)-\sum_\nu t_\nu G^R(\nu,l,\omega)=1\\
+    (\omega+i\eta-\xi_\nu)G^R(\nu,l,\omega)-t^*_\nu G^R(l,l,\omega)=0
+\end{flalign*}
+\begin{flalign}
+    H=H+V_{int}
+\end{flalign}
+\begin{flalign}
+    G^R(l,l,\omega)=\frac{1}{\omega-\xi_0-\Sigma^R(\omega)}
+\end{flalign}
+\begin{flalign}
+    \Sigma^R(\omega)=\sum_\nu\frac{|t_\nu|^2}{\omega-\xi_\nu+i\eta}
+\end{flalign}
+\end{document}

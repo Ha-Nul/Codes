@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+Equation of motion in Heisenberg picture with Quadratic Hamiltonian.\\
+let $\hbar$ = 1.
+\begin{flalign*}
+    \frac{\partial}{\partial t} a_\nu = -i[H,a_\nu]
+\end{flalign*}
+Where H represents the Hamiltonian
+\begin{flalign*}
+    [ \sum_{\nu\nu'} \epsilon_{\nu\nu'} a_\nu a^\dagger_{\nu'} , a_{\nu} ] 
+    &= \sum_{\nu\nu'} \epsilon_{\nu\nu'}a_\nu a^\dagger_{\nu'} a_{\nu} - a_{\nu}\sum_{\nu\nu'} \epsilon_{\nu\nu'}a_\nu a^\dagger_{\nu'}\\
+    &= \sum_{\nu\nu'} \epsilon_{\nu\nu'} a_{\nu} (1- a_\nu a^{\dagger}_{\nu'})- a_{\nu}\sum_{\nu\nu'} \epsilon_{\nu\nu'}a_\nu a^\dagger_{\nu'}\\
+    &= \sum_{\nu\nu'} \epsilon_{\nu\nu'} a_{\nu}
+\end{flalign*}
+Thus
+\begin{flalign*}
+    \frac{\partial}{\partial t} a_\nu &= \sum_{\nu\nu'} \epsilon_{\nu\nu'} a_{\nu} 
+\end{flalign*}
+\begin{flalign}
+    a_\nu = e^{-i\epsilon t}
+\end{flalign}
+The equation of motion of the Green's function is:
+\begin{flalign}
+    G^R(\nu t,\nu't')=-i\theta(t-t')\langle[]
+\end{flalign}
+\end{document}

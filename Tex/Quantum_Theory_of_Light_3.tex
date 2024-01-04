@@ -1,0 +1,186 @@
+\documentclass[9pt]{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\begin{document}
+\begin{equation}
+    E_j(t)=E_0e^{-i\omega t + i\phi_j(t)}
+\end{equation}
+\begin{equation}
+    E(t)=\sum^N_{j=1}E_j(t)=E_0e^{-i\omega t }(e^{i\phi_1(t)}+e^{i\phi_2(t)}+e^{i\phi_3(t)}\cdots)
+\end{equation}
+\begin{equation*}
+        =E_0e^{i\omega t }r(t)e^{i\phi (t)}
+\end{equation*}
+\begin{equation}
+    I(t)=\epsilon_0 c [Re E(t)]^2
+\end{equation}
+\begin{equation}
+    \overline{I}(t)=\frac{1}{T}\int_0^T I(t) dt=\frac{1}{2}\epsilon_0 c \abs{E(t)}^2
+\end{equation}
+\begin{equation}
+    \overline{I}(t)=\frac{1}{2}\epsilon_0 c E_0^2 r(t)^2
+\end{equation}
+\begin{equation}
+    p(\overline{I}(t))d\overline{I}(t)=\frac{1}{\ev{I}}e^{\frac{\overline{I}(t)}{\ev{I}}}d\overline{I}(t)
+\end{equation}
+\begin{equation}
+    \ev{I}=\frac{1}{\tau}\int_0^\tau \overline{I}(t) dt = \frac{1}{2}\epsilon_0 c E_0^2\frac{1}{\tau}\int_0^\tau r^2(t) dt
+\end{equation}
+\begin{equation}
+    \frac{1}{\tau}\int_0^\tau r(t)^2 dt = \frac{1}{\tau}\int_0^\tau\abs{e^{i\phi_1(t)}+e^{i\phi_2(t)}+e^{i\phi_3(t)}\cdots+e^{i\phi_N(t)}}^2 dt \approx N
+\end{equation}
+\begin{equation*}
+    \ev{I}\approx\frac{1}{2}\epsilon_0 c E_0^2n
+\end{equation*}
+\begin{equation}
+    \ev{n}=Tr\{\rho a^\dagger a\} = \sum_n P_n n = \frac{1}{e^{\frac{\hbar\omega}{kT}-1}}
+\end{equation}
+\begin{equation}
+    P_n=\frac{\ev{n}^n}{(1+\ev{n})^{1+n}}
+\end{equation}
+\begin{equation}
+    \rho=\sum_n P_n \ket{n}\bra{n}= \sum_n \frac{\ev{n}^n}{(1+\ev{n})^{1+n}}\ket{n}\bra{n}
+\end{equation}
+\begin{equation}
+    (\Delta n)^2 = \ev{(n-\ev{n})^2}=\ev{n^2}-\ev{n}^2=\frac{e^{\frac{\hbar\omega}{kT}}}{(e^{\frac{\hbar\omega}{kT}}-1)^2}
+\end{equation}
+\begin{equation}
+    (\Delta{n})^2=\ev{n}+\ev{n}^2
+\end{equation}
+\begin{equation}
+    \Delta n \approx \ev{n} + \frac{1}{2} \approx \ev{n}
+\end{equation}
+\begin{equation}
+0  
+\end{equation}
+\begin{equation}
+0
+\end{equation}
+\begin{equation}
+    \ev{I(\vec{r}_1,t_1)I(\vec{r}_2,t_2)}=\ev{I(\vec{r},t_1-\frac{\abs{\vec{r}_1-\vec{r}}}{c})I(\vec{r},t_2-\frac{\abs{\vec{r}_2-\vec{r}}}{c})}
+\end{equation}
+\begin{equation*}
+    =\ev{I(\vec{r},t)I(\vec{r},t+\tau)}
+\end{equation*}
+\begin{equation}
+    \tau=t_2-t_1 - \frac{\abs{\vec{r}_2-\vec{r}}-\abs{\vec{r}_1-\vec{r}}}{c}
+\end{equation}
+\begin{equation}
+    i_{12}(\tau)\equiv \frac{\ev{I(\vec{r},t_1)I(\vec{r}_2,t_2)}}{\ev{I(\vec{r}_1,t_1)}\ev{I(\vec{r}_2,t_2)}}=\frac{\ev{I(\vec{r},t)I(\vec{r},t+\tau)}}{\ev{I(\vec{r},t)}^2}
+\end{equation}
+\begin{equation}
+    i_{12}(\tau \leftarrow \infty) =1
+\end{equation}
+\begin{equation}
+    i_{12}(\tau=0)=\frac{\ev{I^2{\vec{r},t}}}{\ev{I(\vec{r},t)}^2}
+\end{equation}
+\begin{equation}
+    i_{12}(\tau=0)\geq 1
+\end{equation}
+\begin{equation}
+    \ev{I(\vec{r}_1,t_1)I(\vec{r}_2,t_2)}=(\frac{1}{2}\epsilon_0 c)^2 \ev{E^*(\vec{r}_1,t_1)E(\vec{r}_1,t_1)E^*(\vec{r}_2,t_2)E(\vec{r}_2,t_2)}
+\end{equation}
+\begin{equation*}
+    =(\frac{1}{2}\epsilon_0 c)^2 \ev{E^*(\vec{r}_1,t_1)E^*(\vec{r}_2,t_2)E(\vec{r}_2,t_2)E(\vec{r}_1,t_1)}
+\end{equation*}
+\begin{equation}
+    i_{12}(\tau)=\frac{\ev{E^*(\vec{r}_1,t_1)E^*(\vec{r}_2,t_2)E(\vec{r}_2,t_2)E(\vec{r}_1,t_1)}}{\ev{\abs{E(\vec{r}_1,t_1)}^2}\ev{\abs{E(\vec{r}_2,t_2)}^2}}
+\end{equation}
+\begin{equation*}
+    =\frac{\ev{E^*(\vec{r},t)E^*(\vec{r},t+\tau)E(\vec{r},t+\tau)E(\vec{r},t)}}{\ev{\abs{E(\vec{r}_1,t_1)}^2}^2}
+\end{equation*}
+\begin{equation}
+    P\propto\sum_f\abs{\bra{f}E^{(+)}(\vec{r}_2,t_2)E^{(+)}(\vec{r}_2,t_2)\ket{i}}^2
+\end{equation}
+\begin{equation*}
+    =\sum_f\bra{i}E^{(-)}(\vec{r}_1,t_1)E^{(-)}(\vec{r}_2,t_2)\ket{f}\bra{f}E^{(+)}(\vec{r}_2,t_2)E^{(+)}(\vec{r}_1,t_1)\ket{i}
+\end{equation*}
+\begin{equation*}
+    =\bra{i}E^{(-)}(x_1)E^{(-)}(x_2)E^{(+)}(x_3)E^{(+)}(x_4)\ket{i}
+\end{equation*}
+\begin{equation}
+    G^{(2)}=(x_1,x_2,x_3,x_4)=\ev{E^{(-)}(x_1)E^{(-)}(x_2)E^{(+)}(x_3)E^{(+)}(x_4)}
+\end{equation}
+\begin{equation*}
+    =Tr\{\rho E^{(-)}(x_1)E^{(-)}(x_2)E^{(+)}(x_3)E^{(+)}(x_4)\}
+\end{equation*}
+\begin{equation}
+    g^{(2)}=\frac{G^{(2)}(x_1,x_2,x_3,x_4)}{\sqrt{G^{(1)}(x_1,x_1)G^{(1)}(x_2,x_2)G^{(3)}(x_3,x_3)G^{(4)}(x_4,x_4)}}
+\end{equation}
+\begin{equation}
+    G^{(2)}(x_1,x_2,x_2,x_1)=\bra{\alpha}E^{(-)}(x_1)E^{(-)}(x_2)E^{(+)}(x_2)E^{(+)}(x_1)\ket{\alpha}
+\end{equation}
+\begin{equation*}
+    =(\frac{\hbar \omega }{2\epsilon_0 V })^2 \abs{\alpha}^4
+\end{equation*}
+\begin{equation}
+    g^{(2)}(x_1,x_2,x_2,x_1)=g^{(2)}(\tau)=\frac{G^{(2}(x_1,x_2,x_2,x_1)}{G^{(1)}(x_1,x_1)G^{(1)}(x_2,x_2)} = 1
+\end{equation}
+\begin{equation}
+    \abs{g^{(2)}(x_1,x_2,x_3,x_4)}=1
+\end{equation}
+\begin{equation}
+    g^{(2)}(x_1,x_2,x_3,x_4)=g^{(2)}(\tau)=1
+\end{equation}
+\begin{equation}
+    G^{(2)}(x_1,x_2,x_2,x_1)=G^{(1)}(x_1,x_1)G^{(1)}(x_2,x_2)
+\end{equation}
+\begin{equation}
+    Q=\frac{()\Delta n)^2-\ev{n}}{\ev{n}}
+\end{equation}
+\begin{equation}
+    Q=\ev{n}(g^{(2)}(\tau)-1)
+\end{equation}
+if $g^{(2)}<1$, anti-bunching \\
+coherent light (Poissonian) : $[(\Delta n)^2-\ev{n}]=0$ , super-Poissonian : $[(\Delta n)^2-\ev{n}]>0$ \\
+sub-Poissonian : $[(\Delta n)^2-\ev{n}]<0$ 
+\\
+\begin{equation}
+    g^{(2)}(x_1,x_2,x_2,x_1)=\frac{\ev{E^*(x_1)E^*(x_2)E(x_2)E(x_1)}}{\ev{E^{(-)}(x_1)E^{(+)}(x_1)}\ev{E^{(-)}(x_2)E^{(+)}(x_2)}}
+\end{equation}
+\begin{equation}
+    g^{(2)}(x_1,x_2,x_2,x_1)=\frac{\ev{a^\dagger a^\dagger aa}}{\ev{a^\dagger a}^2}
+\end{equation}
+\begin{equation*}
+    =\frac{\ev{a^\dagger a a^\dagger a}-\ev{a^\dagger a}}{\ev{a^\dagger a}^2}
+    =\frac{\ev{n^2}-\ev{n}}{\ev{n}^2}
+\end{equation*}
+\begin{equation}
+    g^{(2)}(x_1,x_2,x_2,x_1)=g^{(2)}(\tau)=1+\frac{(\Delta n)^2-\ev{n}}{\ev{n}^2}
+\end{equation}
+\begin{equation}
+    0
+\end{equation}
+\\
+\begin{equation}
+    0
+\end{equation}
+\\
+\\
+\begin{equation}
+    g^{(n)}(x_1,x_2,\cdots,x_{2n})=\frac{G^{(n)}(x_1,x_2,\cdots,x_{2n})}{\sqrt{\prod_{j=1}^{2n} G^{(1)}(x_j,x_j)}}
+\end{equation}
+\begin{equation*}
+    =\frac{\ev{E^{(-)}(x_1)\cdots E^{(-)}(x_n)E^{(+)}(x_{n+1})\cdots E^{(+)}(x_{2n})}}
+    {\sqrt{\prod_{j=1}^{2n} \ev{E^{(-)}(x_j)E^{(+)}(x_j)}}}
+\end{equation*}
+\begin{equation}
+    \abs{g^{(n)}(x_1,x_2,\cdots,x_{2n})}=1
+\end{equation}
+\begin{equation}
+    \abs{g^{(j)}(x_1,x_2,\cdots,x_{2j})}=1
+\end{equation}
+for all $ n \leq j $
+\begin{equation}
+    g^{(n)}(x_1,\cdots,x_n,x_n,\cdots,x_1)=1
+\end{equation}
+\begin{equation}
+    G^{(n)}(x_1,\cdots,x_n,x_n,\cdots,x_1)=\prod_{j=1}^n G^{(1)}(x_j,x_j)
+\end{equation}
+\begin{equation*}
+    G^{(n)}(x_1,\cdots,x_n,x_n,\cdots,x_1)G^{(n)}(x_{n+1},\cdots,x_{2n},x_{2n},\cdots,x_{n+1}) \geq \abs{G^{(n)}(x_1,\cdots,x_n,x_{n+1},\cdots,x_{2n})}^2
+\end{equation*}
+\end{document}

@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\title{Matsubara Summary(1)}
+\maketitle
+\section{Interaction picture}
+Begin from the interaction picture, The interacting Hamiltonian $H_{int} = H - H_0$ with time-dependence and corresponding wavefunction can be written as:
+\begin{flalign*}
+    H_{int}(t) = e^{iH_0t}H_{int}e^{iH_0t}, \qquad \psi_{(i)}(t) = e^{iH_0t}\psi_{(s)}
+\end{flalign*}
+where $\psi_{(i)}$ represents a wavefuction in the interaction picture, $\psi_{(s)}$ represents a wavefunction in the schrodinger picture,
+$\psi_{(s)} = e^{iHt}$.
+
+Assume that, $\psi_{i}$ can be represented as a series expansion form. then the wavefuction becomes:
+\begin{flalign*}
+    \psi_{(i)}(t) = \psi^{(0)}_{(i)}(t) + \psi^{(1)}_{(i)}(t) + \dots + \psi^{(n)}_{(i)}(t)
+\end{flalign*}
+Where, nth term of the series is:
+\begin{flalign*}
+    \psi^{(n)}_{(i)}(t) = (-i)^n \int^t_{t_0}H_{int}(t_1)dt_1\int^{t_1}_{t_0}H_{int}(t_2)dt_2 \dots \int^{t_{n-1}}_{t_0}H_{int}(t_n)\psi_{(i)}(0)dt_n
+\end{flalign*}
+Let's call the multiplication of integral,$(-i)^n \int^t_{t_0}H_{int}(t_1)dt_1\int^{t_1}_{t_0}H_{int}(t_2)dt_2 \dots \int^{t_{n-1}}_{t_0}H_{int}(t_n)$ as $U^{(n)}(t,t_0)$.
+then the wavefunction $\psi_{(i)}(t)$ can be written as : $\psi_{(i)}(t) = U(t,t_0)\psi_{(i)}(0)$. 
+For the multiplication of $H_{int}$ terms, It can have a permutation feature for $t_i$. 
+
+After counting all possible permutations and arranging the integrals using time-ordering operator T, U becomes:
+\begin{flalign*}
+    U^{(n)}(t,t_0) = \frac{(-i)^n}{n!} \int^{t}_{t_0}\dots\int^{t}_{t_0}T(H_{int}(t_1)\dots H_{int}(t_n)) dt_1 \dots dt_n
+\end{flalign*}
+The time-ordering operator T, arranges the terms into time-decreasing order(from left to right). The total series of the wavefuction of interaction picture is:
+\begin{flalign*}
+    \psi_{(i)}(t) &= (U^{(0)}(t,t_0) + U^{(1)}(t,t_0) + \dots + U^{(n)}(t,t_0))\psi_{(i)}(0) \\
+                &= U(t,t_0)
+\end{flalign*}
+And,
+\begin{flalign*}
+    U(t,t_0) &= T(1 + (-i\int^{t}_{t_0}H_{int}(t_1)dt_1) - (\frac{1}{2!}\int^{t}_{t_0}\int^{t}_{t_0}H_{int}(t_1)H_{int}(t_2)dt_1dt_2) 
+                \\ &\dots +  \frac{(-i)^n}{n!} \int^{t}_{t_0}\dots\int^{t}_{t_0}T(H_{int}(t_1)\dots H_{int}(t_n)) dt_1 \dots dt_n \\
+                &= T e^{\{-i\int^{t}_{t_0}H_{int}(t')dt'\}}
+\end{flalign*}
+Following the argument, $U(t,t_0)$ is an a matrix which satisfies $\psi_(i)(t) = U(t,t_0)\psi_(0)(t)$, and $U(t,t)=1$.
+Finally, the Expectation value of the Arbitrary Operator $A$ in the interaction picture can be written in the following form:
+\begin{flalign*}
+    \braket{A} &= \int \psi^*_(i)(t) A \psi_(i)(t) dx \\
+            & = \int \psi^*_(i)(0)U^{-1}(t_0,t) A U(t,t_0) \psi_(i)(0) dx 
+\end{flalign*}
+Similar to the Heisenberg picture (e.g operator $B(t) = e^{iHt}B e^{-iHt}$), the Operator in the interaction picture depends on time can be represented as the form of:
+\begin{flalign*}
+    A(t) = U^{-1}(t_0,t) A U(t,t_0)
+\end{flalign*}
+
+\section{Matsubara function first summary}
+Let's set a Correlation function as $C_{AB}$. According to the statistical mechanics, given correlationn function can be represented as:
+\begin{flalign*}
+    C_{AB} &= -\langle A(t)B(t') \rangle \\ 
+            &= -\frac{1}{Z} Tr[e^{\beta H} A(t) B(t)]
+\end{flalign*}
+Using the interaction picture representation, 
+\begin{flalign*}
+    C_{AB} = -\frac{1}{Z} Tr[e^{\beta H}U(0,t)A(t)U(t,t')B(t')U(t',0)]
+\end{flalign*}
+To calculate the Energy term $ e^{-\beta H} $, the Imginary time $\tau$ introduced instead of real-time $t$.
+\begin{flalign*}
+    \tau = i t 
+\end{flalign*}
+Using $\tau$ instead of $t$, correlation function $C_{AB} = -\frac{1}{Z} Tr[e^{\beta H}U(0,\tau)A(\tau)U(\tau,\tau')B(\tau')U(\tau',0)]$. Assume that $\tau-\tau' = \beta$. Then from the relation $U(\tau,\tau') = e^{\tau H_0}e^{(\tau-\tau')H}e^{-\tau'H_0}$,
+\begin{flalign*}
+    e^{-\beta H } & = e^{\beta H_0} U(\beta,0)
+                &= e^{\beta H_0} T e^{-\int^\beta_0 d\tau_1 H_{int}(\tau_1)}
+\end{flalign*}
+And the correlation function with using time-ordering operator $T_\tau$,
+\begin{flalign*}
+    \langle T_\tau A(\tau) B(\tau) \rangle &= \frac{1}{Z} Tr[e^{-\beta H} T_\tau A(\tau)B(\tau ')] \\
+                                           &=  \frac{1}{Z} Tr[e^{-\beta H_0} T_\tau U(\beta,0) A(\tau)B(\tau ')] \\
+                                           &= \frac{\langle U(\beta,0) A(\tau)B(\tau ') \rangle_0}{\langle U(\beta,0)\rangle_0}
+\end{flalign*}
+The definition of Matsubara Green function is:
+\begin{flalign*}
+    C_{AB}(\tau,\tau') \equiv - \braket{T_\tau (A(\tau)B(\tau '))}
+\end{flalign*}
+Where:
+\begin{flalign*}
+    T_\tau (A(\tau)B(\tau ')) = \theta(\tau-\tau')A(\tau)B(\tau') \pm \theta(\tau-\tau ') B(\tau ')A(\tau)
+\end{flalign*}
+ 
+\end{document}

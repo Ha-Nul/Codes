@@ -1,0 +1,90 @@
+\documentclass[9pt]{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\begin{document}
+\section{Quantum Coherence}
+\subsection{Quantum theory of coherent states}
+\begin{equation*}
+    \vec{E}(\vec{r},t)=i\sum_k\vec{\epsilon_k}\sqrt{\frac{\hbar\omega_k}{2\epsilon_0 V}}(\hat{a}_k e^{-i\omega_k t + i\vec{k}\cdot\vec{r}}+
+    \hat{a}_k^\dagger e^{-i\vec{k}\cdot\vec{r} + i\omega_k t})
+\end{equation*}
+\begin{equation*}
+    \hat{E}^{(+)}(\vec{r},t)=i\vec{\epsilon}\sqrt{\frac{\hbar\omega}{2\epsilon_0 V}}(\hat{a} e^{-i\omega t + i\vec{k}\cdot\vec{r}}) \\
+\end{equation*}
+\begin{equation*}  
+    \hat{E}^{(-)}(\vec{r},t)=i\vec{\epsilon}\sqrt{\frac{\hbar\omega}{2\epsilon_0 V}}(\hat{a} e^{-i\vec{k}\cdot\vec{r}+i\omega t + })
+\end{equation*}
+\begin{equation*}
+    \hat{\vec{E}}(\vec{r},t)=\hat{E}^{(+)}+\hat{E}^{(-)}
+\end{equation*}
+\begin{equation*}
+    P\propto\sum_f\abs{\bra{f}\hat{E}^{(+)}(\vec{r},t)\ket{i}}^2=\sum_f\bra{i}\hat{E}^{(-)}(\vec{r},t)\ket{f}\bra{f}\hat{E}^{(+)}(\vec{r},t)\ket{i}
+\end{equation*}
+\begin{equation*}
+    =\bra{i}\hat{E}^{(-)}(\vec{r},t)\hat{E}^{(+)}(\vec{r},t)\ket{i}
+\end{equation*}
+\begin{equation*}
+    =Tr\{\rho\hat{E}^{(-)}(\vec{r},t)\hat{E}^{(+)}(\vec{r},t)\}
+\end{equation*}
+first-order coherence function $G^{(1)}$:
+\begin{equation*}
+    G^{(1)}(x_1,x_2)=\ev{E^{(-)}(x_1)E^{(+)}(x_1)}
+\end{equation*}
+\begin{equation*}
+    (x_1,x_2)=((\vec{r}_1,t_1),(\vec{r}_2,t_2))
+\end{equation*}
+normalized first-order coherence function:
+\begin{equation*}
+    g^{(1)}=\frac{G^{(1)}(x_1,x_2)}{\sqrt{G^{(1)}(x_1,x_1)G^{(2)}(x_2,x_2)}}
+\end{equation*}
+$ g^{(1)}\approx 1 $ : 1st order coherence \\
+$ g^{(1)}\leq 1 $ : Visibility low
+\subsection{Coherent state}
+The coherent state is a Eigenstate of the photon annihilation operator , $ \hat{E}^{(+)} $ \\
+for single mode,
+\begin{equation*}
+    \hat{a}\ket{\alpha}=\alpha\ket{\alpha}
+\end{equation*}
+\begin{equation*}
+    \ket{\alpha}=\sum_n\ket{n}\braket{n}{\alpha}=\sum_n c_n\ket{n}
+\end{equation*}
+Using $\bra{n}\hat{a}=\sqrt{n+1}\hat{n+1} $,
+\begin{equation*}
+    \bra{n}\hat{a}\ket{\alpha}=\sqrt{n+1}\bra{n+1}\ket{\alpha}=\alpha\bra{n}\ket{n}
+\end{equation*}
+\begin{equation*}
+\therefore \bra{n+1}\ket{\alpha}=\frac{\alpha}{\sqrt{n+1}}\braket{n}{\alpha},\braket{n}{\alpha}=\frac{\alpha^n}{n!}\braket{0}{\alpha}
+\end{equation*}
+\begin{equation*}
+    \ket{\alpha}=\braket{0}{\alpha}\sum_n \frac{\alpha^n}{\sqrt{n!}}\ket{n}
+\end{equation*}
+\begin{equation*}
+    1=\braket{\alpha}{\alpha} = \abs{\braket{0}{\alpha}}^2\sum_n\frac{\alpha^{2n}}{\sqrt{n!}}\ket{n}=\abs{\braket{0}{\alpha}}^2 e^{\abs{\alpha}^2}
+\end{equation*}
+neglecting phase affection,
+\begin{equation*}
+    \braket{0}{\alpha}=e^{-\frac{\abs{\alpha}^2}{2}}
+\end{equation*}
+The definition of coherent state is:
+\begin{equation*}
+    \therefore \ket{\alpha}=e^{-\frac{\abs{\alpha}^2}{2}}\sum_n\frac{\alpha^{2n}}{\sqrt{n!}}\ket{n}
+\end{equation*}
+\begin{equation*}
+    P_n=\abs{\braket{n}{\alpha}}^2=\abs{c_n}^2=e^{-\frac{\abs{\alpha}^2}{2}}\frac{\alpha^{2n}}{\sqrt{n!}}\ket{n}
+\end{equation*}
+This is an Poissonian distribution (for independent particles)
+\subsection{}
+\begin{equation*}
+    \overline{I}(\vec{r})=\abs{u}^2[\ev{I_1}+\ev{I_2}+2\sqrt{\ev{I_1}\ev{I_2}}Re\Gamma_{12}(\tau)]
+\end{equation*}
+\begin{equation*}
+    \Gamma_{12}(\tau)=\frac{1}{2}\ev{E^*(\vec{r}_1,0)E(\vec{r}_2,\tau)}
+\end{equation*}
+\begin{equation*}
+    \gamma_{12}(\tau)=\frac{\Gamma_{12}(\tau)}{\sqrt{\Gamma_{11}(0)\Gamma_{22}(0)}}
+    =\frac{\ev{E^*(\vec{r}_1,0)E(\vec{r}_2,\tau)}}{\sqrt{\ev{\abs{E(\vec{r}_1,0)}^2}\ev{\abs{E(\vec{r}_2,\tau)}^2}}}
+\end{equation*}
+\end{document}

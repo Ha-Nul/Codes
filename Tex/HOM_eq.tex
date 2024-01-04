@@ -1,0 +1,57 @@
+\documentclass[9pt]{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\begin{document}
+\section{Introduction}
+\subsection{Beamsplitter}
+\begin{equation*}
+    \hat{c}=\hat{a}\sqrt{r}+\hat{b}\sqrt{1-r}
+\end{equation*}
+\begin{equation*}
+    \hat{d}=\hat{a}\sqrt{1-r}-\hat{b}\sqrt{r}
+\end{equation*}
+\begin{equation*}
+    \hat{a}^\dagger_H\hat{b}^\dagger_V\ket{0} \rightarrow \frac{1}{2} 
+    (\hat{c}^\dagger_H\hat{c}^\dagger_V-\hat{c}^\dagger_H\hat{d}^\dagger_V+\hat{d}^\dagger_H\hat{c}^\dagger_V-\hat{d}^\dagger_H\hat{d}^\dagger_V)\ket{0}
+\end{equation*}
+\begin{equation*}
+    \hat{a}^\dagger\hat{b}^\dagger\ket{0} \rightarrow \frac{1}{\sqrt{2}} 
+    (\ket{2}_c- \ket{2}_d)
+\end{equation*}
+\subsection{two-photon interference}
+\begin{equation*}
+    \ket{\psi}_{in} = \ket{1}_{a,H}\ket{1}_{b,V}=\ket{H}_a\ket{V}_b=\hat{a}^\dagger_H\hat{b}^\dagger_V\ket{0}
+\end{equation*}
+\begin{equation*}
+    \ket{\Psi^{+}}_{ab} \rightarrow  (\hat{c}^\dagger_H\hat{c}^\dagger_V-\hat{d}^\dagger_H\hat{d}^\dagger_V)\ket{0}
+\end{equation*}
+\begin{equation*}
+    \ket{\Psi^{-}}_{ab} \rightarrow  (\hat{c}^\dagger_H\hat{d}^\dagger_V-\hat{d}^\dagger_H\hat{c}^\dagger_V)\ket{0}
+\end{equation*}
+\begin{equation*}
+    \ket{\Phi^{\pm}}_{ab} \rightarrow  ((\hat{c}^\dagger_H)^2\pm (\hat{c}^\dagger_V)^2-(\hat{d}^\dagger_H)^2 \mp (\hat{d}^\dagger_V)^2)\ket{0}
+\end{equation*}
+\subsection{time measurement}
+\begin{equation*}
+    N_c=C(T^2+R^2)(1-\frac{2RT}{R^2+T^2}e^{-(\Delta\omega\delta\tau)^2})
+\end{equation*}
+\section{Application}
+\begin{equation*}
+    \ket{\Psi^+}_{ab}\rightarrow \frac{1}{\sqrt{2}}(\ket{1}_{c,H}\ket{1}_{c,V}-\ket{1}_{d,H}\ket{1}_{d,V})
+\end{equation*}
+\begin{equation*}
+    \ket{\Psi^-}_{ab}\rightarrow \frac{1}{\sqrt{2}}(\ket{1}_{c,H}\ket{1}_{d,V}-\ket{1}_{d,H}\ket{1}_{c,V})
+\end{equation*}
+\begin{equation*}
+    \ket{\Phi^\pm}_{ab}\rightarrow \frac{1}{2}(\ket{2}_{c,H}\pm\ket{2}_{c,V}-\ket{2}_{d,H}\pm\ket{2}_{d,V})
+\end{equation*}
+\begin{equation*}
+    \ket{\psi}=\alpha\ket{0}+\beta\ket{1}+\gamma\ket{2}
+\end{equation*}
+\begin{equation*}
+    \rightarrow \ket{\psi{'}}=\alpha\ket{0}+\beta\ket{1}-\gamma\ket{2}
+\end{equation*}
+\end{document}

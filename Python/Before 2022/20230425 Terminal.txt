@@ -1,0 +1,1995 @@
+Last login: Mon Apr 24 13:22:36 on ttys001
+e2_602_qma@E2602QMA-MacBook-Pro ~ % set -o vi
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % cd ~
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % ls -l
+total 0
+drwx------@  6 e2_602_qma  staff   192  3 24 09:25 Applications
+drwx------+  4 e2_602_qma  staff   128  4 25 05:54 Desktop
+drwx------@ 11 e2_602_qma  staff   352  4 18 23:54 Documents
+drwx------@ 76 e2_602_qma  staff  2432  4 24 17:21 Downloads
+drwx------@ 90 e2_602_qma  staff  2880  4 18 20:41 Library
+drwxr-xr-x   4 e2_602_qma  staff   128  4  2 20:47 Link
+drwx------   4 e2_602_qma  staff   128  3 20 16:39 Movies
+drwx------+  3 e2_602_qma  staff    96  3 20 16:36 Music
+drwx------+  5 e2_602_qma  staff   160  3 21 14:53 Pictures
+drwxr-xr-x+  4 e2_602_qma  staff   128  3 20 16:36 Public
+drwxr-xr-x@ 10 e2_602_qma  staff   320  4 17 01:19 Zotero
+drwxr-xr-x  26 e2_602_qma  staff   832  4 17 04:07 anaconda3
+drwxr-xr-x   3 e2_602_qma  staff    96  4 17 01:16 opt
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % mpi
+zsh: command not found: mpi
+e2_602_qma@E2602QMA-MacBook-Pro ~ % git --version
+git version 2.39.2 (Apple Git-143)
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % ls -lrt
+total 0
+drwx------+  3 e2_602_qma  staff    96  3 20 16:36 Music
+drwxr-xr-x+  4 e2_602_qma  staff   128  3 20 16:36 Public
+drwx------   4 e2_602_qma  staff   128  3 20 16:39 Movies
+drwx------+  5 e2_602_qma  staff   160  3 21 14:53 Pictures
+drwx------@  6 e2_602_qma  staff   192  3 24 09:25 Applications
+drwxr-xr-x   4 e2_602_qma  staff   128  4  2 20:47 Link
+drwxr-xr-x   3 e2_602_qma  staff    96  4 17 01:16 opt
+drwxr-xr-x@ 10 e2_602_qma  staff   320  4 17 01:19 Zotero
+drwxr-xr-x  26 e2_602_qma  staff   832  4 17 04:07 anaconda3
+drwx------@ 90 e2_602_qma  staff  2880  4 18 20:41 Library
+drwx------@ 11 e2_602_qma  staff   352  4 18 23:54 Documents
+drwx------@ 76 e2_602_qma  staff  2432  4 24 17:21 Downloads
+drwx------+  4 e2_602_qma  staff   128  4 25 05:54 Desktop
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % mkdir Programs
+e2_602_qma@E2602QMA-MacBook-Pro ~ % 
+e2_602_qma@E2602QMA-MacBook-Pro ~ % cd Programs 
+e2_602_qma@E2602QMA-MacBook-Pro Programs % ls -l
+total 0
+e2_602_qma@E2602QMA-MacBook-Pro Programs %    
+e2_602_qma@E2602QMA-MacBook-Pro Programs % 
+e2_602_qma@E2602QMA-MacBook-Pro Programs % 
+e2_602_qma@E2602QMA-MacBook-Pro Programs % git clone https://tensorreport@bitbucket.org/aaram/doutzen.git
+Cloning into 'doutzen'...
+Password for 'https://tensorreport@bitbucket.org': 
+remote: Login failed due to incorrect login credentials or method.
+remote: If you are unsure of which login details or login method to use, visit:
+remote: https://support.atlassian.com/bitbucket-cloud/docs/log-into-or-connect-to-bitbucket-cloud/
+fatal: Authentication failed for 'https://bitbucket.org/aaram/doutzen.git/'
+e2_602_qma@E2602QMA-MacBook-Pro Programs % git clone https://tensorreport@bitbucket.org/aaram/doutzen.git
+Cloning into 'doutzen'...
+Password for 'https://tensorreport@bitbucket.org': 
+remote: Login failed due to incorrect login credentials or method.
+remote: If you are unsure of which login details or login method to use, visit:
+remote: https://support.atlassian.com/bitbucket-cloud/docs/log-into-or-connect-to-bitbucket-cloud/
+fatal: Authentication failed for 'https://bitbucket.org/aaram/doutzen.git/'
+e2_602_qma@E2602QMA-MacBook-Pro Programs % git clone https://tensorreport@bitbucket.org/aaram/doutzen.git
+Cloning into 'doutzen'...
+Password for 'https://tensorreport@bitbucket.org': 
+
+remote: Login failed due to incorrect login credentials or method.
+remote: If you are unsure of which login details or login method to use, visit:
+remote: https://support.atlassian.com/bitbucket-cloud/docs/log-into-or-connect-to-bitbucket-cloud/
+fatal: Authentication failed for 'https://bitbucket.org/aaram/doutzen.git/'
+e2_602_qma@E2602QMA-MacBook-Pro Programs % 
+e2_602_qma@E2602QMA-MacBook-Pro Programs % 
+e2_602_qma@E2602QMA-MacBook-Pro Programs % 
+e2_602_qma@E2602QMA-MacBook-Pro Programs % 
+e2_602_qma@E2602QMA-MacBook-Pro Programs %                                     
+e2_602_qma@E2602QMA-MacBook-Pro Programs % 
+e2_602_qma@E2602QMA-MacBook-Pro Programs % git clone https://tensorreport@bitbucket.org/aaram/doutzen.git
+Cloning into 'doutzen'...
+Password for 'https://tensorreport@bitbucket.org': 
+remote: Enumerating objects: 997, done.
+remote: Counting objects: 100% (122/122), done.
+remote: Compressing objects: 100% (122/122), done.
+remote: Total 997 (delta 73), reused 0 (delta 0), pack-reused 875
+Receiving objects: 100% (997/997), 614.63 KiB | 1.61 MiB/s, done.
+Resolving deltas: 100% (705/705), done.
+e2_602_qma@E2602QMA-MacBook-Pro Programs % ls -lrt
+total 0
+drwxr-xr-x  7 e2_602_qma  staff  224  4 25 10:58 doutzen
+e2_602_qma@E2602QMA-MacBook-Pro Programs % cd doutzen 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % ls -lr
+total 8
+drwxr-xr-x  21 e2_602_qma  staff   672  4 25 10:58 src
+drwxr-xr-x   3 e2_602_qma  staff    96  4 25 10:58 input
+drwxr-xr-x  14 e2_602_qma  staff   448  4 25 10:58 include
+-rw-r--r--   1 e2_602_qma  staff  1801  4 25 10:58 CMakeLists.txt
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % cmake --version
+zsh: command not found: cmake
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % sudo port list cmake
+Password:
+Warning: port definitions are more than two weeks old, consider updating them by running 'port selfupdate'.
+cmake                          @3.24.4         devel/cmake
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % sudo port install cmake
+Warning: port definitions are more than two weeks old, consider updating them by running 'port selfupdate'.
+
+
+--->  Computing dependencies for cmake
+The following dependencies will be installed: 
+ brotli
+ bzip2
+ curl
+ curl-ca-bundle
+ expat
+ libarchive
+ libb2
+ libcxx
+ libidn2
+ libpsl
+ libunistring
+ libuv
+ lzo2
+ ncurses
+ nghttp2
+Continue? [Y/n]: --->  Fetching archive for bzip2
+Y
+
+--->  Attempting to fetch bzip2-1.0.8_0.darwin_22.arm64.tbz2 from https://packages.macports.org/bzip2
+--->  Attempting to fetch bzip2-1.0.8_0.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/bzip2
+--->  Installing bzip2 @1.0.8_0
+--->  Activating bzip2 @1.0.8_0
+--->  Cleaning bzip2
+--->  Fetching archive for brotli
+--->  Attempting to fetch brotli-1.0.9_2.darwin_22.arm64.tbz2 from https://packages.macports.org/brotli
+--->  Attempting to fetch brotli-1.0.9_2.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/brotli
+--->  Installing brotli @1.0.9_2
+--->  Activating brotli @1.0.9_2
+--->  Cleaning brotli
+--->  Fetching archive for curl-ca-bundle
+--->  Attempting to fetch curl-ca-bundle-8.0.1_0.any_any.noarch.tbz2 from https://packages.macports.org/curl-ca-bundle
+--->  Attempting to fetch curl-ca-bundle-8.0.1_0.any_any.noarch.tbz2.rmd160 from https://packages.macports.org/curl-ca-bundle
+--->  Installing curl-ca-bundle @8.0.1_0
+--->  Activating curl-ca-bundle @8.0.1_0
+--->  Cleaning curl-ca-bundle
+--->  Fetching archive for libunistring
+--->  Attempting to fetch libunistring-1.1_0.darwin_22.arm64.tbz2 from https://packages.macports.org/libunistring
+--->  Attempting to fetch libunistring-1.1_0.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/libunistring
+--->  Installing libunistring @1.1_0
+--->  Activating libunistring @1.1_0
+--->  Cleaning libunistring
+--->  Fetching archive for libidn2
+--->  Attempting to fetch libidn2-2.3.4_1.darwin_22.arm64.tbz2 from https://packages.macports.org/libidn2
+--->  Attempting to fetch libidn2-2.3.4_1.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/libidn2
+--->  Installing libidn2 @2.3.4_1
+--->  Activating libidn2 @2.3.4_1
+--->  Cleaning libidn2
+--->  Fetching archive for libpsl
+--->  Attempting to fetch libpsl-0.21.2-20230117_0.darwin_22.arm64.tbz2 from https://packages.macports.org/libpsl
+--->  Attempting to fetch libpsl-0.21.2-20230117_0.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/libpsl
+--->  Installing libpsl @0.21.2-20230117_0
+--->  Activating libpsl @0.21.2-20230117_0
+--->  Cleaning libpsl
+--->  Fetching archive for nghttp2
+--->  Attempting to fetch nghttp2-1.52.0_0.darwin_22.arm64.tbz2 from https://packages.macports.org/nghttp2
+--->  Attempting to fetch nghttp2-1.52.0_0.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/nghttp2
+--->  Installing nghttp2 @1.52.0_0
+--->  Activating nghttp2 @1.52.0_0
+--->  Cleaning nghttp2
+--->  Fetching archive for curl
+--->  Attempting to fetch curl-8.0.1_0+http2+ssl.darwin_22.arm64.tbz2 from https://packages.macports.org/curl
+--->  Attempting to fetch curl-8.0.1_0+http2+ssl.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/curl
+--->  Installing curl @8.0.1_0+http2+ssl
+--->  Activating curl @8.0.1_0+http2+ssl
+--->  Cleaning curl
+--->  Fetching archive for expat
+--->  Attempting to fetch expat-2.5.0_0.darwin_22.arm64.tbz2 from https://packages.macports.org/expat
+--->  Attempting to fetch expat-2.5.0_0.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/expat
+--->  Installing expat @2.5.0_0
+--->  Activating expat @2.5.0_0
+--->  Cleaning expat
+--->  Fetching archive for libb2
+--->  Attempting to fetch libb2-0.98.1_1.darwin_22.arm64.tbz2 from https://packages.macports.org/libb2
+--->  Attempting to fetch libb2-0.98.1_1.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/libb2
+--->  Installing libb2 @0.98.1_1
+--->  Activating libb2 @0.98.1_1
+--->  Cleaning libb2
+--->  Fetching archive for lzo2
+--->  Attempting to fetch lzo2-2.10_0.darwin_22.arm64.tbz2 from https://packages.macports.org/lzo2
+--->  Attempting to fetch lzo2-2.10_0.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/lzo2
+--->  Installing lzo2 @2.10_0
+--->  Activating lzo2 @2.10_0
+--->  Cleaning lzo2
+--->  Fetching archive for libarchive
+--->  Attempting to fetch libarchive-3.6.2_1.darwin_22.arm64.tbz2 from https://packages.macports.org/libarchive
+--->  Attempting to fetch libarchive-3.6.2_1.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/libarchive
+--->  Installing libarchive @3.6.2_1
+--->  Activating libarchive @3.6.2_1
+--->  Cleaning libarchive
+--->  Fetching archive for libcxx
+--->  Attempting to fetch libcxx-5.0.1_5.any_any.noarch.tbz2 from https://packages.macports.org/libcxx
+--->  Attempting to fetch libcxx-5.0.1_5.any_any.noarch.tbz2.rmd160 from https://packages.macports.org/libcxx
+--->  Installing libcxx @5.0.1_5
+--->  Activating libcxx @5.0.1_5
+--->  Cleaning libcxx
+--->  Fetching archive for libuv
+--->  Attempting to fetch libuv-1.44.2_0.darwin_22.arm64.tbz2 from https://packages.macports.org/libuv
+--->  Attempting to fetch libuv-1.44.2_0.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/libuv
+--->  Installing libuv @1.44.2_0
+--->  Activating libuv @1.44.2_0
+--->  Cleaning libuv
+--->  Fetching archive for ncurses
+--->  Attempting to fetch ncurses-6.4_0.darwin_22.arm64.tbz2 from https://packages.macports.org/ncurses
+--->  Attempting to fetch ncurses-6.4_0.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/ncurses
+--->  Installing ncurses @6.4_0
+--->  Activating ncurses @6.4_0
+--->  Cleaning ncurses
+--->  Fetching archive for cmake
+--->  Attempting to fetch cmake-3.24.4_0.darwin_22.arm64.tbz2 from https://packages.macports.org/cmake
+--->  Attempting to fetch cmake-3.24.4_0.darwin_22.arm64.tbz2.rmd160 from https://packages.macports.org/cmake
+--->  Installing cmake @3.24.4_0
+--->  Activating cmake @3.24.4_0
+--->  Cleaning cmake
+--->  Updating database of binaries
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+--->  Some of the ports you installed have notes:
+  libpsl has the following notes:
+    libpsl API documentation is provided by the port 'libpsl-docs'.
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % Y
+zsh: command not found: Y
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % ls -l
+total 8
+-rw-r--r--   1 e2_602_qma  staff  1801  4 25 10:58 CMakeLists.txt
+drwxr-xr-x  14 e2_602_qma  staff   448  4 25 10:58 include
+drwxr-xr-x   3 e2_602_qma  staff    96  4 25 10:58 input
+drwxr-xr-x  21 e2_602_qma  staff   672  4 25 10:58 src
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % mkdir build
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % cd build 
+e2_602_qma@E2602QMA-MacBook-Pro build % vi ../CMakeLists.txt 
+e2_602_qma@E2602QMA-MacBook-Pro build % cmake ..
+-- The C compiler identification is AppleClang 14.0.3.14030022
+-- The CXX compiler identification is AppleClang 14.0.3.14030022
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/e2_602_qma/Programs/doutzen/build
+e2_602_qma@E2602QMA-MacBook-Pro build % make
+[  4%] Building CXX object CMakeFiles/doutzen_NCA.dir/src/dyson.cpp.o
+In file included from /Users/e2_602_qma/Programs/doutzen/src/dyson.cpp:3:
+/Users/e2_602_qma/Programs/doutzen/include/dyson.hpp:3:10: fatal error: 'Eigen/Dense' file not found
+#include <Eigen/Dense>
+         ^~~~~~~~~~~~~
+1 error generated.
+make[2]: *** [CMakeFiles/doutzen_NCA.dir/src/dyson.cpp.o] Error 1
+make[1]: *** [CMakeFiles/doutzen_NCA.dir/all] Error 2
+make: *** [all] Error 2
+e2_602_qma@E2602QMA-MacBook-Pro build % ls /opt/local/include 
+archive.h		evhttp.h		lz4frame.h		unicase.h
+archive_entry.h		evrpc.h			lz4frame_static.h	unicode
+blake2.h		evutil.h		lz4hc.h			uniconv.h
+brotli			expat.h			lzma			unictype.h
+bzlib.h			expat_config.h		lzma.h			unigbrk.h
+curl			expat_external.h	lzo			unilbrk.h
+curses.h		fftw_f77.i		menu.h			uniname.h
+cursesapp.h		form.h			mpc.h			uninorm.h
+cursesf.h		gcc			mpf2mpfr.h		unistdio.h
+cursesm.h		gcc12			mpfr.h			unistr.h
+cursesp.h		gmp.h			nc_tparm.h		unistring
+cursesw.h		gmpxx.h			ncurses.h		unitypes.h
+cursslk.h		hwloc			ncurses_dll.h		uniwbrk.h
+dfftw.h			hwloc.h			nghttp2			uniwidth.h
+dfftw_threads.h		iconv.h			openmpi-mp		uv
+drfftw.h		idn2.h			openssl			uv.h
+drfftw_threads.h	isl			openssl-3		zconf.h
+eigen3			libcharset.h		panel.h			zdict.h
+eti.h			libintl.h		term.h			zlib.h
+etip.h			libpsl.h		term_entry.h		zstd.h
+evdns.h			libxml2			termcap.h		zstd_errors.h
+event.h			localcharset.h		tic.h
+event2			lz4.h			unctrl.h
+e2_602_qma@E2602QMA-MacBook-Pro build % ls /opt/local/include/eigen3 
+Eigen					unsupported
+signature_of_eigen3_matrix_library
+e2_602_qma@E2602QMA-MacBook-Pro build % ls /opt/local/include/eigen3 >> ../CMakeLists.txt 
+e2_602_qma@E2602QMA-MacBook-Pro build % fg
+fg: no current job
+e2_602_qma@E2602QMA-MacBook-Pro build % vi ../CMakeLists.txt 
+e2_602_qma@E2602QMA-MacBook-Pro build % ls -d /opt/local/include/eigen3 >> ../CMakeLists.txt
+e2_602_qma@E2602QMA-MacBook-Pro build % fg
+fg: no current job
+e2_602_qma@E2602QMA-MacBook-Pro build % vi ../CMakeLists.txt 
+
+zsh: suspended  vi ../CMakeLists.txt
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % fg
+[1]  + continued  vi ../CMakeLists.txt
+
+zsh: suspended  vi ../CMakeLists.txt
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % ls -lrt
+total 80
+-rw-r--r--   1 e2_602_qma  staff  14281  4 25 11:03 CMakeCache.txt
+-rw-r--r--   1 e2_602_qma  staff  17979  4 25 11:03 Makefile
+-rw-r--r--   1 e2_602_qma  staff   1583  4 25 11:03 cmake_install.cmake
+drwxr-xr-x  21 e2_602_qma  staff    672  4 25 11:03 CMakeFiles
+e2_602_qma@E2602QMA-MacBook-Pro build % cmake ..
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/e2_602_qma/Programs/doutzen/build
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % make
+[  4%] Building CXX object CMakeFiles/doutzen_NCA.dir/src/dyson.cpp.o
+[  9%] Building CXX object CMakeFiles/doutzen_NCA.dir/src/selfconsistency_NCA.cpp.o
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:836:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::map<std::string, nlohmann::basic_json<>>>' requested here
+                    object = create<object_t>();
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::map<std::string, nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::map<std::string, nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:842:29: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::vector<nlohmann::basic_json<>>>' requested here
+                    array = create<array_t>();
+                            ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::vector<nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::vector<nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:848:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const char (&)[1]>' requested here
+                    string = create<string_t>("");
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const char (&)[1]>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const char (&)[1]>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:886:22: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const std::string &>' requested here
+            string = create<string_t>(value);
+                     ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:1237:36: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+        : m_type(value_t::string), m_value(val)
+                                   ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10664:44: note: in instantiation of member function 'nlohmann::basic_json<>::basic_json' requested here
+                                basic_json k(key);
+                                           ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const std::string &>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const std::string &>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2124:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.object);
+                      ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:12: note: in instantiation of member function 'nlohmann::basic_json<>::~basic_json' requested here
+    return nlohmann::json::parse(s, s + n);
+           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2132:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.array);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_NCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2140:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.string);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+11 warnings generated.
+[ 14%] Linking CXX executable doutzen_NCA
+[ 14%] Built target doutzen_NCA
+[ 19%] Building CXX object CMakeFiles/doutzen_OCA.dir/src/dyson.cpp.o
+[ 23%] Building CXX object CMakeFiles/doutzen_OCA.dir/src/selfconsistency_OCA.cpp.o
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:836:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::map<std::string, nlohmann::basic_json<>>>' requested here
+                    object = create<object_t>();
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::map<std::string, nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::map<std::string, nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:842:29: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::vector<nlohmann::basic_json<>>>' requested here
+                    array = create<array_t>();
+                            ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::vector<nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::vector<nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:848:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const char (&)[1]>' requested here
+                    string = create<string_t>("");
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const char (&)[1]>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const char (&)[1]>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:886:22: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const std::string &>' requested here
+            string = create<string_t>(value);
+                     ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:1237:36: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+        : m_type(value_t::string), m_value(val)
+                                   ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10664:44: note: in instantiation of member function 'nlohmann::basic_json<>::basic_json' requested here
+                                basic_json k(key);
+                                           ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const std::string &>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const std::string &>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2124:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.object);
+                      ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:12: note: in instantiation of member function 'nlohmann::basic_json<>::~basic_json' requested here
+    return nlohmann::json::parse(s, s + n);
+           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2132:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.array);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_OCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2140:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.string);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+11 warnings generated.
+[ 28%] Linking CXX executable doutzen_OCA
+[ 28%] Built target doutzen_OCA
+[ 33%] Building CXX object CMakeFiles/doutzen_Order2.dir/src/dyson.cpp.o
+[ 38%] Building CXX object CMakeFiles/doutzen_Order2.dir/src/selfconsistency_Order2.cpp.o
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:836:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::map<std::string, nlohmann::basic_json<>>>' requested here
+                    object = create<object_t>();
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::map<std::string, nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::map<std::string, nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:842:29: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::vector<nlohmann::basic_json<>>>' requested here
+                    array = create<array_t>();
+                            ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::vector<nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::vector<nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:848:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const char (&)[1]>' requested here
+                    string = create<string_t>("");
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const char (&)[1]>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const char (&)[1]>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:886:22: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const std::string &>' requested here
+            string = create<string_t>(value);
+                     ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:1237:36: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+        : m_type(value_t::string), m_value(val)
+                                   ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10664:44: note: in instantiation of member function 'nlohmann::basic_json<>::basic_json' requested here
+                                basic_json k(key);
+                                           ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const std::string &>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const std::string &>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2124:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.object);
+                      ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:12: note: in instantiation of member function 'nlohmann::basic_json<>::~basic_json' requested here
+    return nlohmann::json::parse(s, s + n);
+           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2132:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.array);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order2.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2140:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.string);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+11 warnings generated.
+[ 42%] Linking CXX executable doutzen_Order2
+[ 42%] Built target doutzen_Order2
+[ 47%] Building CXX object CMakeFiles/doutzen_Ladder.dir/src/dyson.cpp.o
+[ 52%] Building CXX object CMakeFiles/doutzen_Ladder.dir/src/selfconsistency_Ladder.cpp.o
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:836:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::map<std::string, nlohmann::basic_json<>>>' requested here
+                    object = create<object_t>();
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::map<std::string, nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::map<std::string, nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:842:29: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::vector<nlohmann::basic_json<>>>' requested here
+                    array = create<array_t>();
+                            ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::vector<nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::vector<nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:848:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const char (&)[1]>' requested here
+                    string = create<string_t>("");
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const char (&)[1]>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const char (&)[1]>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:886:22: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const std::string &>' requested here
+            string = create<string_t>(value);
+                     ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:1237:36: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+        : m_type(value_t::string), m_value(val)
+                                   ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10664:44: note: in instantiation of member function 'nlohmann::basic_json<>::basic_json' requested here
+                                basic_json k(key);
+                                           ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const std::string &>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const std::string &>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2124:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.object);
+                      ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:12: note: in instantiation of member function 'nlohmann::basic_json<>::~basic_json' requested here
+    return nlohmann::json::parse(s, s + n);
+           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2132:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.array);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Ladder.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2140:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.string);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+11 warnings generated.
+[ 57%] Linking CXX executable doutzen_Ladder
+[ 57%] Built target doutzen_Ladder
+[ 61%] Building CXX object CMakeFiles/doutzen_TCA.dir/src/dyson.cpp.o
+[ 66%] Building CXX object CMakeFiles/doutzen_TCA.dir/src/selfconsistency_TCA.cpp.o
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:836:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::map<std::string, nlohmann::basic_json<>>>' requested here
+                    object = create<object_t>();
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::map<std::string, nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::map<std::string, nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:842:29: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::vector<nlohmann::basic_json<>>>' requested here
+                    array = create<array_t>();
+                            ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::vector<nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::vector<nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:848:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const char (&)[1]>' requested here
+                    string = create<string_t>("");
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const char (&)[1]>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const char (&)[1]>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:886:22: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const std::string &>' requested here
+            string = create<string_t>(value);
+                     ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:1237:36: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+        : m_type(value_t::string), m_value(val)
+                                   ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10664:44: note: in instantiation of member function 'nlohmann::basic_json<>::basic_json' requested here
+                                basic_json k(key);
+                                           ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const std::string &>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const std::string &>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2124:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.object);
+                      ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:12: note: in instantiation of member function 'nlohmann::basic_json<>::~basic_json' requested here
+    return nlohmann::json::parse(s, s + n);
+           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2132:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.array);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_TCA.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2140:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.string);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+11 warnings generated.
+[ 71%] Linking CXX executable doutzen_TCA
+[ 71%] Built target doutzen_TCA
+[ 76%] Building CXX object CMakeFiles/doutzen_Order3.dir/src/dyson.cpp.o
+[ 80%] Building CXX object CMakeFiles/doutzen_Order3.dir/src/selfconsistency_Order3.cpp.o
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:836:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::map<std::string, nlohmann::basic_json<>>>' requested here
+                    object = create<object_t>();
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::map<std::string, nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::map<std::string, nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:842:29: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::vector<nlohmann::basic_json<>>>' requested here
+                    array = create<array_t>();
+                            ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::vector<nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::vector<nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:848:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const char (&)[1]>' requested here
+                    string = create<string_t>("");
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const char (&)[1]>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const char (&)[1]>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:886:22: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const std::string &>' requested here
+            string = create<string_t>(value);
+                     ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:1237:36: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+        : m_type(value_t::string), m_value(val)
+                                   ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10664:44: note: in instantiation of member function 'nlohmann::basic_json<>::basic_json' requested here
+                                basic_json k(key);
+                                           ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const std::string &>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const std::string &>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2124:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.object);
+                      ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:12: note: in instantiation of member function 'nlohmann::basic_json<>::~basic_json' requested here
+    return nlohmann::json::parse(s, s + n);
+           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2132:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.array);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Order3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2140:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.string);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+11 warnings generated.
+[ 85%] Linking CXX executable doutzen_Order3
+[ 85%] Built target doutzen_Order3
+[ 90%] Building CXX object CMakeFiles/doutzen_Q3.dir/src/dyson.cpp.o
+[ 95%] Building CXX object CMakeFiles/doutzen_Q3.dir/src/selfconsistency_Q3.cpp.o
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:836:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::map<std::string, nlohmann::basic_json<>>>' requested here
+                    object = create<object_t>();
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::map<std::string, nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::map<std::string, nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:842:29: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::vector<nlohmann::basic_json<>>>' requested here
+                    array = create<array_t>();
+                            ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::vector<nlohmann::basic_json<>>>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::vector<nlohmann::basic_json<>>>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:848:30: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const char (&)[1]>' requested here
+                    string = create<string_t>("");
+                             ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10626:42: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+                        result.m_value = value_t::object;
+                                         ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const char (&)[1]>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const char (&)[1]>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:886:22: note: in instantiation of function template specialization 'nlohmann::basic_json<>::create<std::string, const std::string &>' requested here
+            string = create<string_t>(value);
+                     ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:1237:36: note: in instantiation of member function 'nlohmann::basic_json<>::json_value::json_value' requested here
+        : m_type(value_t::string), m_value(val)
+                                   ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10664:44: note: in instantiation of member function 'nlohmann::basic_json<>::basic_json' requested here
+                                basic_json k(key);
+                                           ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:10601:33: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse_internal' requested here
+            basic_json result = parse_internal(true);
+                                ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:6127:31: note: in instantiation of member function 'nlohmann::basic_json<>::parser::parse' requested here
+            return parser("").parse();
+                              ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:28: note: in instantiation of function template specialization 'nlohmann::basic_json<>::parse<const char *, 0>' requested here
+    return nlohmann::json::parse(s, s + n);
+                           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:164:10: note: 'construct' has been explicitly marked deprecated here
+    void construct(_Up* __p, _Args&&... __args) {
+         ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:769:15: warning: 'construct<std::string, const std::string &>' is deprecated [-Wdeprecated-declarations]
+        alloc.construct(object.get(), std::forward<Args>(args)...);
+              ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:163:5: note: 'construct<std::string, const std::string &>' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2124:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.object);
+                      ^
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:12175:12: note: in instantiation of member function 'nlohmann::basic_json<>::~basic_json' requested here
+    return nlohmann::json::parse(s, s + n);
+           ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2132:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.array);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+In file included from /Users/e2_602_qma/Programs/doutzen/src/selfconsistency_Q3.cpp:4:
+/Users/e2_602_qma/Programs/doutzen/include/json.hpp:2140:23: warning: 'destroy' is deprecated [-Wdeprecated-declarations]
+                alloc.destroy(m_value.string);
+                      ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__memory/allocator.h:168:5: note: 'destroy' has been explicitly marked deprecated here
+    _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_INLINE_VISIBILITY
+    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:837:41: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+#    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+                                        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__config:810:49: note: expanded from macro '_LIBCPP_DEPRECATED'
+#      define _LIBCPP_DEPRECATED __attribute__((deprecated))
+                                                ^
+11 warnings generated.
+[100%] Linking CXX executable doutzen_Q3
+[100%] Built target doutzen_Q3
+e2_602_qma@E2602QMA-MacBook-Pro build % git branch
+* master
+e2_602_qma@E2602QMA-MacBook-Pro build % git branch -b waveGuideSeries origin/waveGuideSeries
+error: unknown switch `b'
+usage: git branch [<options>] [-r | -a] [--merged] [--no-merged]
+   or: git branch [<options>] [-f] [--recurse-submodules] <branch-name> [<start-point>]
+   or: git branch [<options>] [-l] [<pattern>...]
+   or: git branch [<options>] [-r] (-d | -D) <branch-name>...
+   or: git branch [<options>] (-m | -M) [<old-branch>] <new-branch>
+   or: git branch [<options>] (-c | -C) [<old-branch>] <new-branch>
+   or: git branch [<options>] [-r | -a] [--points-at]
+   or: git branch [<options>] [-r | -a] [--format]
+
+Generic options
+    -v, --verbose         show hash and subject, give twice for upstream branch
+    -q, --quiet           suppress informational messages
+    -t, --track[=(direct|inherit)]
+                          set branch tracking configuration
+    -u, --set-upstream-to <upstream>
+                          change the upstream info
+    --unset-upstream      unset the upstream info
+    --color[=<when>]      use colored output
+    -r, --remotes         act on remote-tracking branches
+    --contains <commit>   print only branches that contain the commit
+    --no-contains <commit>
+                          print only branches that don't contain the commit
+    --abbrev[=<n>]        use <n> digits to display object names
+
+Specific git-branch actions:
+    -a, --all             list both remote-tracking and local branches
+    -d, --delete          delete fully merged branch
+    -D                    delete branch (even if not merged)
+    -m, --move            move/rename a branch and its reflog
+    -M                    move/rename a branch, even if target exists
+    -c, --copy            copy a branch and its reflog
+    -C                    copy a branch, even if target exists
+    -l, --list            list branch names
+    --show-current        show current branch name
+    --create-reflog       create the branch's reflog
+    --edit-description    edit the description for the branch
+    -f, --force           force creation, move/rename, deletion
+    --merged <commit>     print only branches that are merged
+    --no-merged <commit>  print only branches that are not merged
+    --column[=<style>]    list branches in columns
+    --sort <key>          field name to sort on
+    --points-at <object>  print only branches of the object
+    -i, --ignore-case     sorting and filtering are case insensitive
+    --recurse-submodules  recurse through submodules
+    --format <format>     format to use for the output
+
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % git checkout -b waveGuideSeries origin/waveGuideSeries
+error: Your local changes to the following files would be overwritten by checkout:
+	CMakeLists.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+e2_602_qma@E2602QMA-MacBook-Pro build % cp ../CMakeLists.txt ../CMakeLists.bak 
+e2_602_qma@E2602QMA-MacBook-Pro build % git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ../CMakeLists.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../.CMakeLists.txt.swp
+	../CMakeLists.bak
+	./
+
+no changes added to commit (use "git add" and/or "git commit -a")
+e2_602_qma@E2602QMA-MacBook-Pro build % git restore ../CMakeLists.txt 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % git checkout -b waveGuideSeries origin/waveGuideSeries
+branch 'waveGuideSeries' set up to track 'origin/waveGuideSeries'.
+Switched to a new branch 'waveGuideSeries'
+e2_602_qma@E2602QMA-MacBook-Pro build % git log
+commit 9496d58c8ebee84fcde1af5c6f7e9de18428fd5d (HEAD -> waveGuideSeries, origin/waveGuideSeries)
+Author: aaram <aaram@dgist.ac.kr>
+Date:   Tue Sep 27 15:21:58 2022 +0900
+
+    introduce trapezoidal weight for the Q-series integration
+
+commit 71db970077b22f77e65bde2ba2aef684f63e9bdb
+Author: aaram <aaram@dgist.ac.kr>
+Date:   Mon Sep 26 17:38:40 2022 +0900
+
+    change Qprint format; fill zeros to make the data file matrix form
+
+commit 7e76d76cb0ca983785f77270bd8c5d92b231d262
+Author: aaram <aaram@dgist.ac.kr>
+Date:   Mon Sep 26 17:09:52 2022 +0900
+
+    bug fixing in treating the does_printQt variable in src/singleModeWaveguide_diagMC.cpp
+
+commit 304cc7d361e154872f9d5c6240f3025ec1576683
+Author: aaram <a.romeo85@gmail.com>
+Date:   Thu Sep 1 11:35:53 2022 -0400
+
+    under construction for the series printing; compiled
+
+commit 6ff74394a962d30eb40eb2ba858b36824f90fd9d (origin/singleWaveGuide)
+Author: aaram <a.romeo85@gmail.com>
+Date:   Mon Jul 19 11:14:48 2021 +0200
+
+    add does_printTt does_printQt; print last five StS0 results for the error estimation
+
+commit e1157bb05652ca4bf0bf936db72be18bc779d1ef
+Author: aaram <a.romeo85@gmail.com>
+Date:   Sat Jun 19 12:38:47 2021 +0200
+
+    clarify 1/2 factor in interaction_t::initWtSingleModeWaveguide
+
+commit 5ee91984e72ad0df6c5c115cec08421a6628bbc1
+Author: aaram <a.romeo85@gmail.com>
+Date:   Sat Jun 19 07:40:48 2021 +0200
+
+    clarifying the factor 1/2 in front of waveguid input
+
+commit 711abf437d6f1689e0c86330bed3cf63e7756a72
+Author: aaram <a.romeo85@gmail.com>
+Date:   Thu Jun 10 17:12:41 2021 +0200
+
+    running code for the single-mode Waveguide; to be benchmarkded
+
+commit 0489e9e78e800b79521d45a7d0144283a3163b5e
+Author: aaram <a.romeo85@gmail.com>
+Date:   Tue Jun 8 19:40:28 2021 +0200
+
+    under construction for the Wt preparation of the single-mode waveguide
+
+commit fa3353314d6b22a082e18b876bbf0b769f547468 (origin/matrixDiagMC)
+Author: aaram <a.romeo85@gmail.com>
+Date:   Thu Mar 4 12:31:01 2021 -0500
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % cp ../CMakeLists.bak ../CMakeLists.txt 
+e2_602_qma@E2602QMA-MacBook-Pro build % cmake ..
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/e2_602_qma/Programs/doutzen/build
+e2_602_qma@E2602QMA-MacBook-Pro build % make
+Consolidate compiler generated dependencies of target doutzen_NCA
+[  5%] Building CXX object CMakeFiles/doutzen_NCA.dir/src/dyson.cpp.o
+/Users/e2_602_qma/Programs/doutzen/src/dyson.cpp:1:10: fatal error: 'mpi.h' file not found
+#include <mpi.h>
+         ^~~~~~~
+1 error generated.
+make[2]: *** [CMakeFiles/doutzen_NCA.dir/src/dyson.cpp.o] Error 1
+make[1]: *** [CMakeFiles/doutzen_NCA.dir/all] Error 2
+make: *** [all] Error 2
+e2_602_qma@E2602QMA-MacBook-Pro build % vi ../CMakeLists.txt 
+e2_602_qma@E2602QMA-MacBook-Pro build % fg
+[1]  + continued  vi ../CMakeLists.txt
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % make  
+-- Checking for module 'mpi-c'
+--   No package 'mpi-c' found
+
+
+
+
+
+-- Could NOT find MPI_C (missing: MPI_C_LIB_NAMES MPI_C_HEADER_DIR MPI_C_WORKS) 
+-- Checking for module 'mpi-cxx'
+--   No package 'mpi-cxx' found
+-- Could NOT find MPI_CXX (missing: MPI_CXX_LIB_NAMES MPI_CXX_HEADER_DIR MPI_CXX_WORKS) 
+CMake Error at /opt/local/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND)
+Call Stack (most recent call first):
+  /opt/local/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
+  /opt/local/share/cmake-3.24/Modules/FindMPI.cmake:1835 (find_package_handle_standard_args)
+  CMakeLists.txt:4 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/e2_602_qma/Programs/doutzen/build/CMakeFiles/CMakeOutput.log".
+See also "/Users/e2_602_qma/Programs/doutzen/build/CMakeFiles/CMakeError.log".
+make: *** [cmake_check_build_system] Error 1
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % vi ../CMakeLists.txt 
+e2_602_qma@E2602QMA-MacBook-Pro build % cd ../
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % ls -lrt
+total 16
+drwxr-xr-x   3 e2_602_qma  staff    96  4 25 10:58 input
+-rw-r--r--   1 e2_602_qma  staff  1803  4 25 11:11 CMakeLists.bak
+drwxr-xr-x  15 e2_602_qma  staff   480  4 25 11:12 include
+drwxr-xr-x  23 e2_602_qma  staff   736  4 25 11:12 src
+-rw-r--r--   1 e2_602_qma  staff  1802  4 25 11:13 CMakeLists.txt
+drwxr-xr-x  13 e2_602_qma  staff   416  4 25 11:13 build
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % git status
+On branch waveGuideSeries
+Your branch is up to date with 'origin/waveGuideSeries'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   CMakeLists.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	CMakeLists.bak
+	build/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % git restore CMakeLists.txt 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % vi CMakeLists.txt 
+e2_602_qma@E2602QMA-MacBook-Pro doutzen % cd build 
+e2_602_qma@E2602QMA-MacBook-Pro build % cmake ..
+-- Checking for module 'mpi-c'
+--   No package 'mpi-c' found
+-- Could NOT find MPI_C (missing: MPI_C_LIB_NAMES MPI_C_HEADER_DIR MPI_C_WORKS) 
+-- Checking for module 'mpi-cxx'
+--   No package 'mpi-cxx' found
+-- Could NOT find MPI_CXX (missing: MPI_CXX_LIB_NAMES MPI_CXX_HEADER_DIR MPI_CXX_WORKS) 
+CMake Error at /opt/local/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND)
+Call Stack (most recent call first):
+  /opt/local/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
+  /opt/local/share/cmake-3.24/Modules/FindMPI.cmake:1835 (find_package_handle_standard_args)
+  CMakeLists.txt:4 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/e2_602_qma/Programs/doutzen/build/CMakeFiles/CMakeOutput.log".
+See also "/Users/e2_602_qma/Programs/doutzen/build/CMakeFiles/CMakeError.log".
+e2_602_qma@E2602QMA-MacBook-Pro build % sudo port select --set mpi mpicxx-openmpi-mp
+Password:
+Warning: port definitions are more than two weeks old, consider updating them by running 'port selfupdate'.
+Selecting 'mpicxx-openmpi-mp' for 'mpi' failed: The specified version 'mpicxx-openmpi-mp' is not valid.
+e2_602_qma@E2602QMA-MacBook-Pro build % mpicc-openmpi-mp c
+
+
+clang: error: no such file or directory: 'c'
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % vi ~/.zshrc 
+e2_602_qma@E2602QMA-MacBook-Pro build % .. ~/.zshrc
+zsh: permission denied: ..
+e2_602_qma@E2602QMA-MacBook-Pro build % . ~/.zshrc 
+e2_602_qma@E2602QMA-MacBook-Pro build % cmake ..
+-- Checking for module 'mpi-c'
+--   No package 'mpi-c' found
+
+-- Could NOT find MPI_C (missing: MPI_C_LIB_NAMES MPI_C_HEADER_DIR MPI_C_WORKS) 
+-- Checking for module 'mpi-cxx'
+--   No package 'mpi-cxx' found
+-- Could NOT find MPI_CXX (missing: MPI_CXX_LIB_NAMES MPI_CXX_HEADER_DIR MPI_CXX_WORKS) 
+CMake Error at /opt/local/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND)
+Call Stack (most recent call first):
+  /opt/local/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
+  /opt/local/share/cmake-3.24/Modules/FindMPI.cmake:1835 (find_package_handle_standard_args)
+  CMakeLists.txt:4 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/e2_602_qma/Programs/doutzen/build/CMakeFiles/CMakeOutput.log".
+See also "/Users/e2_602_qma/Programs/doutzen/build/CMakeFiles/CMakeError.log".
+e2_602_qma@E2602QMA-MacBook-Pro build % 
+e2_602_qma@E2602QMA-MacBook-Pro build % fg
+fg: no current job
+e2_602_qma@E2602QMA-MacBook-Pro build % man cat
+e2_602_qma@E2602QMA-MacBook-Pro build % tty
+/dev/ttys001
+e2_602_qma@E2602QMA-MacBook-Pro build % man
+This manpage is not compatible with mandoc(1) and might display incorrectly.
+e2_602_qma@E2602QMA-MacBook-Pro build % find -eigen3
+find: illegal option -- e
+usage: find [-H | -L | -P] [-EXdsx] [-f path] path ... [expression]
+       find [-H | -L | -P] [-EXdsx] -f path [path ...] [expression]
+e2_602_qma@E2602QMA-MacBook-Pro build % find -name[eigen3]
+zsh: no matches found: -name[eigen3]
+e2_602_qma@E2602QMA-MacBook-Pro build % find -name [mac] 
+zsh: no matches found: [mac]
+e2_602_qma@E2602QMA-MacBook-Pro build % find -name [2023]
+zsh: no matches found: [2023]
+e2_602_qma@E2602QMA-MacBook-Pro build % Is                  
+zsh: command not found: Is
+e2_602_qma@E2602QMA-MacBook-Pro build % is
+zsh: command not found: is
+e2_602_qma@E2602QMA-MacBook-Pro build % ls
+CMakeCache.txt		cmake_install.cmake	doutzen_OCA		doutzen_Q3
+CMakeFiles		doutzen_Ladder		doutzen_Order2		doutzen_TCA
+Makefile		doutzen_NCA		doutzen_Order3
+e2_602_qma@E2602QMA-MacBook-Pro build % ㅁ

@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\title{Matsubara Summary(2) : About $\tau$}
+\maketitle
+To answering the question : What is the reason that $\tau$ has its boundary condition as : '$0<\tau<\beta$'?
+Following the derivation in the textbook, written by Bruus and K, Ch.11 section 2, 
+\\First, retarded single particle Green's function can be written as: 
+\begin{flalign*}
+    C^R_{AB}(\omega) = \frac{1}{Z} \sum_{nn'} \frac{\bra{n} A \ket{n'} \bra{n'} B \ket{n}}{\omega+E_n -E_{n'} + i\eta} \bigg( e^{\beta E_n}-(\pm)e^{-\beta E_{n'}} \bigg)
+\end{flalign*}
+And by the definition of Matsubara frequency,
+\begin{flalign*}
+    C_{AB}(\tau) = -\frac{1}{Z} & Tr[e^{\beta H}e^{\tau H} A e^{-\tau H}B] \\
+                                &= -\frac{1}{Z} \int \psi^{0*}_n(x) e^{\beta H} e^{\tau H} a^\dagger e^{-\tau H} a \psi^{0}_n(x) dx \\
+                                &= -\frac{1}{Z} \sum_n e^{\beta E_n}\int \psi^{0*}_n(x) e^{\tau H} a^\dagger e^{-\tau H} a \psi^{0}_n(x) dx \\
+                                &= -\frac{1}{Z} \sum_n e^{\beta E_n}\int \psi^{0*}_n(x) a^\dagger \ket{\psi_{n'}}\bra{\psi_{n}} a \psi^{0}_n(x) dx e^{-\tau E_n - E_{n'}} 
+\end{flalign*}
+\begin{flalign*}
+    C_{AB}(\tau) &= -\frac{1}{Z} Tr[e^{\beta H} e^{\tau H} A e^{-\tau H} B] \\
+    &= -\frac{1}{Z} \sum_{nn'} e^{\beta H} \bra{n} A \ket{n'} \bra{n'} B \ket{n} \bigg( e^{\beta E_n}-(\pm)e^{-\beta E_{n'}} \bigg) \\
+\end{flalign*}
+Using Fourier Transformation,
+\begin{flalign*}
+    C_{AB} &= \int^\beta_0 d\tau e^{i\omega_n \tau}[-\frac{1}{Z} \sum_{nn'} e^{\beta H} e\bra{n} A \ket{n'} \bra{n'} B \ket{n} \bigg( e^{\beta E_n}-(\pm)e^{-\beta E_{n'}} \bigg)] \\
+    &= \frac{1}{(E_n - E_-{n'} + \tau \omega_n i)}(-\frac{e^{\beta H}}{Z} c) e^{\tau(E_n - E_{n'} + i\omega+n)}|^\beta_0
+\end{flalign*} 
+Therefore,
+\begin{flalign*}
+    C_{AB} = \frac{1}{Z}\sum_{nn'}\frac{\sum_{nn'}  \bra{n} A \ket{n'} \bra{n'} B \ket{n}}{i \omega_n +E_n - E{n'}} (e^{beta E_n} - \pm e^{\beta E_{n'}})
+\end{flalign*}
+Consider the function in entire complex plane, where $z=x+iy$,
+\begin{flalign*}
+    C_{AB} = \frac{1}{Z}\sum_{nn'}\frac{\sum_{nn'}  \bra{n} A \ket{n'} \bra{n'} B \ket{n}}{z +E_n - E{n'}} (e^{beta E_n} - \pm e^{\beta E_{n'}})
+\end{flalign*}
+According to the theory of analytic functions : if two functions coincide in an a infinite set of points then they are fully identical functions within the entire domain where at least one of them is analyitc function.\\
+That is, if $C_{AB}(i\omega)$ is known, then $C^R_{AB}(\omega)$ can be found :
+\begin{flalign*}
+    C^R_{AB}(\omega) = C_{AB}(i\omega \rightarrow \omega + i\eta)
+\end{flalign*}
+Where $\eta$ is infinitesimal real value.
+\end{document}

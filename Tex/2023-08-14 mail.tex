@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{multirow}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\usepackage{booktabs}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+Let $H_0 = -E_c \frac{\partial^2}{\partial \phi^2} - E_J \cos\phi$, $H_0 \psi$ become :
+\begin{align}
+    \text{even} : -\frac{E_c}{\sqrt{\pi}}\bigg(\sum^\infty_{m=1} (-m^2)a_m\cos m \phi - \frac{a_0}{\sqrt{2}}\gamma\cos\phi - \frac{\gamma}{2}\sum^\infty_{m=1}a_m(\cos(m+1)\phi + \cos(m-1)\phi)\bigg) \\
+    \text{odd} : -\frac{E_c}{\sqrt{\pi}}\bigg(\sum^\infty_{m=1} (-m^2)b_m\sin m \phi - \frac{\gamma}{2}\sum^\infty_{m=1}a_m(\sin(m+1)\phi + \sin(m-1)\phi)\bigg)
+\end{align}
+And its matrix form is :
+\begin{equation}
+    E_c
+    \begin{pmatrix}
+      0 & -\frac{\gamma}{2} & 0 &  0 &\cdots \\
+      -\frac{\gamma}{\sqrt{2}}\cos \phi & \cos \phi & -\frac{\gamma}{2} \cos \phi & 0 & \cdots \\
+      0 & -\frac{\gamma}{2} \cos 2\phi & 4\cos 2\phi & -\frac{\gamma}{2} \cos 2\phi& \cdots \\
+      0 & 0 & -\frac{\gamma}{2} \cos 3\phi & 9\cos 3\phi & \cdots \\
+      \vdots & \vdots & \vdots & \vdots & \cdots
+    \end{pmatrix}
+    \begin{pmatrix}
+        a_0 \\ a_1 \\ a_2 \\ a_3 \\ \vdots
+    \end{pmatrix}
+\end{equation}
+\begin{equation}
+    E_c
+    \begin{pmatrix}
+      \sin \phi & -\frac{\gamma}{2} \sin\phi & 0 & 0 & \cdots \\
+      0 & -\frac{\gamma}{\sqrt{2}}\sin 2\phi & 4\sin 2\phi & -\frac{\gamma}{2} \sin 2\phi & \cdots \\
+      0 & 0 & -\frac{\gamma}{2} \cos 3\phi & 9\cos 2\phi & \cdots \\
+      0 & 0 & 0 & -\frac{\gamma}{2} \cos 4\phi & \cdots \\
+      \vdots & \vdots & \vdots & \vdots & \cdots
+    \end{pmatrix}
+    \begin{pmatrix}
+        b_1 \\ b_2 \\ b_3 \\ \vdots
+    \end{pmatrix}
+\end{equation}
+Also, let form of $\psi$ as : $\psi(x) = \sum^\infty_{-\infty} \frac{c_m e^{im\phi}}{\sqrt{2\pi}}$, $H_0 \psi$ is :
+\begin{equation}
+    \frac{E_c}{\sqrt{2\pi}} \bigg(\sum^\infty_{-\infty}c_m m^2 e^{im\phi} - \gamma\sum^\infty_{-\infty}c_m  e^{i(m+1)\phi} - \gamma\sum^\infty_{-\infty}c_m  e^{i(m-1)\phi} \bigg)
+\end{equation}
+for $m \geq 0$,
+\begin{equation}
+    \frac{E_c}{\sqrt{2 \pi}}
+    \begin{pmatrix}
+        0 & -\gamma & 0 & 0 \cdots \\
+        -\gamma e^{i\phi} & e^{i\phi} & -\gamma e^{i\phi} & 0 \cdots \\
+        0 & -\gamma e^{i2\phi} & 4e^{i2\phi} & -\gamma e^{i2\phi} \cdots \\
+        0 & 0 & -\gamma e^{i3\phi} & 9e^{i3\phi} \cdots \\
+        \vdots & \vdots & \vdots & \cdots 
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_0 \\ c_1 \\ c_2 \\ c_3  \\ \vdots
+    \end{pmatrix}
+\end{equation}
+\end{document}

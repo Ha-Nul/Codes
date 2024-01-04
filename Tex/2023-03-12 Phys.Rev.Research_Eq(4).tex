@@ -1,0 +1,102 @@
+\documentclass{article}
+\title{Derivation of the squeezed state Hamiltonian}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\begin{document}
+\begin{flalign*}
+    \hat{H}_c & = \frac{(\hat{P}-q\hat{A})^2}{2m} + V(\hat{Q}) + \sum_{k} \hbar\omega_k \hat{a}^\dagger\hat{a} \\
+    & = \frac{\hat{P}^2}{2m} + \frac{q^2 \hat{A}^2}{2m} - \underbrace{\frac{q}{2m}(\hat{P}\hat{A}+\hat{A}\hat{P})}_\text{(a)} + V(\hat{Q}) + \sum_{k} \hbar\omega_k \hat{a}^\dagger\hat{a}
+    \tag{1}
+    &&
+\end{flalign*}
+\begin{flalign*}
+    \hat{H}_c=\frac{\hat{P}}{2m} + V(\hat{Q}) - \underbrace{\hat{P} \sum_n \zeta_n (\hat{b}_n + \hat{b}^\dagger_n)}_\text{(b)} 
+    +\sum_n \hbar \Omega_n \hat{b}_n\hat{b}^\dagger_n \tag{4} &&
+\end{flalign*}
+\begin{flalign*}
+    \hat{a}_k = \sum_n (O)_{kn} [cosh(r_{nk})\hat{b}_n - sinh(r_{nk})\hat{b}_n^\dagger] \tag{5} &&
+\end{flalign*}
+\begin{flalign*}
+    \left\{
+        \begin{array}{ll}
+           \hat{X}_k = \sqrt{\frac{\hbar}{2\omega_k}}(\hat{a}_k + \hat{a}_k^\dagger) \\
+           \hat{P}_k = \sqrt{\frac{\hbar\omega_k}{2}}(-\hat{a}_k + \hat{a}_k^\dagger)
+        \end{array}
+        \right. &&
+\end{flalign*}  
+\begin{flalign*}
+    \left\{
+        \begin{array}{ll}
+           \hat{a}_k = \sqrt{\frac{\omega_k}{2\hbar}}\hat{X}_k -i\sqrt{\frac{1}{2 \hbar \omega_k }}\hat{P}_k \\
+           \hat{a}^\dagger_k = \sqrt{\frac{\omega_k}{2\hbar}}\hat{X}_k + i\sqrt{\frac{1}{2 \hbar \omega_k }}\hat{P}_k
+        \end{array}
+        \right. &&
+\end{flalign*}
+\begin{flalign*}
+    \hat{P}_k = \sum_n O_{kn} \hat{\tilde{P}}_n \quad , \quad \hat{X}_k = \sum_n O_{kn} \hat{\tilde{X}}_n \tag{A3}  &&
+\end{flalign*}
+\begin{flalign*}
+    \left\{
+        \begin{array}{ll}
+           \hat{a}_k = \sqrt{\frac{\omega_k}{2\hbar}}\sum_n O_{kn} \hat{\tilde{X}}_n -i\sqrt{\frac{1}{2 \hbar \omega_k }}\sum_n O_{kn} \hat{\tilde{P}}_n \quad 
+           , \quad \hat{b}_n = \sqrt{\frac{\Omega_n}{2\hbar}}\hat{\tilde{X}}_n + i \sqrt{\frac{1}{2\hbar\Omega_n}}\hat{\tilde{P}}_n\\
+           \hat{a}^\dagger_k = \sqrt{\frac{\omega_k}{2\hbar}}\sum_n O_{kn} \hat{\tilde{X}}_n + i\sqrt{\frac{1}{2 \hbar \omega_k }}\sum_n O_{kn} \hat{\tilde{P}}_n
+           \quad , \quad \hat{b}_n^\dagger = \sqrt{\frac{\Omega_n}{2\hbar}}\hat{\tilde{X}}_n - i \sqrt{\frac{1}{2\hbar\Omega_n}}\hat{\tilde{P}}_n
+        \end{array}
+        \right. &&
+\end{flalign*}
+\begin{flalign*}
+    \left\{
+        \begin{array}{ll}
+           \hat{b}_n = \sqrt{\frac{\Omega_n}{2\hbar}}\hat{\tilde{X}}_n + i \sqrt{\frac{1}{2\hbar\Omega_n}}\hat{\tilde{P}}_n
+           \quad , \quad \hat{\tilde{X}}_n = \sqrt{\frac{\hbar}{2\Omega_n}}(\hat{b}_n + \hat{b}^\dagger_n)\\
+           \hat{b}_n^\dagger = \sqrt{\frac{\Omega_n}{2\hbar}}\hat{\tilde{X}}_n - i \sqrt{\frac{1}{2\hbar\Omega_n}}\hat{\tilde{P}}_n
+           \quad , \quad \hat{\tilde{P}}_n = i\sqrt{\frac{\hbar\Omega_n}{2}}(\hat{b}_n - \hat{b}^\dagger_n)
+        \end{array}
+        \right. &&
+\end{flalign*}
+\begin{flalign*}
+     & \sum_{n} O_{kn} \big( \sqrt{\frac{\omega_k}{2\hbar}}\sqrt{\frac{\hbar}{2\Omega_n}}(\hat{b}_n + \hat{b}^\dagger_n)
+    + \sqrt{\frac{1}{2\hbar\omega_k}} i\sqrt{\frac{\hbar\Omega_n}{2}}(\hat{b}_n - \hat{b}^\dagger_n)\big ) \\
+    & =\sum_n O_{kn} \big( \frac{1}{2}\sqrt{\frac{\omega_k}{\Omega_n}}(\hat{b}_n + \hat{b}^\dagger_n)
+    + \frac{1}{2}i\sqrt{\frac{\Omega_n}{\omega_k}}(\hat{b}_n - \hat{b}^\dagger_n)\big ) &&
+\end{flalign*}
+\begin{flalign*}
+    e^{r_{nk}} \equiv \sqrt{\frac{\Omega_n}{\omega_k}} 
+    \quad , \quad g_k \equiv qf_k \sqrt{\frac{\omega_k}{m\hbar}}
+    \quad , \quad \hat{A} \equiv f_k(\hat{a} + \hat{a}^\dagger) &&
+\end{flalign*}
+\begin{flalign*}
+    \hat{a}_k & = \sum_n \frac{1}{2} O_{kn} \big( e^{r_{nk}}(\hat{b}_n + \hat{b}_n^\dagger) + e^{r_{nk}}(\hat{b}_n - \hat{b}_n^\dagger)\big) \\
+    & = \sum_n O_{kn }\big( cosh(r_{nk})\hat{b}_n + sinh(r_{nk})\hat{b}_n^\dagger) &&
+\end{flalign*}
+\begin{flalign*}
+    \hat{a}^\dagger_k & = \sum_n \frac{1}{2} O_{kn} \big( e^{r_{nk}}(\hat{b}_n + \hat{b}_n^\dagger) + e^{r_{nk}}(\hat{b}_n - \hat{b}_n^\dagger)\big) \\
+    & = \sum_n O_{kn }\big( cosh(r_{nk})\hat{b}_n - sinh(r_{nk})\hat{b}_n^\dagger) &&
+\end{flalign*}
+\begin{flalign*}
+    \hat{a}_k + \hat{a}_k^\dagger = \sum_n O_{kn} e^{-r_{nk}}\big(\hat{b}_n + \hat{b}_n^\dagger ) &&
+\end{flalign*}
+\begin{flalign*}
+    \text{Operator A and P are commute,} \quad & \hat{A}\hat{P} + \hat{P}\hat{A} = 2\hat{P}\hat{A} \quad , \quad \text{(a)} = -\frac{q}{m}(\hat{P}\hat{A})\\
+    &\hat{A} = \sum_k f_k(\hat{a}_k + \hat{a}_k^\dagger) \\
+    & = \sum_{kn} f_k O_{nk} [ e^{-r_{nk}}(\hat{b}_n + \hat{b}_n^\dagger)]\\
+    & = \sum_{kn} f_k O_{nk} \sqrt{\frac{\Omega_n}{\omega_k}} (\hat{b}_n + \hat{b}_n^\dagger)\\
+    & = \sum_{kn} O_{nk} \frac{g_k}{q}\sqrt{\frac{m\hbar}{\Omega_n}} (\hat{b}_n + \hat{b}_n^\dagger) \quad , \quad \big(f_k\sqrt{\frac{\omega_k}{\Omega_n}} = \frac{g_k}{q}\sqrt{\frac{m\hbar}{\Omega_n}} \big)\\
+    &&
+\end{flalign*}
+\begin{flalign*}
+    \zeta_n \equiv \sqrt{\frac{\hbar}{m\Omega_n}}\sum_k g_k O_{kn} &&
+\end{flalign*}
+\begin{flalign*}
+    \hat{A}=\sum_{n} \zeta_n (\hat{b}_n + \hat{b}_n^\dagger) &&
+\end{flalign*}
+
+\begin{flalign}
+    a: \equiv b
+   \end{flalign}
+Thus (b) can be derived as a result.
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[9pt]{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\begin{document}
+\begin{equation*}
+    \Delta X_1 = \frac{1}{2}e^{-r}, \Delta X_2 = \frac{1}{2}e^{-r}
+\end{equation*}
+\begin{equation*}
+    \hat{X_1} \rightarrow \hat{X_1} e^{-r} , \hat{X_2} \rightarrow \hat{X_2} e^{-r}
+\end{equation*}
+\begin{equation*}
+    (\hat{a}+\hat{a}^{\dagger}) \rightarrow (\hat{a}+\hat{a}^{\dagger})e^{-r} , (\hat{a}-\hat{a}^{\dagger}) \rightarrow (\hat{a}-\hat{a}^{\dagger})e^{-r}
+\end{equation*}
+\begin{equation*}
+    \hat{a} \rightarrow \hat{b} = \hat{a} \hypcosine{r} - \hat{a}^{\dagger} \hypsine{r}
+\end{equation*}
+\begin{equation*}
+    \hat{a} \rightarrow \hat{b}^{\dagger} = \hat{a}^{\dagger} \hypcosine{r} - \hat{a}^{\dagger} \hypsine{r}
+\end{equation*}
+If Operator $ \hat{S}(r) $ is,
+\begin{equation*}
+    \hat{S}^{\dagger} (r) \hat{a} \hat{S}(r) = \hat{b} = \hat{a} \hypcosine{r} - \hat{a}^{\dagger} \hypsine{r}
+\end{equation*}
+\begin{equation*}
+    \hat{S}^{\dagger} (r) \hat{a}^{\dagger} \hat{S}(r) = \hat{b} = \hat{a}^{\dagger} \hypcosine{r} - \hat{a} \hypsine{r}
+\end{equation*}
+Or,
+\begin{equation*}
+    \hat{S}^{\dagger} (r) \hat{X_1} \hat{S}(r) = \hat{X_1}e^{-r}
+\end{equation*}
+\begin{equation*}
+    \hat{S}^{\dagger} (r) \hat{X_2} \hat{S}(r) = \hat{X_2}e^{r}
+\end{equation*}
+Then Squeezed state given by:
+\begin{equation*}
+    \ket{r,\alpha}=\hat{S}(r)\ket{\alpha}=\hat{S}(r)\hat{D}(\alpha)\ket{0}
+\end{equation*}
+The Operator which satisfies the above equation is given by:
+\begin{equation*}
+    \hat{S}(r)=e^{\frac{r}{2}\hat{a}^2-\frac{r}{2}\hat{a}^{\dagger 2}}
+\end{equation*}
+For any complex number $ z=re^{i\theta} $,
+\begin{equation*}
+    \hat{S}(r)=e^{\frac{z^*}{2}\hat{a}^2-\frac{z}{2}\hat{a}^{\dagger 2}}
+\end{equation*}
+
+Optimize  $\abs{F(x,y)-G(x,y,z)}$  where  $F=4x+y$ , $G=0.875(x+y+z)$
+
+\end{document}

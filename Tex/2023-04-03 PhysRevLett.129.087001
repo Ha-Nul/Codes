@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\title{Absence versus Presence of Dissipative Quantum Phase Transition in Josephson Junctions}
+\begin{document}
+Dissipative quantum phase transition in Josephson junctions : Transition always occurs in $R_Q=\frac{h}{4e^2}$.\\
+\end{document}

@@ -1,0 +1,39 @@
+Suppose two vectors written in two-dimensional basis $ \ket{\psi_{a} ( \textbf{r}_a )} $, $ \ket{\psi_{b} ( \textbf{r}_b )} $ are representing the state of two single particle, named a,b. 
+\begin{align*}
+    \ket{\psi_{a} ( \textbf{r}_a )} = \begin{pmatrix} a_{r_1} \\ a_{r_2} \end{pmatrix}, \qquad \ket{\psi_{b} ( \textbf{r}_b )} = \begin{pmatrix} b_{r_1} \\ b_{r_2} \end{pmatrix}
+\end{align*}
+To describe the two-particle states, kronecker product can be used:
+\begin{align*}
+    \ket{\psi_{a} ( \textbf{r}_a )} \ket{\psi_{b} ( \textbf{r}_b )} = \begin{pmatrix} a_{r_1} \\ a_{r_2} \end{pmatrix} \otimes \begin{pmatrix} b_{r_1} \\ b_{r_2} \end{pmatrix} = \begin{pmatrix} a_{r_1} b_{r_1} \\ a_{r_1} b_{r_2} \\ a_{r_2} b_{r_1} \\ a_{r_2} b_{r_2} \end{pmatrix} 
+\end{align*}
+Or,
+\begin{align*}
+    \ket{\psi_{b} ( \textbf{r}_b )} \ket{\psi_{a} ( \textbf{r}_a )} =  \begin{pmatrix} b_{r_1} \\ b_{r_2} \end{pmatrix} \otimes \begin{pmatrix} a_{r_1} \\ a_{r_2} \end{pmatrix} = \begin{pmatrix} b_{r_1} a_{r_1} \\ b_{r_1} a_{r_2} \\ b_{r_2} a_{r_1} \\ b_{r_2} a_{r_2} \end{pmatrix} 
+\end{align*}
+\subsection{V($r_j - r_k$) in two-particle states}
+Suppose there are two different vectors representing the two-particle states,  $\ket{\psi_{a} ( \textbf{r}_a )} \ket{\psi_{b} ( \textbf{r}_b )}$ and $\ket{\psi_{c} ( \textbf{r}_c )} \ket{\psi_{d} ( \textbf{r}_d )} $,
+\begin{align*}
+    \ket{\psi_{c} ( \textbf{r}_c )} \ket{\psi_{d} ( \textbf{r}_d )} = \begin{pmatrix} c_{r_1} \\ c_{r_2} \end{pmatrix} \otimes \begin{pmatrix} d_{r_1} \\ d_{r_2} \end{pmatrix} = \begin{pmatrix} c_{r_1} d_{r_1} \\ c_{r_1} d_{r_2} \\ c_{r_2} d_{r_1} \\ c_{r_2} d_{r_2} \end{pmatrix} 
+\end{align*}
+Let V is a linear Operator which can be thought of as similar to a function of ($r_2-r_1$) in quantum system, 
+and have $\ket{\psi_{a} ( \textbf{r}_a )} \ket{\psi_{b} ( \textbf{r}_b )}$ , $\ket{\psi_{c} ( \textbf{r}_c )} \ket{\psi_{d} ( \textbf{r}_d )} $ for its eigenstates.
+In the matrix representation of V, its elements can be calculated as follows:
+\begin{align*}
+    V_{\nu_c\nu_d,\nu_a \nu_b} &=\int \bra{\psi_{c} ( \textbf{r}_c )} \bra{\psi_{d} ( \textbf{r}_d )} V(r_2-r_1) \ket{\psi_{a} ( \textbf{r}_a )} \ket{\psi_{b} ( \textbf{r}_b )} dr_2 dr_1\\
+    &=\int \big( c_{r_1} d_{r_1} \quad c_{r_1} d_{r_2} \quad c_{r_2} d_{r_1} \quad c_{r_2} d_{r_2} \big) V(r_2-r_1) \begin{pmatrix} a_{r_1} b_{r_1} \\ a_{r_1} b_{r_2} \\ a_{r_2} b_{r_1} \\ a_{r_2} b_{r_2} \end{pmatrix} dr_2 dr_1\\
+    &=\int V(r_2-r_1) \big( \underbrace{a_{r_1} b_{r_1} c_{r_1} d_{r_1}}_{1} + \underbrace{a_{r_1} b_{r_2} c_{r_1} d_{r_2}}_2 + \underbrace{a_{r_2} b_{r_1} c_{r_2} d_{r_1}}_3 + \underbrace{a_{r_2} b_{r_2} c_{r_2} d_{r_2}}_4 \big) dr_2 dr_1
+\end{align*}
+Changing the order of kronecker product for each particle states doesn't affect the result, therefore:
+\begin{align*}
+    V_{\nu_d\nu_c,\nu_b \nu_a} &=\int \bra{\psi_{d} ( \textbf{r}_d )} \bra{\psi_{c} ( \textbf{r}_c )} V(r_2-r_1) \ket{\psi_{b} ( \textbf{r}_b )} \ket{\psi_{a} ( \textbf{r}_a )} dr_2 dr_1\\
+    &=\int \big( d_{r_1} c_{r_1} \quad d_{r_1} c_{r_2} \quad d_{r_2} c_{r_1} \quad d_{r_2} c_{r_2} \big) V(r_2-r_1) \begin{pmatrix} b_{r_1} a_{r_1} \\ b_{r_1} a_{r_2} \\ b_{r_2} a_{r_1} \\ b_{r_2} a_{r_2} \end{pmatrix} dr_2 dr_1\\
+    &=\int V(r_2-r_1) \big( \underbrace{b_{r_1} a_{r_1} d_{r_1} c_{r_1}}_{1} + \underbrace{b_{r_1} a_{r_2} d_{r_1} c_{r_2}}_{3} + \underbrace{b_{r_2} a_{r_1} d_{r_2} c_{r_1}}_{2} + \underbrace{b_{r_2} a_{r_2} d_{r_2} c_{r_2}}_{4} \big) dr_2 dr_1\\
+    &=V_{\nu_c\nu_d,\nu_a \nu_b}
+\end{align*}
+In general, This result means that when measuring the state of two particles with different properties such as quantum state or location, 
+the result will not be changed even if the given property of each particle was swapped. 
+Measuring the V operator, the property is a separate position that each particle locates. \\ If two particles are locates on position j and k,
+then $V_{jk}$ is : 
+\begin{align*}
+    \sum^{N}_{j<k} V_{jk} = \frac{1}{2} \sum^{N}_{j}\sum^{N}_{k} V_{jk} \quad (j\neq k)
+\end{align*}

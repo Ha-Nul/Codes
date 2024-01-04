@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\subsection*{Lehmann representation}
+\begin{flalign}
+    G^>(\nu;t,t') = -i(c_\nu(t)c_\nu^\dagger(t')) &= i\frac{1}{Z}\sum_n \bra{n}e^{\beta H}c_\nu(t)c_\nu^\dagger(t')\ket{n}\\
+        &=-i\frac{1}{Z}\sum_{nn'}e^{-\beta E_n} \bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}e^{i-(E_n - E_{n'})(t-t')}
+\end{flalign}
+\begin{flalign}
+    G^>(\nu;\omega)=\frac{-2\pi i}{Z}\sum_{nn'}e^{-\beta E_n} \bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}\delta(E_n - E_{n'}+\omega)
+\end{flalign}
+\begin{flalign}
+    G^<(\nu;\omega)&=\frac{-2\pi i}{Z}\sum_{nn'}e^{(-\beta E_n)} \bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}\delta(E_n - E_{n'}+\omega)\\
+        &=\frac{-2\pi i}{Z}\sum_{nn'}e^{(-\beta E_n)} \bra{n}c^\dagger_\nu\ket{n'}\bra{n'}c_nu\ket{n}\delta(E_n - E_{n'}+\omega)\\
+        &=\frac{-2\pi i}{Z}\sum_{nn'}e^{(-\beta E_n + \omega)} \bra{n}c^\dagger_\nu\ket{n'}\bra{n'}c_nu\ket{n}\delta(E_n - E_{n'}+\omega)\\
+        &=-G^>(\nu;\omega)e^{-\beta\omega}
+\end{flalign}
+\begin{flalign}
+    G^R(\nu,\omega) &= -i\int^\infty_0 dt e^{i(\omega+i\eta)t}\frac{1}{Z}\sum_{nn'}e^{\beta E_n}\big(\bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}e^{i(E_n - E_{n'})t}+\bra{n}c^\dagger_\nu\ket{n'}\bra{n'}c_nu\ket{n}e^{-i(E_n - E_{n'})t}\big)\\
+       &=\frac{1}{Z}\sum_{nn'}e^{\beta E_n}\bigg(\frac{\bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}}{\omega + E_n + E_n' + i\eta} + \frac{\bra{n}c^\dagger_\nu\ket{n'}\bra{n'}c_\nu\ket{n}}{\omega - E_n + E_n' + i\eta}\bigg)\\
+       &=\frac{1}{Z}\sum_{nn'}\bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}(e^{\beta E_n}+e^{\beta E_{n'}})
+\end{flalign}
+\begin{flalign}
+    2\text{Im}G^R(\nu,\omega) &= -\frac{2\pi}{Z}\sum_{nn'}\bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}(e^{\beta E_n}+e^{\beta E_{n'}})\delta(\omega+E_n-E_{n'})\\
+        &=-\frac{2\pi}{Z}\sum_{nn'}\bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}e^{\beta -E_n}(1+e^{\beta\omega})\delta(\omega+E_n-E_{n'})\\
+        &=-i(1+e^{\beta\omega})G^>(\nu,\omega)
+\end{flalign}
+\begin{flalign}
+    A(\nu,\omega)=-2\text{Im}G^R(\nu,\omega)
+\end{flalign}
+\begin{flalign}
+    iG^>(\nu,\omega)=A(\nu,\omega)[1-n_F(\omega)]
+\end{flalign}
+\begin{flalign}
+    iG^>(\nu,\omega)=A(\nu,\omega)[1-n_F(\omega)]\\
+    -iG^<(\nu,\omega)=A(\nu,\omega)n_F(\omega)
+\end{flalign}
+\begin{flalign}
+    G^R(\nu,\omega)=\int\frac{d\omega}{2\pi}\frac{A(\nu,\omega)}{\omega-\omega'+i\eta}\\
+    G^A(\nu,\omega)=\int\frac{d\omega}{2\pi}\frac{A(\nu,\omega)}{\omega-\omega'-i\eta}
+\end{flalign}
+\begin{flalign}
+    G^R(\nu,\omega)=[G^A(\nu,\omega)]*
+\end{flalign}
+\begin{flalign}
+    G^R(\nu,\nu',\omega)=[G^A(\nu,\nu,\omega)]^*
+\end{flalign}
+\subsection*{The spectral function}
+\begin{flalign}
+    G^R_0(\textbf{k}\sigma,\omega)&=-i\int^\infty_\infty dt \theta(t-t')e^{i\omega(t-t')\eta(t-t')}\\
+        &=\frac{1}{\omega -\xi_k +i\eta}
+\end{flalign}
+\begin{flalign}
+    A_0(k\sigma,\omega)=-2\text{Im}G^R_0(\textbf{k}\sigma,\omega)=2\pi\delta(\omega-\xi_k)
+\end{flalign}
+\begin{flalign}
+    \int^\infty_\infty \frac{d\omega}{2\pi}A(\nu,\omega)=1
+\end{flalign}
+\begin{flalign}
+    \int^\infty_\infty \frac{d\omega}{2\pi}A(\nu,\omega) &= -\int^\infty_\infty \frac{d\omega}{2\pi}2ImG^R(\nu,\omega)\\
+        &=\int^\infty_\infty d\omega \frac{1}{Z}\sum_{nn'}\bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}(e^{\beta E_n}+e^{\beta E_{n'}})\delta(\omega+E_n-E_{n'})\\
+        &=\frac{1}{Z}\sum_{nn'}\bra{n}c_\nu\ket{n'}\bra{n'}c^\dagger_\nu\ket{n}(e^{\beta E_n}+e^{\beta E_{n'}})
+        =\langle c_\nu c_\nu^\dagger \rangle + \langle c_\nu^\dagger c_\nu \rangle =\langle c_\nu c_\nu^\dagger + c_\nu^\dagger c_\nu \rangle 
+\end{flalign}
+\begin{flalign}
+    \int_\infty^\infty \frac{d\omega}{2\pi}G^R(\nu,\omega) = G^R(\nu,t=0)=-i\theta(0)\langle\{c_\nu,c_\nu^\dagger\}\rangle=-i\frac{1}{2}
+\end{flalign}
+Since for fermions the occupation $n_\nu$ of a given state $\nu$ is given by:
+\begin{flalign}
+    \bar{n}_\nu=\langle c_\nu^\dagger c_\nu \rangle &= -iG^<(\nu,t=0)\\
+        &=-i \int^\infty_\infty \frac{d\omega}{2\pi}G^<(\nu,\omega)\\
+        &= \int^\infty_\infty A(\nu,\omega)n_F(\omega)
+\end{flalign}
+\end{document}

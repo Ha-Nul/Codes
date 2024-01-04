@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=25mm,
+ bottom=20mm
+ }
+ \begin{document}
+\Section*{Derivation of the Second Quantization of the one-particle Operator}
+From the First Quantization of one-particle operator,
+\begin{equation*}
+    &\hat{T}_{tot}\ket{\psi_{\nu_{\alpha_1}}(\textbf{r}_1)}\ket{\psi_{\nu_{\alpha_2}}(\textbf{r}_2)},\cdots,\ket{\psi_{\nu_{\alpha_N}}(\textbf{r}_N)} \\
+    &=\sum_{j=1}^{N}\sum_{\nu_a,\nu_b}T_{\nu_b,\nu_a}\ket{\psi_{\nu_b}(r_j)}\bra{\psi_{\nu_a}(r_j)}
+    \big(\ket{\psi_{\nu_{\alpha_1}}(\textbf{r}_1)}\ket{\psi_{\nu_{\alpha_2}}(\textbf{r}_2)},\cdots,\ket{\psi_{\nu_{\alpha_N}}(\textbf{r}_N)}\big )\\
+    &=\sum_{j=1}^{N}\sum_{\nu_a,\nu_b}T_{\nu_b,\nu_a}\delta_{\nu_a,\nu_{\nu_j}}
+    \ket{\psi_{\nu_{\alpha_1}}(\textbf{r}_1)},\ket{\psi_{\nu_{\alpha_2}}(\textbf{r}_2)}
+    \cdots\ket{\psi_{\nu_{b}}(\textbf{r}_j)},\cdots,\ket{\psi_{\nu_{\alpha_N}}(\textbf{r}_N)}
+\end{equation*}
+Adjusting the Bosonic Operator on both sides of equation, 
+\begin{equation*}
+    & S^+ \hat{T}_{tot}\ket{\psi_{\nu_{\alpha_1}}(\textbf{r}_1)}\ket{\psi_{\nu_{\alpha_2}}(\textbf{r}_2)},\cdots,\ket{\psi_{\nu_{\alpha_N}}(\textbf{r}_N)} \\
+    &=\hat{T}_{tot} b^{\dagger}_{\nu_{\alpha_1}}b^{\dagger}_{\nu_{\alpha_2}}\cdots b^{\dagger}_{\nu_{\alpha_N}}\ket{0}\\
+    &=\sum_{j=1}^{N}\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}\delta_{\nu_a,\nu_{\nu_j}}b^{\dagger}_{\nu_n1}b^{\dagger}_{\nu_{\alpha_2}}\cdots b^{\dagger}_{\nu_b} \cdots b^{\dagger}_{\nu_{\alpha_N}}\ket{0}\\
+    &=\sum_{j=1}^{N}\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}\delta_{\nu_a,\nu_{\nu_j}}(b^{\dagger}_{\nu_1})^{\alpha_1} (b^{\dagger}_{\nu_{2}})^{\alpha_2}\cdots b^{\dagger}_{\nu_b} \cdots (b^{\dagger}_{\nu_{M}})^{\alpha_M}\ket{0}
+\end{equation*}
+Assumme in the case of single-particle system, with N particles in M states
+\begin{equation*}
+    &= \sum_{j=1}^{N}\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}\delta_{\nu_a,\nu_{\nu_j}} \sqrt{n_1 !} \ket{\nu_1}\cdots\ket{\nu_1} \sqrt{n_2 !}\ket{\nu_2}\cdots\ket{\nu_2}\cdots \ket{\nu_b} \cdots \sqrt{n_M !}\ket{\nu_M}\cdots\ket{\nu_M}\\
+    &= B^+ \sum_{j=1}^{N}\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}\delta_{\nu_a,\nu_{\nu_j}} \underbrace{\ket{\nu_1}\cdots\ket{\nu_1}}_{n_1} \underbrace{\ket{\nu_2}\cdots\ket{\nu_2}}_{n_2} \cdots \ket{\nu_b} \cdots \underbrace{\ket{\nu_M}\cdots\ket{\nu_M}}_{n_M}\\
+\end{equation*}
+\begin{equation*}    
+    = B^+ \sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}
+    \[
+        \left\{
+            \begin{array}{ll}
+                &\delta_{\nu_a,\nu_{\nu_1}}\ket{\nu_b}\ket{\nu_1}\cdots\ket{\nu_1}\ket{\nu_2}\cdots \ket{\nu_M}\\
+                &+\delta_{\nu_a,\nu_{\nu_1}}\ket{\nu_1}\ket{\nu_b}\cdots\ket{\nu_1}\ket{\nu_2}\cdots \ket{\nu_M}\\
+                &\vdots\\
+                &+\delta_{\nu_a,\nu_{\nu_2}}\ket{\nu_1}\cdots\ket{\nu_b}\cdots\ket{\nu_2}\cdots \ket{\nu_M}\\
+                &\vdots\\
+                &+\delta_{\nu_a,\nu_{\nu_2}}\ket{\nu_1}\cdots\ket{\nu_2}\ket{\nu_M}\cdots \ket{\nu_b}\\
+        \end{array}
+        \right.
+    \]
+\end{equation*}
+\begin{equation*}
+    = \sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a}
+    \[
+        \left\{
+            \begin{array}{ll}
+            & n_1\delta_{\nu_a,\nu_1}b^{\dagger}_{\nu_b} (b^{\dagger}_{\nu_1})^{n_1 - 1} (b^{\dagger}_{\nu_2})^{n_2} \cdots (b^{\dagger}_{\nu_M})^{n_M} \ket{0}\\
+            & + n_2\delta_{\nu_a,\nu_2} (b^{\dagger}_{\nu_1})^{n_1} b^{\dagger}_{\nu_b}(b^{\dagger}_{\nu_2})^{n_2 - 1} \cdots (b^{\dagger}_{\nu_M})^{n_M} \ket{0}\\
+            & \vdots \\
+            & + n_M\delta_{\nu_a,\nu_M} (b^{\dagger}_{\nu_1})^{n_1 - 1} (b^{\dagger}_{\nu_2})^{n_2} \cdots b^{\dagger}_{\nu_b}(b^{\dagger}_{\nu_M})^{n_M -1} \ket{0}\\
+            \end{array}
+        \right.
+    \]
+\end{equation*}
+Since  $b^{\dagger}_{\nu_b}(b^{\dagger}_{\nu_j})^{p-1}\ket{0}= \frac{1}{p} b^{\dagger}_{\nu_b} b_{\nu_j} b^{\dagger}_{\nu_j} (b^{\dagger}_{\nu_j})^{p-1} \ket{0}$ , \\
+\begin{equation*}
+    = \sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a} 
+    \[
+        \left\{
+            \begin{array}{ll}
+                & \frac{n_1}{n_1} \delta_{\nu_a,\nu_1} b^{\dagger}_{\nu_b} b_{\nu_1} b^{\dagger}_{\nu_1} (b^{\dagger}_{\nu_1})^{n_1 - 1} (b^{\dagger}_{\nu_2})^{n_2} \cdots (b^{\dagger}_{\nu_M})^{n_M} \ket{0}\\
+                & + \frac{n_2}{n_2} \delta_{\nu_a,\nu_2} (b^{\dagger}_{\nu_1})^{n_1} b^{\dagger}_{\nu_b} b_{\nu_2} b^{\dagger}_{\nu_2} (b^{\dagger}_{\nu_2})^{n_2 -1} \cdots (b^{\dagger}_{\nu_M})^{n_M} \ket{0}\\
+                &\vdots\\
+                & + \frac{n_M}{n_M} \delta_{\nu_a,\nu_M} (b^{\dagger}_{\nu_1})^{n_1} (b^{\dagger}_{\nu_2})^{n_2} \cdots b^{\dagger}_{\nu_b} b^{\dagger}_{\nu_M} b_{\nu_2} b^{\dagger}_{\nu_M} (b^{\dagger}_{\nu_M})^{n_M -1} \ket{0}
+            \end{array}
+        \right.
+    \]
+\end{equation*}
+\begin{equation*}
+    = \sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a} (\delta_{\nu_a,\nu_1} b^{\dagger}_{\nu_b} b_{\nu_1} + \delta_{\nu_a,\nu_2}b^{\dagger}_{\nu_b} b_{\nu_2} \cdots \delta_{\nu_a,\nu_M} b^{\dagger}_{\nu_b} b^{\dagger}_{\nu_M}) 
+    ((b^{\dagger}_{\nu_1})^{\alpha_1} (b^{\dagger}_{\nu_{2}})^{\alpha_2} \cdots b^{\dagger}_{\nu_b} \cdots (b^{\dagger}_{\nu_{M}})^{\alpha_M})\ket{0}
+\end{equation*}
+    if $\nu_i = \nu_a$,
+\begin{equation*}
+    =\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a} b^{\dagger}_{\nu_b} b_{\nu_a} b^{\dagger}_{\nu_n1}b^{\dagger}_{\nu_{\alpha_2}} \cdots b^{\dagger}_{\nu_{\alpha_N}} \ket{0}
+\end{equation*}
+\begin{equation*}
+    = \hat{T}_{tot} b^{\dagger}_{\nu_n1}b^{\dagger}_{\nu_{\alpha_2}} \cdots b^{\dagger}_{\nu_{\alpha_N}} \ket{0}
+\end{equation*}
+\begin{equation*}
+    \therefore \hat{T}_{tot}=\sum_{\nu_a \nu_b}^{} T_{\nu_b \nu_a} b^{\dagger}_{\nu_b} b_{\nu_a}
+\end{equation*}
+\section*{Derivation of the Second Quantization of the two-particle Operator}
+\end{document}
+
+
+
+

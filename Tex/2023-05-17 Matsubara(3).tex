@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{esint}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\title{Matsubara Summary(2) : Equations}
+\maketitle
+\section*{Equations for summarizing to derive Green functions}
+\begin{flalign}
+    S(\nu , \tau) = \frac{1}{\beta} \sum_{ik_n} G(\nu , ik_n) e^{ik\tau}
+\end{flalign}
+\begin{flalign}
+    S_2(\nu_1,\nu_2 ,i\omega ,  \tau) = \frac{1}{\beta} \sum_{ik_n} G_0(\nu , ik_n) G_0 {\nu_2, ik_n + i\omega_n} e^{ik\tau}
+\end{flalign}
+\begin{flalign}
+    S^B(\tau) = \frac{1}{\beta} \sum_{i\omega_n} g(i\omega_n) e^{i\omega_n\tau }
+\end{flalign}
+\begin{flalign}
+    n_B(\tau) = \frac{1}{e^{\beta z }-1}
+\end{flalign}
+\begin{flalign*}
+    {Res}_{z=i\omega_n}[n_B(z)] & = \lim_{z \rightarrow i\omega_n}\frac{(z-i\omega_n)}{e^{\beta z}-1} \\
+                                & = \lim_{\delta \rightarrow 0}\frac{\delta}{e^{\beta i \omega_n}e^{\beta\delta} -1} \\
+                                & = \frac{1}{\beta}
+\end{flalign*}
+\begin{flalign*}
+    \oint dz n_B(z)g(z) & = 2\pi i \mathop{\mathrm{Res}}_{z = i\omega_n}(n_B(z)g_B(i\omega_n)) \\
+                        & = \frac{2 \pi i}{\beta} g(i\omega_n)
+\end{flalign*}
+\begin{flalign}
+    S^B = \int_C \frac{dz}{2\pi i} n_B(z)g(z)
+\end{flalign}
+\begin{flalign}
+    S_0^F(\tau) = \frac{1}{\beta} \sum_{ik_n} g_0(ik_n) e^{ik_n \tau} , \qquad \tau > 0
+\end{flalign}
+\begin{flalign}
+    g_0(z) = \prod_j \frac{1}{z-z_j}
+\end{flalign}
+\begin{flalign}
+    n_F(z)e^{\tau z} = \frac{e^{\tau z}}{e^{\beta z}+1} \propto 
+\end{flalign}
+\begin{flalign*}
+    0 &= \int_{C_\infty} \frac{dz}{2\pi i } n_B(z) g_0(z)e^{\tau z} \\ 
+      &= -\frac{1}{\beta} \sum_{ik_n} g_0(ik_n)e^{ik_n\tau} + \sum_j \mathop{\mathrm{Res}}_{z = z_j}(g_0(z))n_F(z_j)e^{\tau_j\tau}
+\end{flalign*}
+\begin{flalign}
+    \frac{1}{\beta} \sum_{i\omega_n}e^{o\omega_n \tau} = S^B_0(\tau) = -\sum_j\mathop{\mathrm{Res}}_{z = z_j}[g_0(z)]n_B(z_j)e^{\tau_j \tau}
+\end{flalign}
+\begin{flalign}
+    S(\tau) = \frac{1}{\beta} \sum_{ik_n}g(ik_n)e^{ik_n\tau}
+\end{flalign}
+\begin{flalign*}
+    S(\tau) &= -\int_{C_1 + C_2} \frac{dz}{2\pi} n_F(z)g(z) e^{z\tau} \\
+            &= -\frac{1}{2\pi}\int^\infty_\infty d\epsilon n_F(\epsilon) [g(\epsilon + i\eta)-g(\epsilon -i \eta)]e^{\epsilon\tau}
+\end{flalign*}
+\begin{flalign}
+    \langle a_\nu^\dagger a_\nu\rangle = G(\nu,0^-)
+\end{flalign}
+\begin{flalign*}
+    \leftrightarrow & = \frac{1}{\beta} \sum_{ik_n} G(\nu,ik_n)e^{-ik_n0^-}\\
+                    & = G_1(\nu,0^+) \\
+                    & = \int^\infty_{-\infty}\frac{d\epsilon}{2\pi} n_F(\epsilon)A(\nu,\epsilon)
+\end{flalign*}
+
+ \end{document}

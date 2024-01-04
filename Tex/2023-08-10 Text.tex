@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\begin{flalign*}
+    H_c=\sum_{k\sigma}(\epsilon_{\textbf{k}}-\mu)c^\dagger_{\textbf{k}\sigma}c_{\textbf{k}\sigma}
+\end{flalign*}
+\begin{flalign*}
+    H_d+H_U = \sum_\sigma(\epsilon_d-\mu)c^\dagger_{d\sigma}c_{d\sigma} + Un_{d\uparrow}n_{d\downarrow}
+\end{flalign*}
+\begin{flalign*}
+    H_{hyb} = \sum_{\textbf{k}\sigma}t_\textbf{k}c^\dagger_{d\sigma}c_{\textbf{k}\sigma}+
+    \sum_{\textbf{k}\sigma}t^*_\textbf{k}c^\dagger_{\textbf{k}\sigma}c_{d\sigma}
+\end{flalign*}
+\begin{flalign*}
+    H=H_c+H_d+H_U+H_{hyb}
+\end{flalign*}
+\begin{flalign*}
+    \langle n_{d\sigma} \rangle = \int \frac{d\omega}{2\pi} A(d\sigma)n_F(\omega)
+\end{flalign*}
+\begin{flalign*}
+    (\omega + i\eta - \epsilon_d + \mu)G^R(d\sigma,\omega)-\sum_k t_\textbf{k}G^R(\textbf{k}\sigma,d\sigma,\omega)
+    = 1+UD^R(d\sigma,\omega)
+\end{flalign*}
+\begin{flalign*}
+    (\omega + i\eta - \epsilon + \mu)G^R(\textbf{k}\sigma,d\sigma,\omega)-t^*_\textbf{k}G^R(d\sigma,\omega) = 0
+\end{flalign*}
+\begin{flalign*}
+    D^R(d\sigma,t-t')=-i\theta(t-t')\bigg< \bigg(-[n_{d\uparrow}n_{d\downarrow},c_{d\sigma}](t),c^{\dagger}_{d\sigma}(t')\bigg)\bigg>
+\end{flalign*}
+\begin{flalign*}
+    [n_{d\uparrow}n_{d\downarrow},c_{d\uparrow}]=n_{d\downarrow}[n_{d\uparrow},c_{d\uparrow}]=-n_{d\downarrow}c_{d\uparrow}
+\end{flalign*}
+\begin{flalign*}
+    H^{MF}_U=U\langle n_{d\uparrow}\rangle n_{d\downarrow} + U \langle n_{d\downarrow}\rangle n_{d\uparrow} - U \langle n_{d\uparrow}\rangle\langle n_{d_\downarrow}\rangle
+\end{flalign*}
+\begin{flalign*}
+    D^R(d\uparrow,t-t')&=i\theta(t-t')\langle n_{d\downarrow}\rangle \big<\{ c_{d\uparrow}(t),c^\dagger_{d\uparrow}(t')\} \\
+        &=\langle n_{d_\downarrow} \rangle G^{R}(d\uparrow,t-t')
+\end{flalign*}
+\begin{flalign*}
+    (\omega + i\eta - \epsilon_d + \mu-U\langle n_{d\downarrow} \rangle)G^R(d\sigma,\omega)-\sum_k \frac{
+    |t_\textbf{k}|^2}{\omega-\epsilon_\textbf{k} + \mu + i\eta}G^R(d\uparrow,\omega)
+        = 1
+\end{flalign*}
+\begin{flalign*}
+    G^R(d\uparrow,\omega)=\frac{1}{\omega-\epsilon_d+\mu-U\langle n_{d\downarrow}\rangle-\Sigma^R(\omega)}
+\end{flalign*}
+\begin{flalign*}
+    \Sigma^R(\omega)-\sum_\textbf{k}\frac{|t_\textbf{k}|^2}{\omega-\epsilon_\textbf{k}+\mu+i\eta}
+\end{flalign*}
+\begin{flalign*}
+    \Sigma^R(\omega) &= \int d\epsilon d(\epsilon)\frac{|t(\epsilon)|^2}{\omega-\epsilon+\mu+i\eta} \\
+        &= P\int d\epsilon d(\epsilon)\frac{|t(\epsilon)|^2}{\omega-\epsilon+\mu} - i\pi d(\omega + \mu)|t(\omega + \mu)|^2
+\end{flalign*}
+\begin{flalign*}
+    2\pi d(\epsilon) |t(\epsilon)|^2 = \begin{cases}
+         \Gamma & \text{for $-D<\epsilon<D$}\\
+        0   & \text{for $D<|\epsilon|$} 
+        \end{cases}
+\end{flalign*}
+\begin{flalign*}
+    \Sigma^R(\omega)& ~ \frac{\Gamma}{\pi}\int_{-D}^{D} \frac{d\epsilon}{\omega-\epsilon+\mu} - i\Gamma/2\\
+        & = -\frac{\Gamma}{\pi} \ln\frac{D+\omega+\mu}{D-\omega-\mu} - i\Gamma/2
+\end{flalign*}
+\begin{flalign*}
+    A(d\uparrow,\omega)&=-2\Im G^R(d\uparrow,\omega)\\
+        &=\frac{\Gamma}{(\omega-\tilde{\epsilon}+\mu-U\langle n_{d\downarrow}\rangle)^2+(\Gamma/2)^2}
+\end{flalign*}
+\begin{flalign*}
+    \langle n_{d\uparrow} \rangle &= \int \frac{d\omega}{2\pi} n_F(\omega) A(d\uparrow,\omega)\\
+        &=\int\frac{d\omega}{2\pi} n_F(\omega)\frac{\Gamma}{(\omega-\tilde{\epsilon}+\mu-U\langle n_{d\downarrow}\rangle)^2
+        +(\Gamma/2)^2}
+\end{flalign*}
+\end{document}

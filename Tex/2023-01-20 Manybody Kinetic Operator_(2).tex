@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\title{2nd Quantization of Operator}
+\author{Seok Ha Nul}
+\date{2023.01.20}
+\section*{Derivation of the Second Quantization of the two-particle Operator}
+\begin{flalign*}
+    & S^- \hat{V}_{tot}\ket{\psi_{\nu_{\alpha_1}}(\textbf{r}_1)}\ket{\psi_{\nu_{\alpha_2}}(\textbf{r}_2)},\cdots,\ket{\psi_{\nu_{\alpha_N}}(\textbf{r}_N)} \\
+    &=\hat{V}_{tot} c^{\dagger}_{\nu_{\alpha_1}}c^{\dagger}_{\nu_{\alpha_2}}\cdots c^{\dagger}_{\nu_{\alpha_N}}\ket{0}\\
+\end{flalign*}
+\begin{flalign*}
+    =\frac{1}{2}\sum_{j\neq k}^{N}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}\delta_{\nu_a,\nu_{\nu_j}}\delta_{\nu_b,\nu_{\nu_k}}\ket{\psi_{\nu_{\alpha_1}}(\textbf{r}_1)},\ket{\psi_{\nu_{\alpha_2}}(\textbf{r}_2)}
+    \cdots\ket{\psi_{\nu_{c}}(\textbf{r}_j)}, \cdots\ket{\psi_{\nu_{d}}(\textbf{r}_k)}, \cdots,\ket{\psi_{\nu_{\alpha_N}}(\textbf{r}_N)}
+\end{flalign*}
+\begin{flalign*}
+    =\frac{1}{2}\sum_{j\neq k}^{N}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}\delta_{\nu_a,\nu_{\nu_j}}\delta_{\nu_b,\nu_{\nu_k}}c^{\dagger}_{\nu_n1}c^{\dagger}_{\nu_{\alpha_2}}\cdots c^{\dagger}_{\nu_c}, \cdots c^{\dagger}_{\nu_d} \cdots c^{\dagger}_{\nu_N}\ket{0}\\
+\end{flalign*}
+\begin{flalign*}
+    =\frac{1}{2}\sum_{j\neq k}^{N}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}\delta_{\nu_a,\nu_{\nu_j}}\delta_{\nu_b,\nu_{\nu_k}}c^{\dagger}_{\nu_n1}c^{\dagger}_{\nu_{\alpha_2}}\cdots c^{\dagger}_{\nu_c}, \cdots c^{\dagger}_{\nu_d} \cdots c^{\dagger}_{\nu_N}\ket{0}\\
+\end{flalign*}
+\begin{flalign*}
+    =\frac{1}{2}\sum_{j\neq k}^{N}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}c^{\dagger}_{\nu_c}c^{\dagger}_{\nu_d}c^{\dagger}_{\nu_1}c^{\dagger}_{\nu_2}\cdots \delta_{\nu_c,\nu_{\nu_j}}c_{\nu_c}c^{\dagger}_{\nu_c}, \cdots \delta_{\nu_d,\nu_{\nu_k}}c_{\nu_d} c^{\dagger}_{\nu_d} \cdots c^{\dagger}_{\nu_N}\ket{0}\\
+\end{flalign*}
+\begin{flalign*}
+    =\frac{1}{2}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}\big( \delta_{\nu_a,\nu_{\nu_1}}c_{\nu_c}c^{\dagger}_{\nu_1} + \delta_{\nu_a,\nu_{\nu_2}}c^{\dagger}_{\nu_c}c^{\dagger}_{\nu_2} + \cdots \delta_{\nu_d,\nu_{\nu_k}}c_{\nu_d}c^{\dagger}_{\nu_k} + 
+    \cdots  + \delta_{\nu_d,\nu_{\nu_N}}c_{\nu_d} c^{\dagger}_{\nu_N}\big) c^{\dagger}_{\nu_1}c^{\dagger}_{\nu_2} \cdots c^{\dagger}_{\nu_N} \ket{0}
+\end{flalign*}
+
+if $\nu_c=\nu_j$ , $\nu_d = \nu_k$ ,
+\begin{flalign*}
+    =\frac{1}{2}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}c^{\dagger}_{\nu_c}c^{\dagger}_{\nu_d}c_{\nu_a}c_{\nu_b}\big(c^{\dagger}_{\nu_1}c^{\dagger}_{\nu_2} \cdots c^{\dagger}_{\nu_N}\big) \ket{0}
+\end{flalign*}
+\begin{flalign*}
+    V_{tot}=\frac{1}{2}\sum_{\nu_a\nu_b,\nu_c \nu_d} V_{\nu_c\nu_d,\nu_a \nu_b}c^{\dagger}_{\nu_c}c^{\dagger}_{\nu_d}c_{\nu_a}c_{\nu_b}
+\end{flalign*}
+\end{document}
+
+
+
+

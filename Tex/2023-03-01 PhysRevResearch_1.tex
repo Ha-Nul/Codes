@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\begin{document}
+\section*{APPLICATION TO COUPLED CAVITY ARRAY}
+\subsection*{Bound states, symmetry-protected BIC, quasi-BIC}
+\begin{equation*}
+    \hat{H}_light = -\frac{J}{2} \sum_{x} (\hat{a}^\dagger_{x+1}\hat{a}_x + H.c.) + \hbar\omega_c \sum_{x} \hat{a}_x^\dagger \hat{a}_x
+\end{equation*}
+$\omega_c$ \\ $\hat{a}_x \equiv \frac{1}{\sqrt{L}} \sum_k \hat{a}_k e^{-ikx}$
+\begin{equation*}
+    \hbar\omega_k = \hbar\omega_c - J cos k
+\end{equation*}
+\begin{equation*}
+    \hat{A}=\textit{A}(\hat{a}_{x=0} + \hat{a}_{x=0}^\dagger)
+\end{equation*}
+$\textit{f}_k=\frac{\textit{A}}{\sqrt{L}}$ \\
+$g=q\textit{A}\sqrt{\frac{\omega_c}{m\hbar}}$\\
+$V(Q) = v\big( 1-\frac{Q^2}{d^2}\big)^2$ \\
+$\Omega_0$
+$\frac{(E_2 - E_1)}{\hbar} \simeq \omega_c $\\
+\begin{equation*}
+    \delta E_{sca} \in [\hbar\omega_c - J , \hbar\omega_c + J]
+\end{equation*}
+\begin{equation*}
+    \delta E_{BS} \notin [\hbar\omega_c - J , \hbar\omega_c + J]
+\end{equation*}
+\begin{equation*}
+    \delta E_{(q)BIC} \in [\hbar\omega_c - J , \hbar\omega_c + J]
+\end{equation*}
+\begin{equation*}
+    \Gamma_{qBIC} ~ \frac{(J/\hbar)^2}{g\sqrt{m\omega_c^3d^3}}\bigg(\frac{v^3}{m_{eff}}\bigg)^{1/4}
+    \propto g^{-3/2}
+\end{equation*}
+\subsection*{Dressed potential}
+\begin{equation*}
+    V_{eff}(Q) = v_{eff}\bigg(1-\frac{Q^2}{d_{eff}}\bigg)^2
+\end{equation*}
+\begin{equation*}
+    v_{eff}=\begin{cases}
+        v\big(1-\frac{3\xi^2}{d^2}\big)^2, & \xi \leq \frac{d}{\sqrt{3}},\\
+        0, & \frac{d}{\sqrt{3}}
+    \end{cases}
+\end{equation*}
+\subsection*{Two-level effective model and its breakdown in the Coulomb gauge}
+\begin{equation*}
+    \hat{H}^{JC}_{U} = \frac{\hbar \Delta_g}{2}\hat{\sigma}^z + \bigg(\hat{\sigma}^- \sum_n \hbar\tilde{g}_n\hat{b}_n^{\dagger} + H.c.\bigg)
+    + \sum_n \hbar\Omega_n \hat{b}_n^\dagger \hat{b}_n
+\end{equation*}
+\begin{equation*}
+    \Delta_g \equiv \frac{E_2 - E_1}{\hbar} > 0,
+\end{equation*}
+\begin{equation*}
+    \tilde{g}_n \frac{\xi}{\hbar}\bra{\psi_1}\frac{dV}{dQ}\ket{\psi_2}
+\end{equation*}
+\begin{equation*}
+    E_{ex} - \Delta_g = \sum_n \frac{\tilde{g}^2_n}{E_{ex} - \Omega_n}
+\end{equation*}
+\begin{equation*}
+    \hat{H}^{JC}_{U} = \frac{\hbar \Delta}{2}\hat{\sigma}^z + \bigg(\hat{\sigma}^- \sum_k \hbar\tilde{g}_k\hat{a}_k^{\dagger} + H.c.\bigg)
+    + \sum_k \hbar\Omega_k \hat{a}_k^\dagger \hat{a}_k
+\end{equation*}
+$\Delta \equiv \Delta_{g=0}$
+\begin{equation*}
+    \tilde{g}_k \equiv \frac{g}{\sqrt{L}} \kappa_{\omega_c}\bra{\psi_1^{g=0}}\partial_Q\ket{\psi_2^{g=0}}
+\end{equation*} 
+\begin{equation*}
+    \hat{H}^{Rabi}_{U} = \frac{\hbar \Delta_g}{2}\hat{\sigma}^z + \hat{\sigma}^x \bigg( \sum_n \hbar\tilde{g}_n\hat{b}_n^{\dagger} + H.c.\bigg)
+    + \sum_n \hbar\Omega_n \hat{b}_n^\dagger \hat{b}_n
+\end{equation*}
+\begin{equation*}
+    \ket{\Psi(t)}_U = e^{-i\hat{H}_U t}\ket{\Psi(0)}_U = \sum_i c_i e^{-iE_it} \ket{\Psi_i}_U
+\end{equation*}
+\begin{equation*}
+    \langle \hat{O} \rangle_C = \langle \hat{U}^\dagger \hat{O} \hat{U} \rangle _U
+\end{equation*}
+\begin{equation*}
+    \omega_{osc} = \sqrt{\frac{8v}{d^2_f m_{eff}}\bigg(1-\frac{3\xi^2}{d^2_f}\bigg)} \propto g^{-1}
+\end{equation*}
+    \end{document}

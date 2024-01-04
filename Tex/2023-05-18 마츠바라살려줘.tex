@@ -1,0 +1,157 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{esint}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\title{Matsubara Summary(3)}
+\maketitle
+\section*{Trial for Inverse Fourier transformation}
+\subsection*{Imaginary time and tau}
+Answering the following question : Why is the reason that $\tau$ has its boundary condition in range : $0<\tau<\beta$?\\
+In Statistical mechanics, quantities of interest are the partition function of the system, $Z(\beta)=Tr[e^{-\beta H}]$
+and it's form is the same as the time-evolution operator $e^{iHt/\hbar}$. The Imaginary time $\tau$ is : $\tau = it$.
+\begin{flalign}
+    Z(\beta) & = \sum_n \bra{n} e^{\beta H} \ket{n} \\
+            & = \sum_n \sum_{m_1,m_2,\dots m_N} \bra{n}e^{(1/\hbar)\delta \tau H}\ket{m_1} \bra{m_1}e^{(1/\hbar)\delta \tau H}\ket{m_2} \dots 
+            \bra{m_N}e^{(1/\hbar)\delta \tau H}\ket{n} 
+\end{flalign}
+Where,
+\begin{flalign}
+    e^{-\beta H} = [e^{(-1/\hbar)\delta \tau H}]^n
+\end{flalign}
+The time interval $\delta \tau = \hbar \Gamma$ is small on the time scales of interest. Thus, $0<\tau<\beta$ can be deduced.
+\subsection*{Fourier transformation of Matsubara Green function}
+Below, Only bosonic case considered.
+\begin{flalign*}
+    C_{AB} &= - \langle A(\tau)B(0) \rangle \\
+            &= -\langle e^{\tau H_0}a_k e^{-\tau H_0}a_k^\dagger\rangle
+\end{flalign*}
+\begin{flalign}
+    \leftrightarrow C_{AB}(\tau) = -\theta(\tau)\langle a_k(\tau)a_k^\dagger \rangle - \theta(-\tau)\langle a_k^\dagger a_k (\tau) \rangle
+\end{flalign}
+\begin{flalign*}
+    \partial_\tau C_{AB}(\tau) & = -\delta(\tau) \langle a_k(\tau) a_k^\dagger \rangle + \omega_k\langle a_k (\tau) a_k^\dagger \rangle +
+    \delta(-\tau)\langle a_k^\dagger a_k(\tau)\rangle + \omega_k \theta(-\tau) \langle a_k^\dagger a_k (\tau) \rangle \\
+                                & = -\delta(\tau) \langle a_k(\tau) a_k^\dagger  - a^\dagger_k a_k (\tau) \rangle + \omega_k \theta(\tau) \langle a_k(\tau) a_k^\dagger \rangle  + \omega_k \theta(-\tau)\langle a_k^\dagger a_k(\tau)  \rangle \\
+                                & = -\delta(\tau) \langle a_k(\tau) a_k^\dagger  - a^\dagger_k a_k (\tau) \rangle +\omega_k \{ -\theta(\tau) \langle a_k(\tau) a_k^\dagger \rangle-\theta(-\tau)\langle a_k^\dagger a_k(\tau)  \rangle \} \\
+\end{flalign*}
+\begin{flalign}
+    \partial C_{AB} (\tau) = -\delta(\tau) -\omega_k C_{AB}
+\end{flalign}
+The definition of Fourier transform of Matsubara Green function in time-domain to frequency domain is : $C_{AB} = \frac{1}{\beta} \sum_n e^{i\omega_n \tau} C_{AB}(i\omega_n)$,
+and its bosonic frequency is : $\omega_n = \frac{2n\pi}{\beta}$. Using these definition,
+\begin{flalign}
+    \partial \frac{1}{\beta} \sum_n i\omega_n e^{i\omega_n \tau}C_{AB}(i \omega_n) + \frac{1}{\beta} \sum_n i\omega_k e^{i\omega_n \tau}C_{AB}(i \omega_n) = 
+\end{flalign}
+The result is,
+\begin{flalign}
+    C_{AB}(\tau) = \frac{1}{-\omega_k + i\omega_n} \quad \leftrightarrow \quad \bigg( \frac{1}{iq_n - \xi} \bigg)
+\end{flalign}
+\subsection*{Steps to derive the inverse fourier transform}
+\begin{flalign}
+    S(\nu , \tau) = \frac{1}{\beta} \sum_{ik_n} G(\nu , ik_n) e^{ik\tau}
+\end{flalign}
+\begin{flalign}
+    S_2(\nu_1,\nu_2 ,i\omega ,  \tau) = \frac{1}{\beta} \sum_{ik_n} G_0(\nu , ik_n) G_0 {\nu_2, ik_n + i\omega_n} e^{ik\tau}
+\end{flalign}
+\begin{flalign}
+    S^B(\tau) = \frac{1}{\beta} \sum_{i\omega_n} g(i\omega_n) e^{i\omega_n\tau }
+\end{flalign}
+\begin{flalign}
+    n_B(\tau) = \frac{1}{e^{\beta z }-1}
+\end{flalign}
+\begin{flalign*}
+    \mathop{\mathrm{Res}}_{z = i\omega_n}[n_B(z)] & = \lim_{z \rightarrow i\omega_n}\frac{(z-i\omega_n)}{e^{\beta z}-1} \\
+                                & = \lim_{\delta \rightarrow 0}\frac{\delta}{e^{\beta i \omega_n}e^{\beta\delta} -1} \\
+                                & = \frac{1}{\beta}
+\end{flalign*}
+\begin{flalign*}
+    \oint dz n_B(z)g(z) & = 2\pi i \mathop{\mathrm{Res}}_{z = i\omega_n}(n_B(z)g_B(i\omega_n)) \\
+                        & = \frac{2 \pi i}{\beta} g(i\omega_n)
+\end{flalign*}
+\begin{flalign}
+    S^B = \int_C \frac{dz}{2\pi i} n_B(z)g(z)
+\end{flalign}
+\subsection*{Inverse fourier transform - single poles}
+\begin{flalign}
+    S_0^F(\tau) = \frac{1}{\beta} \sum_{ik_n} g_0(ik_n) e^{ik_n \tau} , \qquad \tau > 0
+\end{flalign}
+\begin{flalign}
+    g_0(z) = \prod_j \frac{1}{z-z_j}
+\end{flalign}
+\begin{flalign}
+    n_F(z)e^{\tau z} = \frac{e^{\tau z}}{e^{\beta z}+1} \propto 
+\end{flalign}
+\begin{flalign*}
+    0 &= \int_{C_\infty} \frac{dz}{2\pi i } n_B(z) g_0(z)e^{\tau z} \\ 
+      &= -\frac{1}{\beta} \sum_{ik_n} g_0(ik_n)e^{ik_n\tau} + \sum_j \mathop{\mathrm{Res}}_{z = z_j}(g_0(z))n_F(z_j)e^{z_j\tau}
+\end{flalign*}
+\begin{flalign}
+    \frac{1}{\beta} \sum_{i\omega_n}e^{o\omega_n \tau} = S^B_0(\tau) = -\sum_j\mathop{\mathrm{Res}}_{z = z_j}[g_0(z)]n_B(z_j)e^{z_j \tau}
+\end{flalign}
+\subsection*{Inverse fourier transform - Branch cut}
+\begin{flalign}
+    S(\tau) = \frac{1}{\beta} \sum_{ik_n}g(ik_n)e^{ik_n\tau}
+\end{flalign}
+\begin{flalign}
+    S(\tau) &= -\int_{C_1 + C_2} \frac{dz}{2\pi} n_F(z)g(z) e^{z\tau} \\
+            &= -\frac{1}{2\pi}\int^\infty_\infty d\epsilon n_F(\epsilon) [g(\epsilon + i\eta)-g(\epsilon -i \eta)]e^{\epsilon\tau}
+\end{flalign}
+\begin{flalign}
+    \langle a_\nu^\dagger a_\nu\rangle = G(\nu,0^-)
+\end{flalign}
+\begin{flalign*}
+    \leftrightarrow & = \frac{1}{\beta} \sum_{ik_n} G(\nu,ik_n)e^{-ik_n0^-}\\
+                    & = G_1(\nu,0^+) \\
+                    & = \int^\infty_{-\infty}\frac{d\epsilon}{2\pi} n_F(\epsilon)A(\nu,\epsilon)
+\end{flalign*}
+\subsection*{Matsubara Green function and retarded Green function}
+Following the derivation in the textbook, written by Bruus and K, Ch.11 section 2, First, retarded single particle Green's function can be written as: 
+\begin{flalign}
+    C^R_{AB}(\omega) = \frac{1}{Z} \sum_{nn'} \frac{\bra{n} A \ket{n'} \bra{n'} B \ket{n}}{\omega+E_n -E_{n'} + i\eta} \bigg( e^{\beta E_n}-(\pm)e^{-\beta E_{n'}} \bigg)
+\end{flalign}
+And by the definition of Matsubara frequency,
+\begin{flalign*}
+    C_{AB}(\tau) = -\frac{1}{Z} & Tr[e^{\beta H}e^{\tau H} A e^{-\tau H}B] \\
+                                &= -\frac{1}{Z} \int \psi^{0*}_n(x) e^{\beta H} e^{\tau H} a^\dagger e^{-\tau H} a \psi^{0}_n(x) dx \\
+                                &= -\frac{1}{Z} \sum_n e^{\beta E_n}\int \psi^{0*}_n(x) e^{\tau H} a^\dagger e^{-\tau H} a \psi^{0}_n(x) dx \\
+                                &= -\frac{1}{Z} \sum_n e^{\beta E_n}\int \psi^{0*}_n(x) a^\dagger \ket{\psi_{n'}}\bra{\psi_{n}} a \psi^{0}_n(x) dx e^{-\tau E_n - E_{n'}} 
+\end{flalign*}
+\begin{flalign}
+    C_{AB}(\tau) &= -\frac{1}{Z} Tr[e^{\beta H} e^{\tau H} A e^{-\tau H} B] \\
+    &= -\frac{1}{Z} \sum_{nn'} e^{\beta H} \bra{n} A \ket{n'} \bra{n'} B \ket{n} \bigg( e^{\beta E_n}-(\pm)e^{-\beta E_{n'}} \bigg) \\
+\end{flalign}
+Using Fourier Transformation,
+\begin{flalign*}
+    C_{AB} &= \int^\beta_0 d\tau e^{i\omega_n \tau}[-\frac{1}{Z} \sum_{nn'} e^{\beta H} e\bra{n} A \ket{n'} \bra{n'} B \ket{n} \bigg( e^{\beta E_n}-(\pm)e^{-\beta E_{n'}} \bigg)] \\
+    &= \frac{1}{(E_n - E_-{n'} + \tau \omega_n i)}(-\frac{e^{\beta H}}{Z}) e^{\tau(E_n - E_{n'} + i\omega+n)}|^\beta_0
+\end{flalign*} 
+Therefore,
+\begin{flalign}
+    C_{AB} = \frac{1}{Z}\sum_{nn'}\frac{  \bra{n} A \ket{n'} \bra{n'} B \ket{n}}{i \omega_n +E_n - E{n'}} (e^{\beta E_n} - \pm e^{\beta E_{n'}})
+\end{flalign}
+Consider the function in entire complex plane, where $z=x+iy$,
+\begin{flalign}
+    C_{AB} = \frac{1}{Z}\sum_{nn'}\frac{  \bra{n} A \ket{n'} \bra{n'} B \ket{n}}{z +E_n - E{n'}} (e^{\beta E_n} - \pm e^{\beta E_{n'}})
+\end{flalign}
+According to the theory of analytic functions : if two functions coincide in an a infinite set of points then they are fully identical functions within the entire domain where at least one of them is analyitc function.
+That is, if $C_{AB}(i\omega)$ is known, then $C^R_{AB}(\omega)$ can be found :
+\begin{flalign}
+    C^R_{AB}(\omega) = C_{AB}(i\omega \rightarrow \omega + i\eta)
+\end{flalign}
+Where $\eta$ is infinitesimal real value.
+\end{document}

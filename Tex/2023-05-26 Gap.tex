@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\title{Gap problem}
+\maketitle
+1. Using sinh
+\begin{align*}
+    &\frac{e^{-\omega_k \tau}}{e^{\omega_k}-1}\\
+    & = \frac{2i e^{-\omega_k \tau}}{2i e^{\frac{\omega_k}{2}} (e^{\frac{\omega_k}{2}}-e^{-\frac{\omega_k}{2}})} = \frac{e^{-\omega_k \tau - \frac{\omega_k}{2}}}{2i \sinh{\frac{\omega_k}{2}}}\\
+    & ~ \frac{\frac{\omega_k}{2}}{\frac{\omega_k}{2}\sinh{\frac{\omega_k}{2}}}\quad , \quad \lim_{\omega \rightarrow 0} \frac{\frac{\omega_k}{2}}{\frac{\omega_k}{2}\sinh{\frac{\omega_k}{2}}} = \lim_{\omega \rightarrow 0} \frac{2}{\omega_k} \rightarrow \infty
+\end{align*}
+2. Change the Series Expansion form (Wolfram alpha)
+\begin{align*}
+    &\frac{e^{-\omega_k \tau}}{e^{\omega_k}-1}\\
+    & ~ \frac{1}{\omega_k} - \tau - \frac{1}{2} + e^{-\omega_k\tau}\quad , \quad \lim_{\omega_k \rightarrow 0} \frac{1}{\omega_k} - \tau - \frac{1}{2} + e^{-\omega_k\tau} \rightarrow \infty
+\end{align*}
+\end{document}

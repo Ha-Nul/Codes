@@ -1,0 +1,215 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{microtype}
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\begin{document}
+\section{First and second quantization}
+$ A\ket{\psi_\alpha}=\alpha \psi_\alpha $ \\
+A : Hermitian Operator , $\ket{\psi_\alpha}$ : Eigenstate of A , $\alpha$ = Eigenvalue of A (real number) \\
+$\ket{\psi_\alpha}$ , $\ket{\phi_\beta}$ \\
+$\ket{\phi_{\beta}}=\sum_\alpha \ket{\psi_\alpha}C_{\alpha\beta}$ \\
+$|C_{\alpha\beta}|^2$
+\subsection{First quantization,single-particle systems}
+\begin{equation}
+    i\hbar\partial _t \ket{\psi(t)}=H\ket{\psi(t)}
+\end{equation}
+\begin{equation}
+    H=\frac{1}{2m}(\frac{\hbar}{i}\nabla_r + e\textbf{A} (r,t))^2 -e\phi (r,t)
+\end{equation}
+\begin{equation}
+    \psi_{\textbf{K},\sigma}(r)=\braket{\textbf{r}}{\textbf{k},\sigma} = \frac{1}{\sqrt{\nu}}e^{i\textbf{k}\cdot\textbf{r}}\chi_{\sigma}
+\end{equation}
+\begin{equation}
+    \braket*{\textbf{r}}{n,l,m,\sigma}=R_{nl}(r)Y_{l,m}(\theta,\phi)\chi_{\sigma}
+\end{equation}
+\begin{equation}
+    \braket*{\textbf{r}}{n,k_y,k_z,\sigma}=H_n(x/\textit{l}-k_y\textit{l})e^{-\frac{1}{2}(x/\textit{l}-k_y\textit{l})^2}\frac{1}{\sqrt{L_yL_z}}e^{ik_y y+k_z z}\chi_\sigma
+\end{equation}
+$\psi_\nu (\textbf{r})=\braket*{\textbf{r}}{\nu}$ \\
+$\int d\textbf{r} |\psi_\nu (\textbf{r})|^2$\\
+$=\int d\textbf{r} \braket*{\nu}{\textbf{r}}\braket*{\textbf{r}}{\nu}$\\
+$=\bra{\nu}\int d\textbf{r} \ket{\textbf{r}}\bra{\textbf{r}} \ket{\nu}$\\
+$\int d\textbf{r} \ket{\textbf{r}}\bra{\textbf{r}}=1 $\\
+$\sum_\nu |\braket*{\nu}{\psi}|^2 =1 $\\
+$\sum_\nu \ket{\nu}\bra{\nu} = 1 $\\
+\begin{equation*}
+    \psi(\textbf{r})=\sum_\nu \psi_\nu(\textbf{r})\big( \int d\textbf{r}\psi^*_\nu (\textbf{r}) \psi(\textbf{r}) \big) \\ or \braket{\textbf{r}}{\nu}=\sum_\nu \braket{\textbf{r}}{\nu} \braket{\nu}{\psi}
+\end{equation*}
+\subsection{First quantization, many-particle systems}
+$\psi (\textbf{r}) $\\
+$\psi (\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_N) $ \\
+\begin{equation*}
+    |\psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_N)|^2 \prod_{j=1}^{N}d\textbf{r}_j
+\end{equation*}
+\begin{equation*}
+    \psi(\textbf{r}_1, ... \textbf{r}_j, ..., \textbf{r}_k, ... \textbf{r}_N)= + \psi(\textbf{r}_1, ... \textbf{r}_k, ..., \textbf{r}_j, ... \textbf{r}_N)
+\end{equation*}
+\begin{equation*}
+    \psi(\textbf{r}_1, ... \textbf{r}_j, ..., \textbf{r}_k, ... \textbf{r}_N)= - \psi(\textbf{r}_1, ... \textbf{r}_k, ..., \textbf{r}_j, ... \textbf{r}_N)
+\end{equation*}
+\begin{equation*}
+    \psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_N)=\sum_{\nu1,...\nu N}^{} A_{\nu 1 , \nu 2 , ... \nu N }\psi_{\nu 1}(\textbf{r}_1)\psi_{\nu 2}(\textbf{r}_2) ... \psi_{\nu N}(\textbf{r}_N)
+\end{equation*}
+\begin{equation*}
+    \psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_N)=\sum_{\nu1,...\nu N}^{} B_{\nu 1 , \nu 2 , ... \nu N } \hat{S}_{\pm} \psi_{\nu 1}(\textbf{r}_1)\psi_{\nu 2}(\textbf{r}_2) ... \psi_{\nu N}(\textbf{r}_N)
+\end{equation*}
+\textbf{Operators in first quantization}
+\begin{equation*}
+    T_j=\sum_{\nu_a,\nu_b}^{} T_{\nu_b,\nu_a} \ket{\psi_{\nu_b}(\textbf{r}_j)}\bra{\psi_{\nu_a}(\textbf{r}_j)}
+\end{equation*}
+\begin{equation*}
+    T_{\nu_b,\nu_a}=\int d \textbf{r}_j \psi^*_{\nu_b}(\textbf{r}_j) T(\textbf{r}_j,\nabla_{\textbf{r}_j}) \psi^*_{\nu_a}(\textbf{r}_j)
+\end{equation*}
+\begin{equation*}
+    T_{tot}=\sum_{j=1}^{N} T_j
+\end{equation*}
+\begin{equation*}
+    T_{tot}\psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_N)=\sum_{j=1}^{N}\sum_{\nu_a,\nu_b}T_{\nu_b,\nu_a}\delta_{\nu_a,\nu_{n_j}}\ket{\psi_{\nu_{n1}}(\textbf{r}_1)},...\ket{\psi_{\nu_{b}}(\textbf{r}_j)},...,\ket{\psi_{\nu_{n_N}}(\textbf{r}_N)}
+\end{equation*}
+\begin{equation*}
+    V_{jk}=\sum_{\nu_a\nu_b\nu_c\nu_d}^{} V_{\nu_c\nu_d,\nu_b\nu_a} \ket{\psi_{\nu_c}(\textbf{r}_j)}\ket{\psi_{\nu_d}(\textbf{r}_k)}\bra{\psi_{\nu_a}(\textbf{r}_j)}\bra{\psi_{\nu_b}(\textbf{r}_k)}
+\end{equation*}
+\begin{equation*}
+    V_{\nu_c\nu_d,\nu_b\nu_a}=\int d \textbf{r}_j\textbf{r}_k \psi_{\nu_c}^*(\textbf{r}_j)\psi_{\nu_d}^*(\textbf{r}_k) V(\textbf{r}_j-\textbf{r}_k)\psi_{\nu_a}(\textbf{r}_j)\psi_{\nu_b}(\textbf{r}_k)
+\end{equation*}
+\begin{equation*}
+    V_{tot}=\sum_{j>k}^{N} V_{jk} =\frac{1}{2}\sum_{j,k\neq j}^{N} V_{jk}
+\end{equation*}
+\begin{equation*}
+    V_{tot}\psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_N)=\sum_{j,k\neq j}^{N}\sum_{\nu_a\nu_b\nu_c\nu_d}^{}V_{\nu_c\nu_d,\nu_b\nu_a}\delta_{\nu_a,\nu_{n_j}}\delta_{\nu_b,\nu_{n_k}}\ket{\psi_{\nu_{n1}}(\textbf{r}_1)},...\ket{\psi_{\nu_{c}}(\textbf{r}_j)},...\ket{\psi_{\nu_{d}}(\textbf{r}_k)},...\ket{\psi_{\nu_{n_N}}(\textbf{r}_N)}
+\end{equation*}
+\subsection{Second quantization, basic concepts}
+\begin{equation*}
+    \ket{n_{\nu1},n_{\nu2},n_{\nu3},...} , \sum_{j}^{} n_{\nu j} = N
+\end{equation*}
+\begin{equation*}
+    \hat{n}_{\nu j}\ket{n_{\nu j}} = n_{\nu j} \ket{n_{\nu j}}
+\end{equation*}
+\begin{equation*}
+    n_{\nu j}=\begin{Bmatrix}
+        0,1\\
+        0,1,2,...
+    \end{Bmatrix}
+\end{equation*}
+$\mathcal{F}=\mathcal{F}_0  \bigoplus\mathcal{F}_1  \bigoplus\mathcal{F}_2  \bigoplus...,$\\
+$\mathcal{F}_N = span \{ \ket{n_{\nu1},n_{\nu2},n_{\nu3},...} | \sum_{j}^{}=N \} $ \\
+
+\textbf{boson creation and annihilation operators}
+
+\begin{equation*}
+    b^{\dagger}_{\nu j}\ket{...,n_{\nu_{j-1}},n_{\nu_{j}},{\nu_{j+1},}...} = B_{+(n_{\nu j})} \ket{...,n_{\nu_{j-1}},n_{\nu_{j}} + 1,{\nu_{j+1},}...}
+\end{equation*} 
+$\bra{\nu_{j+1}} b^{\dagger}_{\nu_j} \ket{\nu_{j}}$
+\begin{equation*}
+    b_{\nu j}\ket{...,n_{\nu_{j-1}},n_{\nu_{j}},{\nu_{j+1},}...} = B_{-(n_{\nu j})} \ket{...,n_{\nu_{j-1}},n_{\nu_{j}} - 1,{\nu_{j+1},}...}
+\end{equation*}
+$\bra{\nu_{j}} (b^{\dagger})^{\dagger}_{\nu_{j+1}} \ket{\nu_{j}}$
+\begin{equation*}
+    [ b^{\dagger}_{\nu j} ,b^{\dagger}_{\nu k} ] = 0 ,\quad [ b_{\nu j} ,b_{\nu k} ] = 0  ,\quad [ b_{\nu j} ,b^{\dagger}_{\nu k} ] = \delta_{\nu_j,\nu_k}
+\end{equation*}
+\begin{equation*}  
+    [ b^{\dagger}_{\nu} b_\nu , b_\nu] = 0 ,\quad [ b^{\dagger}_{\nu} b_\nu , b_\nu] = 0
+\end{equation*}
+\begin{equation*}
+    b^{\dagger}_{\nu} b_\nu = \hat{n}_{\nu} , \quad  b^{\dagger}_{\nu} b_\nu \ket{n_{\nu}} = n_{\nu} \ket{n_{\nu}} , \quad  n_{\nu}=0,1,2...
+\end{equation*}
+\begin{equation*}
+    b_{\nu}\ket{n_{\nu}}=\sqrt{n_{\nu}}\ket{n_{\nu}-1} , \quad b^{\dagger}_{\nu}\ket{n_{\nu}}=\sqrt{n_{\nu}+1}\ket{n_{\nu}+1},\quad  (b^{\dagger}_{\nu})^{n_{\nu}}\ket{0}=\sqrt{n!}\ket{n_{\nu}}
+\end{equation*}
+\begin{equation*}
+    \hat{S}_{+} \ket{\psi_{\nu_{n1}}(\textbf{r}_1)},\ket{\psi_{\nu_{n2}}(\textbf{r}_j)},...\ket{\psi_{\nu_{nN}}(\textbf{r}_N)}=b^{\dagger}_{\nu_{n1}}b^{\dagger}_{\nu_{n2}}...b^{\dagger}_{\nu_{n_N}}\ket{0}
+\end{equation*}
+    \\
+\textbf{fermion creation and annihilation operators}
+
+\begin{equation*}
+    \{ c^{\dagger}_{\nu j} ,c^{\dagger}_{\nu k} \} = 0 ,\quad \{ c_{\nu j} ,c_{\nu k} \} = 0  ,\quad \{ c_{\nu j} ,c^{\dagger}_{\nu k} \} = \delta_{\nu_j,\nu_k}
+\end{equation*}
+\begin{equation*}  
+    [c^{\dagger}_{\nu} c_\nu , c_\nu] = 0 ,\quad [ c^{\dagger}_{\nu} c_\nu , c_\nu] = 0
+\end{equation*}
+\begin{equation*}
+    c^{\dagger}_{\nu} c_\nu = \hat{n}_{\nu} , \quad c^{\dagger}_{\nu} c_\nu \ket{n_\nu} = n_{\nu}\ket{n_\nu} 
+\end{equation*}
+\begin{equation*}
+    c_{\nu} \ket{0} = 0 \quad  c^{\dagger}_{\nu} \ket{0} = \ket{1} , \quad c_{\nu} \ket{1} = \ket{0} , \quad c^{\dagger}_{\nu} \ket{1}=0, \quad n_{\nu}=0,1,
+\end{equation*}
+\begin{equation*}
+    \hat{S}_{-} \ket{\psi_{\nu_{n1}}(\textbf{r}_1)},\ket{\psi_{\nu_{n2}}(\textbf{r}_j)},...\ket{\psi_{\nu_{nN}}(\textbf{r}_N)}=c^{\dagger}_{\nu_{n1}}c^{\dagger}_{\nu_{n2}}...c^{\dagger}_{\nu_{n_N}}\ket{0}
+\end{equation*}
+\textbf{The general form for second quantization operators}
+\begin{equation*}
+    T_{tot} b^{\dagger}_{\nu n1}...b^{\dagger}_{\nu n_N}\ket{0}=\sum_{\nu_a \nu_b}^{}T_{\nu_b \nu_a} \sum_{j=1}^{N}\delta_{\nu_a,\nu_{n_j}}b^{\dagger}_{\nu_n1}... b^{\dagger}_{\nu_b} ... b^{\dagger}_{\nu_{n_N}}\ket{0}
+\end{equation*}
+\begin{equation*}
+    T_{tot}=\sum^{}_{\nu_i,\nu_j} T_{\nu_i \nu_j} a^{\dagger}_{\nu_i} a_{\nu_j}
+\end{equation*}
+\begin{equation*}
+    V_{tot}=\frac{1}{2} \sum_{\nu_i \nu_j \nu_k \nu_l} V_{\nu_i \nu_j,\nu_k \nu_l} a^{\dagger}_{\nu_i} a^{\dagger}_{\nu_j} a_{\nu_l} a_{\nu_k}
+\end{equation*}
+\textbf{Change of basis in second quantization} \\
+$\{ \ket{\psi_{\nu1}},\ket{\psi_{\nu2}} ... \}$
+$\{ \ket{\tilde{\psi}_{\mu1}},\ket{\tilde{\psi}_{\mu2}} ... \}$
+\begin{equation*}
+    \tilde{a}^{\dagger}_{\mu_{n1}}\tilde{a}^{\dagger}_{\mu_{n2}} ... \tilde{a}^{\dagger}_{\mu_{nN}}\ket{0} = \bigl(\sum_{\nu_{n1}} \braket*{\tilde{\psi}_{\mu_{n1}}}{\psi}_{\mu_{n1}}^{*}a^\dagger_{\nu_{n1}}\bigr) \dots \bigl(\sum_{\nu_{n1}} \braket*{\tilde{\psi}_{\mu_{nN}}}{\psi}_{\mu_{nN}}^{*}a^\dagger_{\nu_{nN}}\bigr)\ket{0}
+\end{equation*}
+\begin{equation*}
+    [\tilde{a}_{\mu_1},\tilde{a}^\dagger_{\mu_2}]_{\pm}=\delta_{\mu_1,\mu_2}
+\end{equation*}
+\begin{equation*}
+    \sum_{\mu} \tilde{a}^{\dagger}_{\mu} \tilde{a}_{\mu} = \sum_{\mu} \tilde{a}^{\dagger}_{\nu_j} \tilde{a}_{\nu_j}
+\end{equation*}
+\\
+\textbf{Second quatization and statstical mechanics}
+\\
+\begin{equation*}
+    Z=\sum_{s} e^(\beta E_s)
+\end{equation*}
+\begin{equation*}
+    H\ket{\nu}=E_\nu \ket{\nu}
+\end{equation*}
+\begin{equation*}
+    \rho \equiv e^{-\beta H} = \sum_{\nu} \ket{\nu} e^{-\beta E_\nu} \bra{\nu}
+\end{equation*}
+\begin{equation*}
+    Z=\sum_\nu \bra{\nu} \rho \ket{\nu} = Tr[\rho]
+\end{equation*}
+\begin{equation*}
+    \left < A \right > =\frac{1}{Z}Z=\sum_\nu \bra{\nu} A \ket{\nu} e^{-\beta E_\nu} = \frac{Tr[\rho A]}{Tr[\rho]}
+\end{equation*}
+\begin{equation*}
+    n_F(\epsilon_{\textbf{k}}) = \frac{Tr[\rho_G n_\textbf{k}]}{Tr[\rho_G]} = \frac{1}{e^{\beta(\epsilon_{\textbf{k}}-\mu)}+1}
+\end{equation*}
+\begin{equation*}
+    n_B(\epsilon_{\textbf{k}}) = \frac{Tr[\rho_G n_\textbf{k}]}{Tr[\rho_G]} = \frac{1}{e^{\beta(\epsilon_{\textbf{k}}-\mu)}-1}
+\end{equation*}
+\textbf{Quantum field operators and their Fourier transforms}
+$\{ \ket{\tilde{\psi}}\}$
+$\{ \ket{\textbf{r}}\} $
+\begin{equation*}
+    \Psi^\dagger(\textbf{r}) \equiv \sum_\nu \braket*{\textbf{r}}{\psi_\nu}^{*} a^\dagger_\nu = \sum_\nu \psi^{*}_\nu(\textbf{r})a^\dagger_\nu \qquad \Psi(\textbf{r}) \equiv \sum_\nu \braket*{\textbf{r}}{\psi_\nu} a_\nu = \sum_\nu \psi_\nu(\textbf{r}) a_\nu
+\end{equation*}
+\begin{equation*}
+    [\Psi(\textbf{r}_1),\Psi^\dagger(\textbf{r}_2)] = \delta(\textbf{r}_1-\textbf{r}_2)
+\end{equation*}
+\begin{equation*}
+    \{ \Psi(\textbf{r}_1),\Psi(\textbf{r}_2),\Psi^\dagger(\textbf{r}_2)\} = \delta(\textbf{r}_1-\textbf{r}_2)
+\end{equation*}
+\begin{equation*}
+    T=\sum_{\nu_i,\nu_j}\big( \int d\textbf{r}\psi^*_{\nu_i}Tr\psi_{\nu_j}(\textbf{r})) a^{\dagger}_{\nu_i} a_{\nu_i}
+\end{equation*}
+\begin{equation*}
+    \int d\textbf{r}\big(\psi^*_{\nu_i}a^{\dagger}_{\nu_i})Tr\big(\sum_{\nu_j}\psi_{\nu_j}(\textbf{r})a_{\nu_i}) =  \int d\textbf{r}\Psi^\dagger(\textbf{r}) Tr \Psi (\textbf{r})
+\end{equation*}
+\begin{equation*}
+    \Psi^{\dagger}(\textbf{r})\frac{1}{\sqrt{\nu}} \sum_{\textbf{k}}e^{-ik\cdot r} a^{\dagger}_{k}, \qquad \Psi(\textbf{r})\frac{1}{\sqrt{\nu}} \sum_{\textbf{k}}e^{-ik\cdot r} a_{k}
+\end{equation*}
+\begin{equation*}
+    a^{\dagger}_q (\textbf{r}) \frac{1}{\sqrt{\nu}} \int d{\textbf{r}}e^{-iq\cdot r} \Psi^{\dagger}_{k}, \qquad a_q(\textbf{r}) \frac{1}{\sqrt{\nu}} \int d{\textbf{r}}e^{-iq\cdot r} \Psi_{k}
+\end{equation*}
+    \end{document}
