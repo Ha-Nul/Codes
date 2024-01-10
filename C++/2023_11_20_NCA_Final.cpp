@@ -9,9 +9,9 @@
 using namespace std;
 using namespace Eigen;
 
-const double g = 0.64;
+const double g = 0.001;
 vector<double> k_mode(100,1);
-double gamma = 1;
+double g_ma = 1;
 double omega = 1;
 double velocity = 1;
 double cutoff = 1;
@@ -109,12 +109,12 @@ class Testing
             return Matrix1;
         }
 
-        vector<double> tau_grid = linspace(0,0.4,400);
+        vector<double> tau_grid = linspace(0,1,400);
         int k = tau_grid.size();
 
     public:
 
-        vector<double> grid = linspace(0,0.4,400);
+        vector<double> grid = linspace(0,1,400);
         vector<double> green(vector<double> tau);
         vector<double> coupling(double v, double g, double W);
         vector<double> Interact(vector<double> coupling, vector<double> tau);
@@ -136,10 +136,10 @@ class Testing
 
         double chemical_poten(MatrixXd prop);
 
-        vector<MatrixXd> Iteration(const int &weight, int iteration);
+        vector<MatrixXd> Iteration(const int &iteration);
         vector<double> TestingIteration(const int &n, int testingint);
 
-        vector<double> Chi_sp(const int &weight, int iteration);
+        vector<double> Chi_sp(int iteration);
 
 };
 
@@ -210,7 +210,7 @@ MatrixXd Testing::Eigenvector_Even()
 {
 	MatrixXd a;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,gamma));
+	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
 	a = es.eigenvectors();
 
 	return a;
@@ -220,7 +220,7 @@ MatrixXd Testing::Eigenvalue_Even()
 {
 	MatrixXd b;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,gamma));
+	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
 	b = es.eigenvalues();
 
 	return b;
@@ -230,7 +230,7 @@ MatrixXd Testing::Eigenvector_Odd()
 {
 	MatrixXd a;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,gamma));
+	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
 	a = es.eigenvectors();
 
 	return a;
@@ -240,7 +240,7 @@ MatrixXd Testing::Eigenvalue_Odd()
 {
 	MatrixXd b;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,gamma));
+	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
 	b = es.eigenvalues();
 
 	return b;
@@ -344,7 +344,8 @@ vector<MatrixXd> Testing::Sigma(const MatrixXd &N,const vector<MatrixXd> &H_exp,
 
 
 MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite, int n)
-{
+{   
+
     MatrixXd sigsum = MatrixXd::Zero(3,3);
     
     if (n == 1)
@@ -354,9 +355,9 @@ MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixX
     else if (n > 1){
         for (int i = 0 ; i < n ; i++)
         {
-            sigsum += 0.5 * (sigma[n-(i+1)] * ite[i] + sigma[n-(i+2)] * ite[i+1]);
+            sigsum += 0.5 * (sigma[n-(i)] * ite[i] + sigma[n-(i+1)] * ite[i+1]);
 
-            if (i+1 == n-1)
+            if (i+1 == n)
             {
                 break;
             }
@@ -400,6 +401,7 @@ vector<MatrixXd> Testing::Propagator(const vector<MatrixXd> &array, const Matrix
 
             Sigma_later = round_propagater_ite(loc,Sigma_function,Propagator_array,i);
             Propagator_array[i] = Propagator_array[i-1] + Delta_tau * 0.5 * (Sigma_former + Sigma_later);
+
         }
 
     
@@ -420,7 +422,7 @@ double Testing::chemical_poten(MatrixXd prop)
 
 ///////////////////////////////////////////////////////////////////////////////
 
-vector<MatrixXd> Testing::Iteration(const int &n, int testingint)
+vector<MatrixXd> Testing::Iteration(const int &n)
 {
     vector<MatrixXd> Sig;
     vector<MatrixXd> Prop;
@@ -435,7 +437,7 @@ vector<MatrixXd> Testing::Iteration(const int &n, int testingint)
 
     double lambda;
     
-    for(int i = 0; i <= testingint; i++)
+    for(int i = 0; i <= n; i++)
     {
         if (i==0)
         {   
@@ -458,8 +460,7 @@ vector<MatrixXd> Testing::Iteration(const int &n, int testingint)
         }
     
         else
-        {
-
+        {   
             H_loc = H_loc - lambda * Iden;
 
             Sig = Sigma(H_N,Prop,Int);
@@ -471,7 +472,6 @@ vector<MatrixXd> Testing::Iteration(const int &n, int testingint)
             for(int j=0; j<k; j++)
             {
                 Prop[j] = Prop[j] * exp(tau_grid[j]*(lambda));
-
             }
 
         }
@@ -483,7 +483,7 @@ vector<MatrixXd> Testing::Iteration(const int &n, int testingint)
 
 //////////////////////////////////////////////////////////////////////////////
 
-vector<double> Testing::Chi_sp(const int &weight, int iteration)
+vector<double> Testing::Chi_sp(int iter)
 {
     MatrixXd Gellmann_1 = MatrixXd::Zero(3,3);
 
@@ -491,12 +491,13 @@ vector<double> Testing::Chi_sp(const int &weight, int iteration)
     Gellmann_1(1,0) = 1;
 
     vector<double> chi_array(k,0);
+    vector<MatrixXd> Ite_ra = Iteration(iter);
 
     for (int i=0; i<k; i++)
     {
-        chi_array[i] = (Iteration(weight,iteration)[k-i-1] * Gellmann_1 * Iteration(weight,iteration)[i] * Gellmann_1).trace();
+        chi_array[i] =(Ite_ra[k-i-1] * Gellmann_1 * Ite_ra[i] * Gellmann_1).trace();
         cout << setprecision(16);   
-        cout << chi_array[i] << endl;
+        //cout << chi_array[i] << endl;
     }
 
     return chi_array;
@@ -507,13 +508,14 @@ int main()
 
     Testing test;
 
-    std::ofstream outputFile("20240107_NCA_grid400_beta_0_4_g_0.64.txt");
+    std::ofstream outputFile("test.txt");
 
-    vector<double> a = test.Chi_sp(5,4);
+    vector<double> a = test.Chi_sp(5);
 
-    for (int i = 0; i < 201; i++)
+    for (int i = 0; i < a.size(); i++)
     {     
-    outputFile << test.grid[i] << "\t" << a[i] << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
+        cout << a[i] << endl;
+        outputFile << test.grid[i] << "\t" << a[i] << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
     }
     outputFile.close();
    
