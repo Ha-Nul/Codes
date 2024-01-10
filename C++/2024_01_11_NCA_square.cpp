@@ -355,7 +355,8 @@ MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixX
     else if (n > 1){
         for (int i = 0 ; i < n ; i++)
         {
-            sigsum += 0.5 * (sigma[n-(i)] * ite[i] + sigma[n-(i+1)] * ite[i+1]);
+            sigsum += sigma[n-(i)] * ite[i];
+            //sigsum += 0.5 * (sigma[n-(i)] * ite[i] + sigma[n-(i+1)] * ite[i+1]);
 
             if (i+1 == n)
             {
@@ -399,9 +400,10 @@ vector<MatrixXd> Testing::Propagator(const vector<MatrixXd> &array, const Matrix
         {
             Sigma_former = round_propagater_ite(loc,Sigma_function,Propagator_array,i-1);
             Propagator_array[i] = Propagator_array[i-1] + Delta_tau * Sigma_former;
-
+            /*
             Sigma_later = round_propagater_ite(loc,Sigma_function,Propagator_array,i);
             Propagator_array[i] = Propagator_array[i-1] + Delta_tau * 0.5 * (Sigma_former + Sigma_later);
+            */
 
         }
 
