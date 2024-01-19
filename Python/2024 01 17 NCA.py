@@ -37,9 +37,9 @@ for b in betamaxarray:
         return(A)
 
     for i in range(len(garray)):
-        a = tau
-        b = plotting(1,gsqaure[i],b)
+        domain = tau
+        value = plotting(1,gsqaure[i],b)
 
-        df = np.column_stack((a,b))
+        df = np.column_stack((domain,value))
 
         np.savetxt('Exacttest_beta0_{}_g_{}.txt'.format(b,gsqaure[i]),df)
