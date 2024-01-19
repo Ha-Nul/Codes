@@ -108,13 +108,11 @@ class Testing
 
             return Matrix1;
         }
-
-        vector<double> tau_grid = linspace(0,1,10);
+	vector<double> tau_grid = linspace(0,2,400);
         int k = tau_grid.size();
 
     public:
-
-        vector<double> grid = linspace(0,1,10);
+        vector<double> grid = linspace(0,2,400);
         vector<double> green(vector<double> tau);
         vector<double> coupling(double v, double g, double W);
         vector<double> Interact(vector<double> coupling, vector<double> tau);
@@ -508,11 +506,18 @@ int main()
 {
 
     Testing test;
-    vector<double> g_array(21,0);
-
-    for (int j=1; j<21; ++j)
+    vector<double> g_array(25,0);
+    for (int j=1; j<25; ++j)
     {
-        g_array[j] = (g_array[j-1] + 0.05);
+        if (j<21)
+        {
+          g_array[j] = (g_array[j-1] + 0.05);
+        }
+
+        else
+        {
+          g_array[j] = g_array[j-1] + 1;
+        }
     }
 
     for (int m=0; m<21; m++)
@@ -520,12 +525,16 @@ int main()
         g_array[m] = g_array[m] * g_array[m];
     }
 
-
-    for (int k=0; k<21; k++)
+    for (int k=0; k<g_array.size(); k++)
+    {
+        cout << g_array[k] << endl;
+    }
+    
+    for (int k=0; k<g_array.size(); k++)
     {
         std::ofstream outputFile;
 
-        string name = "test";
+        string name = "Trap_beta2_";
         std::stringstream back;
         back << g_array[k];
 
