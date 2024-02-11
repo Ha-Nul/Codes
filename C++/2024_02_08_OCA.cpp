@@ -447,7 +447,6 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
 {
     vector<MatrixXd> Sig;
     vector<MatrixXd> Prop;
-    vector<MatrixXd> HE = Hamiltonian_exp(Eigenvalue_Even(),Eigenvalue_Odd());
     vector<MatrixXd> Prop_zeroth(k,MatrixXd::Identity(3,3));
     vector<double> coup = coupling(velocity,gvalue,cutoff);
     vector<double> Int = Interact_V(coup,tau_grid,omega);
@@ -463,8 +462,13 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
     {
         if (i==0)
         {   
-            Prop = HE;
-            lambda = chemical_poten(Prop[k-1]);
+            Prop = Prop_zeroth;
+            for(int j=0; j<k; j++)
+            {
+                Prop[j](0,0) = exp(-tau_grid[j] * Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd())(0,0));
+                Prop[j](1,1) = exp(-tau_grid[j] * Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd())(1,1));
+                Prop[j](2,2) = exp(-tau_grid[j] * Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd())(2,2));
+            }
 
             for(int j=0; j<k; j++)
             {
