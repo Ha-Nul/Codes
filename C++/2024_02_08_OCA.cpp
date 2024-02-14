@@ -142,7 +142,9 @@ class Testing
         vector<MatrixXd> Iteration(const int &iteration, const double &gvalue);
         vector<double> TestingIteration(const int &n, int testingint);
 
-        vector<double> Chi_sp(int iteration, const double &gvalue);
+        vector<double> NCA_Chi_sp(int iteration, const double &gvalue);
+        vector<double> OCA_Chi_sp(int iteration, const double &gvalue);
+        vector<double> Chi_sp(int ite, const double &g);
 
 };
 
@@ -334,7 +336,7 @@ vector<MatrixXd> Testing::NCA_self(const MatrixXd &N,const vector<MatrixXd> &Pro
     
     for (int i=0; i < k ; i++)
     {   
-        Sarray[i] = 0.5 * V[i] * (N * Prop[i] * N);
+        Sarray[i] = V[i] * (N * Prop[i] * N);
     }
     
     return Sarray;
@@ -342,19 +344,25 @@ vector<MatrixXd> Testing::NCA_self(const MatrixXd &N,const vector<MatrixXd> &Pro
 
 vector<MatrixXd> Testing::OCA_self(MatrixXd &N, vector<MatrixXd> &Prop, vector<double> &V)
 {
+    vector<MatrixXd> Sarray_tau_0(k,MatrixXd::Zero(3,3));
     vector<MatrixXd> Sarray_tau_1(k,MatrixXd::Zero(3,3));
     vector<MatrixXd> Sarray_tau_2(k,MatrixXd::Zero(3,3));
 
-    for (int n=0; n<k; n++)
+    for (int i = 0 ; i<k ; i++)
     {
-        for (int m=n ; m<k; m++)
+        for (int n=0; n<i; n++)
         {
-            Sarray_tau_2[m] = 0.5 * N * Prop[k-1-n] * N * Prop[m-n] * N * Prop[m] * V[k-1-n] * V[m];
-            Sarray_tau_1[n] += Sarray_tau_2[m];
+            for (int m=n ; m<k; m++)
+            {
+                Sarray_tau_2[m] = N * Prop[k-1-n] * N * Prop[m-n] * N * Prop[m] * N * V[k-1-n] * V[m];
+                Sarray_tau_1[n] += Sarray_tau_2[m] * Delta_t;
+            }
+
+            Sarray_tau_0[i] += Sarray_tau_1[n] * Delta_t;
         }
     }
 
-    return Sarray_tau_1;
+    return Sarray_tau_0;
 }
 
 vector<MatrixXd> Testing::Self_E(MatrixXd &N, vector<MatrixXd> &Prop, vector<double> &V)
@@ -411,9 +419,11 @@ vector<MatrixXd> Testing::Propagator(const vector<MatrixXd> &Self_E, const Matri
     
     PArray[0] = MatrixXd::Identity(3,3);
     
+    /*
     vector<double> C = coupling(velocity,gvalue,cutoff);
     vector<double> V = Interact_V(C,tau_grid,omega);
-    MatrixXd N = Hamiltonian_N(Eigenvector_Even(),Eigenvector_Odd(),gvalue);
+    MatrixXd P_N = Hamiltonian_N(Eigenvector_Even(),Eigenvector_Odd(),gvalue);
+    */
 
     for (int i=1; i < k; i++)
     {
@@ -473,10 +483,11 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
             for(int j=0; j<k; j++)
             {
                 Prop[j] = Prop[j] * exp(tau_grid[j]*(lambda));
-                cout << Prop[j].trace() << endl;
+                //cout << Prop[j].trace() << endl;
 
             }
         }
+
     
         else
         {   
@@ -489,7 +500,7 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
             for(int j=0; j<k; j++)
             {
                 Prop[j] = Prop[j] * exp(tau_grid[j]*(lambda));
-                cout << Prop[j].trace() << endl;
+                //cout << Prop[j].trace() << endl;
             }
 
         }
@@ -501,27 +512,80 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
 
 //////////////////////////////////////////////////////////////////////////////
 
-vector<double> Testing::Chi_sp(int iter, const double &gvalue)
+vector<double> Testing::NCA_Chi_sp(int iter, const double &gvalue)
 {
     MatrixXd Gellmann_1 = MatrixXd::Zero(3,3);
 
     Gellmann_1(0,1) = 1;
     Gellmann_1(1,0) = 1;
 
-    vector<double> chi_array(k,0);
+    vector<double> NCA_chi_array(k,0);
     vector<MatrixXd> Ite_ra = Iteration(iter,gvalue);
 
     for (int i=0; i<k; i++)
     {
-        chi_array[i] =(Ite_ra[k-i-1] * Gellmann_1 * Ite_ra[i] * Gellmann_1).trace();
+        NCA_chi_array[i] =(Ite_ra[k-i-1] * Gellmann_1 * Ite_ra[i] * Gellmann_1).trace();
         cout << setprecision(16);   
         //cout << chi_array[i] << endl;
     }
 
-    return chi_array;
+    return NCA_chi_array;
 }
 
-int main()
+vector<double> Testing::OCA_Chi_sp(int iter, const double &gvalue)
+{
+    MatrixXd Gellmann_1 = MatrixXd::Zero(3,3);
+
+    Gellmann_1(0,1) = 1;
+    Gellmann_1(1,0) = 1;
+
+    MatrixXd C_N = Hamiltonian_N(Eigenvector_Even(),Eigenvector_Odd(),gvalue);
+    vector<double> C_V = Interact_V(coupling(velocity,gvalue,cutoff),tau_grid,omega);
+
+    vector<double> OCA_chi_array0(k,0);
+    vector<MatrixXd> OCA_chi_array1(k,MatrixXd::Zero(3,3));
+    vector<MatrixXd> OCA_chi_array2(k,MatrixXd::Zero(3,3));
+
+    vector<MatrixXd> Ite = Iteration(iter,gvalue);
+
+    for (int i=0; i<k; i++)
+    {
+        for (int n=0; n<=i; n++)
+        {
+            for (int m=i; m<k; m++)
+            {
+                OCA_chi_array2[m] = Delta_t * C_V[m-n] * Ite[tau_grid[k-1] - m] * C_N * Ite[m - i] * Gellmann_1 * Ite[i-n] * C_N * Ite[n] * Gellmann_1;
+                OCA_chi_array1[n] += OCA_chi_array2[m];
+            }
+
+            OCA_chi_array0[i] += Delta_t * OCA_chi_array1[n].trace();
+            cout << setprecision(16);
+        }
+
+    }
+
+    return OCA_chi_array0;
+
+}
+
+vector<double> Testing::Chi_sp(int ite, const double &g)
+{
+    vector<double> NCA = NCA_Chi_sp(ite,g);
+    vector<double> OCA = OCA_Chi_sp(ite,g);
+
+    vector<double> Chi(k,0);
+
+    for (int i=0; i<k ; i++)
+    {
+        Chi[i] = NCA[i] + OCA[i];
+    }
+
+    return Chi;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////
+int main()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 {
 
     Testing test;
@@ -609,7 +673,7 @@ int main()
     vector<MatrixXd> OCATEST = test.Propagator(Self,Hl,g_array[10]);
     */
 
-    vector<MatrixXd> ITE = test.Iteration(2,g_array[10]);
+    vector<double> ITE = test.Chi_sp(1,g_array[10]);
     
     for (int i = 0; i < test.grid.size() ;  i++)
     {
