@@ -26,7 +26,7 @@ class Testing
             // vector iterator
             int iterator = 0;
 
-            for (int i = 0; i <= n-2; i++)	
+            for (int i = 0; i <= n-2; i++)
             {
                 double temp = min + i*(max-min)/(floor((double)n) - 1);
                 result.insert(result.begin() + iterator, temp);
@@ -212,42 +212,42 @@ vector<double> Testing::Interact_V(vector<double>coupling, vector<double> tau, d
 
 MatrixXd Testing::Eigenvector_Even()
 {
-	MatrixXd a;
+    MatrixXd a;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
-	a = es.eigenvectors();
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
+    a = es.eigenvectors();
 
-	return a;
+    return a;
 }
 
 MatrixXd Testing::Eigenvalue_Even()
 {
-	MatrixXd b;
+    MatrixXd b;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
-	b = es.eigenvalues();
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
+    b = es.eigenvalues();
 
-	return b;
+    return b;
 }
 
 MatrixXd Testing::Eigenvector_Odd()
 {
-	MatrixXd a;
+    MatrixXd a;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
-	a = es.eigenvectors();
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
+    a = es.eigenvectors();
 
-	return a;
+    return a;
 }
 
 MatrixXd Testing::Eigenvalue_Odd()
 {
-	MatrixXd b;
+    MatrixXd b;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
-	b = es.eigenvalues();
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
+    b = es.eigenvalues();
 
-	return b;
+    return b;
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -276,7 +276,7 @@ MatrixXd Testing::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
 
 vector<MatrixXd> Testing::Hamiltonian_exp(MatrixXd a, MatrixXd b)
 {
-    //g_0 
+    //g_0
     MatrixXd Even = a;
     MatrixXd Odd = b;
 
@@ -335,7 +335,7 @@ vector<MatrixXd> Testing::NCA_self(const MatrixXd &N,const vector<MatrixXd> &Pro
     vector<MatrixXd> Sarray(k);
     
     for (int i=0; i < k ; i++)
-    {   
+    {
         Sarray[i] = V[i] * (N * Prop[i] * N);
     }
     
@@ -344,7 +344,7 @@ vector<MatrixXd> Testing::NCA_self(const MatrixXd &N,const vector<MatrixXd> &Pro
 
 vector<MatrixXd> Testing::OCA_self(MatrixXd &N, vector<MatrixXd> &Prop, vector<double> &V)
 {
-    vector<MatrixXd> Sarray_tau_0(k,MatrixXd::Zero(3,3));   
+    vector<MatrixXd> Sarray_tau_0(k,MatrixXd::Zero(3,3));
     MatrixXd Stmp;
 
     for (int i = 0 ; i < k ; i++)
@@ -377,13 +377,13 @@ vector<MatrixXd> Testing::Self_E(MatrixXd &N, vector<MatrixXd> &Prop, vector<dou
 
 
 MatrixXd Testing::round_propagator_ite(const MatrixXd &loc, const vector<MatrixXd> &Self_E, const vector<MatrixXd> &Prop_ite, int n)
-{   
+{
 
     MatrixXd SUM = MatrixXd::Zero(3,3);
     
        if (n == 1)
     {
-        SUM = (Self_E[1]*Prop_ite[0]] + Self_E[0]*Prop_ite[1]);
+        SUM = (Self_E[1]*Prop_ite[0] + Self_E[0]*Prop_ite[1]);
     }
     else if (n > 1){
         for (int i = 0 ; i < n ; i++)
@@ -430,10 +430,10 @@ vector<MatrixXd> Testing::Propagator(const vector<MatrixXd> &Self_E, const Matri
 
         if (i > 1)
         {
-            Former = round_propagater_ite(loc,Self_E,PArray,i-1);
+            Former = round_propagator_ite(loc,Self_E,PArray,i-1);
             PArray[i] = PArray[i-1] + Delta_t * Former;
 
-            Latter = round_propagater_ite(loc,Self_E,PArray,i);
+            Latter = round_propagator_ite(loc,Self_E,PArray,i);
             PArray[i] = PArray[i-1] + Delta_t * 0.5 * (Former + Latter);
 
         }
@@ -472,7 +472,7 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
     for(int i = 0; i <= n; i++)
     {
         if (i==0)
-        {   
+        {
             Prop = Prop_zeroth;
             for(int j=0; j<k; j++)
             {
@@ -491,7 +491,7 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
 
     
         else
-        {   
+        {
             H_loc = H_loc - lambda * Iden;
 
             Sig = Self_E(H_N,Prop,Int);
@@ -526,7 +526,7 @@ vector<double> Testing::NCA_Chi_sp(int iter, const double &gvalue)
     for (int i=0; i<k; i++)
     {
         NCA_chi_array[i] =(Ite_ra[k-i-1] * Gellmann_1 * Ite_ra[i] * Gellmann_1).trace();
-        cout << setprecision(16);   
+        cout << setprecision(16);
         //cout << chi_array[i] << endl;
     }
 
@@ -581,7 +581,7 @@ vector<double> Testing::Chi_sp(int ite, const double &g)
 
 
 ////////////////////////////////////////////////////////////////////////////////////
-int main()         
+int main()
 {
 
     Testing test;
@@ -592,7 +592,7 @@ int main()
     */
 
     vector<double> g_array(25,0);
-    for (int j=1; j<25; ++j)
+    for (int j=1; j<2; ++j)
     {
         if (j<21)
         {
@@ -627,9 +627,9 @@ int main()
         vector<double> a = test.Chi_sp(5,g_array[k]);
 
         for (int i = 0; i < a.size(); i++)
-        {     
+        {
             cout << a[i] << endl;
-            outputFile << test.grid[i] << "\t" << a[i] << endl; 
+            outputFile << test.grid[i] << "\t" << a[i] << endl;
         }
         outputFile.close();
     }
