@@ -344,22 +344,16 @@ vector<MatrixXd> Testing::NCA_self(const MatrixXd &N,const vector<MatrixXd> &Pro
 
 vector<MatrixXd> Testing::OCA_self(MatrixXd &N, vector<MatrixXd> &Prop, vector<double> &V)
 {
-    vector<MatrixXd> Sarray_tau_0(k,MatrixXd::Zero(3,3));
-    vector<MatrixXd> Sarray_tau_1(k,MatrixXd::Zero(3,3));
-    vector<MatrixXd> Sarray_tau_2(k,MatrixXd::Zero(3,3));
+    vector<MatrixXd> Sarray_tau_0(k,MatrixXd::Zero(3,3));   
+    MatrixXd Stmp;
 
-    for (int i = 0 ; i<k ; i++)
+    for (int i = 0 ; i < k ; i++)
     {
-        for (int n=0; n<i; n++)
-        {
-            for (int m=n ; m<k; m++)
-            {
-                Sarray_tau_2[m] = N * Prop[k-1-n] * N * Prop[m-n] * N * Prop[m] * N * V[k-1-n] * V[m];
-                Sarray_tau_1[n] += Sarray_tau_2[m] * Delta_t;
-            }
-
-            Sarray_tau_0[i] += Sarray_tau_1[n] * Delta_t;
+        Stmp= MatrixXd::Zero(3,3);
+        for (int n = 0; n<=i; n++) for (int m = 0 ; m<=n; m++){
+            Stmp += N * Prop[i-n] * N * Prop[n-m] * N * Prop[m] * N * V[i-n] * V[m];
         }
+        Sarray_tau_0[i] += pow(Delta_t,2)*Stmp;;;
     }
 
     return Sarray_tau_0;
@@ -389,7 +383,7 @@ MatrixXd Testing::round_propagator_ite(const MatrixXd &loc, const vector<MatrixX
     
     if (n == 1)
     {
-        SUM = Self_Energy[1]*Prop_ite[0] + Self_Energy[0]*Prop_ite[1];
+        SUM = Self_Energy[1] * Prop_ite[0] + Self_Energy[0]*Prop_ite[1];
     }
     else if (n > 1){
         for (int i = 0 ; i < n ; i++)
@@ -543,26 +537,21 @@ vector<double> Testing::OCA_Chi_sp(int iter, const double &gvalue)
     vector<double> C_V = Interact_V(coupling(velocity,gvalue,cutoff),tau_grid,omega);
 
     vector<double> OCA_chi_array0(k,0);
-    vector<MatrixXd> OCA_chi_array1(k,MatrixXd::Zero(3,3));
-    vector<MatrixXd> OCA_chi_array2(k,MatrixXd::Zero(3,3));
-
+    
     vector<MatrixXd> Ite = Iteration(iter,gvalue);
 
     for (int i=0; i<k; i++)
     {
-        for (int n=0; n<=i; n++)
-        {
-            for (int m=i; m<k; m++)
+        MatrixXd Stmp = MatrixXd::Zero(3,3);
+
+        for (int n=0; n<=i; n++) for (int m=i; m<k; m++)
             {
-                OCA_chi_array2[m] = Delta_t * C_V[m-n] * Ite[tau_grid[k-1] - m] * C_N * Ite[m - i] * Gellmann_1 * Ite[i-n] * C_N * Ite[n] * Gellmann_1;
-                OCA_chi_array1[n] += OCA_chi_array2[m];
+                Stmp += C_V[m-n] * Ite[k-m-1] * C_N * Ite[m-i] * Gellmann_1 * Ite[i-n] * C_N * Ite[n] * Gellmann_1;
             }
 
-            OCA_chi_array0[i] += Delta_t * OCA_chi_array1[n].trace();
+            OCA_chi_array0[i] = pow(Delta_t,2)*Stmp.trace();
             cout << setprecision(16);
         }
-
-    }
 
     return OCA_chi_array0;
 
@@ -585,7 +574,7 @@ vector<double> Testing::Chi_sp(int ite, const double &g)
 
 
 ////////////////////////////////////////////////////////////////////////////////////
-int main()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+int main()         
 {
 
     Testing test;
@@ -613,30 +602,7 @@ int main()
     {
         g_array[m] = g_array[m] * g_array[m];
     }
-    /*
-    for (int n=0; n<25; n++)
-    {
-        std::ofstream outputFile;
 
-        //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "N_matrix_beta_2_g_";
-        std::stringstream back;
-        back << g_array[n];
-
-        name += back.str();
-        name += ".txt";
-
-        outputFile.open(name);
-
-        MatrixXd H_N = test.Hamiltonian_N(test.Eigenvector_Even(),test.Eigenvector_Odd(),g_array[n]);
-        outputFile << H_N << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
-
-        outputFile.close();
-
-    }
-    */
-
-    /*
     for (int k=0; k<g_array.size(); k++)
     {
         std::ofstream outputFile;
@@ -656,29 +622,9 @@ int main()
         for (int i = 0; i < a.size(); i++)
         {     
             cout << a[i] << endl;
-            outputFile << test.grid[i] << "\t" << a[i] << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
+            outputFile << test.grid[i] << "\t" << a[i] << endl; 
         }
         outputFile.close();
-    }
-    */
-
-   /*
-    MatrixXd NN = test.Hamiltonian_N(test.Eigenvector_Even(),test.Eigenvector_Odd(),g_array[10]);
-    vector<MatrixXd> He = test.Hamiltonian_exp(test.Eigenvalue_Even(),test.Eigenvalue_Odd());
-    MatrixXd Hl = test.Hamiltonian_loc(test.Eigenvalue_Even(),test.Eigenvalue_Odd());
-    vector<double> VV = test.Interact_V(test.coupling(velocity,g_array[10],cutoff),test.grid,omega);
-
-    vector<MatrixXd> Self = test.Self_E(NN,He,VV);
-
-    vector<MatrixXd> OCATEST = test.Propagator(Self,Hl,g_array[10]);
-    */
-
-    vector<double> ITE = test.Chi_sp(1,g_array[10]);
-    
-    for (int i = 0; i < test.grid.size() ;  i++)
-    {
-        //cout << Self[i] << endl;
-        cout << ITE[i] << endl;
     }
     
     return 0;
