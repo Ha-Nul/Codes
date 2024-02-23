@@ -130,7 +130,7 @@ class Testing
         MatrixXd Hamiltonian_loc(MatrixXd a, MatrixXd b);
         MatrixXd Hamiltonian_loc_ite(MatrixXd a, MatrixXd b,const double &lambda);
 
-        MatrixXd round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite,int weight);
+        MatrixXd round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite,int n, int boolean);
         vector<MatrixXd> Sigma(const MatrixXd &N,const vector<MatrixXd> &H_exp, const vector<double> &V);
         vector<MatrixXd> Propagator(const vector<MatrixXd> &array , const MatrixXd &loc , const double &gvalue);
 
@@ -343,20 +343,20 @@ vector<MatrixXd> Testing::Sigma(const MatrixXd &N,const vector<MatrixXd> &H_exp,
 //////////////////////////////////////////////////////////////////////////////
 
 
-MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite, int n)
+MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite, int n, int boolean)
 {   
 
     MatrixXd sigsum = MatrixXd::Zero(3,3);
-    double Delta_t = tau_grid[1]-tau_grid[0];
+    double dtau = tau_grid[1]-tau_grid[0];
     
     if (n == 1)
     {
-        sigsum = (sigma[1]*ite[0] + sigma[0]*ite[1]);
+        sigsum = 0.5 * dtau * (sigma[1]*ite[0] + sigma[0]*ite[1]);
     }
     else if (n > 1){
         for (int i = 0 ; i < n ; i++)
         {
-            sigsum += 0.5 * Delta_t * (sigma[n-(i)] * ite[i] + sigma[n-(i+1)] * ite[i+1]);
+            sigsum += 0.5 * dtau * (sigma[n-(i)] * ite[i] + sigma[n-(i+1)] * ite[i+1]);
 
             if (i+1 == n)
             {
@@ -369,7 +369,14 @@ MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixX
     //cout << sigsum << endl;
 
     MatrixXd Bucket = MatrixXd::Zero(3,3);
-    Bucket = -loc * ite[n] + sigsum;
+    if (boolean == 0)
+    {
+        Bucket = -loc *ite[n] + sigsum;
+    }    
+    else if (boolean == 1)
+    {
+        Bucket = sigsum;
+    }
     //cout << -loc * ite << endl;
     return Bucket;
 }
@@ -378,38 +385,40 @@ MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixX
 
 vector<MatrixXd> Testing::Propagator(const vector<MatrixXd> &array, const MatrixXd &loc, const double &gvalue)
 {
-    vector<MatrixXd> Propagator_array(k,MatrixXd::Zero(3,3));
-    MatrixXd Propagator_array_zero = MatrixXd::Identity(3,3);
+    vector<MatrixXd> P_arr(k,MatrixXd::Zero(3,3));
+    vector<MatrixXd> S_arr(k,MatrixXd::Zero(3,3));
 
-    Propagator_array[0] = Propagator_array_zero;
+    P_arr[0] = MatrixXd::Identity(3,3);
+    S_arr[0] = MatrixXd::Identity(3,3);
 
-    MatrixXd Sigma_former = MatrixXd::Zero(3,3);
-    MatrixXd Sigma_later = MatrixXd::Zero(3,3);
-    double Delta_tau = tau_grid[1]-tau_grid[0];
+    MatrixXd sig_form = MatrixXd::Zero(3,3);
+    MatrixXd sig_late = MatrixXd::Zero(3,3);
+    double dtau = tau_grid[1]-tau_grid[0];
 
     vector<double> coupling_g = coupling(velocity,gvalue,cutoff);
     vector<double> Vfunction = Interact_V(coupling_g,tau_grid,omega);
-    vector<MatrixXd> Sigma_function = array;
+    vector<MatrixXd> self_E = array;
     MatrixXd N_matrix = Hamiltonian_N(Eigenvector_Even(),Eigenvector_Odd(),gvalue);
 
     for (int i=1; i < k; i++)
     {
-        Propagator_array[1] = Propagator_array[0] + Delta_tau * round_propagater_ite(loc,Sigma_function,Propagator_array,0);
+        P_arr[1] = P_arr[0];
+        sig_late = 0.5 * dtau * ( 0.5 * dtau * (self_E[1] * P_arr[0] + self_E[0] * (P_arr[0] + dtau * P_arr[0])));
+        P_arr[1] = P_arr[0] - 0.5 * dtau * loc * (2 * P_arr[0] + dtau * P_arr[0]) + sig_late;
+        S_arr[1] = P_arr[1];
 
         if (i > 1)
         {
-            Sigma_former = round_propagater_ite(loc,Sigma_function,Propagator_array,i-1);
-            Propagator_array[i] = Propagator_array[i-1] + Delta_tau * Sigma_former;
+            sig_form = round_propagater_ite(loc,self_E,P_arr,i-1,0);
+            S_arr[i] = P_arr[i-1] + dtau * sig_form;
 
-            Sigma_later = round_propagater_ite(loc,Sigma_function,Propagator_array,i);
-            Propagator_array[i] = Propagator_array[i-1] + Delta_tau * 0.5 * (Sigma_former + Sigma_later);
+            sig_late = 0.5 * dtau * (round_propagater_ite(loc,self_E,P_arr,i-1,1) + round_propagater_ite(loc,self_E,S_arr,i,1));
+            P_arr[i] = P_arr[i-1] - 0.5 * dtau * loc * (2 * P_arr[i-1] + dtau * sig_form) + sig_late;
 
         }
-
-    
     }
 
-    return Propagator_array;
+    return P_arr;
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -565,7 +574,7 @@ int main()
     }
     */
 
-
+    /*
     for (int k=0; k<1; k++)
     {
         std::ofstream outputFile;
@@ -573,14 +582,14 @@ int main()
         //string name = "20240111_Trap_beta_0_4_g_";
         string name = "Refcheck_Input_Prop";
         std::stringstream back;
-        back << g_array[k];
+        back << '1';//g_array[k];
 
         name += back.str();
         name += ".txt";
 
         outputFile.open(name);
         //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
-        vector<MatrixXd> a = test.Iteration(0,1);
+        vector<MatrixXd> a = test.Iteration(1,1);
 
         for (int i = 0; i < a.size(); i++)
         {     
@@ -592,6 +601,7 @@ int main()
         outputFile.close();
     
     }
+    
 
 
    /*
@@ -613,6 +623,32 @@ int main()
     
     outputFile.close();
     */
+    //test.Iteration(10,1);
+
+    for (int k=14; k<g_array.size(); k++)
+    {
+        std::ofstream outputFile;
+
+        //string name = "20240111_Trap_beta_0_4_g_";
+        string name = "Revise_grid101_ite1_g";
+        std::stringstream back;
+        back << g_array[k];
+
+        name += back.str();
+        name += ".txt";
+
+        outputFile.open(name);
+        //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
+        vector<double> a = test.Chi_sp(1,g_array[k]);
+
+        for (int i = 0; i < a.size(); i++)
+        {     
+            //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
+            outputFile << test.grid[i] << "\t" << a[i] << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
+        }
+        outputFile.close();
+    
+    }
     
     return 0;
 
