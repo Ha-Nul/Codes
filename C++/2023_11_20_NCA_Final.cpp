@@ -108,11 +108,13 @@ class Testing
 
             return Matrix1;
         }
-	vector<double> tau_grid = linspace(0,2,400);
+
+        vector<double> tau_grid = linspace(0,2,101);
         int k = tau_grid.size();
 
     public:
-        vector<double> grid = linspace(0,2,400);
+
+        vector<double> grid = linspace(0,2,101);
         vector<double> green(vector<double> tau);
         vector<double> coupling(double v, double g, double W);
         vector<double> Interact(vector<double> coupling, vector<double> tau);
@@ -290,7 +292,7 @@ vector<MatrixXd> Testing::Hamiltonian_exp(MatrixXd a, MatrixXd b)
         Hamiltonian_exp(1,1) = tau_grid[i] * first;
         Hamiltonian_exp(2,2) = tau_grid[i] * second;
 
-        array_with_Matrix[i] = Hamiltonian_exp; // 어떻게 넣어야 하는가.... 지피티가 알려준대로 넣어봄 일단.
+        array_with_Matrix[i] = Hamiltonian_exp;
     }
 
     return array_with_Matrix;
@@ -331,7 +333,7 @@ vector<MatrixXd> Testing::Sigma(const MatrixXd &N,const vector<MatrixXd> &H_exp,
     
     for (int i=0; i < k ; i++)
     {   
-        Sigarray[i] = 0.5 * V[i] * (Narray[i] * H_exp[i] * Narray[i]);
+        Sigarray[i] = V[i] * (Narray[i] * H_exp[i] * Narray[i]);
     }
     
     return Sigarray;
@@ -345,15 +347,16 @@ MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixX
 {   
 
     MatrixXd sigsum = MatrixXd::Zero(3,3);
+    double Delta_t = tau_grid[1]-tau_grid[0];
     
     if (n == 1)
     {
-        sigsum = sigma[1]*ite[0] + sigma[0]*ite[1];
+        sigsum = (sigma[1]*ite[0] + sigma[0]*ite[1]);
     }
     else if (n > 1){
         for (int i = 0 ; i < n ; i++)
         {
-            sigsum += 0.5 * (sigma[n-(i)] * ite[i] + sigma[n-(i+1)] * ite[i+1]);
+            sigsum += 0.5 * Delta_t * (sigma[n-(i)] * ite[i] + sigma[n-(i+1)] * ite[i+1]);
 
             if (i+1 == n)
             {
@@ -366,7 +369,7 @@ MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixX
     //cout << sigsum << endl;
 
     MatrixXd Bucket = MatrixXd::Zero(3,3);
-    Bucket = -loc * ite[n] + (tau_grid[1]-tau_grid[0]) * sigsum;
+    Bucket = -loc * ite[n] + sigsum;
     //cout << -loc * ite << endl;
     return Bucket;
 }
@@ -432,8 +435,7 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
     MatrixXd H_loc = Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd());
     MatrixXd Iden = MatrixXd::Identity(3,3);
     MatrixXd H_N = Hamiltonian_N(Eigenvector_Even(),Eigenvector_Odd(),gvalue);
-    vector<MatrixXd> H_e = Hamiltonian_exp(Eigenvalue_Even(),Eigenvalue_Odd());
-
+    
     double lambda;
     
     for(int i = 0; i <= n; i++)
@@ -441,7 +443,6 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
         if (i==0)
         {   
             Prop = Prop_zeroth;
-            //cout << "this is " << i << "th iteration " << endl;
             for(int j=0; j<k; j++)
             {
                 Prop[j](0,0) = exp(-tau_grid[j] * Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd())(0,0));
@@ -454,6 +455,7 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
             for(int j=0; j<k; j++)
             {
                 Prop[j] = Prop[j] * exp(tau_grid[j]*(lambda));
+                //cout << Prop[j].trace() << endl;
 
             }
         }
@@ -471,6 +473,7 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
             for(int j=0; j<k; j++)
             {
                 Prop[j] = Prop[j] * exp(tau_grid[j]*(lambda));
+                //cout << Prop[j].trace() << endl;
             }
 
         }
@@ -506,6 +509,21 @@ int main()
 {
 
     Testing test;
+
+    /*
+    MatrixXd H_local = test.Hamiltonian_loc(test.Eigenvalue_Even(),test.Eigenvalue_Odd());
+    
+    std::ofstream outputFile;
+    
+    string name = "Hamiltonian_local";
+
+    outputFile.open(name);
+    outputFile << H_local << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
+
+    outputFile.close();
+    //cout << H_local << endl;
+    */
+
     vector<double> g_array(25,0);
     for (int j=1; j<25; ++j)
     {
@@ -524,17 +542,36 @@ int main()
     {
         g_array[m] = g_array[m] * g_array[m];
     }
-
-    for (int k=0; k<g_array.size(); k++)
-    {
-        cout << g_array[k] << endl;
-    }
-    
-    for (int k=0; k<g_array.size(); k++)
+    /*
+    for (int n=0; n<1; n++)
     {
         std::ofstream outputFile;
 
-        string name = "Trap_beta2_";
+        //string name = "20240111_Trap_beta_0_4_g_";
+        string name = "N_matrix_beta_2_g_";
+        //std::stringstream back;
+        //back << g_array[n];
+
+        //name += back.str();
+        name += ".txt";
+
+        outputFile.open(name);
+
+        MatrixXd H_N = test.Hamiltonian_N(test.Eigenvector_Even(),test.Eigenvector_Odd(),1);
+        outputFile << H_N << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
+
+        outputFile.close();
+
+    }
+    */
+
+
+    for (int k=0; k<1; k++)
+    {
+        std::ofstream outputFile;
+
+        //string name = "20240111_Trap_beta_0_4_g_";
+        string name = "Refcheck_Input_Prop";
         std::stringstream back;
         back << g_array[k];
 
@@ -542,16 +579,40 @@ int main()
         name += ".txt";
 
         outputFile.open(name);
-
-        vector<double> a = test.Chi_sp(5,g_array[k]);
+        //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
+        vector<MatrixXd> a = test.Iteration(0,1);
 
         for (int i = 0; i < a.size(); i++)
         {     
-            cout << a[i] << endl;
-            outputFile << test.grid[i] << "\t" << a[i] << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
+            //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
+            outputFile << test.grid[i] << "\t" << (a[i])(0,0)<< "\t" << (a[i])(0,1) << "\t" << (a[i])(0,2) << "\t" 
+            << (a[i])(1,0) << "\t" << (a[i])(1,1) << "\t"  << (a[i])(1,2) << "\t" 
+            << (a[i])(2,0) << "\t" << (a[i])(2,1) << "\t" << (a[i])(2,2) << "\t" << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
         }
         outputFile.close();
+    
     }
+
+
+   /*
+    std::ofstream outputFile;
+
+    string name = "Vfunc";
+
+    name += ".txt";
+
+    outputFile.open(name);
+    //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
+    vector<double> arr = test.Interact_V(test.coupling(velocity,1,cutoff),test.grid,omega);
+
+    for (int i = 0; i < arr.size(); i++)
+    {     
+        //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
+        outputFile << test.grid[i] << "\t" << arr[i] << endl;
+    }
+    
+    outputFile.close();
+    */
     
     return 0;
 
