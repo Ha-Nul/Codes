@@ -64,7 +64,7 @@ class Testing
 
         MatrixXd Matrix_Odd(int n, double r)
         {
-            MatrixXd Matrix1(n,n);
+            MatrixXd BASE_MAT=MatrixXd::Zero(n,n);
 
             for (int i=0;i < n;i++){
                 for (int j=0;j < n;j++)
@@ -72,21 +72,21 @@ class Testing
                     try
                     {
                         if(i==j){
-                            Matrix1(i,j) = pow((i+1),2);
+                            BASE_MAT(i,j) = pow((i+1),2);
                         }
                         if(abs(i - j) == 1){
-                            Matrix1(i,j) = -r/2.0;
+                            BASE_MAT(i,j) = -r/2.0;
                         }
                     }
                     catch (...) {}
                 }
             }
-            return Matrix1;
+            return BASE_MAT;
         }
 
         MatrixXd Matrix_Even(int n, double r)
         {
-            MatrixXd Matrix1(n,n);
+            MatrixXd BASE_MAT=MatrixXd::Zero(n,n);
 
             for (int i=0;i < n;i++){
                 for (int j=0;j < n;j++)
@@ -94,19 +94,19 @@ class Testing
                     try
                     {
                         if(i==j){
-                            Matrix1(i,j)= pow(i,2);
+                            BASE_MAT(i,j)= pow(i,2);
                         }
                         if(abs(i - j) == 1){
-                            Matrix1(i,j) = -r/2.0;
+                            BASE_MAT(i,j) = -r/2.0;
                         }
                     }
                     catch (...) {}
                 }
             }
-            Matrix1(0,1) = -r/sqrt(2);
-            Matrix1(1,0) = -r/sqrt(2);
+            BASE_MAT(0,1) = -r/sqrt(2);
+            BASE_MAT(1,0) = -r/sqrt(2);
 
-            return Matrix1;
+            return BASE_MAT;
         }
 
         vector<double> tau_grid = linspace(0,1,100);
