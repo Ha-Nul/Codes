@@ -4,6 +4,7 @@
 #include <vector>
 #include <cmath>
 #include <OCA_Function_def.hpp>
+#include <chrono>
 
 using namespace std;
 using namespace Eigen;
@@ -230,11 +231,11 @@ void MAIN_DEF::OCA_self(MatrixXd& N, vector<MatrixXd>& Prop, vector<double>& V)
 
 void MAIN_DEF::SELF_Energy(vector<MatrixXd> Prop)
 {
-    cout << "Self_E calculation starts" << endl;
+    //cout << "Self_E calculation starts" << endl;
     NCA_self(H_N, Prop, INT_Arr);
     OCA_self(H_N, Prop, INT_Arr);
 
-    cout << SELF_E[99] << endl;
+    //cout << SELF_E[99] << endl;
 }
 
 
@@ -367,7 +368,8 @@ vector<MatrixXd> MAIN_DEF::Iteration(const int& n)
 
         else
         {
-
+            std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
+            cout << "Iteration " << i << " Starts" << endl;
             H_loc[i] = H_loc[i - 1] - lambda[i - 1] * Iden;
             SELF_Energy(Prop);
             Prop = Propagator(SELF_E, H_loc[i]);
@@ -384,6 +386,10 @@ vector<MatrixXd> MAIN_DEF::Iteration(const int& n)
 
                 //cout << Prop[j] << endl;
             }
+            std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::micro> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
+            cout << "Process ends in : " << microseconds.count() << "[sec]" << endl;
+            cout << "-----------------------------" << endl;
 
         }
 
@@ -439,6 +445,10 @@ int main()
 {
     MAIN_DEF MD;
 
+    std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
+    cout << " ## Program begins ##" << endl;
+    cout << "-------------------------------" << endl;
+
     vector<double> g_array(25, 0);
     for (int j = 1; j < 25; ++j)
     {
@@ -458,23 +468,21 @@ int main()
         g_array[m] = g_array[m] * g_array[m];
     }
     
-    int count = 9;
-    int addi = 4;
-    
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < g_array.size(); i++)
     {
-        MD.CAL_COUP_INT_with_g_arr(g_array[count]);
+
+        MD.CAL_COUP_INT_with_g_arr(g_array[i]);
         vector<MatrixXd> ITER = MD.Iteration(3);
         vector<double> a = MD.Chi_sp_Function(ITER);
         
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "REVOCA_grid400_beta1_g";
-        std::stringstream back;
-        back << g_array[count];
+        string name = "OCATEST";
+        //std::stringstream back;
+        //back << g_array[k];
 
-        name += back.str();
+        //name += back.str();
         name += ".txt";
 
         outputFile.open(name);
@@ -488,6 +496,7 @@ int main()
             cout << setprecision(16);
         }
         */
+
         //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
         
         for (int j = 0; j < a.size(); j++)
@@ -498,11 +507,13 @@ int main()
         
 
         outputFile.close();
-        
-        count += add+1
     }
+    std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
+    std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
+    cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
+    cout << "-----------------------------" << endl;
     
-    
+
     return 0;
 
 }
