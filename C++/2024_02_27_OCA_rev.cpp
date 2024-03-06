@@ -11,6 +11,8 @@ using namespace Eigen;
 
 MAIN_DEF MD;
 
+/////////////////////////////////////////////////////////////
+
 int MAIN_DEF::k = MD.tau_grid.size();
 vector<double> k_mode(100, 1);
 double g_ma = 1;
@@ -19,10 +21,16 @@ double omega = 1;
 double velocity = 1;
 double cutoff = 1;
 
+//////////////////////////////////////////////////////////////
+
 vector<double> INT_Arr(MD.k, 0);
 vector<double> Chi_sp(MD.k, 0);
+vector<MatrixXd> T_IN(MD.k,MatrixXd::Zero(3,3));
+vector<vector<MatrixXd>> T(MD.k,T_IN);
 vector<MatrixXd> SELF_E(MD.k, MatrixXd::Zero(3, 3));
 MatrixXd MAIN_DEF::H_N;
+
+//////////////////////////////////////////////////////////////
 
 vector<double> MAIN_DEF::green(vector<double> tau)
 {
@@ -213,8 +221,15 @@ void MAIN_DEF::NCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const v
     }
 }
 
+void MAIN_DEF::OCA_T(const MatrixXd& N,const vector<MatrixXd>& Prop,const vector<double>& V)
+{
+    for (int n=0; n<k; n++) for (int m=0; m<=n; m++)
+    {
+        T[n][m] = V[n] * N * Prop[n-m] * N * Prop[m] * N;
+    }
+}
 
-void MAIN_DEF::OCA_self(MatrixXd& N, vector<MatrixXd>& Prop, vector<double>& V)
+void MAIN_DEF::OCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vector<double>& V)
 {
     MatrixXd Stmp;
 
@@ -222,16 +237,16 @@ void MAIN_DEF::OCA_self(MatrixXd& N, vector<MatrixXd>& Prop, vector<double>& V)
     {
         Stmp = MatrixXd::Zero(3, 3);
         for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++) {
-            Stmp += N * Prop[i - n] * N * Prop[n - m] * N * Prop[m] * N * V[i - m] * V[n];
+            Stmp += T[i-m][n-m] * Prop[m] * N * V[i - m] * V[n];
         }
         SELF_E[i] += pow(Delta_t, 2) * Stmp;
     }
 }
 
-
 void MAIN_DEF::SELF_Energy(vector<MatrixXd> Prop)
 {
     //cout << "Self_E calculation starts" << endl;
+    OCA_T(H_N, Prop, INT_Arr);
     NCA_self(H_N, Prop, INT_Arr);
     OCA_self(H_N, Prop, INT_Arr);
 
@@ -387,7 +402,7 @@ vector<MatrixXd> MAIN_DEF::Iteration(const int& n)
                 //cout << Prop[j] << endl;
             }
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
-            std::chrono::duration<double, std::micro> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
+            std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
             cout << "Process ends in : " << microseconds.count() << "[sec]" << endl;
             cout << "-----------------------------" << endl;
 
@@ -468,10 +483,11 @@ int main()
         g_array[m] = g_array[m] * g_array[m];
     }
     
-    for (int i = 0; i < g_array.size(); i++)
+    for (int i = 0; i < 1; i++)
     {
+        
 
-        MD.CAL_COUP_INT_with_g_arr(g_array[i]);
+        MD.CAL_COUP_INT_with_g_arr(1);
         vector<MatrixXd> ITER = MD.Iteration(3);
         vector<double> a = MD.Chi_sp_Function(ITER);
         
@@ -507,6 +523,7 @@ int main()
         
 
         outputFile.close();
+        
     }
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
     std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
