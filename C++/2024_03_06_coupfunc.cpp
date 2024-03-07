@@ -30,24 +30,44 @@ vector<double> linspace(const double& min, const double& max, int n)
         return result;
     }
 
-vector<double> g_array = linspace(0,10,10);
+vector<double> mode_arr = linspace(0,10,10);
+vector<double> tau_arr = linspace(0,1,100);
+double omega = 1;
 
 void g_calculation_function(double alpha, double k_cutoff, double mode)
 {
     double nu = pi * k_cutoff / alpha;
 
-    for (int i=0; i<g_array.size(); i++)
+    for (int i=0; i<mode_arr.size(); i++)
     {
-        g_array[i] = (1/planck_cst) * sqrt((2 * planck_cst * k_cutoff / alpha * mode) * (planck_cst * g_array[i] / 1 + pow(nu * planck_cst * g_array[i] / k_cutoff,2)));
+        mode_arr[i] = (1/planck_cst) * sqrt((2 * planck_cst * k_cutoff / alpha * mode) * (planck_cst * mode_arr[i] / 1 + pow(nu * planck_cst * mode_arr[i] / k_cutoff,2)));
     }
+}
+
+vector<double> Interact_V(vector<double>coupling, vector<double> tau, double omega)
+{
+    vector<double> hpcos(tau.size(), 0);
+    vector<double> hpsin(tau.size(), 0);
+    vector<double> V_arr(tau.size(), 0);
+
+    for (int i = 0; i < tau.size(); i++)
+    {
+        hpcos[i] = cosh((tau[i] - tau[tau.size() - 1] / 2) * omega);
+        hpsin[i] = sinh(tau[tau.size() - 1] * omega / 2);
+        for (int j = 0; j < coupling.size();j++)
+        {
+            V_arr[i] += (pow(coupling[j],2) * hpcos[i] / hpsin[i]);
+        }
+        cout << "this is V_arr " << V_arr[i] << endl;
+    }
+
+    return V_arr;
 }
 
 int main()
 {
     g_calculation_function(1,10,10);
+    Interact_V(mode_arr,tau_arr,omega);
 
-    for(int i=0; i<g_array.size(); i++)
-    {
-        cout << g_array[i] << endl;
-    }
+    return 0;
 }
