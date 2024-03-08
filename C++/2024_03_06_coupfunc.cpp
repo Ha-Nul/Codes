@@ -34,7 +34,7 @@ vector<double> mode_arr = linspace(0,10,10);
 vector<double> tau_arr = linspace(0,1,100);
 double omega = 1;
 
-void g_calculation_function(double alpha, double k_cutoff, double mode)
+void g_k_calculation_function(double alpha, double k_cutoff, double mode)
 {
     double nu = pi * k_cutoff / alpha;
 
@@ -44,7 +44,7 @@ void g_calculation_function(double alpha, double k_cutoff, double mode)
     }
 }
 
-vector<double> Interact_V(vector<double>coupling, vector<double> tau, double omega)
+vector<double> V_function(vector<double>coupling, vector<double> tau, double omega)
 {
     vector<double> hpcos(tau.size(), 0);
     vector<double> hpsin(tau.size(), 0);
