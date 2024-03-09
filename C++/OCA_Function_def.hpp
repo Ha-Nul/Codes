@@ -10,7 +10,7 @@
 using namespace std;
 using namespace Eigen;
 
-class MAIN_DEF
+class MD_OC //MAIN_DEF_OCA
 {
 private:
 

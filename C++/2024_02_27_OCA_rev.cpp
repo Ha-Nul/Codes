@@ -9,11 +9,11 @@
 using namespace std;
 using namespace Eigen;
 
-MAIN_DEF MD;
+MD_OC MD;
 
 /////////////////////////////////////////////////////////////
 
-int MAIN_DEF::k = MD.tau_grid.size();
+int MD_OC::k = MD.tau_grid.size();
 vector<double> k_mode(100, 1);
 double g_ma = 1;
 
@@ -24,7 +24,7 @@ double cutoff = 1;
 //////////////////////////////////////////////////////////////
 
 vector<double> INT_Arr(MD.k, 0);
-vector<double> Chi_sp(MD.k, 0);
+vector<double> Chi_Arr(MD.k, 0);
 
 vector<MatrixXd> T_IN(MD.k,MatrixXd::Zero(3,3));
 vector<vector<MatrixXd>> T(MD.k,T_IN);
@@ -33,11 +33,11 @@ vector<MatrixXd> Chi_IN(MD.k,MatrixXd::Zero(3,3));
 vector<vector<MatrixXd>> Chi_st(MD.k,Chi_IN);
 
 vector<MatrixXd> SELF_E(MD.k, MatrixXd::Zero(3, 3));
-MatrixXd MAIN_DEF::H_N;
+MatrixXd MD_OC::H_N;
 
 //////////////////////////////////////////////////////////////
 
-vector<double> MAIN_DEF::green(vector<double> tau)
+vector<double> MD_OC::green(vector<double> tau)
 {
     double T = 273;
     vector<int> one_vec(k, 1);
@@ -58,7 +58,7 @@ vector<double> MAIN_DEF::green(vector<double> tau)
     return Test_green;
 }
 
-vector<double> MAIN_DEF::coupling(double v, double g, double W)
+vector<double> MD_OC::coupling(double v, double g, double W)
 {
     vector<double> v_array(k_mode.size(), v);
     vector<double> g_array(k_mode.size(), g);
@@ -74,7 +74,7 @@ vector<double> MAIN_DEF::coupling(double v, double g, double W)
 }
 ////////////////////////////////////////////////////////////////////////////////////
 
-vector<double> MAIN_DEF::Interact_V(vector<double>coupling, vector<double> tau, double omega)
+vector<double> MD_OC::Interact_V(vector<double>coupling, vector<double> tau, double omega)
 {
     double coupling_const = coupling[0];
 
@@ -97,7 +97,7 @@ vector<double> MAIN_DEF::Interact_V(vector<double>coupling, vector<double> tau, 
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-MatrixXd MAIN_DEF::Eigenvector_Even()
+MatrixXd MD_OC::Eigenvector_Even()
 {
     MatrixXd a;
 
@@ -107,7 +107,7 @@ MatrixXd MAIN_DEF::Eigenvector_Even()
     return a;
 }
 
-MatrixXd MAIN_DEF::Eigenvalue_Even()
+MatrixXd MD_OC::Eigenvalue_Even()
 {
     MatrixXd b;
 
@@ -117,7 +117,7 @@ MatrixXd MAIN_DEF::Eigenvalue_Even()
     return b;
 }
 
-MatrixXd MAIN_DEF::Eigenvector_Odd()
+MatrixXd MD_OC::Eigenvector_Odd()
 {
     MatrixXd a;
 
@@ -127,7 +127,7 @@ MatrixXd MAIN_DEF::Eigenvector_Odd()
     return a;
 }
 
-MatrixXd MAIN_DEF::Eigenvalue_Odd()
+MatrixXd MD_OC::Eigenvalue_Odd()
 {
     MatrixXd b;
 
@@ -140,7 +140,7 @@ MatrixXd MAIN_DEF::Eigenvalue_Odd()
 ///////////////////////////////////////////////////////////////////////
 
 
-MatrixXd MAIN_DEF::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
+MatrixXd MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
 {
     cout << "input g value :" << g << endl;
     MatrixXd odd_eigenvec;
@@ -162,7 +162,7 @@ MatrixXd MAIN_DEF::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
     return d;
 }
 
-vector<MatrixXd> MAIN_DEF::Hamiltonian_exp(MatrixXd a, MatrixXd b)
+vector<MatrixXd> MD_OC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
 {
     //g_0
     MatrixXd Even = a;
@@ -192,7 +192,7 @@ vector<MatrixXd> MAIN_DEF::Hamiltonian_exp(MatrixXd a, MatrixXd b)
 
 
 
-MatrixXd MAIN_DEF::Hamiltonian_loc(MatrixXd a, MatrixXd b)
+MatrixXd MD_OC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
 {
     MatrixXd Hamiltonian = MatrixXd::Zero(3, 3);
 
@@ -203,12 +203,10 @@ MatrixXd MAIN_DEF::Hamiltonian_loc(MatrixXd a, MatrixXd b)
     return Hamiltonian;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////////////////////////////////////////
 
 
-void MAIN_DEF::CAL_COUP_INT_with_g_arr(double g)
+void MD_OC::CAL_COUP_INT_with_g_arr(double g)
 {
     INT_Arr = Interact_V(coupling(velocity, g, cutoff), tau_grid, omega);
     H_N = Hamiltonian_N(Eigenvector_Even(), Eigenvector_Odd(), g);
@@ -217,7 +215,7 @@ void MAIN_DEF::CAL_COUP_INT_with_g_arr(double g)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void MAIN_DEF::NCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vector<double>& V)
+void MD_OC::NCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vector<double>& V)
 {
     for (int i = 0; i < k; i++)
     {
@@ -225,7 +223,7 @@ void MAIN_DEF::NCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const v
     }
 }
 
-void MAIN_DEF::OCA_T(const MatrixXd& N,const vector<MatrixXd>& Prop,const vector<double>& V)
+void MD_OC::OCA_T(const MatrixXd& N,const vector<MatrixXd>& Prop,const vector<double>& V)
 {
     for (int n=0; n<k; n++) for (int m=0; m<=n; m++)
     {
@@ -233,7 +231,7 @@ void MAIN_DEF::OCA_T(const MatrixXd& N,const vector<MatrixXd>& Prop,const vector
     }
 }
 
-void MAIN_DEF::OCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vector<double>& V)
+void MD_OC::OCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vector<double>& V)
 {
     MatrixXd Stmp;
 
@@ -248,7 +246,7 @@ void MAIN_DEF::OCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const v
     }
 }
 
-void MAIN_DEF::SELF_Energy(vector<MatrixXd> Prop)
+void MD_OC::SELF_Energy(vector<MatrixXd> Prop)
 {
     //cout << "Self_E calculation starts" << endl;
     OCA_T(H_N, Prop, INT_Arr);
@@ -261,7 +259,7 @@ void MAIN_DEF::SELF_Energy(vector<MatrixXd> Prop)
 //////////////////////////////////////////////////////////////////////////////
 
 
-MatrixXd MAIN_DEF::round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>& sigma, const vector<MatrixXd>& ite, int n, int boolean)
+MatrixXd MD_OC::round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>& sigma, const vector<MatrixXd>& ite, int n, int boolean)
 {
 
     MatrixXd sigsum = MatrixXd::Zero(3, 3);
@@ -300,7 +298,7 @@ MatrixXd MAIN_DEF::round_propagator_ite(const MatrixXd& loc, const vector<Matrix
 
 
 
-vector<MatrixXd> MAIN_DEF::Propagator(const vector<MatrixXd>& sig, const MatrixXd& loc)
+vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& loc)
 {
     vector<MatrixXd> P_arr(k, MatrixXd::Zero(3, 3));
     vector<MatrixXd> S_arr(k, MatrixXd::Zero(3, 3));
@@ -334,7 +332,7 @@ vector<MatrixXd> MAIN_DEF::Propagator(const vector<MatrixXd>& sig, const MatrixX
 
 /////////////////////////////////////////////////////////////////////////////
 
-double MAIN_DEF::chemical_poten(MatrixXd prop)
+double MD_OC::chemical_poten(MatrixXd prop)
 {
     double Trace = prop.trace();
     double lambda = -(1 / tau_grid[k - 1]) * log(Trace);
@@ -344,7 +342,7 @@ double MAIN_DEF::chemical_poten(MatrixXd prop)
 
 ///////////////////////////////////////////////////////////////////////////////
 
-vector<MatrixXd> MAIN_DEF::Iteration(const int& n)
+vector<MatrixXd> MD_OC::Iteration(const int& n)
 {
     vector<MatrixXd> Prop(k, MatrixXd::Zero(3, 3));
     Prop[0] = MatrixXd::Identity(3,3);
@@ -419,7 +417,7 @@ vector<MatrixXd> MAIN_DEF::Iteration(const int& n)
 
 //////////////////////////////////////////////////////////////////////////////
 
-void MAIN_DEF::NCA_Chi_sp(vector<MatrixXd> iter)
+void MD_OC::NCA_Chi_sp(vector<MatrixXd> iter)
 {
     MatrixXd GELL_1 = MatrixXd::Zero(3, 3);
     GELL_1(0, 1) = 1;
@@ -427,11 +425,11 @@ void MAIN_DEF::NCA_Chi_sp(vector<MatrixXd> iter)
 
     for (int i = 0; i < k; i++)
     {
-        Chi_sp[i] = (iter[k - i - 1] * GELL_1 * iter[i] * GELL_1).trace();
+        Chi_Arr[i] = (iter[k - i - 1] * GELL_1 * iter[i] * GELL_1).trace();
     }
 }
 
-void MAIN_DEF::OCA_store(vector<MatrixXd> iter)
+void MD_OC::OCA_store(vector<MatrixXd> iter)
 {
     MatrixXd GELL_1 = MatrixXd::Zero(3,3);
     GELL_1(0, 1) = 1;
@@ -446,7 +444,7 @@ void MAIN_DEF::OCA_store(vector<MatrixXd> iter)
 
 }
 
-void MAIN_DEF::OCA_Chi_sp(vector<MatrixXd> iter)
+void MD_OC::OCA_Chi_sp(vector<MatrixXd> iter)
 {
     
     for (int i=0; i<k; i++)
@@ -458,25 +456,25 @@ void MAIN_DEF::OCA_Chi_sp(vector<MatrixXd> iter)
             Stmp += INT_Arr[m-n] * ( Chi_st[k-i-1][m-i] * Chi_st[i][n]);
             //cout << "pair ("<<n<<","<<m<<") is : " << "(" << k-i-1 << "," << m-i << ")"<< " with " << "(" << i << "," << n << ")" << endl;
         }
-        Chi_sp[i] += pow(Delta_t, 2) * Stmp.trace();
+        Chi_Arr[i] += pow(Delta_t, 2) * Stmp.trace();
     }
 }
 
 
-vector<double> MAIN_DEF::Chi_sp_Function(vector<MatrixXd> ITE)
+vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 {
     NCA_Chi_sp(ITE);
     OCA_store(ITE);
     OCA_Chi_sp(ITE);
     
-    return Chi_sp;
+    return Chi_Arr;
     
 }
 ////////////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    MAIN_DEF MD;
+    MD_OC MD;
 
     std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
     cout << " ## Program begins ##" << endl;
@@ -512,7 +510,7 @@ int main()
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "OCATEST2";
+        string name = "OCATESTLAB";
         //std::stringstream back;
         //back << g_array[k];
 
