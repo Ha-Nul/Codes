@@ -33,6 +33,7 @@ vector<double> linspace(const double& min, const double& max, int n)
 vector<double> omega_arr = linspace(1,10,10);
 vector<double> tilde_g_arr = linspace(1,10,10);
 vector<double> tau_arr = linspace(0,1,100);
+double re_planck_cst = planck_cst/(2*pi);
 
 void tilde_g_calculation_function(double alpha, double k_cutoff)
 {
@@ -41,8 +42,9 @@ void tilde_g_calculation_function(double alpha, double k_cutoff)
     for (int i=0; i<omega_arr.size(); i++)
     {
         omega_arr[i] = k_cutoff * (omega_arr[i]/omega_arr[omega_arr.size()-1]);
+        tilde_g_arr[i] = sqrt((2 * k_cutoff / (alpha * omega_arr.size())) * (omega_arr[i] / (1 + pow(nu * omega_arr[i] / k_cutoff,2))));
         //tilde_g_arr[i] = sqrt( (omega_arr[i] / (1 + pow(nu * omega_arr[i] / k_cutoff,2))));
-        tilde_g_arr[i] = sqrt((2 * k_cutoff / (alpha * omega_arr.size())) * (planck_cst * omega_arr[i] / (1 + pow(nu * planck_cst * omega_arr[i] / k_cutoff,2))));
+        //tilde_g_arr[i] = sqrt((2 * k_cutoff / (alpha * omega_arr.size())) * (re_planck_cst * omega_arr[i] / (1 + pow(nu * re_planck_cst * omega_arr[i] / k_cutoff,2))));
     }
 }
 
@@ -66,7 +68,7 @@ vector<double> Interact_V(vector<double> tau)
 
 int main()
 {
-    double k_cutoff = planck_cst * 10e20;
+    double k_cutoff = 20;
     for (int i=0; i<omega_arr.size(); i++)
     {
         cout << omega_arr[i] << endl;
@@ -81,7 +83,7 @@ int main()
 
     outputFile.open(name);
 
-    for (int j = 0; j < tilde_g_arr.size(); j++)
+    for (int j = 0; j < tau_arr.size(); j++)
     {
         cout << a[j] << endl;
         outputFile << tau_arr[j] << "\t" << a[j] << endl;
