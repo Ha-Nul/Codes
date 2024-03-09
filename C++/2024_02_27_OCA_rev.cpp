@@ -25,8 +25,13 @@ double cutoff = 1;
 
 vector<double> INT_Arr(MD.k, 0);
 vector<double> Chi_sp(MD.k, 0);
+
 vector<MatrixXd> T_IN(MD.k,MatrixXd::Zero(3,3));
 vector<vector<MatrixXd>> T(MD.k,T_IN);
+
+vector<MatrixXd> Chi_IN(MD.k,MatrixXd::Zero(3,3));
+vector<vector<MatrixXd>> Chi_st(MD.k,Chi_IN);
+
 vector<MatrixXd> SELF_E(MD.k, MatrixXd::Zero(3, 3));
 MatrixXd MAIN_DEF::H_N;
 
@@ -80,7 +85,7 @@ vector<double> MAIN_DEF::Interact_V(vector<double>coupling, vector<double> tau, 
 
     for (int i = 0; i < tau.size(); i++)
     {
-        hpcos[i] = cosh(tau[i] - tau[tau.size() - 1] / 2) * omega;
+        hpcos[i] = cosh((tau[i] - tau[tau.size() - 1] / 2) * omega);
         hpsin[i] = sinh(tau[tau.size() - 1] * omega / 2);
         V_arr[i] = (coupling_arr[i] * hpcos[i] / hpsin[i]);
 
@@ -212,7 +217,6 @@ void MAIN_DEF::CAL_COUP_INT_with_g_arr(double g)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-
 void MAIN_DEF::NCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vector<double>& V)
 {
     for (int i = 0; i < k; i++)
@@ -236,7 +240,8 @@ void MAIN_DEF::OCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const v
     for (int i = 0; i < k; i++)
     {
         Stmp = MatrixXd::Zero(3, 3);
-        for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++) {
+        for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++)
+        {
             Stmp += T[i-m][n-m] * Prop[m] * N * V[i - m] * V[n];
         }
         SELF_E[i] += pow(Delta_t, 2) * Stmp;
@@ -252,7 +257,6 @@ void MAIN_DEF::SELF_Energy(vector<MatrixXd> Prop)
 
     //cout << SELF_E[99] << endl;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -427,28 +431,42 @@ void MAIN_DEF::NCA_Chi_sp(vector<MatrixXd> iter)
     }
 }
 
-void MAIN_DEF::OCA_Chi_sp(vector<MatrixXd> iter)
+void MAIN_DEF::OCA_store(vector<MatrixXd> iter)
 {
-    MatrixXd GELL_1 = MatrixXd::Zero(3, 3);
+    MatrixXd GELL_1 = MatrixXd::Zero(3,3);
     GELL_1(0, 1) = 1;
     GELL_1(1, 0) = 1;
 
-    for (int i = 0; i < k; i++)
+    for (int n=0; n<k; n++) for (int m=0; m<=n; m++)
+    {
+        Chi_st[n][m] = iter[n-m] * H_N * iter[m] * GELL_1;
+        //cout << "pair (n,m) is : " <<  "(" << n << "," << m << ")" << "corresponds with" << "(" << n-m << "," << m << ")" << endl;
+    }
+
+
+}
+
+void MAIN_DEF::OCA_Chi_sp(vector<MatrixXd> iter)
+{
+    
+    for (int i=0; i<k; i++)
     {
         MatrixXd Stmp = MatrixXd::Zero(3, 3);
 
         for (int n = 0; n <= i; n++) for (int m = i; m < k; m++)
         {
-            Stmp += INT_Arr[m - n] * iter[k - m - 1] * H_N * iter[m - i] * GELL_1 * iter[i - n] * H_N * iter[n] * GELL_1;
+            Stmp += INT_Arr[m-n] * ( Chi_st[k-i-1][m-i] * Chi_st[i][n]);
+            //cout << "pair ("<<n<<","<<m<<") is : " << "(" << k-i-1 << "," << m-i << ")"<< " with " << "(" << i << "," << n << ")" << endl;
         }
-
         Chi_sp[i] += pow(Delta_t, 2) * Stmp.trace();
     }
 }
 
+
 vector<double> MAIN_DEF::Chi_sp_Function(vector<MatrixXd> ITE)
 {
     NCA_Chi_sp(ITE);
+    OCA_store(ITE);
     OCA_Chi_sp(ITE);
     
     return Chi_sp;
@@ -494,7 +512,7 @@ int main()
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "OCATEST";
+        string name = "OCATEST2";
         //std::stringstream back;
         //back << g_array[k];
 
