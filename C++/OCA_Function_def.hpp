@@ -132,7 +132,7 @@ public:
     void OCA_T(const MatrixXd& N,const vector<MatrixXd>& H_exp, const vector<double>& V);
     void SELF_Energy(vector<MatrixXd> Prop);
 
-    MatrixXd round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>& sigma, const vector<MatrixXd>& ite, int n, int boolean);    
+    MatrixXd round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>& sigma, const vector<MatrixXd>& ite, int n, int boolean);
     vector<MatrixXd> Propagator(const vector<MatrixXd>& array, const MatrixXd& loc);
 
     double chemical_poten(MatrixXd prop);
@@ -140,6 +140,7 @@ public:
     vector<MatrixXd> Iteration(const int& iteration);
 
     void NCA_Chi_sp(vector<MatrixXd> ITER);
+    void OCA_store(vector<MatrixXd> ITER);
     void OCA_Chi_sp(vector<MatrixXd> ITER);
     vector<double> Chi_sp_Function(vector<MatrixXd> Iter);
 };
