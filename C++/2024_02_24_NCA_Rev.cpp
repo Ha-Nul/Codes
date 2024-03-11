@@ -10,13 +10,7 @@
 using namespace std;
 using namespace Eigen;
 
-vector<double> k_mode(100,1);
-double g_ma = 1;
-double omega = 1;
-double velocity = 1;
-double cutoff = 1;
-
-class Testing
+class MD_NC
 {
     private:
 
@@ -26,7 +20,7 @@ class Testing
             // vector iterator
             int iterator = 0;
 
-            for (int i = 0; i <= n-2; i++)	
+            for (int i = 0; i <= n-2; i++)
             {
                 double temp = min + i*(max-min)/(floor((double)n) - 1);
                 result.insert(result.begin() + iterator, temp);
@@ -109,16 +103,19 @@ class Testing
             return Matrix1;
         }
 
-        vector<double> tau_grid = linspace(0,2,201);
-        int k = tau_grid.size();
+        
 
     public:
+        vector<double> tau_grid = linspace(0,1,400);
+        int k = tau_grid.size();
+        double Delta_t = tau_grid[1] - tau_grid[0];
 
-        vector<double> grid = linspace(0,2,201);
         vector<double> green(vector<double> tau);
         vector<double> coupling(double v, double g, double W);
         vector<double> Interact(vector<double> coupling, vector<double> tau);
         vector<double> Interact_V(vector<double> couplint, vector<double> tau, double omega);
+
+        static MatrixXd H_N;
 
         MatrixXd Eigenvector_Even();
         MatrixXd Eigenvalue_Even();
@@ -130,23 +127,42 @@ class Testing
         MatrixXd Hamiltonian_loc(MatrixXd a, MatrixXd b);
         MatrixXd Hamiltonian_loc_ite(MatrixXd a, MatrixXd b,const double &lambda);
 
+        void CAL_COUP_INT_with_g_arr(double g);
+        void NCA_self(const MatrixXd &N,const vector<MatrixXd> &H_exp, const vector<double> &V);
+
         MatrixXd round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite,int n, int boolean);
-        vector<MatrixXd> Sigma(const MatrixXd &N,const vector<MatrixXd> &H_exp, const vector<double> &V);
-        vector<MatrixXd> Propagator(const vector<MatrixXd> &array , const MatrixXd &loc , const double &gvalue);
+        vector<MatrixXd> Propagator(const vector<MatrixXd> &array , const MatrixXd &loc);
 
         double chemical_poten(MatrixXd prop);
 
-        vector<MatrixXd> Iteration(const int &iteration, const double &gvalue);
-        vector<double> TestingIteration(const int &n, int testingint);
+        vector<MatrixXd> Iteration(const int &iteration);
 
-        vector<double> Chi_sp(int iteration, const double &gvalue);
+        void Chi_sp(int ITE);
 
 };
+/////////////////////////////////////////////////////////////////////////////////////
+
+MD_NC MD;
+
+vector<double> k_mode(100, 1);
+double g_ma = 1;
+
+double omega = 1;
+double velocity = 1;
+double cutoff = 1;
+
+//////////////////////////////////////////////////////////////
+
+vector<double> INT_Arr(MD.k, 0);
+vector<double> Chi_Arr(MD.k, 0);
+
+vector<MatrixXd> SELF_E(MD.k, MatrixXd::Zero(3, 3));
+MatrixXd MD_NC::H_N;
 
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-vector<double> Testing::green(vector<double> tau)
+vector<double> MD_NC::green(vector<double> tau)
 {
     double T = 273;
     vector<int> one_vec(k,1); // 원소는 1, 길이는 n 짜리 배열..
@@ -167,7 +183,7 @@ vector<double> Testing::green(vector<double> tau)
     return Test_green;
 }
 
-vector<double> Testing::coupling(double v, double g, double W)
+vector<double> MD_NC::coupling(double v, double g, double W)
 {
     vector<double> v_array(k_mode.size(),v);
     vector<double> g_array(k_mode.size(),g);
@@ -183,7 +199,7 @@ vector<double> Testing::coupling(double v, double g, double W)
 }
 ////////////////////////////////////////////////////////////////////////////////////
 
-vector<double> Testing::Interact_V(vector<double>coupling, vector<double> tau, double omega)
+vector<double> MD_NC::Interact_V(vector<double>coupling, vector<double> tau, double omega)
 {
     double coupling_const = coupling[0];
 
@@ -206,50 +222,50 @@ vector<double> Testing::Interact_V(vector<double>coupling, vector<double> tau, d
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-MatrixXd Testing::Eigenvector_Even()
+MatrixXd MD_NC::Eigenvector_Even()
 {
-	MatrixXd a;
+    MatrixXd a;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
-	a = es.eigenvectors();
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
+    a = es.eigenvectors();
 
-	return a;
+    return a;
 }
 
-MatrixXd Testing::Eigenvalue_Even()
+MatrixXd MD_NC::Eigenvalue_Even()
 {
-	MatrixXd b;
+    MatrixXd b;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
-	b = es.eigenvalues();
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,g_ma));
+    b = es.eigenvalues();
 
-	return b;
+    return b;
 }
 
-MatrixXd Testing::Eigenvector_Odd()
+MatrixXd MD_NC::Eigenvector_Odd()
 {
-	MatrixXd a;
+    MatrixXd a;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
-	a = es.eigenvectors();
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
+    a = es.eigenvectors();
 
-	return a;
+    return a;
 }
 
-MatrixXd Testing::Eigenvalue_Odd()
+MatrixXd MD_NC::Eigenvalue_Odd()
 {
-	MatrixXd b;
+    MatrixXd b;
 
-	SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
-	b = es.eigenvalues();
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,g_ma));
+    b = es.eigenvalues();
 
-	return b;
+    return b;
 }
 
 ///////////////////////////////////////////////////////////////////////
 
 
-MatrixXd Testing::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
+MatrixXd MD_NC::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
 {
     MatrixXd odd_eigenvec;
     MatrixXd even_eigenvec;
@@ -270,9 +286,9 @@ MatrixXd Testing::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
     return d;
 }
 
-vector<MatrixXd> Testing::Hamiltonian_exp(MatrixXd a, MatrixXd b)
+vector<MatrixXd> MD_NC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
 {
-    //g_0 
+    //g_0
     MatrixXd Even = a;
     MatrixXd Odd = b;
 
@@ -300,7 +316,7 @@ vector<MatrixXd> Testing::Hamiltonian_exp(MatrixXd a, MatrixXd b)
 
 
 
-MatrixXd Testing::Hamiltonian_loc(MatrixXd a, MatrixXd b)
+MatrixXd MD_NC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
 {
     MatrixXd Hamiltonian = MatrixXd::Zero(3,3);
 
@@ -311,7 +327,7 @@ MatrixXd Testing::Hamiltonian_loc(MatrixXd a, MatrixXd b)
     return Hamiltonian;
 }
 
-MatrixXd Testing::Hamiltonian_loc_ite(MatrixXd a, MatrixXd b, const double &lambda)
+MatrixXd MD_NC::Hamiltonian_loc_ite(MatrixXd a, MatrixXd b, const double &lambda)
 {
     MatrixXd Hamiltonian = MatrixXd::Zero(3,3);
 
@@ -324,39 +340,40 @@ MatrixXd Testing::Hamiltonian_loc_ite(MatrixXd a, MatrixXd b, const double &lamb
 
 ////////////////////////////////////////////////////////////////////////////////
 
-
-vector<MatrixXd> Testing::Sigma(const MatrixXd &N,const vector<MatrixXd> &H_exp, const vector<double> &V)
+void MD_NC::CAL_COUP_INT_with_g_arr(double g)
 {
+    INT_Arr = Interact_V(coupling(velocity, g, cutoff), tau_grid, omega);
+    H_N = Hamiltonian_N(Eigenvector_Even(), Eigenvector_Odd(), g);
+}
 
-    vector<MatrixXd> Narray(k,N);
-    vector<MatrixXd> Sigarray(k);
-    
+////////////////////////////////////////////////////////////////////////////////
+
+
+void MD_NC::NCA_self(const MatrixXd &N,const vector<MatrixXd> &Prop, const vector<double> &V)
+{
     for (int i=0; i < k ; i++)
-    {   
-        Sigarray[i] = V[i] * (Narray[i] * H_exp[i] * Narray[i]);
+    {
+        SELF_E[i] = V[i] * (N * Prop[i] * N);
     }
-    
-    return Sigarray;
 }
 
 
 //////////////////////////////////////////////////////////////////////////////
 
 
-MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite, int n, int boolean)
-{   
+MatrixXd MD_NC::round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite, int n, int boolean)
+{
 
     MatrixXd sigsum = MatrixXd::Zero(3,3);
-    double dtau = tau_grid[1]-tau_grid[0];
     
     if (n == 1)
     {
-        sigsum = 0.5 * dtau * (sigma[1]*ite[0] + sigma[0]*ite[1]);
+        sigsum = 0.5 * Delta_t * (sigma[1]*ite[0] + sigma[0]*ite[1]);
     }
     else if (n > 1){
         for (int i = 0 ; i < n ; i++)
         {
-            sigsum += 0.5 * dtau * (sigma[n-(i)] * ite[i] + sigma[n-(i+1)] * ite[i+1]);
+            sigsum += 0.5 * Delta_t * (sigma[n-(i)] * ite[i] + sigma[n-(i+1)] * ite[i+1]);
 
             if (i+1 == n)
             {
@@ -372,7 +389,7 @@ MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixX
     if (boolean == 0)
     {
         Bucket = -loc * ite[n] + sigsum;
-    }    
+    }
     else if (boolean == 1)
     {
         Bucket = sigsum;
@@ -383,7 +400,7 @@ MatrixXd Testing::round_propagater_ite(const MatrixXd &loc, const vector<MatrixX
 
 
 
-vector<MatrixXd> Testing::Propagator(const vector<MatrixXd> &sig, const MatrixXd &loc, const double &gvalue)
+vector<MatrixXd> MD_NC::Propagator(const vector<MatrixXd> &self_E, const MatrixXd &loc)
 {
     vector<MatrixXd> P_arr(k,MatrixXd::Zero(3,3));
     vector<MatrixXd> S_arr(k,MatrixXd::Zero(3,3));
@@ -393,27 +410,21 @@ vector<MatrixXd> Testing::Propagator(const vector<MatrixXd> &sig, const MatrixXd
 
     MatrixXd sig_form = MatrixXd::Zero(3,3);
     MatrixXd sig_late = MatrixXd::Zero(3,3);
-    double dtau = tau_grid[1]-tau_grid[0];
-
-    vector<double> coupling_g = coupling(velocity,gvalue,cutoff);
-    vector<double> Vfunction = Interact_V(coupling_g,tau_grid,omega);
-    vector<MatrixXd> self_E = sig;
-    MatrixXd N_matrix = Hamiltonian_N(Eigenvector_Even(),Eigenvector_Odd(),gvalue);
 
     for (int i=1; i < k; i++)
     {
         P_arr[1] = P_arr[0];
-        sig_late = 0.5 * dtau * ( 0.5 * dtau * (self_E[1] * P_arr[0] + self_E[0] * (P_arr[0] + dtau * P_arr[0])));
-        P_arr[1] = P_arr[0] - 0.5 * dtau * loc * (2 * P_arr[0] + dtau * P_arr[0]) + sig_late;
+        sig_late = 0.5 * Delta_t * ( 0.5 * Delta_t * (self_E[1] * P_arr[0] + self_E[0] * (P_arr[0] + Delta_t * P_arr[0])));
+        P_arr[1] = P_arr[0] - 0.5 * Delta_t * loc * (2 * P_arr[0] + Delta_t * P_arr[0]) + sig_late;
         S_arr[1] = P_arr[1];
 
         if (i > 1)
         {
             sig_form = round_propagater_ite(loc,self_E,P_arr,i-1,0);
-            S_arr[i] = P_arr[i-1] + dtau * sig_form;
+            S_arr[i] = P_arr[i-1] + Delta_t * sig_form;
 
-            sig_late = 0.5 * dtau * (round_propagater_ite(loc,self_E,P_arr,i-1,1) + round_propagater_ite(loc,self_E,S_arr,i,1));
-            P_arr[i] = P_arr[i-1] - 0.5 * dtau * loc * (2 * P_arr[i-1] + dtau * sig_form) + sig_late;
+            sig_late = 0.5 * Delta_t * (round_propagater_ite(loc,self_E,P_arr,i-1,1) + round_propagater_ite(loc,self_E,S_arr,i,1));
+            P_arr[i] = P_arr[i-1] - 0.5 * Delta_t * loc * (2 * P_arr[i-1] + Delta_t * sig_form) + sig_late;
 
         }
     }
@@ -423,7 +434,7 @@ vector<MatrixXd> Testing::Propagator(const vector<MatrixXd> &sig, const MatrixXd
 
 /////////////////////////////////////////////////////////////////////////////
 
-double Testing::chemical_poten(MatrixXd prop)
+double MD_NC::chemical_poten(MatrixXd prop)
 {
     double Trace = prop.trace();
     double lambda = -(1/tau_grid[k-1]) * log(Trace);
@@ -433,35 +444,29 @@ double Testing::chemical_poten(MatrixXd prop)
 
 ///////////////////////////////////////////////////////////////////////////////
 
-vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
+vector<MatrixXd> MD_NC::Iteration(const int &n)
 {
-    vector<MatrixXd> Sig;
-    vector<MatrixXd> Prop;
-    vector<MatrixXd> Prop_zeroth(k,MatrixXd::Identity(3,3));
-    vector<double> coup = coupling(velocity,gvalue,cutoff);
-    vector<double> Int = Interact_V(coup,tau_grid,omega);
+    vector<MatrixXd> Prop(k,MatrixXd::Identity(3,3));
+    Prop[0] = MatrixXd::Identity(3,3);
 
     vector<MatrixXd> H_loc(n+1,MatrixXd::Zero(3,3));
-        H_loc[0] = Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd());
+    H_loc[0] = Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd());
 
     MatrixXd Iden = MatrixXd::Identity(3,3);
-    MatrixXd H_N = Hamiltonian_N(Eigenvector_Even(),Eigenvector_Odd(),gvalue);
     
     vector<double> lambda(n+1,0);
-    double pre_lambda;
     double expDtauLambda;
     double factor;
     
     for(int i = 0; i <= n; i++)
     {
         if (i==0)
-        {   
-            Prop = Prop_zeroth;
+        {
             for(int j=0; j<k; j++)
             {
-                Prop[j](0,0) = exp(-tau_grid[j] * Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd())(0,0));
-                Prop[j](1,1) = exp(-tau_grid[j] * Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd())(1,1));
-                Prop[j](2,2) = exp(-tau_grid[j] * Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd())(2,2));
+                Prop[j](0, 0) = exp(-tau_grid[j] * H_loc[0](0, 0));
+                Prop[j](1, 1) = exp(-tau_grid[j] * H_loc[0](1, 1));
+                Prop[j](2, 2) = exp(-tau_grid[j] * H_loc[0](2, 2));
             }
 
             lambda[0] = chemical_poten(Prop[k-1]);
@@ -478,39 +483,28 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
         }
     
         else
-        {   
+        {
 
-            //lambda[i-1] = lambda[i-1]/i * pow(-1,i+1) ;
-
-            //cout << i-1 << "th lambda : "<< "\t" << lambda[i-1] << endl;
-            //cout << setprecision(16);
-            H_loc[i] = H_loc[i-1] - lambda[i-1] * Iden;
-
-            //cout << i << "th H_loc : " << "\n" << H_loc[i] << endl;
-            //cout << setprecision(16);
-
-            Sig = Sigma(H_N,Prop,Int);
-            Prop = Propagator(Sig,H_loc[i],gvalue);
-
-            //cout << i << "th Prop : " << "\n" << Prop[k-1] << "\n" << "------------------" << endl;
-            //cout << setprecision(16);
+            std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
+            cout << "Iteration " << i << " Starts" << endl;
+            H_loc[i] = H_loc[i - 1] - lambda[i - 1] * Iden;
+            NCA_self(H_N,Prop,INT_Arr);
+            Prop = Propagator(SELF_E,H_loc[i]);
 
             lambda[i] = chemical_poten(Prop[k-1]);
 
             expDtauLambda = exp((tau_grid[1]-tau_grid[0])*lambda[i]);
             factor = 1.0;
             
-            //cout << "this is lambda" << lambda << endl;
-            
             for(int j=0; j<k; j++)
             {
                 Prop[j] *= factor;
                 factor *= expDtauLambda;
-                //cout << Prop[j].trace() << endl;
             }
-
-            //cout << "----------------------" << endl;
-
+            std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
+            std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
+            cout << "Process ends in : " << microseconds.count() << "[sec]" << endl;
+            cout << "-----------------------------" << endl;
         }
     
     }
@@ -520,31 +514,28 @@ vector<MatrixXd> Testing::Iteration(const int &n, const double &gvalue)
 
 //////////////////////////////////////////////////////////////////////////////
 
-vector<double> Testing::Chi_sp(int iter, const double &gvalue)
+void MD_NC::Chi_sp(int ITE)
 {
     MatrixXd Gellmann_1 = MatrixXd::Zero(3,3);
-
     Gellmann_1(0,1) = 1;
     Gellmann_1(1,0) = 1;
 
     vector<double> chi_array(k,0);
-    vector<MatrixXd> Ite_ra = Iteration(iter,gvalue);
+    vector<MatrixXd> Ite_ra = Iteration(ITE);
 
     for (int i=0; i<k; i++)
     {
-        chi_array[i] =(Ite_ra[k-i-1] * Gellmann_1 * Ite_ra[i] * Gellmann_1).trace();
-        cout << setprecision(16);   
+        Chi_Arr[i] =(Ite_ra[k-i-1] * Gellmann_1 * Ite_ra[i] * Gellmann_1).trace();
+        cout << setprecision(16);
         //cout << chi_array[i] << endl;
     }
-
-    return chi_array;
 }
 
 int main()
 {
-
-    Testing test;
-
+    std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
+    cout << " ## Program begins ##" << endl;
+    cout << "-------------------------------" << endl;
     /*
     MatrixXd H_local = test.Hamiltonian_loc(test.Eigenvalue_Even(),test.Eigenvalue_Odd());
     
@@ -600,7 +591,7 @@ int main()
     }
     */
 
-    
+    /*
     for (int k=0; k<1; k++)
     {
         std::ofstream outputFile;
@@ -618,15 +609,16 @@ int main()
         vector<MatrixXd> a = test.Iteration(1,1);
 
         for (int i = 0; i < a.size(); i++)
-        {     
+        {
             //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
-            outputFile << test.grid[i] << "\t" << (a[i])(0,0)<< "\t" << (a[i])(0,1) << "\t" << (a[i])(0,2) << "\t" 
-            << (a[i])(1,0) << "\t" << (a[i])(1,1) << "\t"  << (a[i])(1,2) << "\t" 
+            outputFile << test.grid[i] << "\t" << (a[i])(0,0)<< "\t" << (a[i])(0,1) << "\t" << (a[i])(0,2) << "\t"
+            << (a[i])(1,0) << "\t" << (a[i])(1,1) << "\t"  << (a[i])(1,2) << "\t"
             << (a[i])(2,0) << "\t" << (a[i])(2,1) << "\t" << (a[i])(2,2) << "\t" << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
-            cout << setprecision(16);  
+            cout << setprecision(16);
         }
         outputFile.close();
     }
+    */
     
 
    //test.Iteration(4,1);
@@ -645,7 +637,7 @@ int main()
     vector<double> arr = test.Interact_V(test.coupling(velocity,1,cutoff),test.grid,omega);
 
     for (int i = 0; i < arr.size(); i++)
-    {     
+    {
         //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
         outputFile << test.grid[i] << "\t" << arr[i] << endl;
     }
@@ -654,32 +646,36 @@ int main()
     */
     //test.Iteration(10,1);
 
-/*
-    for (int k=14; k<g_array.size(); k++)
+
+    for (int k=0; k<1; k++)
     {
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "Revise_grid101_ite1_g";
+        string name = "NCATEST";
         std::stringstream back;
-        back << g_array[k];
+        //back << g_array[k];
 
-        name += back.str();
+        //name += back.str();
         name += ".txt";
 
         outputFile.open(name);
         //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
-        vector<double> a = test.Chi_sp(1,g_array[k]);
+        MD.CAL_COUP_INT_with_g_arr(1);
+        MD.Chi_sp(3);
 
-        for (int i = 0; i < a.size(); i++)
-        {     
+        for (int i = 0; i < Chi_Arr.size(); i++)
+        {
             //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
-            outputFile << test.grid[i] << "\t" << a[i] << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
+            outputFile << MD.tau_grid[i] << "\t" << Chi_Arr[i] << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
         }
         outputFile.close();
     
     }
-    */
+    std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
+    std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
+    cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
+    cout << "-----------------------------" << endl;
     
     return 0;
 
