@@ -225,22 +225,30 @@ void MD_OC::NCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vect
 
 void MD_OC::OCA_T(const MatrixXd& N,const vector<MatrixXd>& Prop,const vector<double>& V)
 {
+    std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
+    cout << "\t" << "T_matrix Calculation Starts" << endl;
     for (int n=0; n<k; n++) for (int m=0; m<=n; m++)
     {
-        T[n][m] = V[n] * N * Prop[n-m] * N * Prop[m] * N;
+        T[n][m] = N * Prop[n-m] * N * Prop[m] * N;
     }
+    std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
+    std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
+    cout << "\t" << "Calculation ends : " << microseconds.count() << "[sec]" << endl;
+    cout << "-----------------------------" << endl;
 }
 
-void MD_OC::OCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vector<double>& V)
+void MD_OC::OCA_self(const vector<MatrixXd>& Prop)
 {
     MatrixXd Stmp;
 
     for (int i = 0; i < k; i++)
     {
         Stmp = MatrixXd::Zero(3, 3);
-        for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++)
+         for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++)
         {
-            Stmp += T[i-m][n-m] * Prop[m] * N * V[i - m] * V[n];
+            //cout << "\t" << "\t" << "row index count : " << n << endl;
+            //cout << "\t" << "\t" << "column index count : " << m << endl;
+            Stmp += T[i-m][n-m] * Prop[m] * H_N * INT_Arr[i - m] * INT_Arr[n];
         }
         SELF_E[i] += pow(Delta_t, 2) * Stmp;
     }
@@ -251,7 +259,13 @@ void MD_OC::SELF_Energy(vector<MatrixXd> Prop)
     //cout << "Self_E calculation starts" << endl;
     OCA_T(H_N, Prop, INT_Arr);
     NCA_self(H_N, Prop, INT_Arr);
-    OCA_self(H_N, Prop, INT_Arr);
+    std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
+    cout << "\t" << "OCA calculation Starts" << endl;
+    OCA_self(Prop);
+    std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
+    std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
+    cout << "\t" << "Calculation ends : " << microseconds.count() << "[sec]" << endl;
+    cout << "-----------------------------" << endl;
 
     //cout << SELF_E[99] << endl;
 }
@@ -407,9 +421,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
             cout << "Process ends in : " << microseconds.count() << "[sec]" << endl;
             cout << "-----------------------------" << endl;
-
         }
-
     }
 
     return Prop;
@@ -446,7 +458,6 @@ void MD_OC::OCA_store(vector<MatrixXd> iter)
 
 void MD_OC::OCA_Chi_sp(vector<MatrixXd> iter)
 {
-    
     for (int i=0; i<k; i++)
     {
         MatrixXd Stmp = MatrixXd::Zero(3, 3);
@@ -504,7 +515,7 @@ int main()
         
 
         MD.CAL_COUP_INT_with_g_arr(1);
-        vector<MatrixXd> ITER = MD.Iteration(3);
+        vector<MatrixXd> ITER = MD.Iteration(1);
         vector<double> a = MD.Chi_sp_Function(ITER);
         
         std::ofstream outputFile;
