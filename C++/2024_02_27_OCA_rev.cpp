@@ -36,6 +36,11 @@ vector<MatrixXd> SELF_E(MD.k, MatrixXd::Zero(3, 3));
 MatrixXd MD_OC::H_N;
 
 //////////////////////////////////////////////////////////////
+/////////// Array for calculate the time per one for loop cycle /////////
+
+vector<int> OCA_TIME(171700,0);
+
+/////////////////////////////////////////////////////////////////////////
 
 vector<double> MD_OC::green(vector<double> tau)
 {
@@ -240,21 +245,35 @@ void MD_OC::OCA_T(const MatrixXd& N,const vector<MatrixXd>& Prop,const vector<do
 void MD_OC::OCA_self(const vector<MatrixXd>& Prop)
 {
     MatrixXd Stmp;
+    int count = 0;
 
     for (int i = 0; i < k; i++)
     {
         Stmp = MatrixXd::Zero(3, 3);
          for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++)
         {
+            count += 1;
             //cout << "\t" << "\t" << "row index count : " << n << endl;
             //cout << "\t" << "\t" << "column index count : " << m << endl;
-            Stmp += T[i-m][n-m] * Prop[m] * H_N * INT_Arr[i - m] * INT_Arr[n];
+            std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
+            cout << "\t" << "\t" <<  "For loop count : " << count  << endl;
+            Stmp += T[i-m][n-m] /*Prop[m]*/ * H_N * INT_Arr[i - m] * INT_Arr[n];
+            std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
+            std::chrono::duration<double> nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(sec-start);
+                if (nanoseconds.count() > 1e-5)
+                {
+                    cout << "***** (" << i-n << "," << n-m << ") ***** : " << nanoseconds.count() << "[sec]" << endl;
+                    OCA_TIME[count-1] = 1;
+                }
+            cout << "\t" << "\t" << "Calculation ends : " << nanoseconds.count() << "[sec]" << endl;
+            cout << "-----------------------------------------------------" << endl;
+
         }
         SELF_E[i] += pow(Delta_t, 2) * Stmp;
     }
 }
 
-void MD_OC::SELF_Energy(vector<MatrixXd> Prop)
+void MD_OC::SELF_Energy(vector<MatrixXd> &Prop)
 {
     //cout << "Self_E calculation starts" << endl;
     OCA_T(H_N, Prop, INT_Arr);
@@ -516,12 +535,13 @@ int main()
 
         MD.CAL_COUP_INT_with_g_arr(1);
         vector<MatrixXd> ITER = MD.Iteration(1);
-        vector<double> a = MD.Chi_sp_Function(ITER);
+        vector<int> a = OCA_TIME;
+        //vector<double> a = MD.Chi_sp_Function(ITER);
         
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "OCATESTLAB";
+        string name = "OCATIMECHECK";
         //std::stringstream back;
         //back << g_array[k];
 
@@ -542,10 +562,10 @@ int main()
 
         //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
         
-        for (int j = 0; j < a.size(); j++)
+        for (int j = 0; j < 171700; j++)
         {
             cout << a[j] << endl;
-            outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
+            outputFile << j+1 << "\t" << a[j] << endl;
         }
         
 

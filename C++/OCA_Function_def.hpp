@@ -106,7 +106,7 @@ private:
     
 public:
 
-    vector<double> tau_grid = linspace(0, 1, 201);
+    vector<double> tau_grid = linspace(0, 1, 100);
     static int k;
     double Delta_t = tau_grid[1] - tau_grid[0];
 
@@ -128,9 +128,9 @@ public:
     MatrixXd Hamiltonian_loc(MatrixXd a, MatrixXd b);
 
     void NCA_self(const MatrixXd& N, const vector<MatrixXd>& H_exp, const vector<double>& V);
-    void OCA_self(const MatrixXd& N, const vector<MatrixXd>& H_exp, const vector<double>& V);
+    void OCA_self(const vector<MatrixXd>& H_exp);
     void OCA_T(const MatrixXd& N,const vector<MatrixXd>& H_exp, const vector<double>& V);
-    void SELF_Energy(vector<MatrixXd> Prop);
+    void SELF_Energy(vector<MatrixXd> &Prop);
 
     MatrixXd round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>& sigma, const vector<MatrixXd>& ite, int n, int boolean);
     vector<MatrixXd> Propagator(const vector<MatrixXd>& array, const MatrixXd& loc);
