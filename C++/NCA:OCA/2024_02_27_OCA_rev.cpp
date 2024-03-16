@@ -253,11 +253,11 @@ void MD_OC::OCA_self(const vector<MatrixXd>& Prop)
          for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++)
         {
             count += 1;
-            //cout << "\t" << "\t" << "row index count : " << n << endl;
-            //cout << "\t" << "\t" << "column index count : " << m << endl;
             std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
-            cout << "\t" << "\t" <<  "For loop count : " << count  << endl;
-            Stmp += T[i-m][n-m] /*Prop[m]*/ * H_N * INT_Arr[i - m] * INT_Arr[n];
+            //cout << "\t" << "\t" <<  "For loop count : " << count  << endl;
+            /********************main code**************************/
+            Stmp += H_N * Prop[i-n] * T[n][m] * INT_Arr[i-m] * INT_Arr[n];                                                                                                                                                                                                                                                                                                                                                                                                                                                 Prop[m] * H_N * INT_Arr[i - m] * INT_Arr[n];
+            /*******************************************************/
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
             std::chrono::duration<double> nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(sec-start);
                 if (nanoseconds.count() > 1e-5)
@@ -267,11 +267,13 @@ void MD_OC::OCA_self(const vector<MatrixXd>& Prop)
                 }
             cout << "\t" << "\t" << "Calculation ends : " << nanoseconds.count() << "[sec]" << endl;
             cout << "-----------------------------------------------------" << endl;
+            
 
         }
         SELF_E[i] += pow(Delta_t, 2) * Stmp;
     }
 }
+
 
 void MD_OC::SELF_Energy(vector<MatrixXd> &Prop)
 {
@@ -471,8 +473,6 @@ void MD_OC::OCA_store(vector<MatrixXd> iter)
         Chi_st[n][m] = iter[n-m] * H_N * iter[m] * GELL_1;
         //cout << "pair (n,m) is : " <<  "(" << n << "," << m << ")" << "corresponds with" << "(" << n-m << "," << m << ")" << endl;
     }
-
-
 }
 
 void MD_OC::OCA_Chi_sp(vector<MatrixXd> iter)
@@ -489,7 +489,6 @@ void MD_OC::OCA_Chi_sp(vector<MatrixXd> iter)
         Chi_Arr[i] += pow(Delta_t, 2) * Stmp.trace();
     }
 }
-
 
 vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 {
@@ -535,13 +534,13 @@ int main()
 
         MD.CAL_COUP_INT_with_g_arr(1);
         vector<MatrixXd> ITER = MD.Iteration(1);
-        vector<int> a = OCA_TIME;
-        //vector<double> a = MD.Chi_sp_Function(ITER);
+        //vector<int> a = OCA_TIME;
+        vector<double> a = MD.Chi_sp_Function(ITER);
         
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "OCATIMECHECK";
+        string name = "OCATIMECHECK_GRID100_CACHE";
         //std::stringstream back;
         //back << g_array[k];
 
@@ -565,7 +564,7 @@ int main()
         for (int j = 0; j < 171700; j++)
         {
             cout << a[j] << endl;
-            outputFile << j+1 << "\t" << a[j] << endl;
+            outputFile << j << "\t" << a[j] << endl;
         }
         
 
