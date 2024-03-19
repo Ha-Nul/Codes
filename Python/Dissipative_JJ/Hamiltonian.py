@@ -140,8 +140,8 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
     N_EVE_g = INT_even_Eigenvec(gamma, n, 0)
     N_EVE_s = INT_even_Eigenvec(gamma, n, 1)
 
-    N_ELE_go = np.dot(LOC_EVE_g,N_ODD) #first state dot product to ground state
-    N_ELE_og = -N_ELE_go
+    N_ELE_og = np.dot(LOC_ODD,N_EVE_g)
+    N_ELE_go = -N_ELE_og #first state dot product to ground state
     N_ELE_os = np.dot(LOC_ODD,N_EVE_s)
     N_ELE_so = -N_ELE_os
     

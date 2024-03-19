@@ -148,7 +148,7 @@ class MD_NC
 
 MD_NC MD;
 
-double gamma = 0.02;
+double gamma = 20;
 double nu = MD.pi/0.025;
 
 ///////////////////////////////////////////////////////////////
@@ -243,23 +243,25 @@ MatrixXd MD_NC::Eigenvalue_Odd()
 
 void MD_NC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 {
+    MatrixXd INT_odd = MatrixXd::Zero(3,3);
+    MatrixXd INT_even = MatrixXd::Zero(3,3);
+
+    for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
+    {
+        INT_odd(i,j) = odd(i,j) * (i+1);
+        INT_even(i,j) = even(i,j) * i;
+    }
+
+    MatrixXd c = INT_even.transpose() * odd;
+
     double Blank = 0;
-
-    MatrixXd odd_eigenvec;
-    MatrixXd even_eigenvec;
-
-    odd_eigenvec = odd.transpose();
-    even_eigenvec = even;
-
-    MatrixXd c;
-    c = odd_eigenvec * even_eigenvec;
 
     for (int i = 0; i < M ; i++)
     {
        Blank += G_Arr[i];
     }
 
-    H_N(0,0) = Blank * c(0,0);
+    H_N(0,1) = Blank * c(0,0);
     H_N(1,0) = Blank * c(0,0);
     H_N(1,2) = Blank * c(0,1);
     H_N(2,1) = Blank * c(0,1);
@@ -504,7 +506,8 @@ void MD_NC::Chi_sp(int ITE)
 
     for (int i=0; i<beta; i++)
     {
-        Chi_Arr[i] =(Ite_ra[beta-i-1] * Gellmann_1 * Ite_ra[i] * Gellmann_1).trace();
+        Chi_Arr[i] =(Ite_ra[beta-i-1] * Gellmann_1 * Ite_ra[i] * Gellmann_1).trace(); // main code
+        //Chi_Arr[i] = (Ite_ra[i] * Gellmann_1).trace();
         cout << setprecision(16);
         //cout << chi_array[i] << endl;
     }
@@ -529,7 +532,7 @@ int main()
     //cout << H_local << endl;
     */
 
-    /*
+    
     vector<double> g_array(25,0);
     for (int j=1; j<25; ++j)
     {
@@ -548,7 +551,7 @@ int main()
     {
         g_array[m] = g_array[m] * g_array[m];
     }
-    */
+    
 
     /*
     for (int n=0; n<1; n++)
@@ -575,13 +578,13 @@ int main()
 
     double alpha = 0.5;
     double k_cutoff = 20;
-    
+    /*
     for (int i=0; i<20; i++)
     {
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "NCA_PROP_CONVERGE_WITH_PARA_GAMMA002_ITE";
+        string name = "NCA_CONV_GAMMA_";
         std::stringstream back;
         back << i;
 
@@ -603,7 +606,7 @@ int main()
         }
         outputFile.close();
     }
-    
+    */
     
 
    //test.Iteration(4,1);
@@ -631,23 +634,23 @@ int main()
     */
     //test.Iteration(10,1);
 
-    /*
+    
     for (int i=0; i<1; i++)
     {
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "NCATEST";
+        string name = "NCATEST_GAMMA";
         std::stringstream back;
-        //back << g_array[k];
+        back << gamma;
 
-        //name += back.str();
+        name += back.str();
         name += ".txt";
 
         outputFile.open(name);
         //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
         MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-        MD.Chi_sp(3);
+        MD.Chi_sp(20);
 
         for (int i = 0; i < Chi_Arr.size(); i++)
         {
@@ -657,7 +660,7 @@ int main()
         outputFile.close();
     
     }
-    */
+    
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
     std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
     cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
