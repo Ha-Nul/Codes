@@ -59,7 +59,7 @@ private:
 
     MatrixXd Matrix_Odd(int n, double r)
     {
-        MatrixXd Matrix1=MatrixXd::Zero(n,n);
+        MatrixXd Matrix1 = MatrixXd::Zero(n, n);
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++)
@@ -81,7 +81,7 @@ private:
 
     MatrixXd Matrix_Even(int n, double r)
     {
-        MatrixXd Matrix1=MatrixXd::Zero(n,n);
+        MatrixXd Matrix1 = MatrixXd::Zero(n, n);
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++)
