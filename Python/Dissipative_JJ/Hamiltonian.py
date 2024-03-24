@@ -133,10 +133,7 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
 
     # Eigenvectors for N matrix
     LOC_ODD = Local_odd_Eigenvec(gamma,n,0)
-    LOC_EVE_g = Local_even_Eigenvec(gamma,n,0)
-    LOC_EVE_s = Local_even_Eigenvec(gamma,n,0)
 
-    N_ODD = INT_odd_Eigenvec(gamma, n, 0)
     N_EVE_g = INT_even_Eigenvec(gamma, n, 0)
     N_EVE_s = INT_even_Eigenvec(gamma, n, 1)
 
@@ -157,13 +154,31 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
                 if i==j and i%3 == 1:
                     A[i][j+2] = (np.sqrt((j+2)//3)) * g * N_ELE_og
                     A[i][j+4] = (np.sqrt((j+4)//3)) * g * N_ELE_os
+
                 if i==j and i%3 == 2:
                     A[i][j+2] = (np.sqrt((j+2)//3)) * g * N_ELE_so
+                
             except:
                 None
 
+    for i in range (n):
+        for j in range (n):
+            try:
+                if i==j and j%3 == 0:
+                    A[j+4][j] = np.sqrt((i+3)//3) * g * N_ELE_og
+                if i==j and j%3 == 1:
+                    A[j+2][j] = np.sqrt((i+2)//3) * g * N_ELE_go
+                    A[j+4][j] = np.sqrt((i+4)//3) * g * N_ELE_so
+
+                if i==j and j%3 == 2:
+                    A[j+2][j] = np.sqrt((i+2)//3) * g * N_ELE_os
+                
+            except:
+                None
+
+
     np_A = np.array(A)
-    np_B = np.transpose(np_A.copy())
+    #np_B = np.transpose(np_A.copy())
     
     # Hamiltonian_local , Hamiltonian_bath
     for i in range(n):
@@ -181,16 +196,16 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
                 None
     
     np_C = np.array(A)
-    Array = np_A + np_B + np_C
+    Array = np_A + np_C
 
     return Array
 
 def Hamiltonian_Matrix_Eigenval(gamma,n,g,omega,i):
-    A_eigval = np.linalg.eig(Hamiltonian_Matrix(gamma,n,g,omega))[0][i]
+    A_eigval = np.linalg.eigh(Hamiltonian_Matrix(gamma,n,g,omega))[0][i] # return value of eigh[0] : eigenvalues of corresponding eigenvectors
     return A_eigval
 
 def Hamiltonian_Matrix_Eigenvec(gamma,n,g,omega,i):
-    A = np.linalg.eig(Hamiltonian_Matrix(gamma,n,g,omega))[1].T
+    A = np.linalg.eigh(Hamiltonian_Matrix(gamma,n,g,omega))[1].T # return value of eigh[1] : eigenvectors of corresponding eigenvalues
     A_eigvec = A[i]
     return A_eigvec
 
@@ -236,6 +251,7 @@ def Lie_tensorproduct(x,y):
     Lie_Tens = np.kron(A,Lie_group(x))
     return Lie_Tens
 ## Lie group ####################################
+
 ## Spectral Function ############################
 def Spectral_Function(beta: float, gamma :float ,n: int,g: float,matsufreq: float,eta:float,omega: float):
     '''Spectral Density of Correlation_Function. r = Value of gamma, z = dimension/2 of Matrix,
