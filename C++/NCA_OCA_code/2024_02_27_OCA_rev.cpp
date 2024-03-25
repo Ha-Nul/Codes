@@ -13,7 +13,8 @@ MD_OC MD;
 
 /////////////////////////////////////////////////////////////
 
-int MD_OC::k = MD.tau_grid.size();
+int MD_OC::M = MD.mode_grid.size();
+int MD_OC::t = MD.mode_grid.size();
 vector<double> k_mode(100, 1);
 double gamma = 1;
 
@@ -23,39 +24,40 @@ double cutoff = 1;
 
 //////////////////////////////////////////////////////////////
 
-vector<double> INT_Arr(MD.k, 0);
-vector<double> Chi_Arr(MD.k, 0);
+vector<double> INT_Arr(MD.t, 0);
+vector<double> Chi_Arr(MD.t, 0);
 
-vector<MatrixXd> T_IN(MD.k,MatrixXd::Zero(3,3));
-vector<vector<MatrixXd>> T(MD.k,T_IN);
+vector<MatrixXd> T_IN(MD.t,MatrixXd::Zero(3,3));
+vector<vector<MatrixXd>> T(MD.t,T_IN);
 
-vector<MatrixXd> Chi_IN(MD.k,MatrixXd::Zero(3,3));
-vector<vector<MatrixXd>> Chi_st(MD.k,Chi_IN);
+vector<MatrixXd> Chi_IN(MD.t,MatrixXd::Zero(3,3));
+vector<vector<MatrixXd>> Chi_st(MD.t,Chi_IN);
 
-vector<MatrixXd> SELF_E(MD.k, MatrixXd::Zero(3, 3));
+vector<MatrixXd> SELF_E(MD.t, MatrixXd::Zero(3, 3));
 MatrixXd MD_OC::H_N;
 
 //////////////////////////////////////////////////////////////
 /////////// Array for calculate the time per one for loop cycle /////////
 
-vector<int> OCA_TIME(1540,0);
+vector<double> G_Arr(MD.M,0);
+vector<double> omega_Arr(MD.M,0);
 
 /////////////////////////////////////////////////////////////////////////
 
 vector<double> MD_OC::green(vector<double> tau)
 {
     double T = 273;
-    vector<int> one_vec(k, 1);
-    vector<double> bose_dist(k);
+    vector<int> one_vec(t, 1);
+    vector<double> bose_dist(t);
 
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < t; i++)
     {
-        bose_dist[i] = one_vec[i] / (exp(tau_grid[k - 1] * k_mode[i]) - 1);
+        bose_dist[i] = one_vec[i] / (exp(tau_grid[t - 1] * k_mode[i]) - 1);
     }
 
-    vector<double> Test_green(k);
+    vector<double> Test_green(t);
 
-    for (int j = 0; j < k; j++)
+    for (int j = 0; j < t; j++)
     {
         Test_green[j] = ((bose_dist[j] + 1) * exp(-1 * k_mode[j] * tau[j]) + (bose_dist[j]) * exp(k_mode[j] * tau[j]));
     }
@@ -63,42 +65,35 @@ vector<double> MD_OC::green(vector<double> tau)
     return Test_green;
 }
 
-vector<double> MD_OC::coupling(double v, double g, double W)
+void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 {
-    vector<double> v_array(k_mode.size(), v);
-    vector<double> g_array(k_mode.size(), g);
-    vector<double> W_array(k_mode.size(), W);
-    vector<double> coupling_array(k_mode.size());
+    double nu = pi * k_cutoff / alpha;
 
-    for (int i = 0; i < k_mode.size(); i++)
+    for (int i=0; i < M; i++)
     {
-        coupling_array[i] = g_array[i] * sqrt(abs(k_mode[i]) * v_array[i] / (1 + pow((abs(k_mode[i]) * v_array[i] / W_array[i]), 2)));
+        omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
+        G_Arr[i] = sqrt((2 * k_cutoff / (alpha * M)) * (omega_Arr[i] / (1 + pow(nu * omega_Arr[i] / k_cutoff,2))));
+        //tilde_g_arr[i] = sqrt( (omega_arr[i] / (1 + pow(nu * omega_arr[i] / k_cutoff,2))));
+        //tilde_g_arr[i] = sqrt((2 * k_cutoff / (alpha * omega_arr.size())) * (re_planck_cst * omega_arr[i] / (1 + pow(nu * re_planck_cst * omega_arr[i] / k_cutoff,2))));
     }
-
-    return coupling_array;
 }
+
 ////////////////////////////////////////////////////////////////////////////////////
 
-vector<double> MD_OC::Interact_V(vector<double>coupling, vector<double> tau, double omega)
+vector<double> MD_OC::Interact_V()
 {
-    double coupling_const = coupling[0];
-
-    vector<double> hpcos(tau.size(), 0);
-    vector<double> hpsin(tau.size(), 0);
-    vector<double> coupling_arr(tau.size(), coupling_const * coupling_const);
-    vector<double> V_arr(tau.size(), 0);
-
-    for (int i = 0; i < tau.size(); i++)
+    for (int i = 0; i < t; i++)
     {
-        hpcos[i] = cosh((tau[i] - tau[tau.size() - 1] / 2) * omega);
-        hpsin[i] = sinh(tau[tau.size() - 1] * omega / 2);
-        V_arr[i] = (coupling_arr[i] * hpcos[i] / hpsin[i]);
-
-        //cout << "this is V_arr " << V_arr[i] << endl;
+        for (int j = 0; j < M ;j++)
+        {
+            INT_Arr[i] += pow(G_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * omega_Arr[j])/sinh(tau_grid[t - 1] * omega_Arr[j] / 2);
+            //cout << "\t" << j <<" V_arr : " << V_arr[i] << " with tau-beta/2 : " << tau[i] - tau[tau.size()-1]/2 << endl;
+        }
     }
 
-    return V_arr;
+    return INT_Arr;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -145,26 +140,33 @@ MatrixXd MD_OC::Eigenvalue_Odd()
 ///////////////////////////////////////////////////////////////////////
 
 
-MatrixXd MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
+MatrixXd MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 {
     //cout << "input g value :" << g << endl;
-    MatrixXd INT_odd = MatrixXd::Zero(3,3);
-    MatrixXd INT_even = MatrixXd::Zero(3,3);
+    MatrixXd INT_odd = MatrixXd::Zero(3, 3);
+    MatrixXd INT_even = MatrixXd::Zero(3, 3);
 
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
     {
-        INT_odd(i,j) = odd(i,j) * (i+1);
-        INT_even(i,j) = even(i,j) * i;
+        INT_odd(i, j) = odd(i, j) * (i + 1);
+        INT_even(i, j) = even(i, j) * i;
     }
 
     MatrixXd c = INT_even.transpose() * odd;
 
+    double Blank;
+
+    for (int i = 0; i < M ; i++)
+    {
+       Blank += G_Arr[i];
+    }
+
     MatrixXd d = MatrixXd::Zero(3, 3);
 
-    d(0, 1) = g * -c(0, 0);
-    d(1, 0) = g * c(0, 0);
-    d(1, 2) = g * -c(1, 0);
-    d(2, 1) = g * c(1, 0);
+    d(0, 1) = Blank * c(0, 0);
+    d(1, 0) = Blank * -c(0, 0);
+    d(1, 2) = Blank * -c(1, 0);
+    d(2, 1) = Blank * c(1, 0);
 
     cout << d << endl;
 
@@ -181,11 +183,11 @@ vector<MatrixXd> MD_OC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
     double first = exp(Odd(0));
     double second = exp(Even(1));
 
-    vector<MatrixXd> array_with_Matrix(k);
+    vector<MatrixXd> array_with_Matrix(t);
 
     MatrixXd Hamiltonian_exp;
 
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < t; i++)
     {
         Hamiltonian_exp = MatrixXd::Zero(3, 3);
 
@@ -215,10 +217,11 @@ MatrixXd MD_OC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
 ///////////////////////////////////////////////////////////////////////////////
 
 
-void MD_OC::CAL_COUP_INT_with_g_arr(double g)
+void MD_OC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
 {
-    INT_Arr = Interact_V(coupling(velocity, g, cutoff), tau_grid, omega);
-    H_N = Hamiltonian_N(Eigenvector_Even(), Eigenvector_Odd(), g);
+    Tilde_g_calculation_function(alpha,k_cutoff);
+    INT_Arr = Interact_V();
+    H_N = Hamiltonian_N(Eigenvector_Even(), Eigenvector_Odd());
 }
 
 
@@ -226,7 +229,7 @@ void MD_OC::CAL_COUP_INT_with_g_arr(double g)
 
 void MD_OC::NCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vector<double>& V)
 {
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < t; i++)
     {
         SELF_E[i] = V[i] * (N * Prop[i] * N);
     }
@@ -234,16 +237,20 @@ void MD_OC::NCA_self(const MatrixXd& N, const vector<MatrixXd>& Prop, const vect
 
 void MD_OC::OCA_T(const MatrixXd& N,const vector<MatrixXd>& Prop,const vector<double>& V)
 {
+    /*
     std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
     cout << "\t" << "T_matrix Calculation Starts" << endl;
-    for (int n=0; n<k; n++) for (int m=0; m<=n; m++)
+    */
+    for (int n=0; n<t; n++) for (int m=0; m<=n; m++)
     {
         T[n][m] = N * Prop[n-m] * N * Prop[m] * N;
     }
+    /*
     std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
     std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
     cout << "\t" << "Calculation ends : " << microseconds.count() << "[sec]" << endl;
     cout << "-----------------------------" << endl;
+    */
 }
 
 void MD_OC::OCA_self(const vector<MatrixXd>& Prop)
@@ -251,7 +258,7 @@ void MD_OC::OCA_self(const vector<MatrixXd>& Prop)
     MatrixXd Stmp;
     int count = 0;
 
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < t; i++)
     {
         Stmp = MatrixXd::Zero(3, 3);
          for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++)
@@ -343,8 +350,8 @@ MatrixXd MD_OC::round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>
 
 vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& loc)
 {
-    vector<MatrixXd> P_arr(k, MatrixXd::Zero(3, 3));
-    vector<MatrixXd> S_arr(k, MatrixXd::Zero(3, 3));
+    vector<MatrixXd> P_arr(t, MatrixXd::Zero(3, 3));
+    vector<MatrixXd> S_arr(t, MatrixXd::Zero(3, 3));
 
     P_arr[0] = MatrixXd::Identity(3, 3);
     S_arr[0] = MatrixXd::Identity(3, 3);
@@ -352,7 +359,7 @@ vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& 
     MatrixXd sig_form = MatrixXd::Zero(3, 3);
     MatrixXd sig_late = MatrixXd::Zero(3, 3);
 
-    for (int i = 1; i < k; i++)
+    for (int i = 1; i < t; i++)
     {
         P_arr[1] = P_arr[0];
         sig_late = 0.5 * Delta_t * (0.5 * Delta_t * (sig[1] * P_arr[0] + sig[0] * (P_arr[0] + Delta_t * P_arr[0])));
@@ -378,7 +385,7 @@ vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& 
 double MD_OC::chemical_poten(MatrixXd prop)
 {
     double Trace = prop.trace();
-    double lambda = -(1 / tau_grid[k - 1]) * log(Trace);
+    double lambda = -(1 / tau_grid[t - 1]) * log(Trace);
 
     return lambda;
 }
@@ -387,7 +394,7 @@ double MD_OC::chemical_poten(MatrixXd prop)
 
 vector<MatrixXd> MD_OC::Iteration(const int& n)
 {
-    vector<MatrixXd> Prop(k, MatrixXd::Zero(3, 3));
+    vector<MatrixXd> Prop(t, MatrixXd::Zero(3, 3));
     Prop[0] = MatrixXd::Identity(3,3);
 
     vector<MatrixXd> H_loc(n + 1, MatrixXd::Zero(3, 3));
@@ -403,7 +410,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
     {
         if (i == 0)
         {
-            for (int j = 0; j < k; j++)
+            for (int j = 0; j < t; j++)
             {
                 Prop[j](0, 0) = exp(-tau_grid[j] * H_loc[0](0, 0));
                 Prop[j](1, 1) = exp(-tau_grid[j] * H_loc[0](1, 1));
@@ -413,12 +420,12 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             //cout << Prop[99] << endl;
 
 
-            lambda[0] = chemical_poten(Prop[k - 1]);
+            lambda[0] = chemical_poten(Prop[t - 1]);
             expDtauLambda = exp((tau_grid[1] - tau_grid[0]) * lambda[0]);
             factor = 1.0;
 
 
-            for (int j = 0; j < k; j++)
+            for (int j = 0; j < t; j++)
             {
                 Prop[j] *= factor;
                 factor *= expDtauLambda;
@@ -434,12 +441,12 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             SELF_Energy(Prop);
             Prop = Propagator(SELF_E, H_loc[i]);
 
-            lambda[i] = chemical_poten(Prop[k - 1]);
+            lambda[i] = chemical_poten(Prop[t - 1]);
 
             expDtauLambda = exp((tau_grid[1] - tau_grid[0]) * lambda[i]);
             factor = 1.0;
 
-            for (int j = 0; j < k; j++)
+            for (int j = 0; j < t; j++)
             {
                 Prop[j] *= factor;
                 factor *= expDtauLambda;
@@ -464,9 +471,9 @@ void MD_OC::NCA_Chi_sp(vector<MatrixXd> iter)
     GELL_1(0, 1) = 1;
     GELL_1(1, 0) = 1;
 
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < t; i++)
     {
-        Chi_Arr[i] = (iter[k - i - 1] * GELL_1 * iter[i] * GELL_1).trace();
+        Chi_Arr[i] = (iter[t - i - 1] * GELL_1 * iter[i] * GELL_1).trace();
     }
 }
 
@@ -476,7 +483,7 @@ void MD_OC::OCA_store(vector<MatrixXd> iter)
     GELL_1(0, 1) = 1;
     GELL_1(1, 0) = 1;
 
-    for (int n=0; n<k; n++) for (int m=0; m<=n; m++)
+    for (int n=0; n<t; n++) for (int m=0; m<=n; m++)
     {
         Chi_st[n][m] = iter[n-m] * H_N * iter[m] * GELL_1;
         //cout << "pair (n,m) is : " <<  "(" << n << "," << m << ")" << "corresponds with" << "(" << n-m << "," << m << ")" << endl;
@@ -485,13 +492,13 @@ void MD_OC::OCA_store(vector<MatrixXd> iter)
 
 void MD_OC::OCA_Chi_sp(vector<MatrixXd> iter)
 {
-    for (int i=0; i<k; i++)
+    for (int i=0; i<t; i++)
     {
         MatrixXd Stmp = MatrixXd::Zero(3, 3);
 
-        for (int n = 0; n <= i; n++) for (int m = i; m < k; m++)
+        for (int n = 0; n <= i; n++) for (int m = i; m < t; m++)
         {
-            Stmp += INT_Arr[m-n] * ( Chi_st[k-i-1][m-i] * Chi_st[i][n]);
+            Stmp += INT_Arr[m-n] * ( Chi_st[t-i-1][m-i] * Chi_st[i][n]);
             //cout << "pair ("<<n<<","<<m<<") is : " << "(" << k-i-1 << "," << m-i << ")"<< " with " << "(" << i << "," << n << ")" << endl;
         }
         Chi_Arr[i] += pow(Delta_t, 2) * Stmp.trace();
@@ -535,12 +542,40 @@ int main()
     {
         g_array[m] = g_array[m] * g_array[m];
     }
+
+    /*
+    for (int n=0; n<1; n++)
+    {
+        std::ofstream outputFile;
+
+        //string name = "20240111_Trap_beta_0_4_g_";
+        string name = "V_tilde_g_10_grid201_beta_1";
+        //std::stringstream back;
+        //back << g_array[n];
+
+        //name += back.str();
+        name += ".txt";
+        MD.CAL_COUP_INT_with_g_arr(10);
+        outputFile.open(name);
+
+        //outputFile << MD.H_N<< endl;
+        
+        for(int i=0;i<MD.k;i++)
+        {
+            outputFile << MD.tau_grid[i] << "\t" << INT_Arr[i] << endl;
+        }
+        
+
+        outputFile.close();
+
+    }
+    */
     
-    for (int i = 0; i < g_array.size(); i++)
+    for (int i = 0; i < 1; i++)
     {
         
 
-        MD.CAL_COUP_INT_with_g_arr(g_array[i]);
+        MD.CAL_COUP_INT_with_g_arr(1,1);
         vector<MatrixXd> ITER = MD.Iteration(3);
         //vector<int> a = OCA_TIME;
         vector<double> a = MD.Chi_sp_Function(ITER);
@@ -550,7 +585,7 @@ int main()
         //string name = "20240111_Trap_beta_0_4_g_";
         string name = "OCA_NMatrix_Rev_beta_1_g";
         std::stringstream back;
-        back << g_array[i];
+        back << 3;//g_array[i];
 
         name += back.str();
         name += ".txt";
@@ -574,12 +609,11 @@ int main()
         {
             outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
         }
-        
 
         outputFile.close();
 
+        }
         
-    }
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
     std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
     cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;

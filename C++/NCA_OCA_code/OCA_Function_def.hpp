@@ -6,6 +6,7 @@
 #include <cmath>
 #include <iomanip>
 #include <string>
+#include <const.h>
 
 using namespace std;
 using namespace Eigen;
@@ -106,24 +107,28 @@ private:
     
 public:
 
-    vector<double> tau_grid = linspace(0, 1, 100);
-    static int k;
+    vector<double> tau_grid = linspace(0, 1, 201);
+    vector<double> mode_grid = linspace(1,100,100);
+    static int M;
+    static int t;
     double Delta_t = tau_grid[1] - tau_grid[0];
+
+    double pi = dlib::pi;
 
     static MatrixXd H_N;
 
-    void CAL_COUP_INT_with_g_arr(double g);
+    void CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff);
 
     vector<double> green(vector<double> tau);
-    vector<double> coupling(double v, double g, double W);
-    vector<double> Interact_V(vector<double> coupling, vector<double> tau, double omega);
+    void Tilde_g_calculation_function(double alpha, double k_cutoff);
+    vector<double> Interact_V();
 
     MatrixXd Eigenvector_Even();
     MatrixXd Eigenvalue_Even();
     MatrixXd Eigenvector_Odd();
     MatrixXd Eigenvalue_Odd();
 
-    MatrixXd Hamiltonian_N(MatrixXd even, MatrixXd odd, double g);
+    MatrixXd Hamiltonian_N(MatrixXd even, MatrixXd odd);
     vector<MatrixXd> Hamiltonian_exp(MatrixXd a, MatrixXd b);
     MatrixXd Hamiltonian_loc(MatrixXd a, MatrixXd b);
 
