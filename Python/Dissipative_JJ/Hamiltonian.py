@@ -246,7 +246,8 @@ def Lie_group(x):
         sigma[2][2] = -2/(3**0.5)
         return np.array(sigma)
 
-def Lie_tensorproduct(x,y):
+def Lie_tensorproduct(x: int,y: int):
+    '''x = select the xth Lie group element, y = dimension of Identity matrix'''
     A = np.identity(y)
     Lie_Tens = np.kron(A,Lie_group(x))
     return Lie_Tens
@@ -294,7 +295,8 @@ def Spectral_Function(beta: float, gamma :float ,n: int,g: float,matsufreq: floa
 ## Chi_function ###############################
 
 def Chi_sp(beta : float, gamma : float, omega: float, g: float, n: int , tau: float):
-    '''Chi_function, r : value of gamma, z : dimension/3 of hilbert space, g : coupling strength, omega : frequency'''
+    '''Chi_function, beta : value of beta, gamma : value of gamma, n : dimension/3 of total Hamiltonian dimension, 
+    omega : frequency , g = value of coupling '''
 
     # Tr Z
     Exp_val = sp.linalg.expm(-beta*Hamiltonian_Matrix(gamma,3*n,g,omega))
@@ -308,9 +310,8 @@ def Chi_sp(beta : float, gamma : float, omega: float, g: float, n: int , tau: fl
             E_M = Hamiltonian_Matrix_Eigenval(gamma,3*n,g,omega,j)
             Exp_val_chi = np.exp(-(beta-tau) * E_N - tau * E_M)
 
-            Expec_NM = Elements(Lie_tensorproduct(1,n),Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,i),Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,j))
-            #Expec_NM = Hamiltonian_Matrix_Eigenvec(gamma,3*z,g,omega,j).T @ Lie_group(1) @ Hamiltonian_Matrix_Eigenvec(gamma,3*z,g,omega,i)
-
+            Expec_NM = Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,i) @ Lie_tensorproduct(1,n) @ Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,j)
+            
             A.append(Exp_val_chi * (Expec_NM**2))
     
     #print(A)
