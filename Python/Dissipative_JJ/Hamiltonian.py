@@ -295,8 +295,7 @@ def Spectral_Function(beta: float, gamma :float ,n: int,g: float,matsufreq: floa
 ## Chi_function ###############################
 
 def Chi_sp(beta : float, gamma : float, omega: float, g: float, n: int , tau: float):
-    '''Chi_function, beta : value of beta, gamma : value of gamma, n : dimension/3 of total Hamiltonian dimension, 
-    omega : frequency , g = value of coupling '''
+    '''Chi_function, r : value of gamma, z : dimension/3 of hilbert space, g : coupling strength, omega : frequency'''
 
     # Tr Z
     Exp_val = sp.linalg.expm(-beta*Hamiltonian_Matrix(gamma,3*n,g,omega))
@@ -311,8 +310,10 @@ def Chi_sp(beta : float, gamma : float, omega: float, g: float, n: int , tau: fl
             Exp_val_chi = np.exp(-(beta-tau) * E_N - tau * E_M)
 
             Expec_NM = Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,i) @ Lie_tensorproduct(1,n) @ Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,j)
-            
-            A.append(Exp_val_chi * (Expec_NM**2))
+            Expec = Expec_NM * np.conjugate(Expec_NM)
+
+
+            A.append(Exp_val_chi * Expec)
     
     #print(A)
     # Chi_total
