@@ -105,8 +105,23 @@ def INT_odd_Eigenvec(gamma, n, m):
     INT_ARR_O = []
 
     for i in range(n):
-        INT_ARR_O.append(-1j * (i+1) * LOC_VEC_O[i])
+        if i == 0:
+            INT_ARR_O.append(0)
+        else:
+            INT_ARR_O.append(-1j * i * LOC_VEC_O[i-1])
     
+    return np.array(INT_ARR_O)
+
+def Local_For_INT_odd_Eigenvec(gamma,n,m):
+    LOC_VEC_O = Local_odd_Eigenvec(gamma,n,m)
+    INT_ARR_O = []
+
+    for i in range(n):
+        if i==0:
+            INT_ARR_O.append(0)
+        else:
+            INT_ARR_O.append(LOC_VEC_O[i-1])
+
     return np.array(INT_ARR_O)
 
 def INT_even_Eigenvec(gamma, n, m):
@@ -132,15 +147,15 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
     LOC_EV_EVE_s = Local_even_Eigenval(gamma,n,1)
 
     # Eigenvectors for N matrix
-    LOC_ODD = Local_odd_Eigenvec(gamma,n,0)
+    LOC_ODD = Local_For_INT_odd_Eigenvec(gamma,n,0)
 
     N_EVE_g = INT_even_Eigenvec(gamma, n, 0)
     N_EVE_s = INT_even_Eigenvec(gamma, n, 1)
 
-    N_ELE_og = np.dot(LOC_ODD,N_EVE_g)
-    N_ELE_go = -N_ELE_og #first state dot product to ground state
-    N_ELE_os = np.dot(LOC_ODD,N_EVE_s)
-    N_ELE_so = -N_ELE_os
+    N_ELE_10 = np.dot(LOC_ODD,N_EVE_g)
+    N_ELE_01 = -N_ELE_10 #first state dot product to ground state
+    N_ELE_12 = np.dot(LOC_ODD,N_EVE_s)
+    N_ELE_21 = -N_ELE_12
     
 
     # N_Matrix (interaction Hamiltonian)
@@ -150,13 +165,13 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
         for j in range (n):
             try:
                 if i==j and i%3 == 0:
-                   A[i][j+4] = (np.sqrt((j+4)//3)) * g * N_ELE_go
+                   A[i][j+4] = (np.sqrt((j+4)//3)) * g * N_ELE_01
                 if i==j and i%3 == 1:
-                    A[i][j+2] = (np.sqrt((j+2)//3)) * g * N_ELE_og
-                    A[i][j+4] = (np.sqrt((j+4)//3)) * g * N_ELE_os
+                    A[i][j+2] = (np.sqrt((j+2)//3)) * g * N_ELE_10
+                    A[i][j+4] = (np.sqrt((j+4)//3)) * g * N_ELE_12
 
                 if i==j and i%3 == 2:
-                    A[i][j+2] = (np.sqrt((j+2)//3)) * g * N_ELE_so
+                    A[i][j+2] = (np.sqrt((j+2)//3)) * g * N_ELE_21
                 
             except:
                 None
@@ -165,13 +180,13 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
         for j in range (n):
             try:
                 if i==j and j%3 == 0:
-                    A[j+4][j] = np.sqrt((i+3)//3) * g * N_ELE_og
+                    A[j+4][j] = np.sqrt((i+3)//3) * g * N_ELE_10
                 if i==j and j%3 == 1:
-                    A[j+2][j] = np.sqrt((i+2)//3) * g * N_ELE_go
-                    A[j+4][j] = np.sqrt((i+4)//3) * g * N_ELE_so
+                    A[j+2][j] = np.sqrt((i+2)//3) * g * N_ELE_01
+                    A[j+4][j] = np.sqrt((i+4)//3) * g * N_ELE_21
 
                 if i==j and j%3 == 2:
-                    A[j+2][j] = np.sqrt((i+2)//3) * g * N_ELE_os
+                    A[j+2][j] = np.sqrt((i+2)//3) * g * N_ELE_12
                 
             except:
                 None
