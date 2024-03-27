@@ -107,7 +107,7 @@ private:
 
 
 public:
-    vector<double> tau_grid = linspace(0, 0.5, 201);
+    vector<double> tau_grid = linspace(0, 1, 201);
     int k = tau_grid.size();
     double Delta_t = tau_grid[1] - tau_grid[0];
 
@@ -268,23 +268,31 @@ MatrixXd MD_NC::Eigenvalue_Odd()
 MatrixXd MD_NC::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
 {
     //cout << "input g value :" << g << endl;
-    MatrixXd INT_odd = MatrixXd::Zero(3, 3);
-    MatrixXd INT_even = MatrixXd::Zero(3, 3);
+    MatrixXd INT_odd = MatrixXd::Zero(3,3);
+    MatrixXd INT_even = MatrixXd::Zero(3,3);
 
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
     {
-        INT_odd(i, j) = odd(i, j) * (i + 1);
-        INT_even(i, j) = even(i, j) * i;
+        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
+        
+        if (i<2)
+        {
+            INT_odd(i+1,j) = odd(i,j);
+        }
     }
 
-    MatrixXd c = INT_even.transpose() * odd;
+    INT_even(1,0) = INT_even(1,0) * -1;
+    INT_even(2,0) = INT_even(2,0) * -1;
+
+    MatrixXd c = INT_even.transpose() * INT_odd;
+    //cout << INT_even << endl;
 
     MatrixXd d = MatrixXd::Zero(3, 3);
 
     d(0, 1) = g * -c(0, 0);
     d(1, 0) = g * c(0, 0);
-    d(1, 2) = g * -c(1, 0);
-    d(2, 1) = g * c(1, 0);
+    d(1, 2) = g * c(1, 0);
+    d(2, 1) = g * -c(1, 0);
 
     cout << d << endl;
 
@@ -538,6 +546,9 @@ void MD_NC::Chi_sp(int ITE)
 
 int main()
 {
+
+    MD_NC MD;
+
     std::chrono::system_clock::time_point P_start = std::chrono::system_clock::now();
     cout << " ## Program begins ##" << endl;
     cout << "-------------------------------" << endl;
@@ -573,13 +584,14 @@ int main()
     {
         g_array[m] = g_array[m] * g_array[m];
     }
+    
     /*
     for (int n=0; n<1; n++)
     {
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "N_matrix_beta_2_g_";
+        string name = "N_matrix_beta_1_g_";
         //std::stringstream back;
         //back << g_array[n];
 
@@ -588,13 +600,14 @@ int main()
 
         outputFile.open(name);
 
-        MatrixXd H_N = test.Hamiltonian_N(test.Eigenvector_Even(),test.Eigenvector_Odd(),1);
+        MatrixXd H_N = MD.Hamiltonian_N(MD.Eigenvector_Even(),MD.Eigenvector_Odd(),1);
         outputFile << H_N << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
 
         outputFile.close();
 
     }
     */
+    
 
     /*
     for (int k=0; k<1; k++)
@@ -609,14 +622,17 @@ int main()
         name += back.str();
         name += ".txt";
 
+        MD.CAL_COUP_INT_with_g_arr(1);
+        MD.Chi_sp(1);
+
         outputFile.open(name);
         //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
-        vector<MatrixXd> a = test.Iteration(1,1);
+        vector<MatrixXd> a = MD.Iteration(1);
 
         for (int i = 0; i < a.size(); i++)
         {
             //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
-            outputFile << test.grid[i] << "\t" << (a[i])(0,0)<< "\t" << (a[i])(0,1) << "\t" << (a[i])(0,2) << "\t"
+            outputFile << MD.tau_grid[i] << "\t" << (a[i])(0,0)<< "\t" << (a[i])(0,1) << "\t" << (a[i])(0,2) << "\t"
             << (a[i])(1,0) << "\t" << (a[i])(1,1) << "\t"  << (a[i])(1,2) << "\t"
             << (a[i])(2,0) << "\t" << (a[i])(2,1) << "\t" << (a[i])(2,2) << "\t" << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
             cout << setprecision(16);
@@ -625,48 +641,48 @@ int main()
     }
     */
 
-
-    //test.Iteration(4,1);
-
-
-
-    /*
+    
      std::ofstream outputFile;
 
      string name = "Vfunc";
 
      name += ".txt";
+    
+    MD.CAL_COUP_INT_with_g_arr(2);
+
 
      outputFile.open(name);
      //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
-     vector<double> arr = test.Interact_V(test.coupling(velocity,1,cutoff),test.grid,omega);
+     //vector<double> arr = MD.Interact_V(MD.coupling(velocity,1,cutoff),MD.tau_grid,omega);
 
-     for (int i = 0; i < arr.size(); i++)
+     for (int i = 0; i < INT_Arr.size(); i++)
      {
          //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
-         outputFile << test.grid[i] << "\t" << arr[i] << endl;
+         outputFile << MD.tau_grid[i] << "\t" << INT_Arr[i] << endl;
      }
 
      outputFile.close();
-     */
+     
+     
      //test.Iteration(10,1);
 
 
-    for (int n = 0; n < g_array.size(); n++)
+    /*
+    for (int n = 0; n < 1; n++)
     {
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "NCA_Nfixed_No_Hyb_beta_05_g";
+        string name = "NCA_Nfixed_No_Hyb_beta_1_g";
         std::stringstream back;
-        back << g_array[n];
+        back << 1;//g_array[n];
 
         name += back.str();
         name += ".txt";
 
         outputFile.open(name);
         //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
-        MD.CAL_COUP_INT_with_g_arr(g_array[n]);
+        MD.CAL_COUP_INT_with_g_arr(1);
         MD.Chi_sp(3);
 
         for (int i = 0; i < Chi_Arr.size(); i++)
@@ -677,6 +693,8 @@ int main()
         outputFile.close();
 
     }
+    */
+  
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
     std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec - P_start);
     cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;

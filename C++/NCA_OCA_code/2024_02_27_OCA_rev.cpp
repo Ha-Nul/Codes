@@ -3,7 +3,7 @@
 #include <Eigen/Eigenvalues>
 #include <vector>
 #include <cmath>
-#include <OCA_Function_def.hpp>
+#include <OCA_single.hpp>
 #include <chrono>
 
 using namespace std;
@@ -15,7 +15,7 @@ MD_OC MD;
 
 int MD_OC::k = MD.tau_grid.size();
 vector<double> k_mode(100, 1);
-double gamma = 1;
+double g_ma = 1;
 
 double omega = 1;
 double velocity = 1;
@@ -27,10 +27,10 @@ vector<double> INT_Arr(MD.k, 0);
 vector<double> Chi_Arr(MD.k, 0);
 
 vector<MatrixXd> T_IN(MD.k,MatrixXd::Zero(3,3));
-vector<vector<MatrixXd>> T(MD.k,T_IN);
+vector<vector<MatrixXd> > T(MD.k,T_IN);
 
 vector<MatrixXd> Chi_IN(MD.k,MatrixXd::Zero(3,3));
-vector<vector<MatrixXd>> Chi_st(MD.k,Chi_IN);
+vector<vector<MatrixXd> > Chi_st(MD.k,Chi_IN);
 
 vector<MatrixXd> SELF_E(MD.k, MatrixXd::Zero(3, 3));
 MatrixXd MD_OC::H_N;
@@ -38,7 +38,7 @@ MatrixXd MD_OC::H_N;
 //////////////////////////////////////////////////////////////
 /////////// Array for calculate the time per one for loop cycle /////////
 
-vector<int> OCA_TIME(1540,0);
+//vector<int> OCA_TIME(22100,0);
 
 /////////////////////////////////////////////////////////////////////////
 
@@ -92,7 +92,7 @@ vector<double> MD_OC::Interact_V(vector<double>coupling, vector<double> tau, dou
     {
         hpcos[i] = cosh((tau[i] - tau[tau.size() - 1] / 2) * omega);
         hpsin[i] = sinh(tau[tau.size() - 1] * omega / 2);
-        V_arr[i] = (coupling_arr[i] * hpcos[i] / hpsin[i]);
+        V_arr[i] = -(coupling_arr[i] * hpcos[i] / hpsin[i]);
 
         //cout << "this is V_arr " << V_arr[i] << endl;
     }
@@ -106,7 +106,7 @@ MatrixXd MD_OC::Eigenvector_Even()
 {
     MatrixXd a;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, gamma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, g_ma));
     a = es.eigenvectors();
 
     return a;
@@ -116,7 +116,7 @@ MatrixXd MD_OC::Eigenvalue_Even()
 {
     MatrixXd b;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, gamma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, g_ma));
     b = es.eigenvalues();
 
     return b;
@@ -126,7 +126,7 @@ MatrixXd MD_OC::Eigenvector_Odd()
 {
     MatrixXd a;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, gamma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, g_ma));
     a = es.eigenvectors();
 
     return a;
@@ -136,7 +136,7 @@ MatrixXd MD_OC::Eigenvalue_Odd()
 {
     MatrixXd b;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, gamma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, g_ma));
     b = es.eigenvalues();
 
     return b;
@@ -153,18 +153,26 @@ MatrixXd MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd, double g)
 
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
     {
-        INT_odd(i,j) = odd(i,j) * (i+1);
-        INT_even(i,j) = even(i,j) * i;
+        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
+        
+        if (i<2)
+        {
+            INT_odd(i+1,j) = odd(i,j);
+        }
     }
 
-    MatrixXd c = INT_even.transpose() * odd;
+    INT_even(1,0) = INT_even(1,0) * -1;
+    INT_even(2,0) = INT_even(2,0) * -1;
+
+    MatrixXd c = INT_even.transpose() * INT_odd;
+    //cout << INT_even << endl;
 
     MatrixXd d = MatrixXd::Zero(3, 3);
 
     d(0, 1) = g * -c(0, 0);
     d(1, 0) = g * c(0, 0);
-    d(1, 2) = g * -c(1, 0);
-    d(2, 1) = g * c(1, 0);
+    d(1, 2) = g * c(1, 0);
+    d(2, 1) = g * -c(1, 0);
 
     cout << d << endl;
 
@@ -259,23 +267,22 @@ void MD_OC::OCA_self(const vector<MatrixXd>& Prop)
             /*
             count += 1;
             std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
-            */
             //cout << "\t" << "\t" <<  "For loop count : " << count  << endl;
+            */
             /********************main code**************************/
-            Stmp += H_N * Prop[i-n] * T[n][m] * INT_Arr[i-m] * INT_Arr[n];                                                                                                                                                                                                                                                                                                                                                                                                                                                 Prop[m] * H_N * INT_Arr[i - m] * INT_Arr[n];
+            Stmp += H_N * Prop[i-n] * T[n][m] * INT_Arr[i-m] * INT_Arr[n];                                                                                                                                                                                                                                                                                                                                                                                                                                                  Prop[m] * H_N * INT_Arr[i - m] * INT_Arr[n];
             /*******************************************************/
             /*
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
             std::chrono::duration<double> nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(sec-start);
                 if (nanoseconds.count() > 1e-5)
                 {
-                    cout << "***** (" << n << "," << m << ") ***** : " << nanoseconds.count() << "[sec]" << endl;
+                    cout << "***** (" << i-n << "," << n-m << ") ***** : " << nanoseconds.count() << "[sec]" << endl;
                     OCA_TIME[count-1] = 1;
                 }
             cout << "\t" << "\t" << "Calculation ends : " << nanoseconds.count() << "[sec]" << endl;
             cout << "-----------------------------------------------------" << endl;
             */
-            
 
         }
         SELF_E[i] += pow(Delta_t, 2) * Stmp;
@@ -516,7 +523,7 @@ int main()
     std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
     cout << " ## Program begins ##" << endl;
     cout << "-------------------------------" << endl;
-    
+
     vector<double> g_array(25, 0);
     for (int j = 1; j < 25; ++j)
     {
@@ -536,11 +543,11 @@ int main()
         g_array[m] = g_array[m] * g_array[m];
     }
     
-    for (int i = 0; i < g_array.size(); i++)
+    for (int i = 0; i < 1; i++)
     {
         
 
-        MD.CAL_COUP_INT_with_g_arr(g_array[i]);
+        MD.CAL_COUP_INT_with_g_arr(1);
         vector<MatrixXd> ITER = MD.Iteration(3);
         //vector<int> a = OCA_TIME;
         vector<double> a = MD.Chi_sp_Function(ITER);
@@ -548,11 +555,11 @@ int main()
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "OCA_NMatrix_Rev_beta_1_g";
-        std::stringstream back;
-        back << g_array[i];
+        string name = "OCA_test";
+        //std::stringstream back;
+        //back << g_array[k];
 
-        name += back.str();
+        //name += back.str();
         name += ".txt";
 
         outputFile.open(name);
@@ -566,18 +573,16 @@ int main()
             cout << setprecision(16);
         }
         */
-        
 
         //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
         
-        for (int j = 0; j < MD.tau_grid.size(); j++)
+        for (int i = 0; i < MD.tau_grid.size(); i++)
         {
-            outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
+            outputFile << MD.tau_grid[i] << "\t" << a[i] << endl;
         }
         
 
         outputFile.close();
-
         
     }
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
