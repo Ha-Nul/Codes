@@ -129,7 +129,7 @@ def INT_even_Eigenvec(gamma, n, m):
     INT_ARR_E = []
 
     for i in range(n):
-        INT_ARR_E.append(1j * i * LOC_VEC_E[i])
+        INT_ARR_E.append(1j * i * LOC_VEC_E[i]) # Once differentiat, minus sign appears, and vanished because of the factor (-i)
 
     return np.array(INT_ARR_E)
 
@@ -142,15 +142,15 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
     ######### Elements of Hamiltonian matrix ###############
     
     # Eigenvalues for local and bath part
-    LOC_EV_ODD = Local_odd_Eigenval(gamma,n,0)
-    LOC_EV_EVE_g = Local_even_Eigenval(gamma,n,0)
-    LOC_EV_EVE_s = Local_even_Eigenval(gamma,n,1)
+    LOC_EV_ODD = Local_odd_Eigenval(gamma,3,0)
+    LOC_EV_EVE_g = Local_even_Eigenval(gamma,3,0)
+    LOC_EV_EVE_s = Local_even_Eigenval(gamma,3,1)
 
     # Eigenvectors for N matrix
-    LOC_ODD = Local_For_INT_odd_Eigenvec(gamma,n,0)
+    LOC_ODD = Local_For_INT_odd_Eigenvec(gamma,3,0)
 
-    N_EVE_g = INT_even_Eigenvec(gamma, n, 0)
-    N_EVE_s = INT_even_Eigenvec(gamma, n, 1)
+    N_EVE_g = INT_even_Eigenvec(gamma, 3, 0)
+    N_EVE_s = INT_even_Eigenvec(gamma, 3, 1)
 
     N_ELE_10 = np.dot(LOC_ODD,N_EVE_g)
     N_ELE_01 = -N_ELE_10 #first state dot product to ground state
@@ -324,7 +324,7 @@ def Chi_sp(beta : float, gamma : float, omega: float, g: float, n: int , tau: fl
             E_M = Hamiltonian_Matrix_Eigenval(gamma,3*n,g,omega,j)
             Exp_val_chi = np.exp(-(beta-tau) * E_N - tau * E_M)
 
-            Expec_NM = Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,i) @ Lie_tensorproduct(1,n) @ Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,j)
+            Expec_NM = np.conjugate(Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,i)) @ Lie_tensorproduct(1,n) @ Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,j)
             Expec = Expec_NM * np.conjugate(Expec_NM)
 
 
