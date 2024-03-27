@@ -148,13 +148,14 @@ class MD_NC
 
 MD_NC MD;
 
-double gamma = 20;
+double gamma = 0.2;
 double nu = MD.pi/0.025;
 
 ///////////////////////////////////////////////////////////////
 
 vector<double> G_Arr(MD.M,0);
-vector<MatrixXd> H_N(MD.M,MatrixXd::Zero(3,3));
+vector<double> omega_Arr(MD.M,0);
+//vector<MatrixXd> H_N(MD.M,MatrixXd::Zero(3,3));
 
 //////////////////////////////////////////////////////////////
 
@@ -173,8 +174,8 @@ void MD_NC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 
     for (int i=0; i < M; i++)
     {
-        G_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
-        G_Arr[i] = sqrt((2 * k_cutoff / (alpha * M)) * (G_Arr[i] / (1 + pow(nu * G_Arr[i] / k_cutoff,2))));
+        omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
+        G_Arr[i] = sqrt((2 * k_cutoff / (alpha * M)) * (omega_Arr[i] / (1 + pow(nu * omega_Arr[i] / k_cutoff,2))));
         //tilde_g_arr[i] = sqrt( (omega_arr[i] / (1 + pow(nu * omega_arr[i] / k_cutoff,2))));
         //tilde_g_arr[i] = sqrt((2 * k_cutoff / (alpha * omega_arr.size())) * (re_planck_cst * omega_arr[i] / (1 + pow(nu * re_planck_cst * omega_arr[i] / k_cutoff,2))));
     }
@@ -188,7 +189,7 @@ vector<double> MD_NC::Interact_V()
     {
         for (int j = 0; j < M ;j++)
         {
-            INT_Arr[i] += pow(G_Arr[j],2) * cosh((tau_grid[i] - tau_grid[beta - 1] / 2) * G_Arr[j])/sinh(tau_grid[beta - 1] * G_Arr[j] / 2);
+            INT_Arr[i] += -pow(G_Arr[j],2) * cosh((tau_grid[i] - tau_grid[beta - 1] / 2) * omega_Arr[j])/sinh(tau_grid[beta - 1] * omega_Arr[j] / 2); //caution for sign
             //cout << "\t" << j <<" V_arr : " << V_arr[i] << " with tau-beta/2 : " << tau[i] - tau[tau.size()-1]/2 << endl;
         }
     }
@@ -532,7 +533,9 @@ int main()
     //cout << H_local << endl;
     */
 
-    
+    double alpha = 0.5;
+    double k_cutoff = 20;
+
     vector<double> g_array(25,0);
     for (int j=1; j<25; ++j)
     {
@@ -554,30 +557,30 @@ int main()
     
 
     /*
+
     for (int n=0; n<1; n++)
     {
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "N_matrix_beta_2_g_";
+        string name = "N_tilde_g_1";
         //std::stringstream back;
         //back << g_array[n];
 
         //name += back.str();
         name += ".txt";
-
+        MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
         outputFile.open(name);
 
-        MatrixXd H_N = test.Hamiltonian_N(test.Eigenvector_Even(),test.Eigenvector_Odd(),1);
-        outputFile << H_N << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
+        outputFile << MD.H_N << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
 
         outputFile.close();
 
     }
-    */
 
-    double alpha = 0.5;
-    double k_cutoff = 20;
+    */
+    
+
     /*
     for (int i=0; i<20; i++)
     {
@@ -586,7 +589,7 @@ int main()
         //string name = "20240111_Trap_beta_0_4_g_";
         string name = "NCA_CONV_GAMMA_";
         std::stringstream back;
-        back << i;
+        back << gamma;
 
         name += back.str();
         name += ".txt";
@@ -594,7 +597,9 @@ int main()
         outputFile.open(name);
         //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
         MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-        vector<MatrixXd> a = MD.Iteration(i);
+        vector<MatrixXd> a = MD.Iteration(20);
+
+        //double i = MD.tau_grid[MD.beta-1];
 
         for (int i = 0; i < a.size(); i++)
         {
@@ -608,12 +613,13 @@ int main()
     }
     */
     
+    
 
    //test.Iteration(4,1);
     
 
 
-   /*
+    /*
     std::ofstream outputFile;
 
     string name = "Vfunc";
@@ -622,19 +628,20 @@ int main()
 
     outputFile.open(name);
     //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
-    vector<double> arr = test.Interact_V(test.coupling(velocity,1,cutoff),test.grid,omega);
+    vector<double> arr = MD.Interact_V();
 
     for (int i = 0; i < arr.size(); i++)
     {
         //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
-        outputFile << test.grid[i] << "\t" << arr[i] << endl;
+        outputFile << MD.tau_grid[i] << "\t" << arr[i] << endl;
     }
     
     outputFile.close();
     */
+
     //test.Iteration(10,1);
 
-    
+    /*
     for (int i=0; i<1; i++)
     {
         std::ofstream outputFile;
@@ -660,6 +667,7 @@ int main()
         outputFile.close();
     
     }
+    */
     
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
     std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);

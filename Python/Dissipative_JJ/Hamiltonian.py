@@ -1,10 +1,14 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import scipy as sp
+import K_sum as K
 import cmath
 import random
 
 np.set_printoptions(threshold=784,linewidth=np.inf)
+
+alpha = 0
+k_cutoff = 0
+mode_grid = 0
 
 ## Full source code available : 2023 09 06.ipynb
 
@@ -88,6 +92,8 @@ def Local_even_Eigenval(gamma: float,n: int,m: int):
 
     return A_eig[0][m]
 
+################### never use ###################################
+
 def Elements(d,x,y):
 
     x_trans = np.transpose(x)
@@ -135,9 +141,9 @@ def INT_even_Eigenvec(gamma, n, m):
 
 #################### Main Hamiltonian ##########################
 
-def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
+def Hamiltonian_Matrix(gamma: float,n: int):
     '''Return Hamiltonian H in matrix form, requires prerequisites,
-    r : Value of Gamma, z : dimension of Matrix, g : coupling strength, omega : frequency '''
+    r : Value of Gamma, z : dimension of Matrix, g : coupling strength, : frequency '''
 
     ######### Elements of Hamiltonian matrix ###############
     
@@ -157,6 +163,7 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
     N_ELE_12 = np.dot(LOC_ODD,N_EVE_s)
     N_ELE_21 = -N_ELE_12
     
+    g = K.Tilde_g(alpha,k_cutoff,mode_grid)
 
     # N_Matrix (interaction Hamiltonian)
     A = [[0 for i in range(n)] for j in range(n)]
@@ -215,12 +222,12 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
 
     return Array
 
-def Hamiltonian_Matrix_Eigenval(gamma,n,g,omega,i):
-    A_eigval = np.linalg.eigh(Hamiltonian_Matrix(gamma,n,g,omega))[0][i] # return value of eigh[0] : eigenvalues of corresponding eigenvectors
+def Hamiltonian_Matrix_Eigenval(gamma,n,i):
+    A_eigval = np.linalg.eigh(Hamiltonian_Matrix(gamma,n)[0][i]) # return value of eigh[0] : eigenvalues of corresponding eigenvectors
     return A_eigval
 
-def Hamiltonian_Matrix_Eigenvec(gamma,n,g,omega,i):
-    A = np.linalg.eigh(Hamiltonian_Matrix(gamma,n,g,omega))[1].T # return value of eigh[1] : eigenvectors of corresponding eigenvalues
+def Hamiltonian_Matrix_Eigenvec(gamma,n,i):
+    A = np.linalg.eigh(Hamiltonian_Matrix(gamma,n)[1].T) # return value of eigh[1] : eigenvectors of corresponding eigenvalues
     A_eigvec = A[i]
     return A_eigvec
 
@@ -269,7 +276,7 @@ def Lie_tensorproduct(x: int,y: int):
 ## Lie group ####################################
 
 ## Spectral Function ############################
-def Spectral_Function(beta: float, gamma :float ,n: int,g: float,matsufreq: float,eta:float,omega: float):
+def Spectral_Function(beta: float, gamma :float ,n: int,g: float,matsufreq: float,eta:float, float):
     '''Spectral Density of Correlation_Function. r = Value of gamma, z = dimension/2 of Matrix,
     g = Coupling strength, matsufreq = Matsubara frequency of given Function, eta = Value for analytic continuation'''
     
@@ -284,11 +291,11 @@ def Spectral_Function(beta: float, gamma :float ,n: int,g: float,matsufreq: floa
     A = []
     for i in range(3*n):
         for j in range(3*n):
-            expec_nm = Elements(Lie_tensorproduct(1,n),Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,i),Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,j))
+            expec_nm = Elements(Lie_tensorproduct(1,n),Hamiltonian_Matrix_Eigenvec(gamma,3*n,i),Hamiltonian_Matrix_Eigenvec(gamma,3*n,j))
             conju = np.conjugate(expec_nm)
 
-            n = Hamiltonian_Matrix_Eigenval(gamma,3*n,g,omega,i)
-            m = Hamiltonian_Matrix_Eigenval(gamma,3*n,g,omega,j)
+            n = Hamiltonian_Matrix_Eigenval(gamma,3*n,g,i)
+            m = Hamiltonian_Matrix_Eigenval(gamma,3*n,g,j)
 
             denom = (matsufreq + n - m)**2 + eta**2
             #sign of numerator e^E_m may can change
@@ -309,22 +316,22 @@ def Spectral_Function(beta: float, gamma :float ,n: int,g: float,matsufreq: floa
 
 ## Chi_function ###############################
 
-def Chi_sp(beta : float, gamma : float, omega: float, g: float, n: int , tau: float):
-    '''Chi_function, r : value of gamma, z : dimension/3 of hilbert space, g : coupling strength, omega : frequency'''
+def Chi_sp(beta : float, gamma : float,  float, g: float, n: int , tau: float):
+    '''Chi_function, r : value of gamma, z : dimension/3 of hilbert space, g : coupling strength, : frequency'''
 
     # Tr Z
-    Exp_val = sp.linalg.expm(-beta*Hamiltonian_Matrix(gamma,3*n,g,omega))
+    Exp_val = sp.linalg.expm(-beta*Hamiltonian_Matrix(gamma,3*n))
     Z = np.trace(Exp_val)
 
     # Chi_calculation
     A = []
     for i in range(3*n):
         for j in range(3*n):
-            E_N = Hamiltonian_Matrix_Eigenval(gamma,3*n,g,omega,i)
-            E_M = Hamiltonian_Matrix_Eigenval(gamma,3*n,g,omega,j)
+            E_N = Hamiltonian_Matrix_Eigenval(gamma,3*n,i)
+            E_M = Hamiltonian_Matrix_Eigenval(gamma,3*n,j)
             Exp_val_chi = np.exp(-(beta-tau) * E_N - tau * E_M)
 
-            Expec_NM = np.conjugate(Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,i)) @ Lie_tensorproduct(1,n) @ Hamiltonian_Matrix_Eigenvec(gamma,3*n,g,omega,j)
+            Expec_NM = np.conjugate(Hamiltonian_Matrix_Eigenvec(gamma,3*n,i)) @ Lie_tensorproduct(1,n) @ Hamiltonian_Matrix_Eigenvec(gamma,3*n,j)
             Expec = Expec_NM * np.conjugate(Expec_NM)
 
 
