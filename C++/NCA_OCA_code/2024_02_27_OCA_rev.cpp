@@ -14,13 +14,9 @@ MD_OC MD;
 /////////////////////////////////////////////////////////////
 
 int MD_OC::M = MD.mode_grid.size();
-int MD_OC::t = MD.mode_grid.size();
+int MD_OC::t = MD.tau_grid.size();
 vector<double> k_mode(100, 1);
 double gamma = 1;
-
-double omega = 1;
-double velocity = 1;
-double cutoff = 1;
 
 //////////////////////////////////////////////////////////////
 
@@ -28,10 +24,10 @@ vector<double> INT_Arr(MD.t, 0);
 vector<double> Chi_Arr(MD.t, 0);
 
 vector<MatrixXd> T_IN(MD.t,MatrixXd::Zero(3,3));
-vector<vector<MatrixXd>> T(MD.t,T_IN);
+vector<vector<MatrixXd> > T(MD.t,T_IN);
 
 vector<MatrixXd> Chi_IN(MD.t,MatrixXd::Zero(3,3));
-vector<vector<MatrixXd>> Chi_st(MD.t,Chi_IN);
+vector<vector<MatrixXd> > Chi_st(MD.t,Chi_IN);
 
 vector<MatrixXd> SELF_E(MD.t, MatrixXd::Zero(3, 3));
 MatrixXd MD_OC::H_N;
@@ -576,20 +572,23 @@ int main()
 
     }
     */
+
+    double alpha = 0.5;
+    double cutoff = 20;
     
     for (int i = 0; i < 1; i++)
     {
         
 
-        MD.CAL_COUP_INT_with_g_arr(1,1);
-        vector<MatrixXd> ITER = MD.Iteration(3);
+        MD.CAL_COUP_INT_with_g_arr(alpha,cutoff);
+        vector<MatrixXd> ITER = MD.Iteration(20);
         //vector<int> a = OCA_TIME;
         vector<double> a = MD.Chi_sp_Function(ITER);
         
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "OCA_NMatrix_Rev_beta_1_g";
+        string name = "OCA_timedepend";
         std::stringstream back;
         back << 3;//g_array[i];
 

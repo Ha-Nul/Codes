@@ -14,16 +14,18 @@ np.set_printoptions(threshold=784,linewidth=np.inf)
 
 #unit = plank const
 
-OMG_Arr = [] # not shibainu
-g_Arr = []
+mode_grid = np.linspace(1,100,100)
+
+OMG_Arr = np.zeros(len(mode_grid)) # not shibainu
+g_Arr = np.zeros(len(mode_grid))
 
 def Tilde_g_cal_function(alpha: float, k_cutoff: float, mode_grid):
     '''Calculates the g value for coupling.'''
     nu = np.pi * k_cutoff / alpha
 
     for i in range(len(mode_grid)):
-        OMG_Arr.append(k_cutoff * mode_grid[i]/mode_grid[len(mode_grid)-1])
-        g_Arr.append(np.sqrt((2 * k_cutoff / (alpha * mode_grid[len(mode_grid)-1])) * (OMG_Arr[i] / (1 + (nu * OMG_Arr[i]/k_cutoff)**2))))
+        OMG_Arr[i]  = (k_cutoff * mode_grid[i]/mode_grid[len(mode_grid)-1])
+        g_Arr[i] = (np.sqrt((2 * k_cutoff / (alpha * mode_grid[len(mode_grid)-1])) * (OMG_Arr[i] / (1 + (nu * OMG_Arr[i]/k_cutoff)**2))))
 
 def Interact_V(mode_grid, tau_grid):
     INT_Arr = np.zeros(len(tau_grid))

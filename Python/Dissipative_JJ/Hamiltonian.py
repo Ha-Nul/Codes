@@ -8,7 +8,7 @@ np.set_printoptions(threshold=784,linewidth=np.inf)
 
 alpha = 0
 k_cutoff = 0
-mode_grid = 0
+mode_grid = np.linspace(1,100,100)
 
 ## Full source code available : 2023 09 06.ipynb
 
@@ -223,11 +223,11 @@ def Hamiltonian_Matrix(gamma: float,n: int):
     return Array
 
 def Hamiltonian_Matrix_Eigenval(gamma,n,i):
-    A_eigval = np.linalg.eigh(Hamiltonian_Matrix(gamma,n)[0][i]) # return value of eigh[0] : eigenvalues of corresponding eigenvectors
+    A_eigval = np.linalg.eigh(Hamiltonian_Matrix(gamma,n))[0][i] # return value of eigh[0] : eigenvalues of corresponding eigenvectors
     return A_eigval
 
 def Hamiltonian_Matrix_Eigenvec(gamma,n,i):
-    A = np.linalg.eigh(Hamiltonian_Matrix(gamma,n)[1].T) # return value of eigh[1] : eigenvectors of corresponding eigenvalues
+    A = np.linalg.eigh(Hamiltonian_Matrix(gamma,n))[1].T # return value of eigh[1] : eigenvectors of corresponding eigenvalues
     A_eigvec = A[i]
     return A_eigvec
 
@@ -316,7 +316,7 @@ def Spectral_Function(beta: float, gamma :float ,n: int,g: float,matsufreq: floa
 
 ## Chi_function ###############################
 
-def Chi_sp(beta : float, gamma : float,  float, g: float, n: int , tau: float):
+def Chi_sp(beta : float, gamma : float, n: int , tau: float):
     '''Chi_function, r : value of gamma, z : dimension/3 of hilbert space, g : coupling strength, : frequency'''
 
     # Tr Z
