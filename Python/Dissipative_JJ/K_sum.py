@@ -1,58 +1,44 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import scipy as sp
-import cmath
-import random
+import cal_parameter as param
 
 np.set_printoptions(threshold=784,linewidth=np.inf)
 
-## Full source code available : 2023 09 06.ipynb
+## Hamiltonian source code available : 2023 09 06.ipynb
+## pre sourcecode available : 2023 05 18 function.ipynb
 
 ## K sum prerequisites ####################
 
 ## k linspace and tau grid requried #################
 
-#unit = 1e-21 
+#unit = plank const
 
-def bose_dist(x,b):
+mode_grid = param.mode_grid
+tau_grid = param.tau_grid
 
-    T = 273
-    #boltz = ct.k*Ts
+OMG_Arr = np.zeros(len(mode_grid)) # not shibainu
+g_Arr = np.zeros(len(mode_grid))
 
-    return 1/(np.exp(x*b)-1)
+def Tilde_g_cal_function(alpha: float, k_cutoff: float, mode_grid):
+    '''input : (alpha, cutoff freq, mode_grid) , Calculates the g value for coupling.'''
+    nu = np.pi * k_cutoff / alpha
 
-def green(tau,k,b):
+    for i in range(len(mode_grid)):
+        OMG_Arr[i]  = (k_cutoff * mode_grid[i]/mode_grid[len(mode_grid)-1])
+        g_Arr[i] = (np.sqrt((2 * k_cutoff / (alpha * mode_grid[len(mode_grid)-1])) * (OMG_Arr[i] / (1 + (nu * OMG_Arr[i]/k_cutoff)**2))))
+    return g_Arr
 
-    #for i in range(len(tau)):
-        #if tau[i] > 0:
-            #return (bose_dist(k)+1)*np.exp(-k*tau)
-        #if tau[i] < 0:
-            #return (bose_dist(k))*np.exp(-k*tau)
-        return ((bose_dist(k,b)+1)*np.exp(-k*tau)) + (bose_dist(k,b))*np.exp(k*tau)
+def Interact_V(mode_grid, tau_grid):
+    '''input : (mode_grid, tau_grid)'''
+    INT_Arr = np.zeros(len(tau_grid))
 
-def omega(v,k):
-    return v*np.abs(k)
-
-def coupling(v,g,W,k):
-    w = omega(v,k)
-    cut_off = W
-    return g*np.sqrt(w/(1+(w/cut_off)**2))
-
-def interact(tau,v,g,W,k,b):
-    g_k = np.abs(coupling(v,g,W,k))**2
-
-    n = len(k)
-
-    k_sum = np.zeros(n)
-    t_array = np.zeros(n)
-
-    for j in range(n):
-        t = tau[j]
-        for i in range(n):
-            k_sum[i] = g_k[i] * green(t,omega(v,k),b)[i]
-        t_array[j] = k_sum[j]#np.sum(k_sum)
-        k_sum = np.zeros(len(k))
+    for i in range(len(tau_grid)):
+        for j in range(len(mode_grid)):
+            INT_Arr[i] += g_Arr[j]**2 * np.cosh((tau_grid[i] - tau_grid[len(tau_grid)-1]/2) * OMG_Arr[j]) / np.sinh(tau_grid[len(tau_grid)-1] * OMG_Arr[j] / 2)
     
-    #print(t_array)
-    return t_array
+    return INT_Arr
+
+def Tilde_g(alpha,k_cutoff,mode_grid):
+    Tilde_g_cal_function(alpha,k_cutoff,mode_grid)
+    return np.sum(g_Arr)
 
