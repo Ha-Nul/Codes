@@ -1,7 +1,6 @@
 import numpy as np
 import scipy as sp
-import cmath
-import random
+import cal_parameter as param
 
 np.set_printoptions(threshold=784,linewidth=np.inf)
 
@@ -14,20 +13,23 @@ np.set_printoptions(threshold=784,linewidth=np.inf)
 
 #unit = plank const
 
-mode_grid = np.linspace(1,100,100)
+mode_grid = param.mode_grid
+tau_grid = param.tau_grid
 
 OMG_Arr = np.zeros(len(mode_grid)) # not shibainu
 g_Arr = np.zeros(len(mode_grid))
 
 def Tilde_g_cal_function(alpha: float, k_cutoff: float, mode_grid):
-    '''Calculates the g value for coupling.'''
+    '''input : (alpha, cutoff freq, mode_grid) , Calculates the g value for coupling.'''
     nu = np.pi * k_cutoff / alpha
 
     for i in range(len(mode_grid)):
         OMG_Arr[i]  = (k_cutoff * mode_grid[i]/mode_grid[len(mode_grid)-1])
         g_Arr[i] = (np.sqrt((2 * k_cutoff / (alpha * mode_grid[len(mode_grid)-1])) * (OMG_Arr[i] / (1 + (nu * OMG_Arr[i]/k_cutoff)**2))))
+    return g_Arr
 
 def Interact_V(mode_grid, tau_grid):
+    '''input : (mode_grid, tau_grid)'''
     INT_Arr = np.zeros(len(tau_grid))
 
     for i in range(len(tau_grid)):
