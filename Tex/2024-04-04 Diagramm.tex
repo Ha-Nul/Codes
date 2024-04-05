@@ -1,0 +1,212 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{feynmp-auto}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\begin{fmffile}{propagator}
+    \parbox{20mm}{\begin{fmfgraph*}(50,120)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{double_arrow,label=$\mathcal{G}$}{a,b}
+        %label
+        \fmfv{lab=$\psi_a$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\psi^\dagger_b$,lab.dist=0.05w}{b}
+      \end{fmfgraph*}}
+\end{fmffile}
+\quad = \quad
+\begin{fmffile}{bare_propagator}
+    \parbox{20mm}{\begin{fmfgraph*}(50,120)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{fermion,label=$\mathcal{G}_0$}{a,b}
+        %label
+        \fmfv{lab=$\psi_a$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\psi^\dagger_b$,lab.dist=0.05w}{b}
+      \end{fmfgraph*}}
+\end{fmffile}
+\qquad + \quad
+\begin{fmffile}{self_energy}
+    \parbox{20mm}{\begin{fmfgraph*}(80,120)
+        \fmfleft{a1}
+        \fmfright{b1}
+        \fmf{fermion}{a1,a2,}
+        \fmf{plain, left=1, tension=0.4}{a2,b2}
+        \fmf{plain, right=1, tension=0.4}{a2,b2}
+        \fmf{double_arrow}{b2,b1}
+        \fmf{phantom,label.dist=0,label=$\sum$}{a2,b2}
+        %label
+      \end{fmfgraph*}}
+\end{fmffile}
+\begin{flalign*}
+    Z &= \langle{\psi_a(\tau)\psi^\dagger_b(\tau')}\rangle\\
+                &=\text{Tr}[e^{\beta \hat{H(\tau)}}\psi_a(\tau)\psi^\dagger_b(\tau')]
+\end{flalign*}
+\begin{equation*}
+    H = H_{loc} + H_{bath} + \mathbf{H_{hyb} + H_{hyb}^\dagger}
+\end{equation*}
+\begin{equation*}
+    \mathbf{H_{hyb}} = \sum_i c_{\nu}\mathbf{V}_i b^\dagger_i
+\end{equation*}
+\begin{equation*}
+    \mathcal{G} = Z_{\text{bath}}\text{Tr}_c\bigg[\frac{1}{Z_\text{bath}}\text{Tr}_\text{b}\big[T_\tau e^{-\int^\beta_0 d\tau H_{\text{loc}}(\tau)+H_{\text{bath}}(\tau)}\prod_\nu\sum_{k_\nu} Z_{k_\nu}\big]\bigg]
+\end{equation*}
+\begin{flalign*}
+    Z_{k_\nu} = &\sum_{i_1,\dots,i_{k_\nu}}\sum_{i'_1,\dots,i'_{k_\nu}}
+    V^\nu_{i_1} V^{\nu *} _{i'_1}\cdots V^\nu_{i_{k_j}} V^{\nu *} _{i'_{k_j}} \int^{\beta}_0 d\tau \\
+    &\times \int^{\beta}_{\tau_1} d\tau_2 \cdots \int^{\beta}_{\tau_{k_\nu -1}} d\tau_{k_{\nu}} \int^{\beta}_{\tau^{'}_1} d\tau^{'}_2 \cdots \int^{\beta}_{\tau^{'}_{k_\nu -1}} d\tau^{'}_{k_{\nu}} \\
+    & \times c_\nu(\tau_1)b^{\nu^\dagger}_{i_1}(\tau_1)b^{\nu}_{i^{'}_1}(\tau^{'}_1)c_\nu^\dagger(\tau^{'}_1)c_\nu(\tau_2)b^{\nu^\dagger}_{i_2}(\tau_2)b^{\nu}_{i^{'}_2}(\tau^{'}_2)c_\nu^\dagger(\tau^{'}_2)\\
+    & \times \cdots c_\nu(\tau_{k_j})b^{\nu^\dagger}_{i_{k_j}}(\tau_{k_j})b^{\nu}_{i^{'}_{k_j}}(\tau^{'}_{k_j})c_\nu^\dagger(\tau^{'}_{k_j})
+\end{flalign*}
+\begin{fmffile}{NCA}
+    \parbox{20mm}{\begin{fmfgraph*}(70,100)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{boson,left=0.7,label=$\Delta$}{a,b}
+        \fmf{double_arrow,label=$\mathcal{G}$}{a,b}
+        %label
+        \fmfv{lab=$\psi_a$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\psi^\dagger_b$,lab.dist=0.05w}{b}
+      \end{fmfgraph*}}
+\end{fmffile}
+\begin{equation*}
+    \mathcal{G} = 
+\end{equation*}
+\begin{equation*}
+    = \sum_{ab}\bigg[(\text{sgn})\psi_a\mathcal{G(\tau)}\psi^\dagger_b\Delta_{ba}(\tau)\bigg]
+\end{equation*}
+= \quad
+\begin{fmffile}{NCA_1}
+    \parbox{20mm}{\begin{fmfgraph*}(80,100)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{boson,left=0.7}{a,b}
+        \fmf{fermion}{a,b}
+        %label
+      \end{fmfgraph*}}
+\end{fmffile}
+\quad \qquad + \quad
+\begin{fmffile}{NCA_2}
+    \parbox{20mm}{\begin{fmfgraph*}(80,100)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{fermion}{a,a1}
+        \fmf{boson,left=0.7}{a,b}
+        \fmf{boson,left=0.7}{a1,b1}
+        \fmf{fermion}{b1,b}
+        \fmf{fermion}{a,b}
+        %label
+      \end{fmfgraph*}}
+\end{fmffile}\\
+\qquad + 
+\begin{fmffile}{NCA_3}
+    \parbox{50mm}{\begin{fmfgraph*}(150,100)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{fermion}{a,a1}
+        \fmf{fermion}{a1,b1}
+        \fmf{fermion}{b1,a2}
+        \fmf{fermion}{a2,b2}
+        \fmf{fermion}{b2,b}
+        \fmf{fermion}{a,b}
+        \fmf{boson,left=0.7}{a,b}
+        \fmf{boson,left=2}{a1,b1}
+        \fmf{boson,left=2}{a2,b2}
+        
+        %label
+      \end{fmfgraph*}}
+    \end{fmffile}
+\qquad + \quad $\cdots$\\
+\\
+%OCA_equations
+\begin{equation*}
+    \mathcal{G}_{\text{OCA}} = 
+\end{equation*}
+\begin{fmffile}{OCA}
+    \parbox{20mm}{\begin{fmfgraph*}(150,100)
+        \fmfleft{a}
+        \fmfright{b}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+        \fmf{double_arrow,label=$\mathcal{G}$}{a,a1}
+        \fmf{double_arrow,label=$\mathcal{G}$}{a1,b1}
+        \fmf{double_arrow,label=$\mathcal{G}$}{b1,b}
+        \fmf{boson,left=0.7,tension=0.1}{a,b1}
+        \fmf{boson,left=0.7,tension=0.1}{a1,b}
+        %label
+        \fmfv{lab=$\psi_a$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\psi^\dagger_d$,lab.dist=0.05w}{b}
+        \fmfv{lab=$\psi_b$,lab.angle=120,lab.dist=0.05h}{a1}
+        \fmfv{lab=$\psi^\dagger_c$,lab.angle=60,lab.dist=0.05h}{b1}
+      \end{fmfgraph*}}
+\end{fmffile}
+\begin{flalign*}
+    =\sum_{\text{abcd}} \int^{\tau}_{0} d\tau _1 \int^{\tau_1}_{0} d\tau _2 \bigg[ &{\text{sgn}}_1\psi^\dagger_d \mathcal{G} (\tau-\tau_2)
+    \psi^\dagger_{c}\mathcal{G}(\tau_2-\tau_1)\psi_b\mathcal{G}(\tau-\tau_1)\psi_a
+    \Delta_{bd}(\tau-\tau_1)\Delta_{ca}(\tau_2)\bigg]
+\end{flalign*}
+\quad = \quad
+\begin{fmffile}{OCA_1}
+    \parbox{55mm}{\begin{fmfgraph*}(150,100)
+        \fmfleft{a}
+        \fmfright{b}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+        \fmf{fermion}{a,a1}
+        \fmf{fermion}{a1,b1}
+        \fmf{fermion}{b1,b}
+        \fmf{boson,left=0.7,tension=0.1}{a,b1}
+        \fmf{boson,left=0.7,tension=0.1}{a1,b}
+        %label
+      \end{fmfgraph*}}
+\end{fmffile}
++ \quad
+\begin{fmffile}{OCA_2}
+    \parbox{60mm}{\begin{fmfgraph*}(150,100)
+        \fmfleft{a}
+        \fmfright{b}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+            \fmf{fermion}{a,a1'}
+                \fmf{fermion}{a1',a2'}
+                \fmf{fermion}{a2',b1'}
+                \fmf{fermion}{b1',b2'}
+            \fmf{fermion}{b2',a1}
+        \fmf{fermion}{a1,b1}
+            \fmf{fermion}{b1,a1''}
+                \fmf{fermion}{a1'',a2''}
+                \fmf{fermion}{a2'',b1''}
+                \fmf{fermion}{b1'',b2''}
+            \fmf{fermion}{b2'',b}
+        \fmf{boson,left=0.7,tension=0.1}{a,b1}
+            \fmf{boson,left=0.9,tension=0.05}{a1',b1'}
+            \fmf{boson,left=0.9,tension=0.05}{a2',b2'}
+        \fmf{boson,left=0.7,tension=0.1}{a1,b}
+            \fmf{boson,left=0.9,tension=0.05}{a1'',b1''}
+            \fmf{boson,left=0.9,tension=0.05}{a2'',b2''}
+        %label
+      \end{fmfgraph*}}
+\end{fmffile}
+\\ \qquad + \qquad $\cdots$
+
+\begin{equation*}
+    Z = \text{Tr}[\mathcal{G}(\tau) \lambda_1 \mathcal{G}(0) \lambda_1 \Delta(\tau)]
+\end{equation*}
+\begin{flalign*}
+    Z &= Z_{\text{NCA}} + Z_{\text{OCA}} \\
+        & = \text{Tr}[\mathcal{G}(\tau) \lambda_1 \mathcal{G}(0) \lambda_1 \Delta(\tau)] \\
+        & \quad + \text{Tr}[\mathcal{G}(\beta - \tau_2) \hat{N} \mathcal{G}(\tau_2 - \tau) \lambda_1
+            \mathcal{G}(\tau - \tau_1) \hat{N} \mathcal{G}(\tau_1) \lambda_1 \Delta(\tau_2 - \tau_1)]
+\end{flalign*}
+\end{document}

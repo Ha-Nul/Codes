@@ -1,0 +1,46 @@
+This is MetaPost, version 2.01 (MiKTeX 21.8)  5 APR 2024 03:23
+**.\self_energy.mp
+(G:/Install_Program/MikTex/metapost/base/mpost.mp (G:/Install_Program/MikTex/metapost/base/plain.mp
+Preloading the plain mem file, version 1.005) ) (././self_energy.mp
+(G:/Install_Program/MikTex/metapost/feynmf/feynmp.mp)
+feynmf: warning: dangling vertex `' colliding with `a2'.
+feynmf: Have you seen the warning messages above?
+        They are usually caused by misspelling a vertex'
+        name and can trigger errors further below!
+        Fix the typos and run LaTeX and Metafont again.
+! angle(0,0) is taken as zero.
+<recently read> ;
+                 
+marrow->...ection(EXPR3)*length((EXPR2))of(EXPR2);
+                                                  z=point(EXPR3)*length((EXP...
+arrow->begingroup.marrow((EXPR2),0.5)
+                                     endgroup
+<to be read again> 
+                   )
+draw_plain_arrow->...aw(EXPR2);cfill(arrow(EXPR2))
+                                                  ;endgroup
+<to be read again> 
+                   endgroup
+<to be read again> 
+                   ;
+vdraw_arc->...cantokens("draw_"&(EXPR2))((EXPR4));
+                                                  vdraw_arc_label((EXPR4),(S...
+<for(2)> ...3),(EXPR0)),vlist[(3)]arc[(EXPR0)]lbl)
+                                                  ;vlist[(3)]arc[(EXPR0)]sty...
+<for(3)> ...arc[j]sty:="";endgroup;fi.fi.fi.endfor
+                                                  ; ENDFOR
+vdraw->...]sty:="";endgroup;fi.fi.fi.endfor;endfor
+                                                  .for.i=polygons:vdraw_labe...
+l.18 vdraw
+          ;
+? q
+OK, entering batchmode...
+ [1] )
+ 
+Here is how much of MetaPost's memory you used:
+ 337 strings using 5101 characters
+ 1544856 bytes of node memory
+ 927 symbolic tokens
+ 14i,78n,28p,133b,3f stack positions out of 16i,98n,32p,200b,4f
+1 output file written: self_energy.1
+
