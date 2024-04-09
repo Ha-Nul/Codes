@@ -151,7 +151,7 @@ def Hamiltonian_Matrix(gamma: float,n: int):
     N_ELE_12 = np.dot(LOC_ODD,N_EVE_s)
     N_ELE_21 = -N_ELE_12
     
-    g = K.Tilde_g(param.alpha,param.k_cutoff,param.mode_grid)
+    g = K.Tilde_g(param.alpha,param.cutoff,param.mode_grid)
 
     # N_Matrix (interaction Hamiltonian)
     A = [[0 for i in range(n)] for j in range(n)]
@@ -195,11 +195,11 @@ def Hamiltonian_Matrix(gamma: float,n: int):
         for j in range(n):
             try:
                 if i==j and i%3==0:
-                    A[i][j] = LOC_EV_EVE_g + (j//3)
+                    A[i][j] = LOC_EV_EVE_g + K.OMG(param.cutoff) * (j//3)
                 elif i==j and i%3==1:
-                    A[i][j] = LOC_EV_ODD + (j//3)
+                    A[i][j] = LOC_EV_ODD + K.OMG(param.cutoff) * (j//3)
                 elif i==j and i%3==2:
-                    A[i][j] = LOC_EV_EVE_s + (j//3)
+                    A[i][j] = LOC_EV_EVE_s + K.OMG(param.cutoff) * (j//3)
                 else:
                     A[i][j] = 0
             except:

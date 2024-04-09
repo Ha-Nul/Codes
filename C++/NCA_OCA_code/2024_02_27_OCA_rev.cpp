@@ -30,7 +30,7 @@ vector<MatrixXd> Chi_IN(MD.t,MatrixXd::Zero(3,3));
 vector<vector<MatrixXd> > Chi_st(MD.t,Chi_IN);
 
 vector<MatrixXd> SELF_E(MD.t, MatrixXd::Zero(3, 3));
-MatrixXd MD_OC::H_N;
+MatrixXd MD_OC::H_N = MatrixXd::Zero(3,3);
 
 //////////////////////////////////////////////////////////////
 /////////// Array for calculate the time per one for loop cycle /////////
@@ -82,7 +82,7 @@ vector<double> MD_OC::Interact_V()
     {
         for (int j = 0; j < M ;j++)
         {
-            INT_Arr[i] += pow(G_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * omega_Arr[j])/sinh(tau_grid[t - 1] * omega_Arr[j] / 2);
+            INT_Arr[i] += -pow(G_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * omega_Arr[j])/sinh(tau_grid[t - 1] * omega_Arr[j] / 2); //caution for sign
             //cout << "\t" << j <<" V_arr : " << V_arr[i] << " with tau-beta/2 : " << tau[i] - tau[tau.size()-1]/2 << endl;
         }
     }
@@ -163,16 +163,14 @@ MatrixXd MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     MatrixXd c = INT_even.transpose() * INT_odd;
     //cout << INT_even << endl;
 
-    MatrixXd d = MatrixXd::Zero(3, 3);
+    H_N(0, 1) = Blank * -c(0, 0);
+    H_N(1, 0) = Blank * c(0, 0);
+    H_N(1, 2) = Blank * c(1, 0);
+    H_N(2, 1) = Blank * -c(1, 0);
 
-    d(0, 1) = Blank * -c(0, 0);
-    d(1, 0) = Blank * c(0, 0);
-    d(1, 2) = Blank * c(1, 0);
-    d(2, 1) = Blank * -c(1, 0);
+    cout << H_N << endl;
 
-    cout << d << endl;
-
-    return d;
+    return H_N;
 }
 
 vector<MatrixXd> MD_OC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
@@ -545,36 +543,34 @@ int main()
         g_array[m] = g_array[m] * g_array[m];
     }
 
+    double alpha = 0.5;
+    double cutoff = 20;
     /*
     for (int n=0; n<1; n++)
     {
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "V_tilde_g_10_grid201_beta_1";
+        string name = "V_function_OCA_gamma_1_alpha_05_cutoff_20";
         //std::stringstream back;
         //back << g_array[n];
 
         //name += back.str();
         name += ".txt";
-        MD.CAL_COUP_INT_with_g_arr(10);
+        MD.CAL_COUP_INT_with_g_arr(alpha,cutoff);
         outputFile.open(name);
 
         //outputFile << MD.H_N<< endl;
         
-        for(int i=0;i<MD.k;i++)
+        for(int i=0;i<MD.mode_grid.size();i++)
         {
-            outputFile << MD.tau_grid[i] << "\t" << INT_Arr[i] << endl;
+            outputFile << MD.mode_grid[i] << "\t" << G_Arr[i] << endl;
         }
-        
 
         outputFile.close();
 
     }
     */
-
-    double alpha = 0.5;
-    double cutoff = 20;
     
     for (int i = 0; i < 1; i++)
     {
@@ -588,9 +584,9 @@ int main()
         std::ofstream outputFile;
 
         //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "OCA_timedepend";
+        string name = "OCA_mode_dependtest";
         std::stringstream back;
-        back << 3;//g_array[i];
+        back << 20;//g_array[i];
 
         name += back.str();
         name += ".txt";
@@ -618,7 +614,7 @@ int main()
         outputFile.close();
 
         }
-        
+
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
     std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
     cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;

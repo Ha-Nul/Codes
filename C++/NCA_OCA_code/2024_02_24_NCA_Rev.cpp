@@ -148,8 +148,8 @@ class MD_NC
 
 MD_NC MD;
 
-double gamma = 0.2;
-double nu = MD.pi/0.025;
+double gamma = 1;
+//double nu = MD.pi/0.025;
 
 ///////////////////////////////////////////////////////////////
 
@@ -244,28 +244,38 @@ MatrixXd MD_NC::Eigenvalue_Odd()
 
 void MD_NC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 {
+     //cout << "input g value :" << g << endl;
     MatrixXd INT_odd = MatrixXd::Zero(3,3);
     MatrixXd INT_even = MatrixXd::Zero(3,3);
+    double Blank = 0;
 
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
     {
-        INT_odd(i,j) = odd(i,j) * (i+1);
-        INT_even(i,j) = even(i,j) * i;
+        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
+        
+        if (i<2)
+        {
+            INT_odd(i+1,j) = odd(i,j);
+        }
     }
-
-    MatrixXd c = INT_even.transpose() * odd;
-
-    double Blank = 0;
-
     for (int i = 0; i < M ; i++)
     {
-       Blank += G_Arr[i];
+        Blank += G_Arr[i];
     }
 
-    H_N(0,1) = Blank * c(0,0);
-    H_N(1,0) = Blank * c(0,0);
-    H_N(1,2) = Blank * c(0,1);
-    H_N(2,1) = Blank * c(0,1);
+    INT_even(1,0) = INT_even(1,0) * -1;
+    INT_even(2,0) = INT_even(2,0) * -1;
+
+    MatrixXd c = INT_even.transpose() * INT_odd;
+    //cout << INT_even << endl;
+
+    H_N(0, 1) = Blank * -c(0, 0);
+    H_N(1, 0) = Blank * c(0, 0);
+    H_N(1, 2) = Blank * c(1, 0);
+    H_N(2, 1) = Blank * -c(1, 0);
+
+    cout << H_N << endl;
+
 }
 
 vector<MatrixXd> MD_NC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
@@ -641,7 +651,7 @@ int main()
 
     //test.Iteration(10,1);
 
-    /*
+    
     for (int i=0; i<1; i++)
     {
         std::ofstream outputFile;
@@ -667,7 +677,7 @@ int main()
         outputFile.close();
     
     }
-    */
+    
     
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
     std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
