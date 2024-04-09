@@ -128,7 +128,7 @@ def INT_even_Eigenvec(gamma, n, m):
 #############################################################################################
 ##################################################################################total Hamiltonian construct
 
-def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
+def Hamiltonian_Matrix(gamma: float,n: int, g: float):
     ''' input : (gamma, n, g, omega) , Return Hamiltonian H in matrix form, requires prerequisites,
     r : Value of Gamma, z : dimension of Matrix, g : coupling strength, omega : frequency '''
 
@@ -193,11 +193,11 @@ def Hamiltonian_Matrix(gamma: float,n: int, g: float,omega: float):
         for j in range(n):
             try:
                 if i==j and i%3==0:
-                    A[i][j] = LOC_EV_EVE_g + (j//3)
+                    A[i][j] = LOC_EV_EVE_g + param.omega * (j//3)
                 elif i==j and i%3==1:
-                    A[i][j] = LOC_EV_ODD + (j//3)
+                    A[i][j] = LOC_EV_ODD + param.omega * (j//3)
                 elif i==j and i%3==2:
-                    A[i][j] = LOC_EV_EVE_s + (j//3)
+                    A[i][j] = LOC_EV_EVE_s + param.omega * (j//3)
                 else:
                     A[i][j] = 0
             except:
