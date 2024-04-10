@@ -269,10 +269,10 @@ void MD_NC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     MatrixXd c = INT_even.transpose() * INT_odd;
     //cout << INT_even << endl;
 
-    H_N(0, 1) = Blank * -c(0, 0);
-    H_N(1, 0) = Blank * c(0, 0);
-    H_N(1, 2) = Blank * c(1, 0);
-    H_N(2, 1) = Blank * -c(1, 0);
+    H_N(0, 1) = -c(0, 0);
+    H_N(1, 0) = c(0, 0);
+    H_N(1, 2) = c(1, 0);
+    H_N(2, 1) = -c(1, 0);
 
     cout << H_N << endl;
 
