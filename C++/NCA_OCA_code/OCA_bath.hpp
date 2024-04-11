@@ -107,7 +107,7 @@ private:
     
 public:
 
-    vector<double> tau_grid = linspace(0, 1, 201);
+    vector<double> tau_grid = linspace(0, 5, 201);
     vector<double> mode_grid = linspace(1,100,100);
     static int M;
     static int t;

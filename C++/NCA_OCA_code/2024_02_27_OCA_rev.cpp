@@ -521,105 +521,209 @@ int main()
     MD_OC MD;
 
     std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
-    cout << " ## Program begins ##" << endl;
+    cout << " ## OCA Program begins ##" << endl;
     cout << "-------------------------------" << endl;
-    
-    vector<double> g_array(25, 0);
-    for (int j = 1; j < 25; ++j)
-    {
-        if (j < 21)
-        {
-            g_array[j] = (g_array[j - 1] + 0.05);
-        }
-
-        else
-        {
-            g_array[j] = g_array[j - 1] + 1;
-        }
-    }
-
-    for (int m = 0; m < 21; m++)
-    {
-        g_array[m] = g_array[m] * g_array[m];
-    }
-
-    double alpha = 0.5;
-    double cutoff = 20;
+    int modeselec = 0;
     /*
-    for (int n=0; n<1; n++)
+    double& taulimit = MD.beta;
+
+    cout << " Set BETA values to calculate : ";
+    cin >> taulimit;
+
+    cout << "\n" << "Calculation would be done under " << taulimit << " value";
+    */
+
+    //while (modeselec != -1)
     {
-        std::ofstream outputFile;
 
-        //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "V_function_OCA_gamma_1_alpha_05_cutoff_20";
-        //std::stringstream back;
-        //back << g_array[n];
+    //cout << "< Select mode to run >" << "\n"  << " 1. Prop(G), 2. Chi, 3. beta*Chi " << "\n" << "MODE INDEX : ";
+    //cin >> modeselec;
 
-        //name += back.str();
-        name += ".txt";
-        MD.CAL_COUP_INT_with_g_arr(alpha,cutoff);
-        outputFile.open(name);
+    std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
+    double alpha = 0.5;
+    double k_cutoff = 20;
+    double& ref_gamma = gamma;
+    vector<double> gamma_arr(6,0);
+    gamma_arr[0] = 0.05;
+    gamma_arr[1] = 0.1;
+    gamma_arr[2] = 0.15;
+    gamma_arr[3] = 0.2;
+    gamma_arr[4] = 0.4;
+    gamma_arr[5] = 0.8;
 
-        //outputFile << MD.H_N<< endl;
+    for (int gam = 0; gam < 6; gam++)
+    {
         
-        for(int i=0;i<MD.mode_grid.size();i++)
+        ref_gamma = gamma_arr[gam];
+    
+    //if (modeselec == 1)
         {
-            outputFile << MD.mode_grid[i] << "\t" << G_Arr[i] << endl;
-        }
+            //cout << "input gamma value : ";
+            //cin >> ref_gamma;
 
-        outputFile.close();
+            /****************************G(tau) Calcultaion******************************/
+            for (int i=0; i<1; i++)
+            {
+                std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
+
+                string name = "OCA_PROP_GAMMA_";
+
+                std::stringstream gam;
+                std::stringstream alp;
+                std::stringstream cuof;
+                std::stringstream bet;
+                std::stringstream gri;
+
+                gam << gamma;
+                alp << alpha;
+                cuof << k_cutoff;
+                bet << MD.tau_grid[MD.t-1];
+                gri << MD.t;
+
+                name += gam.str();
+                name += "_ALPHA_";
+                name += alp.str();
+                name += "_MODE_";
+                name += cuof.str();
+                name += "_BETA_";
+                name += bet.str();
+                name += "_GRID_";
+                name += gri.str();
+                name += ".txt";
+
+                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
+                vector<MatrixXd> a = MD.Iteration(20);
+        
+                outputFile.open(name);
+                for (int i = 0; i < MD.t; i++)
+                {
+                    outputFile << MD.tau_grid[i] << "\t" << (a[i])(0,0)<< "\t" << (a[i])(0,1) << "\t" << (a[i])(0,2) << "\t"
+                    << (a[i])(1,0) << "\t" << (a[i])(1,1) << "\t"  << (a[i])(1,2) << "\t"
+                    << (a[i])(2,0) << "\t" << (a[i])(2,1) << "\t" << (a[i])(2,2) << "\t" << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
+                    cout << setprecision(16);
+                }
+                outputFile.close();
+            }
+            /****************************************************************************/
+        }
+        
+        //if (modeselec == 2)
+        {
+            //cout << "input gamma value : ";
+            //cin >> ref_gamma;
+
+            /********************Chi(\tau) Calculation****************************/
+            for (int i=0; i<1; i++)
+            {
+                std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
+
+                string name = "OCA_CHI_GAMMA_";
+                
+                std::stringstream gam;
+                std::stringstream alp;
+                std::stringstream cuof;
+                std::stringstream bet;
+                std::stringstream gri;
+
+                gam << gamma;
+                alp << alpha;
+                cuof << k_cutoff;
+                bet << MD.tau_grid[MD.t-1];
+                gri << MD.t;
+
+                name += gam.str();
+                name += "_ALPHA_";
+                name += alp.str();
+                name += "_MODE_";
+                name += cuof.str();
+                name += "_BETA_";
+                name += bet.str();
+                name += "_GRID_";
+                name += gri.str();
+                name += ".txt";
+
+                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
+                vector<MatrixXd> ITER = MD.Iteration(20);
+                vector<double> a = MD.Chi_sp_Function(ITER);
+
+                outputFile.open(name);
+
+                for (int j = 0; j < MD.tau_grid.size(); j++)
+                {
+                    outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
+                }
+
+            outputFile.close();
+            
+            }
+            /**************************************************************************/
+        }
+        
+        //if (modeselec == 3)
+        {
+            //cout << "input gamma value : ";
+            //cin >> ref_gamma;
+            /********************\beta * Chi(\beta / 2) Calculation****************************/
+            for (int i=0; i<1; i++)
+            {
+                std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
+
+                string name = "OCA_BETATIMES_CHI_GAMMA_";
+                
+                std::stringstream gam;
+                std::stringstream alp;
+                std::stringstream cuof;
+                std::stringstream bet;
+                std::stringstream gri;
+
+                gam << gamma;
+                alp << alpha;
+                cuof << k_cutoff;
+                bet << MD.tau_grid[MD.t-1];
+                gri << MD.t;
+
+                name += gam.str();
+                name += "_ALPHA_";
+                name += alp.str();
+                name += "_MODE_";
+                name += cuof.str();
+                name += "_BETA_";
+                name += bet.str();
+                name += "_GRID_";
+                name += gri.str();
+                name += ".txt";
+
+                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
+                vector<MatrixXd> ITER = MD.Iteration(20);
+                vector<double> a = MD.Chi_sp_Function(ITER);
+
+                outputFile.open(name);
+
+                for (int j = 0; j < MD.tau_grid.size(); j++)
+                {
+                    outputFile << MD.tau_grid[j] << "\t" << MD.tau_grid[MD.t-1] * a[j] << endl;
+                }
+
+                outputFile.close();
+            }
+            /**************************************************************************/
+        }
+        
+        
+        std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
+        std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
+        cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
+        cout << "-----------------------------" << endl;
+    
+    }
+
+    //if (modeselec == -1)
+    {
+        cout << "Program will shut down" << endl;
+        //break;
+    }
 
     }
-    */
-    
-    for (int i = 0; i < 1; i++)
-    {
-        
-
-        MD.CAL_COUP_INT_with_g_arr(alpha,cutoff);
-        vector<MatrixXd> ITER = MD.Iteration(20);
-        //vector<int> a = OCA_TIME;
-        vector<double> a = MD.Chi_sp_Function(ITER);
-        
-        std::ofstream outputFile;
-
-        //string name = "20240111_Trap_beta_0_4_g_";
-        string name = "OCA_mode_dependtest";
-        std::stringstream back;
-        back << 20;//g_array[i];
-
-        name += back.str();
-        name += ".txt";
-
-        outputFile.open(name);
-        /*
-        for (int i = 0; i < a.size(); i++)
-        {
-            //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
-            outputFile << MD.tau_grid[i] << "\t" << (a[i])(0,0)<< "\t" << (a[i])(0,1) << "\t" << (a[i])(0,2) << "\t"
-            << (a[i])(1,0) << "\t" << (a[i])(1,1) << "\t"  << (a[i])(1,2) << "\t"
-            << (a[i])(2,0) << "\t" << (a[i])(2,1) << "\t" << (a[i])(2,2) << "\t" << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
-            cout << setprecision(16);
-        }
-        */
-        
-
-        //vector<double> a = test.Interact_V(test.coupling(velocity,g_array[k],cutoff),test.grid,omega);
-        
-        for (int j = 0; j < MD.tau_grid.size(); j++)
-        {
-            outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
-        }
-
-        outputFile.close();
-
-        }
-
-    std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
-    std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
-    cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
-    cout << "-----------------------------" << endl;
-    
 
     return 0;
 
