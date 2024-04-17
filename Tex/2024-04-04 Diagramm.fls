@@ -441,6 +441,8 @@ INPUT NCA_3.1
 INPUT .\NCA_3.mp
 INPUT NCA_3.mp
 INPUT .\NCA_3.mp
+OUTPUT 2024-04-04 Diagramm.pdf
+INPUT C:\Users\128kbps\AppData\Local\MiKTeX\pdftex\config\pdftex.map
 INPUT .\OCA.mp
 INPUT OCA.mp
 INPUT .\OCA.mp
@@ -459,8 +461,6 @@ INPUT OCA.t1
 INPUT .\OCA.mp
 INPUT OCA.mp
 INPUT .\OCA.mp
-OUTPUT 2024-04-04 Diagramm.pdf
-INPUT C:\Users\128kbps\AppData\Local\MiKTeX\pdftex\config\pdftex.map
 INPUT .\OCA_1.mp
 INPUT OCA_1.mp
 INPUT .\OCA_1.mp

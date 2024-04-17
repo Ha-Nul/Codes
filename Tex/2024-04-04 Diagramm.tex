@@ -69,6 +69,25 @@
     & \times c_\nu(\tau_1)b^{\nu^\dagger}_{i_1}(\tau_1)b^{\nu}_{i^{'}_1}(\tau^{'}_1)c_\nu^\dagger(\tau^{'}_1)c_\nu(\tau_2)b^{\nu^\dagger}_{i_2}(\tau_2)b^{\nu}_{i^{'}_2}(\tau^{'}_2)c_\nu^\dagger(\tau^{'}_2)\\
     & \times \cdots c_\nu(\tau_{k_j})b^{\nu^\dagger}_{i_{k_j}}(\tau_{k_j})b^{\nu}_{i^{'}_{k_j}}(\tau^{'}_{k_j})c_\nu^\dagger(\tau^{'}_{k_j})
 \end{flalign*}
+\begin{equation*}
+    M^{-1} = 
+    \begin{pmatrix}
+        \mathcal{G'}_{11} & \mathcal{G'}_{12} & \cdots & \mathcal{G'}_{1j} & \cdots \\
+        \mathcal{G'}_{21} & \mathcal{G'}_{22} & \cdots & \mathcal{G'}_{2j} & \cdots  \\
+        \vdots & \vdots & \ddots & \vdots & \cdots \\
+        \mathcal{G'}_{i1} & \mathcal{G'}_{i2} & \cdots & \mathcal{G'}_{ij} & \cdots \\
+        \vdots & \vdots & \cdots & \cdots & \ddots
+    \end{pmatrix} 
+\end{equation*}
+\begin{equation*}
+    \text{det} M^{-1} = \Delta
+\end{equation*}
+\begin{flalign*}
+    \mathcal{G'} &= \langle |V^\nu| b^{\dagger \nu}(\tau)
+    b^\nu(\tau')\rangle \\
+                    &= \begin{cases}\quad |V^a|^2 e^{-\epsilon (\tau - \tau')}\frac{1}{(1 + e^{-\beta \epsilon_p})}\quad(\text{if}\quad \tau > \tau')
+                        \\\quad |V^a|^2 e^{-\epsilon (\tau' - \tau)}\frac{e^{-\beta\epsilon}}{(1 + e^{-\beta \epsilon})}\quad(\text{if}\quad \tau < \tau')\end{cases}
+\end{flalign*}
 \begin{fmffile}{NCA}
     \parbox{20mm}{\begin{fmfgraph*}(70,100)
         \fmfleft{a}
@@ -209,4 +228,17 @@
         & \quad + \text{Tr}[\mathcal{G}(\beta - \tau_2) \hat{N} \mathcal{G}(\tau_2 - \tau) \lambda_1
             \mathcal{G}(\tau - \tau_1) \hat{N} \mathcal{G}(\tau_1) \lambda_1 \Delta(\tau_2 - \tau_1)]
 \end{flalign*}
+\begin{flalign*}
+    H_{\text{tot}} = H_{\text{loc}} + H_{\text{int}} + H_{\text{bath}}
+\end{flalign*}
+\begin{flalign*}
+    H_{\text{loc}} = E_c\hat{N}-E_J\cos{\phi}
+\end{flalign*}
+\begin{flalign*}
+    H_{\text{int}}=\sum_{k}g_k\hat{N}(b_k^\dagger + b_k )
+\end{flalign*}
+\begin{flalign*}
+    H_{\text{bath}} = \sum_k \omega_k b_k^\dagger b_k
+\end{flalign*}
+
 \end{document}
