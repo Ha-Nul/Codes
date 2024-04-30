@@ -1,0 +1,10 @@
+{
+	"Ntau" : 200,
+	"beta" :  1.0,
+	"Winput" : "Vfunc_g_1.5.txt",
+	"HlocInput" : "Hamiltonian_loc.txt",
+	"NmatrixInput" : "Nmatrix_g1",
+	"Nscl" : 20,
+	"is_mixing" : false
+}
+
