@@ -16,7 +16,7 @@ MD_OC MD;
 int MD_OC::M = MD.mode_grid.size();
 int MD_OC::t = MD.tau_grid.size();
 vector<double> k_mode(100, 1);
-double g_ma = 1;
+double gamma = 1;
 
 //////////////////////////////////////////////////////////////
 
@@ -74,7 +74,6 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
         G_Arr[i] = 0;
     }
     */
-
     for (int i=0; i < M; i++)
     {
         omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
@@ -103,7 +102,6 @@ vector<double> MD_OC::Interact_V()
         INT_Arr[i] = 0;
     }
     */
-
     for (int i = 0; i < t; i++)
     {
         for (int j = 0; j < M ;j++)
@@ -123,7 +121,7 @@ MatrixXd MD_OC::Eigenvector_Even()
 {
     MatrixXd a;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, gamma));
     a = es.eigenvectors();
 
     return a;
@@ -133,7 +131,7 @@ MatrixXd MD_OC::Eigenvalue_Even()
 {
     MatrixXd b;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, gamma));
     b = es.eigenvalues();
 
     return b;
@@ -143,7 +141,7 @@ MatrixXd MD_OC::Eigenvector_Odd()
 {
     MatrixXd a;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, gamma));
     a = es.eigenvectors();
 
     return a;
@@ -153,7 +151,7 @@ MatrixXd MD_OC::Eigenvalue_Odd()
 {
     MatrixXd b;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, gamma));
     b = es.eigenvalues();
 
     return b;
@@ -171,7 +169,7 @@ MatrixXd MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
     {
-        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
+        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi} 
         
         if (i<2)
         {
@@ -180,7 +178,7 @@ MatrixXd MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     }
     for (int i = 0; i < M ; i++)
     {
-        Blank += G_Arr[i];
+        Blank += G_Arr[i];  
     }
 
     INT_even(1,0) = INT_even(1,0) * -1;
@@ -536,10 +534,31 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
     NCA_Chi_sp(ITE);
     OCA_store(ITE);
     OCA_Chi_sp(ITE);
+    cout << "Success!" << endl;
     
     return Chi_Arr;
     
 }
+////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+vector<double> linspace(const double& min, const double& max, int n)
+    {
+        vector<double> result;
+        // vector iterator
+        int iterator = 0;
+
+        for (int i = 0; i <= n - 2; i++)
+        {
+            double temp = min + i * (max - min) / (floor((double)n) - 1);
+            result.insert(result.begin() + iterator, temp);
+            iterator += 1;
+        }
+
+        //iterator += 1;
+
+        result.insert(result.begin() + iterator, max);
+        return result;
+    }
 ////////////////////////////////////////////////////////////////////////////////////
 
 int main()
@@ -565,92 +584,23 @@ int main()
 
     double alpha = 0;
     double k_cutoff = 20;
-    double& ref_g_ma = g_ma;
+    double& ref_gamma = gamma; 
     
-    vector<double> alp_arr(11,0);
-    for (int i = 0; i < 11 ; i++)
+    vector<double> alp_arr = linspace(0,1,11);
+    vector<double> gam_arr = linspace(0,0.1,11);
+    
+    MatrixXd Bet_MAT = MatrixXd::Zero(11,11);
+    
     {
-        if (i==0)
-        {
-            alp_arr[i] = 0;
-        }
-        if (i!=0)
-        {
-            alp_arr[i] = alp_arr[i-1] + 0.1;
-        }
-    }
+        //ref_gamma = gamma_arr[ga];
     
-    
-    vector<double> g_ma_arr(11,0);
-    for (int i = 0; i < 11 ; i++)
-    {
-        if (i==0)
-        {
-            g_ma_arr[i] = 0.005;
-        }
-        if (i!=0)
-        {
-            g_ma_arr[i] = g_ma_arr[i-1] + 0.0005;
-        }
-    }
-    
-
-    for (int al = 0; al < alp_arr.size(); al++)
-    {
-        //ref_g_ma = g_ma_arr[ga];
-        alpha = alp_arr[al];
-        ref_g_ma = 0.02;
-        /*
-        {
-            std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
-
-                string name = "OCA_HYB_g_ma";
-
-                std::stringstream gam;
-                std::stringstream alp;
-                std::stringstream cuof;
-                std::stringstream bet;
-                std::stringstream gri;
-
-                gam << g_ma;
-                alp << alpha;
-                cuof << k_cutoff;
-                bet << MD.tau_grid[MD.t-1];
-                gri << MD.t;
-
-                name += gam.str();
-                name += "_ALPHA_";
-                name += alp.str();
-                name += "_MODE_";
-                name += cuof.str();
-                name += "_BETA_";
-                name += bet.str();
-                name += "_GRID_";
-                name += gri.str();
-                name += ".txt";
-
-                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                //vector<MatrixXd> a = MD.Iteration(1);
-        
-                outputFile.open(name);
-                for (int i = 0; i < MD.t; i++)
-                {
-                    outputFile << MD.tau_grid[i] << "\t" << INT_Arr[i] << endl;
-                }
-                outputFile.close();
-        }
-            
-            /****************************************************************************/
-        
-        {
-
             /****************************G(tau) Calcultaion******************************/
             /*
             for (int i=0; i<1; i++)
             {
                 std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
 
-                string name = "OCA_PROP_g_ma_";
+                string name = "OCA_PROP_GAMMA_";
 
                 std::stringstream gam;
                 std::stringstream alp;
@@ -658,7 +608,7 @@ int main()
                 std::stringstream bet;
                 std::stringstream gri;
 
-                gam << g_ma;
+                gam << gamma;
                 alp << alpha;
                 cuof << k_cutoff;
                 bet << MD.tau_grid[MD.t-1];
@@ -676,7 +626,7 @@ int main()
                 name += ".txt";
 
                 MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> a = MD.Iteration(1);
+                vector<MatrixXd> a = MD.Iteration(20);
         
                 outputFile.open(name);
                 for (int i = 0; i < MD.t; i++)
@@ -688,104 +638,68 @@ int main()
                 }
                 outputFile.close();
             }
+            */
             /****************************************************************************/
-        }
-        
-
-        {
-            //cout << "input g_ma value : ";
-            //cin >> ref_g_ma;
-
-            /********************Chi(\tau) Calculation****************************/
-            /*
-            for (int i=0; i<1; i++)
-            {
-                std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
-
-                string name = "OCA_CHI_g_ma_";
-                
-                std::stringstream gam;
-                std::stringstream alp;
-                std::stringstream cuof;
-                std::stringstream bet;
-                std::stringstream gri;
-
-                gam << g_ma;
-                alp << alpha;
-                cuof << k_cutoff;
-                bet << MD.tau_grid[MD.t-1];
-                gri << MD.t;
-
-                name += gam.str();
-                name += "_ALPHA_";
-                name += alp.str();
-                name += "_MODE_";
-                name += cuof.str();
-                name += "_BETA_";
-                name += bet.str();
-                name += "_GRID_";
-                name += gri.str();
-                name += ".txt";
-
-                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(1);
-                vector<double> a = MD.Chi_sp_Function(ITER);
-
-                outputFile.open(name);
-
-                for (int j = 0; j < MD.tau_grid.size(); j++)
-                {
-                    outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
-                }
-
-            outputFile.close();
-            
-            }
-            /*************************************************************************/
-        }
         
         //if (modeselec == 3)
-            //cout << "input g_ma value : ";
-            //cin >> ref_g_ma;
+            //cout << "input gamma value : ";
+            //cin >> ref_gamma;
             /********************\beta * Chi(\beta / 2) Calculation****************************/
-            for (int i=0; i<1; i++)
+            //calculation block
+            for (int i = 0; i <gam_arr.size(); i++) for (int j=0; j<alp_arr.size(); j++)
             {
-                std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
+                ref_gamma = gam_arr[i];
+                alpha = alp_arr[j];
 
-                string name = "OCA_BETATIMES_CHI_GAMMA_";
-                
-                std::stringstream gam;
-                std::stringstream alp;
-                std::stringstream cuof;
-                std::stringstream bet;
-                std::stringstream gri;
-
-                gam << g_ma;
-                alp << alpha;
-                cuof << k_cutoff;
-                bet << MD.tau_grid[MD.t-1];
-                gri << MD.t;
-
-                name += gam.str();
-                name += "_ALPHA_";
-                name += alp.str();
-                name += "_MODE_";
-                name += cuof.str();
-                name += "_BETA_";
-                name += bet.str();
-                name += "_GRID_";
-                name += gri.str();
-                name += ".txt";
+                cout << "gamma = " << gamma << "th ite, alpha = " << alpha << "th ite" << endl;
 
                 MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
                 vector<MatrixXd> ITER = MD.Iteration(20);
                 vector<double> a = MD.Chi_sp_Function(ITER);
 
+                Bet_MAT(i,j) = MD.tau_grid[MD.t-1] * a[(MD.t-1)/2];
+            }
+
+            for (int i=0; i<1; i++)
+            {
+                std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
+
+                string name = "OCA_BETATIMES_CHI";
+                
+                
+                //std::stringstream gam;
+                //std::stringstream alp;
+                //std::stringstream cuof;
+                std::stringstream bet;
+                //std::stringstream gri;
+
+                //gam << gamma;
+                //alp << alpha;
+                //cuof << k_cutoff;
+                bet << MD.tau_grid[MD.t-1];
+                //gri << MD.t;
+
+                //name += gam.str();
+                //name += "_ALPHA_";
+                //name += alp.str();
+                //name += "_MODE_";
+                //name += cuof.str();
+                name += "_BETA_";
+                name += bet.str();
+                //name += "_GRID_";
+                //name += gri.str();
+                name += ".txt";
+                
+
                 outputFile.open(name);
 
-                for (int j = 0; j < MD.tau_grid.size(); j++)
+                for (int i = 0; i < gam_arr.size(); i++)
                 {
-                    outputFile << MD.tau_grid[j] << "\t" << MD.tau_grid[MD.t-1] * a[j] << endl;
+                    for (int j=0; j<alp_arr.size(); j++)
+                    {
+                        outputFile << Bet_MAT(i,j) << "\t";
+                    }
+                    outputFile << endl;
                 }
 
                 outputFile.close();
@@ -801,7 +715,7 @@ int main()
     
 
 
-    }
+    }   
 
     //if (modeselec == -1)
     {
