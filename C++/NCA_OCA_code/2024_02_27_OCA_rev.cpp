@@ -65,6 +65,13 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 {
     double nu = pi * k_cutoff / alpha;
 
+    //Initializing block
+    for (int i=0; i < M; i++)
+    {
+        omega_Arr[i] = 0;
+        G_Arr[i] = 0;
+    }
+
     for (int i=0; i < M; i++)
     {
         omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
@@ -78,6 +85,11 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 
 vector<double> MD_OC::Interact_V()
 {
+    //Initializing block
+    for (int i=0; i < t; i++)
+    {
+        INT_Arr[i] = 0;
+    }
     for (int i = 0; i < t; i++)
     {
         for (int j = 0; j < M ;j++)
@@ -519,7 +531,6 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 int main()
 {
     MD_OC MD;
-
     std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
     cout << " ## OCA Program begins ##" << endl;
     cout << "-------------------------------" << endl;
@@ -534,32 +545,134 @@ int main()
     */
 
     //while (modeselec != -1)
-    {
 
     //cout << "< Select mode to run >" << "\n"  << " 1. Prop(G), 2. Chi, 3. beta*Chi " << "\n" << "MODE INDEX : ";
     //cin >> modeselec;
 
-    std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
-    double alpha = 0.5;
+    double alpha = 0;
     double k_cutoff = 20;
     double& ref_gamma = gamma;
-    vector<double> gamma_arr(6,0);
-    gamma_arr[0] = 0.05;
-    gamma_arr[1] = 0.1;
-    gamma_arr[2] = 0.15;
-    gamma_arr[3] = 0.2;
-    gamma_arr[4] = 0.4;
-    gamma_arr[5] = 0.8;
-
-    for (int gam = 0; gam < 6; gam++)
+    vector<double> alp_arr(6,0);
+    for (int i = 0; i < 6 ; i++)
     {
-        
-        ref_gamma = gamma_arr[gam];
-    
-    //if (modeselec == 1)
+        if (i==0)
         {
-            //cout << "input gamma value : ";
-            //cin >> ref_gamma;
+            alp_arr[i] = 0;
+        }
+        if (i!=0)
+        {
+            alp_arr[i] = alp_arr[i-1] + 0.1;
+        }
+    }
+    /*
+    vector<double> gamma_arr(11,0);
+    for (int i = 0; i < 11 ; i++)
+    {
+        if (i==0)
+        {
+            gamma_arr[i] = 0.005;
+        }
+        if (i!=0)
+        {
+            gamma_arr[i] = gamma_arr[i-1] + 0.0005;
+        }
+    }
+    */
+
+    for (int al = 0; al < alp_arr.size(); al++)
+    {
+        //ref_gamma = gamma_arr[ga];
+        alpha = alp_arr[al];
+        ref_gamma = 0.02;
+
+        {
+            std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
+
+                string name = "OCA_HYB_";
+
+                std::stringstream gam;
+                std::stringstream alp;
+                std::stringstream cuof;
+                std::stringstream bet;
+                std::stringstream gri;
+
+                gam << gamma;
+                alp << alpha;
+                cuof << k_cutoff;
+                bet << MD.tau_grid[MD.t-1];
+                gri << MD.t;
+
+                name += gam.str();
+                name += "_ALPHA_";
+                name += alp.str();
+                name += "_MODE_";
+                name += cuof.str();
+                name += "_BETA_";
+                name += bet.str();
+                name += "_GRID_";
+                name += gri.str();
+                name += ".txt";
+
+                MD.CAL_COUP_INT_with_g_arr(alp_arr[al],k_cutoff);
+                //vector<MatrixXd> a = MD.Iteration(1);
+        
+                outputFile.open(name);
+                for (int i = 0; i < MD.t; i++)
+                {
+                    outputFile << MD.tau_grid[i] << "\t" << INT_Arr[i] << endl;
+                }
+                outputFile.close();
+        }
+
+            
+            /****************************************************************************/
+        {
+            /********************Chi(\tau) Calculation****************************/
+            {
+                std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
+
+                string name = "OCA_CHI_GAMMA_";
+                
+                std::stringstream gam;
+                std::stringstream alp;
+                std::stringstream cuof;
+                std::stringstream bet;
+                std::stringstream gri;
+
+                gam << gamma;
+                alp << alpha;
+                cuof << k_cutoff;
+                bet << MD.tau_grid[MD.t-1];
+                gri << MD.t;
+
+                name += gam.str();
+                name += "_ALPHA_";
+                name += alp.str();
+                name += "_MODE_";
+                name += cuof.str();
+                name += "_BETA_";
+                name += bet.str();
+                name += "_GRID_";
+                name += gri.str();
+                name += ".txt";
+
+                MD.CAL_COUP_INT_with_g_arr(alp_arr[al],k_cutoff);
+                vector<MatrixXd> ITER = MD.Iteration(1);
+                vector<double> a = MD.Chi_sp_Function(ITER);
+
+                outputFile.open(name);
+
+                for (int j = 0; j < MD.tau_grid.size(); j++)
+                {
+                    outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
+                }
+
+            outputFile.close();
+            
+            }
+        }
+        
+        {
 
             /****************************G(tau) Calcultaion******************************/
             for (int i=0; i<1; i++)
@@ -591,8 +704,8 @@ int main()
                 name += gri.str();
                 name += ".txt";
 
-                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> a = MD.Iteration(20);
+                MD.CAL_COUP_INT_with_g_arr(alp_arr[al],k_cutoff);
+                vector<MatrixXd> a = MD.Iteration(1);
         
                 outputFile.open(name);
                 for (int i = 0; i < MD.t; i++)
@@ -607,7 +720,7 @@ int main()
             /****************************************************************************/
         }
         
-        //if (modeselec == 2)
+
         {
             //cout << "input gamma value : ";
             //cin >> ref_gamma;
@@ -642,8 +755,8 @@ int main()
                 name += gri.str();
                 name += ".txt";
 
-                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(20);
+                MD.CAL_COUP_INT_with_g_arr(alp_arr[al],k_cutoff);
+                vector<MatrixXd> ITER = MD.Iteration(1);
                 vector<double> a = MD.Chi_sp_Function(ITER);
 
                 outputFile.open(name);
@@ -656,11 +769,10 @@ int main()
             outputFile.close();
             
             }
-            /**************************************************************************/
+            /*************************************************************************/
         }
         
         //if (modeselec == 3)
-        {
             //cout << "input gamma value : ";
             //cin >> ref_gamma;
             /********************\beta * Chi(\beta / 2) Calculation****************************/
@@ -693,8 +805,8 @@ int main()
                 name += gri.str();
                 name += ".txt";
 
-                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(20);
+                MD.CAL_COUP_INT_with_g_arr(alp_arr[al],k_cutoff);
+                vector<MatrixXd> ITER = MD.Iteration(1);
                 vector<double> a = MD.Chi_sp_Function(ITER);
 
                 outputFile.open(name);
@@ -707,7 +819,7 @@ int main()
                 outputFile.close();
             }
             /**************************************************************************/
-        }
+
         
         
         std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
@@ -715,6 +827,8 @@ int main()
         cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
         cout << "-----------------------------" << endl;
     
+
+
     }
 
     //if (modeselec == -1)
@@ -723,8 +837,10 @@ int main()
         //break;
     }
 
-    }
+    
 
     return 0;
 
 }
+
+

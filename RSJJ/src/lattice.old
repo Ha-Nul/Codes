@@ -1,0 +1,160 @@
+#include "lattice.hpp"
+#include <iomanip>
+#include <cmath>
+using namespace std;
+	
+////////////////////////////////////
+// general lattice implementation //
+///////////////////////////////////
+
+lattice::lattice(){};
+lattice::lattice( const int& dim_i, const int& Lgrid_i ) : dim(dim_i), Lgrid(Lgrid_i), Ngrid(pow(Lgrid_i,dim_i)) {};
+void lattice::set( const int& dim_i, const int& Lgrid_i ){
+	dim = dim_i;
+	Lgrid = Lgrid_i;
+	Ngrid = pow(Lgrid,dim);
+};
+void lattice::setdim( const int& d_i ){ dim = d_i; };
+void lattice::setLgrid( const int& L_i ){ 
+	Lgrid = L_i; 
+	Ngrid = pow(Lgrid,dim);
+};
+void lattice::setNgrid( const int& N_i ){ Ngrid = N_i; };
+int lattice::getdim() const { return dim; };
+int lattice::getLgrid() const { return Lgrid; };
+int lattice::getNgrid() const { return Ngrid; };
+std::vector< Eigen::VectorXd > lattice::getkunit() const { return kunit; };
+std::vector< Eigen::VectorXi > lattice::getxgrid() const { return xgrid; };
+std::vector< Eigen::VectorXd > lattice::getkgrid() const { return kgrid; };
+Eigen::VectorXi lattice::getxgrid(const int& ix) const { return xgrid[ix]; };
+Eigen::VectorXd lattice::getkgrid(const int& ik) const { return kgrid[ik]; };
+std::vector<double> lattice::getenergy() const { return energy; };
+std::vector<double> lattice::getweight() const { return weight; };
+void lattice::pushxunit( const Eigen::VectorXi& xunit_i ){ xunit.push_back( xunit_i ); };
+void lattice::pushxgrid( const Eigen::VectorXi& xgrid_i ){ xgrid.push_back( xgrid_i ); };
+void lattice::pushkunit( const Eigen::VectorXd& kunit_i ){ kunit.push_back( kunit_i ); };
+void lattice::pushkgrid( const Eigen::VectorXd& kgrid_i ){ kgrid.push_back( kgrid_i ); };
+void lattice::pushenergy( const double& energy_i ){ energy.push_back( energy_i ); };
+void lattice::setweight( std::vector<double> weight_vi ){ weight = weight_vi; };
+void lattice::setkernel(){
+	int Nx = xgrid.size(); int Nk = kgrid.size();
+
+	std::vector<Eigen::VectorXd> xgridtmp(xgrid.size());
+	for(int ix=0; ix<xgrid.size(); ix++) xgridtmp[ix] = xgrid[ix].cast<double>();
+
+	kernel.resize(Nx,Nk);
+	for(int i=0; i<Nx; i++) for(int j=0; j<Nk; j++) 
+		kernel(i,j) = cos(kgrid[j].dot(xgridtmp[i]));
+
+	kernel /= static_cast<double>(Nk);
+};
+Eigen::MatrixXd lattice::getkernel() const { return kernel; };
+void lattice::printkgrid( std::ostream& ostr ){
+	for(vector< Eigen::VectorXd >::iterator iter=kgrid.begin(); iter!=kgrid.end(); ++iter){
+		ostr << "(";
+		for(int i=0; i<dim; i++)
+			ostr << (*iter)(i) << ",";
+		ostr << ")" << endl;
+	}
+};
+void lattice::printenergy( std::ostream& ostr ){
+	for(int i=0; i<energy.size(); i++){
+		ostr << setw(15) << energy[i] << endl;
+		//ostr << setw(15) << energy[i] 
+		//	<< setw(15) << weight[i] <<endl;
+	}
+};
+double lattice::dispersion(Eigen::VectorXd k) const { return 0.; };
+
+
+/////////////////////////////////
+// Hubbard atom implementation //
+/////////////////////////////////
+
+hubbardatom::hubbardatom()
+: eploc(0.){
+	set(1,1);
+	pushxgrid( Eigen::Vector2i(0,0) );
+	pushkgrid( Eigen::Vector2d(0.,0.) );
+	pushenergy(eploc);
+	setkernel();
+
+	/*int lgrid = 10;
+
+	setdim(2);
+	setLgrid(lgrid);
+
+	Eigen::Vector2d k1(2.*M_PI/lgrid,0.0);
+	Eigen::Vector2d k2(0.0,2.*M_PI/lgrid);
+	
+	pushkunit( Eigen::Vector2d (2.*M_PI,0.0) );
+	pushkunit( Eigen::Vector2d (0.0,2.*M_PI) );
+
+	Eigen::Vector2d k;
+	for(int i=0; i<lgrid; i++) for(int j=0; j<lgrid; j++){
+		pushxgrid( Eigen::Vector2i(i,j) );
+
+		k = (-lgrid/2+i)*k1 + (-lgrid/2+j)*k2;
+		pushkgrid(k);
+		pushenergy(dispersion(k));
+	}
+	setkernel();*/
+};
+double hubbardatom::dispersion(Eigen::VectorXd k) const { return 0.; };
+
+///////////////////////////////////
+// square lattice implementation //
+///////////////////////////////////
+
+squarelattice::squarelattice()
+: thopping(1.0) {
+	int lgrid = 10;
+
+	setdim(2);
+	setLgrid(lgrid);
+
+	Eigen::Vector2d k1(2.*M_PI/lgrid,0.0);
+	Eigen::Vector2d k2(0.0,2.*M_PI/lgrid);
+	
+	pushkunit( Eigen::Vector2d (2.*M_PI,0.0) );
+	pushkunit( Eigen::Vector2d (0.0,2.*M_PI) );
+
+	Eigen::Vector2d k;
+	for(int i=0; i<lgrid; i++) for(int j=0; j<lgrid; j++){
+		pushxgrid( Eigen::Vector2i(i,j) );
+
+		k = (-lgrid/2+i)*k1 + (-lgrid/2+j)*k2;
+		pushkgrid(k);
+		pushenergy(dispersion(k));
+	}
+	setkernel();
+};
+squarelattice::squarelattice(const int& lgrid_i)
+: thopping(1.0) {
+	int lgrid = lgrid_i + (lgrid_i&1);
+
+	setdim(2);
+	setLgrid(lgrid);
+
+	Eigen::Vector2d k1(2.*M_PI/lgrid,0.0);
+	Eigen::Vector2d k2(0.0,2.*M_PI/lgrid);
+	
+	pushkunit( Eigen::Vector2d (2.*M_PI,0.0) );
+	pushkunit( Eigen::Vector2d (0.0,2.*M_PI) );
+
+	Eigen::Vector2d k;
+	for(int i=0; i<lgrid; i++) for(int j=0; j<lgrid; j++){
+		pushxgrid( Eigen::Vector2i(i,j) );
+
+		k = (-lgrid/2+i)*k1 + (-lgrid/2+j)*k2;
+		pushkgrid(k);
+		pushenergy(dispersion(k));
+	}
+	setkernel();
+};
+double squarelattice::dispersion(Eigen::VectorXd k) const {
+	return -2.*thopping*(cos(k(0)) + cos(k(1)));
+	//return -2.*thopping*(cos(k(0)) + cos(k(1))) - 4.tphopping*cos(k(0))*cos(k(1));
+};
+
+
