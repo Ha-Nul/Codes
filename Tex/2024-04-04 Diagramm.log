@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  5 APR 2024 18:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  23 APR 2024 16:52
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-04-04 Diagramm.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-04-04 Diagramm.tex
@@ -315,19 +315,117 @@ File: OCA_2.1 Graphic file (type mps)
 [MP to PDF] (OCA_2.1)
 feynmf: Label file OCA_2.t1 not found:
 feynmf: Process OCA_2.mp with MetaPost and then reprocess this file.
-[2] (2024-04-04 Diagramm.aux) ) 
+\openout3 = `TOA1.mp'.
+
+File: TOA1.1 Graphic file (type mps)
+[MP to PDF] (TOA1.1) (TOA1.t1)
+Underfull \hbox (badness 10000) in paragraph at lines 258--261
+
+ []
+
+[2]
+\openout3 = `TOA2.mp'.
+
+File: TOA2.1 Graphic file (type mps)
+ [MP to PDF] (TOA2.1) (TOA2.t1)
+\openout3 = `TOA3.mp'.
+
+File: TOA3.1 Graphic file (type mps)
+ [MP to PDF] (TOA3.1) (TOA3.t1)
+\openout3 = `TOA4.mp'.
+
+File: TOA4.1 Graphic file (type mps)
+ [MP to PDF] (TOA4.1) (TOA4.t1)
+\openout3 = `TOA5.mp'.
+
+File: TOA5.1 Graphic file (type mps)
+ [MP to PDF] (TOA5.1) (TOA5.t1)
+\openout3 = `TOA6.mp'.
+
+File: TOA6.1 Graphic file (type mps)
+ [MP to PDF] (TOA6.1)
+feynmf: Label file TOA6.t1 not found:
+feynmf: Process TOA6.mp with MetaPost and then reprocess this file.
+
+Overfull \hbox (13.0945pt too wide) in paragraph at lines 337--337
+[][] 
+ []
+
+\openout3 = `TOA.mp'.
+
+File: TOA.1 Graphic file (type mps)
+[MP to PDF] (TOA.1) (TOA.t1)
+Underfull \hbox (badness 10000) in paragraph at lines 329--359
+
+ []
+
+[3]
+\openout3 = `NCA_re.mp'.
+
+File: NCA_re.1 Graphic file (type mps)
+ [MP to PDF] (NCA_re.1) (NCA_re.t1)
+Overfull \hbox (13.0945pt too wide) in paragraph at lines 386--386
+[][] 
+ []
+
+\openout3 = `OCA_re1.mp'.
+
+File: OCA_re1.1 Graphic file (type mps)
+[MP to PDF] (OCA_re1.1) (OCA_re1.t1)
+Overfull \hbox (13.0945pt too wide) in paragraph at lines 400--400
+[][] 
+ []
+
+\openout3 = `OCA_re2.mp'.
+
+File: OCA_re2.1 Graphic file (type mps)
+[MP to PDF] (OCA_re2.1)
+feynmf: Label file OCA_re2.t1 not found:
+feynmf: Process OCA_re2.mp with MetaPost and then reprocess this file.
+
+Overfull \hbox (93.0945pt too wide) in paragraph at lines 417--417
+[][] 
+ []
+
+\openout3 = `Chi1.mp'.
+
+File: Chi1.1 Graphic file (type mps)
+[MP to PDF] (Chi1.1) (Chi1.t1)
+Overfull \hbox (163.0945pt too wide) in paragraph at lines 438--438
+[][] 
+ []
+
+\openout3 = `Chi2.mp'.
+
+File: Chi2.1 Graphic file (type mps)
+[MP to PDF] (Chi2.1) (Chi2.t1)
+Overfull \hbox (43.0945pt too wide) in paragraph at lines 453--453
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--456
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 458--460
+
+ []
+
+[5] (2024-04-04 Diagramm.aux) ) 
 Here is how much of TeX's memory you used:
- 3922 strings out of 478927
- 54333 string characters out of 2861478
- 374553 words of memory out of 3000000
- 21689 multiletter control sequences out of 15000+600000
+ 4410 strings out of 478927
+ 62782 string characters out of 2861478
+ 377608 words of memory out of 3000000
+ 22121 multiletter control sequences out of 15000+600000
  406551 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,16n,80p,316b,578s stack positions out of 5000i,500n,10000p,200000b,80000s
 <G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "2024-04-04 Diagramm.pdf" (2 pages, 151730 bytes).
+Output written on "2024-04-04 Diagramm.pdf" (5 pages, 171150 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 83 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

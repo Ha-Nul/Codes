@@ -232,7 +232,7 @@
     H_{\text{tot}} = H_{\text{loc}} + H_{\text{int}} + H_{\text{bath}}
 \end{flalign*}
 \begin{flalign*}
-    H_{\text{loc}} = E_c\hat{N}-E_J\cos{\phi}
+    H_{\text{loc}} = E_C\hat{N}-E_J\cos{\phi}
 \end{flalign*}
 \begin{flalign*}
     H_{\text{int}}=\sum_{k}g_k\hat{N}(b_k^\dagger + b_k )
@@ -241,4 +241,242 @@
     H_{\text{bath}} = \sum_k \omega_k b_k^\dagger b_k
 \end{flalign*}
 
+\begin{fmffile}{TOA1}
+    \parbox{60mm}{\begin{fmfgraph*}(90,100)
+        \fmftop{a}
+        \fmfbottom{b,c}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+            \fmf{plain}{b,b1,a}
+            \fmf{plain}{a,c1,c}
+                \fmf{boson,tension=0}{b1,c1}
+                \fmf{boson,tension=0}{b,c}
+            \fmfdot{a,b1,b,c1,c}
+        %label
+        \fmfv{lab=N,lab.dist=0.05w}{b}
+        \fmfv{lab=N,lab.dist=0.05w}{c}
+      \end{fmfgraph*}}
+\end{fmffile}
+$\\ \\ \\ $
+
+\begin{fmffile}{TOA2}
+    \parbox{60mm}{\begin{fmfgraph*}(90,100)
+        \fmftop{a}
+        \fmfbottom{b,c}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+            \fmf{plain}{b,b1,a}
+            \fmf{plain}{a,c1,c}
+                \fmf{boson,tension=0}{b1,c}
+                \fmf{boson,tension=0}{c1,b}
+                \fmfdot{a,b1,b,c1,c}
+        %label
+        \fmfv{lab=N,lab.dist=0.05w}{b}
+        \fmfv{lab=N,lab.dist=0.05w}{c}
+      \end{fmfgraph*}}
+\end{fmffile}
+$\\ \\ \\ $
+\begin{fmffile}{TOA3}
+    \parbox{60mm}{\begin{fmfgraph*}(90,100)
+        \fmftop{a}
+        \fmfbottom{b,c}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+            \fmf{plain}{b,b1,b2,a}
+            \fmf{plain}{a,c1,c}
+                \fmf{boson,tension=0,left=0.5}{b2,b}
+                \fmf{boson,tension=0}{b1,c}
+                \fmfdot{a,b1,b2,b,c}
+        %label
+        \fmfv{lab=N,lab.dist=0.05w}{b}
+        \fmfv{lab=N,lab.dist=0.05w}{c}
+      \end{fmfgraph*}}
+\end{fmffile}
+$\\ \\ \\$
+\begin{fmffile}{TOA4}
+    \parbox{60mm}{\begin{fmfgraph*}(90,100)
+        \fmftop{a}
+        \fmfbottom{b,c}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+            \fmf{plain}{b,b1,a}
+            \fmf{plain}{a,c2,c1,c}
+                \fmf{boson,tension=0,right=0.5}{c2,c}
+                \fmf{boson,tension=0}{c1,b}
+                \fmfdot{a,b,c1,c2,c}
+        %label
+        \fmfv{lab=N,lab.dist=0.05w}{b}
+        \fmfv{lab=N,lab.dist=0.05w}{c}
+      \end{fmfgraph*}}
+\end{fmffile}
+$\\ \\ \\ $
+\begin{fmffile}{TOA5}
+    \parbox{60mm}{\begin{fmfgraph*}(90,100)
+        \fmftop{a}
+        \fmfbottom{b,c}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+        \fmf{plain}{b,a}
+        \fmf{plain}{a,c}
+                \fmf{boson,tension=0}{c,b}
+                \fmfdot{a,b,c}
+        %label
+        \fmfv{lab=N,lab.dist=0.05w}{b}
+        \fmfv{lab=N,lab.dist=0.05w}{c}
+      \end{fmfgraph*}}
+\end{fmffile}
+
+$\\ \\ \\ \\$
+\begin{fmffile}{TOA6}
+    \parbox{20mm}{\begin{fmfgraph*}(70,100)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{boson,left=0.7}{a,b}
+        \fmf{double}{a,b}
+        %label
+      \end{fmfgraph*}}
+\end{fmffile}
+$\\ \\ \\ \\$
+\begin{fmffile}{TOA}
+    \parbox{60mm}{\begin{fmfgraph*}(110,30)
+        \fmftop{q,w,d2,e2,r}{4}
+        \fmfbottom{a,b,c,d,e}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+            \fmf{plain,tension=1}{a,b}
+            \fmf{fermion,tension=1}{b,c}
+            \fmf{plain,tension=1}{c,d}
+            \fmf{plain,tension=1}{d,e}
+            \fmf{plain,tension=0}{d,e2}
+            \fmf{plain,tension=0}{e2,e}
+                \fmf{boson,tension=0,left=0.5}{a,e2}
+        %label
+        \fmfv{lab=$\psi_a$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\psi_b$,lab.dist=0.05w}{c}
+      \end{fmfgraph*}}
+\end{fmffile}
+$\\ \\ \\ $
+\begin{equation*}
+    \Sigma
+    \\
+    \Sigma_{OCA}
+    \\
+    \Sigma_{TOA}
+\end{equation*}
+\begin{flalign*}
+    \begin{cases}\quad \gamma = \frac{E_J}{E_c}
+        \\\quad
+                    \\\quad \alpha = \frac{R_Q}{R} \end{cases}
+\end{flalign*}
+\begin{equation*}
+    \omega_k = v k \\ \alpha \\ \gamma
+\end{equation*}
+\begin{equation*}
+    \mathbf{H}_{\text{hyb}} \\ \mathbf{H}^\dagger_{\text{hyb}}
+\end{equation*}
+\begin{fmffile}{NCA_re}
+    \parbox{20mm}{\begin{fmfgraph*}(70,100)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{boson,left=0.7,label=$w$}{a,b}
+        \fmf{double_arrow,label=$\mathcal{G}$}{a,b}
+        %label
+        \fmfv{lab=$N$,lab.dist=0.05w}{a}
+        \fmfv{lab=$N$,lab.dist=0.05w}{b}
+      \end{fmfgraph*}}
+\end{fmffile}
+\begin{equation*}
+    = \bigg[N\mathcal{G(\tau)}N\omega(\tau)\bigg]
+\end{equation*}
+
+
+\begin{fmffile}{OCA_re1}
+    \parbox{20mm}{\begin{fmfgraph*}(70,100)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{boson,left=0.7}{a,b}
+        \fmf{double_arrow}{a,b}
+        %label
+      \end{fmfgraph*}}
+\end{fmffile}
+
+
+$\\ \\ \\ $
+\begin{fmffile}{OCA_re2}
+    \parbox{20mm}{\begin{fmfgraph*}(150,100)
+        \fmfleft{a}
+        \fmfright{b}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+        \fmf{double_arrow}{a,a1}
+        \fmf{double_arrow}{a1,b1}
+        \fmf{double_arrow}{b1,b}
+        \fmf{boson,left=0.7,tension=0.1}{a,b1}
+        \fmf{boson,left=0.7,tension=0.1}{a1,b}
+        %label
+      \end{fmfgraph*}}
+\end{fmffile}
+\begin{flalign*}
+    =\int^{\tau}_{0} d\tau _1 \int^{\tau_1}_{0} d\tau _2 \bigg[ &N \mathcal{G} (\tau-\tau_2)
+    N\mathcal{G}(\tau_2-\tau_1)N\mathcal{G}(\tau-\tau_1)N
+    \omega(\tau-\tau_1)\omega(\tau_2)\bigg]
+\end{flalign*}
+$\\ \\ \\$
+\begin{fmffile}{Chi1}
+    \parbox{20mm}{\begin{fmfgraph*}(220,40)
+        \fmftop{a}
+        \fmfbottom{b}
+        \fmfright{c}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+        \fmf{plain,left=0.1,label=$\mathcal{G}(\tau)$}{a,c}
+        \fmf{plain,left=0.1,label=$\mathcal{G}(\beta-\tau)$}{c,b}
+        \fmfdot{a,c}
+        %label
+        \fmfv{lab=$\lambda_1$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\lambda_1$,lab.dist=0.05w}{c}
+      \end{fmfgraph*}}
+\end{fmffile}
+$\\ \\ \\ \\ $
+\begin{fmffile}{Chi2}
+    \parbox{20mm}{\begin{fmfgraph*}(100,40)
+        \fmfleft{a}
+        \fmfright{c}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a,b1}
+        %\fmf{boson,left=0.7,label=$\Delta$}{a1,b}
+        \fmf{plain,left=0.3}{a,c}
+        \fmf{plain,left=0.3}{c,a}
+        \fmfdot{a,c}
+        %label
+        \fmfv{lab=$\mathcal{G}(\tau)$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\mathcal{G}(\beta-\tau)$,lab.dist=0.05w}{c}
+        \end{fmfgraph*}}
+\end{fmffile}
+$\\ \\ \\ \\  \\$
+\begin{equation*}
+    \chi_{sp}(\tau)
+\end{equation*}
+$\\ \\ \\ \\$
+\begin{equation*}
+    \hat{\lambda}_1 = 
+    \begin{pmatrix}
+        0 & 1 & 0 \\
+        1 & 0 & 0 \\
+        0 & 0 & 0 \\
+    \end{pmatrix} 
+\end{equation*}
+\begin{equation*}
+    E_c = \frac{2e^2}{C_J}
+\end{equation*}
+\begin{equation*}
+    I_c \text{ : Josephson current}
+\end{equation*}
+\begin{equation*}
+    \chi_{sp}  = \text{Tr}[\mathcal{G}(\beta-\tau)\lambda_1\mathcal{G}(\tau)\lambda_1] +
+    \text{Tr}[\omega \mathcal{G}(\beta-\tau_1)\hat{N}\mathcal{G}(\tau_1-\tau_2)\lambda_1\mathcal{G}(\tau_2-\tau_3)\hat{N}\mathcal{G}(\tau_3)\lambda_1] 
+\end{equation*}
+\begin{equation*}
+    \mathcal{G}(\tau-\tau_1) \\ \mathcal{G}(\tau_2-\tau) \\ \omega(\tau_2-\tau_1)
+    \\ \mathcal{G}(\beta-\tau_2) \\ \mathcal{G}(\tau_1) \\ \lambda_1
+\end{equation*}
 \end{document}
