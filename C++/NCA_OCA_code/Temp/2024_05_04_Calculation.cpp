@@ -13,7 +13,7 @@ MD_OC MD;
 
 MD_OC::MD_OC()
 {
-    tau_grid = linspace(0,1,201);
+    tau_grid = linspace(0, 1, 101);
     Delta_t = tau_grid[1] - tau_grid[0];
     t = tau_grid.size();
 }
@@ -35,10 +35,10 @@ void MD_OC::readVfunc()
     if (readFile.is_open())
     {
         int i = 0;
-        while(!readFile.eof())
+        while (!readFile.eof())
         {
             string str;
-            getline(readFile,str);
+            getline(readFile, str);
             if (str == "")
             {
                 break;
@@ -51,20 +51,20 @@ void MD_OC::readVfunc()
 
 }
 
-void MD_OC::readHN(ifstream& ifstr){
-	H_N.resize(3,3);
+void MD_OC::readHN(ifstream& ifstr) {
+    H_N.resize(3, 3);
 
-	for(int i=0; i<3; i++) for(int j=0; j<3; j++){
-		ifstr >> H_N(i,j);
-	}
+    for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) {
+        ifstr >> H_N(i, j);
+    }
 };
 
-void MD_OC::readHloc(ifstream& ifstr){
-	H_loc.resize(3,3);
+void MD_OC::readHloc(ifstream& ifstr) {
+    H_loc.resize(3, 3);
 
-	for(int i=0; i<3; i++) for(int j=0; j<3; j++){
-		ifstr >> H_loc(i,j);
-	}
+    for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) {
+        ifstr >> H_loc(i, j);
+    }
 };
 
 
@@ -84,14 +84,15 @@ void MD_OC::NCA_self()
 
 void MD_OC::OCA_T()
 {
+
     cout << "\t ** OCA_T RUN" << endl;
     T.resize(t);
-    for (int n=0; n<t; n++)
+    for (int n = 0; n < t; n++)
     {
-        T[n].resize(n+1);
-        for (int m=0; m<=n; m++)
+        T[n].resize(n + 1);
+        for (int m = 0; m <= n; m++)
         {
-            T[n][m] = H_N * INT_Arr[n] * Prop[n-m] * H_N * Prop[m] * H_N;
+            T[n][m] = H_N * INT_Arr[n] * Prop[n - m] * H_N * Prop[m] * H_N;
         }
     }
 }
@@ -104,12 +105,12 @@ void MD_OC::OCA_self()
     {
         int loop = 0;
         Stmp = MatrixXd::Zero(3, 3);
-         for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++)
+        for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++)
         {
             //std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
             //cout << "\t" << "\t" <<  "For loop count : " << loop  << endl;
             /********************main code**************************/
-            Stmp += H_N * Prop[i-n] * T[n][m] * INT_Arr[i-m];
+            Stmp += H_N * Prop[i - n] * T[n][m] * INT_Arr[i - m];
             //cout << "innerloop : " << loop << endl;
             //cout << "(" << n << "," << m << ")" << "th for loop \n" << Stmp << endl;
             /*******************************************************/
@@ -129,13 +130,13 @@ void MD_OC::OCA_self()
 void MD_OC::SELF_Energy()
 {
     cout << "** SELF_Energy RUN" << endl;
-    NCA_self();    
+    NCA_self();
     OCA_T();
-    std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
+    std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
     cout << "\t" << "OCA calculation Starts" << endl;
     OCA_self();
     std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
-    std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
+    std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec - start);
     cout << "\t" << "Calculation ends : " << microseconds.count() << "[sec]" << endl;
     cout << "-----------------------------" << endl;
 
@@ -232,9 +233,9 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 {
     cout << "** Iteration RUN " << endl;
 
-    Prop.resize(t,MatrixXd::Zero(3,3));
-    Prop[0] = MatrixXd::Identity(3,3);
-    MatrixXd Iden = MatrixXd::Identity(3,3);
+    Prop.resize(t, MatrixXd::Zero(3, 3));
+    Prop[0] = MatrixXd::Identity(3, 3);
+    MatrixXd Iden = MatrixXd::Identity(3, 3);
 
     vector<double> lambda(n + 1, 0);
     double expDtauLambda;
@@ -269,7 +270,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
         else
         {
-            std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
+            std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
             cout << "Iteration " << i << " Starts" << endl;
             H_loc = H_loc - lambda[i - 1] * Iden;
             SELF_Energy();
@@ -288,7 +289,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
                 //cout << Prop[j] << endl;
             }
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
-            std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec-start);
+            std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec - start);
             cout << "Process ends in : " << microseconds.count() << "[sec]" << endl;
             cout << "-----------------------------" << endl;
         }
@@ -299,7 +300,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
 //////////////////////////////////////////////////////////////////////////////
 
-void MD_OC::NCA_Chi_sp(vector<MatrixXd> &iter)
+void MD_OC::NCA_Chi_sp(vector<MatrixXd>& iter)
 {
     Chi_Arr.resize(t);
     MatrixXd GELL = MatrixXd::Zero(3, 3);
@@ -312,34 +313,34 @@ void MD_OC::NCA_Chi_sp(vector<MatrixXd> &iter)
     }
 }
 
-void MD_OC::OCA_store(vector<MatrixXd> &iter)
+void MD_OC::OCA_store(vector<MatrixXd>& iter)
 {
-    MatrixXd GELL = MatrixXd::Zero(3,3);
+    MatrixXd GELL = MatrixXd::Zero(3, 3);
     GELL(0, 1) = 1;
     GELL(1, 0) = 1;
 
     Chi_st.resize(t);
-    for (int n=0; n<t; n++) 
-    {   
-        Chi_st[n].resize(n+1);
-        for (int m=0; m<=n; m++)
+    for (int n = 0; n < t; n++)
+    {
+        Chi_st[n].resize(n + 1);
+        for (int m = 0; m <= n; m++)
         {
-            Chi_st[n][m] = iter[n-m] * H_N * iter[m] * GELL;
+            Chi_st[n][m] = iter[n - m] * H_N * iter[m] * GELL;
             //cout << "pair (n,m) is : " <<  "(" << n << "," << m << ")" << "corresponds with" << "(" << n-m << "," << m << ")" << endl;
         }
     }
 }
 
 
-void MD_OC::OCA_Chi_sp(vector<MatrixXd> &iter)
+void MD_OC::OCA_Chi_sp(vector<MatrixXd>& iter)
 {
-    for (int i=0; i<t; i++)
+    for (int i = 0; i < t; i++)
     {
         MatrixXd Stmp = MatrixXd::Zero(3, 3);
 
         for (int n = 0; n <= i; n++) for (int m = i; m < t; m++)
         {
-            Stmp += INT_Arr[m-n] * ( Chi_st[t-i-1][m-i] * Chi_st[i][n]);
+            Stmp += INT_Arr[m - n] * (Chi_st[t - i - 1][m - i] * Chi_st[i][n]);
             //cout << "pair ("<<n<<","<<m<<") is : " << "(" << k-i-1 << "," << m-i << ")"<< " with " << "(" << i << "," << n << ")" << endl;
         }
         Chi_Arr[i] += pow(Delta_t, 2) * Stmp.trace();
@@ -351,8 +352,8 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
     NCA_Chi_sp(ITE);
     OCA_store(ITE);
     OCA_Chi_sp(ITE);
-    
-    return Chi_Arr;  
+
+    return Chi_Arr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -371,7 +372,7 @@ int main()
     cout << MD.H_N << endl;
     cout << MD.H_loc << endl;
 
-    for (int i = 0; i < MD.t ; i++)
+    for (int i = 0; i < MD.t; i++)
     {
         cout << MD.INT_Arr[i] << endl;
     }
@@ -386,7 +387,7 @@ int main()
 
     for (int j = 0; j < MD.tau_grid.size(); j++)
     {
-        outputFile << MD.tau_grid[j] << "\t" << MD.tau_grid[MD.t-1] * a[j] << endl;
+        outputFile << MD.tau_grid[j] << "\t" << MD.tau_grid[MD.t - 1] * a[j] << endl;
     }
 
     outputFile.close();
