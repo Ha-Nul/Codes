@@ -63,17 +63,13 @@ vector<double> MD_OC::green(vector<double> tau)
 
 void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 {
-
     double nu = pi * k_cutoff / alpha;
 
-    //Initializing block
-    /*
     for (int i=0; i < M; i++)
     {
         omega_Arr[i] = 0;
         G_Arr[i] = 0;
     }
-    */
 
     for (int i=0; i < M; i++)
     {
@@ -97,12 +93,12 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 vector<double> MD_OC::Interact_V()
 {
     //Initializing block
-    /*
+    
     for (int i=0; i < t; i++)
     {
         INT_Arr[i] = 0;
     }
-    */
+    
 
     for (int i = 0; i < t; i++)
     {
@@ -198,7 +194,7 @@ MatrixXd MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 
     return H_N;
 }
-
+/*
 vector<MatrixXd> MD_OC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
 {
     //g_0
@@ -226,6 +222,7 @@ vector<MatrixXd> MD_OC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
 
     return array_with_Matrix;
 }
+*/
 
 
 
@@ -295,7 +292,7 @@ void MD_OC::OCA_self(const vector<MatrixXd>& Prop)
             */
             //cout << "\t" << "\t" <<  "For loop count : " << count  << endl;
             /********************main code**************************/
-            Stmp += H_N * Prop[i-n] * T[n][m] * INT_Arr[i-m] * INT_Arr[n];                                                                                                                                                                                                                                                                                                                                                                                                                                                 Prop[m] * H_N * INT_Arr[i - m] * INT_Arr[n];
+            Stmp += H_N * Prop[i-n] * T[n][m] * INT_Arr[i-m] * INT_Arr[n];
             /*******************************************************/
             /*
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
@@ -476,7 +473,6 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             {
                 Prop[j] *= factor;
                 factor *= expDtauLambda;
-
                 //cout << Prop[j] << endl;
             }
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
@@ -582,24 +578,24 @@ int main()
     
     
     vector<double> g_ma_arr(11,0);
-    for (int i = 0; i < 11 ; i++)
+    for (int i = 0; i < 21 ; i++)
     {
         if (i==0)
         {
-            g_ma_arr[i] = 0.005;
+            g_ma_arr[i] = 0;
         }
         if (i!=0)
         {
-            g_ma_arr[i] = g_ma_arr[i-1] + 0.0005;
+            g_ma_arr[i] = g_ma_arr[i-1] + 0.1;
         }
     }
     
 
-    for (int al = 0; al < alp_arr.size(); al++)
+    for (int ga = 0; ga < g_ma_arr.size(); ga++)
     {
         //ref_g_ma = g_ma_arr[ga];
-        alpha = alp_arr[al];
-        ref_g_ma = 0.02;
+        alpha = 0.5;
+        ref_g_ma = g_ma_arr[ga];
         /*
         {
             std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
@@ -641,8 +637,6 @@ int main()
         }
             
             /****************************************************************************/
-        
-        {
 
             /****************************G(tau) Calcultaion******************************/
             /*
@@ -688,21 +682,17 @@ int main()
                 }
                 outputFile.close();
             }
+             */
             /****************************************************************************/
-        }
-        
-
-        {
+    
             //cout << "input g_ma value : ";
             //cin >> ref_g_ma;
 
             /********************Chi(\tau) Calculation****************************/
-            /*
-            for (int i=0; i<1; i++)
-            {
+        
                 std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
 
-                string name = "OCA_CHI_g_ma_";
+                string name = "OCA_CHI_GAMMA_";
                 
                 std::stringstream gam;
                 std::stringstream alp;
@@ -728,7 +718,7 @@ int main()
                 name += ".txt";
 
                 MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(1);
+                vector<MatrixXd> ITER = MD.Iteration(2);
                 vector<double> a = MD.Chi_sp_Function(ITER);
 
                 outputFile.open(name);
@@ -738,22 +728,19 @@ int main()
                     outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
                 }
 
-            outputFile.close();
+                outputFile.close();
             
-            }
+            
             /*************************************************************************/
-        }
         
         //if (modeselec == 3)
             //cout << "input g_ma value : ";
             //cin >> ref_g_ma;
             /********************\beta * Chi(\beta / 2) Calculation****************************/
-            for (int i=0; i<1; i++)
-            {
-                std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
+                //std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
 
-                string name = "OCA_BETATIMES_CHI_GAMMA_";
-                
+                string nam = "OCA_BETATIMES_CHI_GAMMA_";
+                /*
                 std::stringstream gam;
                 std::stringstream alp;
                 std::stringstream cuof;
@@ -762,26 +749,27 @@ int main()
 
                 gam << g_ma;
                 alp << alpha;
-                cuof << k_cutoff;
+                cuof << k_cutoff;s
                 bet << MD.tau_grid[MD.t-1];
                 gri << MD.t;
+                */
 
-                name += gam.str();
-                name += "_ALPHA_";
-                name += alp.str();
-                name += "_MODE_";
-                name += cuof.str();
-                name += "_BETA_";
-                name += bet.str();
-                name += "_GRID_";
-                name += gri.str();
-                name += ".txt";
+                nam += gam.str();
+                nam += "_ALPHA_";
+                nam += alp.str();
+                nam += "_MODE_";
+                nam += cuof.str();
+                nam += "_BETA_";
+                nam += bet.str();
+                nam += "_GRID_";
+                nam += gri.str();
+                nam += ".txt";
 
-                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(20);
-                vector<double> a = MD.Chi_sp_Function(ITER);
+                //MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
+                //vector<MatrixXd> ITER = MD.Iteration(20);
+                //vector<double> a = MD.Chi_sp_Function(ITER);
 
-                outputFile.open(name);
+                outputFile.open(nam);
 
                 for (int j = 0; j < MD.tau_grid.size(); j++)
                 {
@@ -789,7 +777,7 @@ int main()
                 }
 
                 outputFile.close();
-            }
+
             /**************************************************************************/
 
         
@@ -799,9 +787,9 @@ int main()
         cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
         cout << "-----------------------------" << endl;
     
-
-
     }
+
+    
 
     //if (modeselec == -1)
     {
@@ -813,6 +801,7 @@ int main()
 
     return 0;
 
+    
 }
 
 
