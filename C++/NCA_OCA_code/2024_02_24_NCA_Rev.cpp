@@ -110,8 +110,8 @@ class MD_NC
         double pi = dlib::pi;
         double hbar = dlib::planck_cst/2*dlib::pi;
 
-        vector<double> tau_grid = linspace(0,10,101);
-        vector<double> mode_grid = linspace(1,100,100);
+        vector<double> tau_grid = linspace(0,5,401);
+        vector<double> mode_grid = linspace(1,4000,4000);
         int beta = tau_grid.size();
         int M = mode_grid.size();
         double Delta_t = tau_grid[1] - tau_grid[0];
@@ -174,10 +174,9 @@ void MD_NC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 
     for (int i=0; i < M; i++)
     {
-        /*
         omega_Arr[i] = 0;
         G_Arr[i] = 0;
-        */
+        
         //tilde_g_arr[i] = sqrt( (omega_arr[i] / (1 + pow(nu * omega_arr[i] / k_cutoff,2))));
         //tilde_g_arr[i] = sqrt((2 * k_cutoff / (alpha * omega_arr.size())) * (re_planck_cst * omega_arr[i] / (1 + pow(nu * re_planck_cst * omega_arr[i] / k_cutoff,2))));
     }
@@ -204,12 +203,12 @@ void MD_NC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 
 vector<double> MD_NC::Interact_V()
 {
-    /*
+    
     for (int i=0; i<beta; i++)
     {
         INT_Arr[i] = 0;
     }
-    */
+    
 
     for (int i = 0; i < beta; i++)
     {
@@ -587,16 +586,16 @@ int main()
     cin >> modeselec;
     */
 
-    vector<double> gamma_arr(11, 0);
-    for (int i = 0; i < 11; i++)
+    vector<double> gamma_arr(21, 0);
+    for (int i = 0; i < 21; i++)
     {
         if (i==0)
         {
-            gamma_arr[i] = 0.005;
+            gamma_arr[i] = 0;
         }
         if (i!=0)
         {
-            gamma_arr[i] = gamma_arr[i-1] + 0.0005;
+            gamma_arr[i] = gamma_arr[i-1] + 0.1;
         }
         
     }
@@ -613,14 +612,14 @@ int main()
         }
     }
 
-    for (int al = 0; al < alp_arr.size(); al++)
+    for (int ga = 0; ga < gamma_arr.size(); ga++) //for (int al = 0; al < alp_arr.size(); al++)
     {
 
-        ref_gamma = 0.02;
-        alpha = alp_arr[al];
+        //ref_gamma = 0.02;
+        ref_gamma = gamma_arr[ga];
+        alpha = 0.39;
 
         /****************************G(tau) Calcultaion******************************/
-        /*
         for (int i = 0; i < 1; i++)
         {
             std::ofstream outputFile("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
@@ -713,6 +712,7 @@ int main()
 
 
         /********************\beta * Chi(\beta / 2) Calculation****************************/
+        /*
         for (int i = 0; i < 1; i++)
         {
             std::ofstream outputFile("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
@@ -754,6 +754,7 @@ int main()
             outputFile.close();
 
         }
+        */
         /**************************************************************************/
     }
     

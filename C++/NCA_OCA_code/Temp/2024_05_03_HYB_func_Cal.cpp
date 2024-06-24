@@ -21,8 +21,8 @@ double alpha;
 
 MD_OC::MD_OC()
 {
-    tau_grid = linspace(0,1,201);
-    mode_grid = linspace(1,10,100);
+    tau_grid = linspace(0,2,401);
+    mode_grid = linspace(1,1000,1000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
 
@@ -34,7 +34,7 @@ MD_OC::MD_OC()
     coup_Arr.resize(M);
     omega_Arr.resize(M);
     INT_Arr.resize(t);
-    vector<double> k_mode(100,1);
+    //vector<double> k_mode(100,1);
 
 }
 
@@ -72,8 +72,12 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
     
     for (int i=0; i < M; i++)
     {
-        omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
-        coup_Arr[i] = sqrt((2 * k_cutoff / (alpha * M)) * (omega_Arr[i] / (1 + pow(nu * omega_Arr[i] / k_cutoff,2))));
+        //omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
+        //coup_Arr[i] = sqrt((2 * k_cutoff / (alpha * M)) * (omega_Arr[i] / (1 + pow(nu * omega_Arr[i] / k_cutoff,2))));
+
+        //simpson formulae
+        omega_Arr[i] = (mode_grid[i]/mode_grid[M-1]); // fix to x to adjust simpson's rule
+        coup_Arr[i] = sqrt((2 * k_cutoff / (alpha)) * ( k_cutoff * omega_Arr[i] / (1 + pow(nu * omega_Arr[i],2)))); // fix to adjust simpson's rule
     }
 
     if (alpha == 0)
@@ -88,14 +92,33 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-void MD_OC::Interact_V()
+void MD_OC::Interact_V(double k_cutoff)
 {
     for (int i = 0; i < t; i++)
     {
         for (int j = 0; j < M ;j++)
         {
-            INT_Arr[i] += -pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * omega_Arr[j])/sinh(tau_grid[t - 1] * omega_Arr[j] / 2); //caution for sign
+            //INT_Arr[i] += -pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * omega_Arr[j])/sinh(tau_grid[t - 1] * omega_Arr[j] / 2); //caution for sign
+            
+            //simpson formulae
+            
+            if(j == 0 || j == M-1)
+            {
+                INT_Arr[i] += - ( 1.0 /( 3 * M) ) * pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff *  omega_Arr[j])/sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
+            }
+
+            else if (j%2 != 0)
+            {
+                INT_Arr[i] += - ( 1.0 /(3 * M)) * 4 * pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff *  omega_Arr[j])/sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
+            }
+
+            else if (j%2 == 0)
+            {
+                INT_Arr[i] += - (1.0/(3 * M)) * 2 * pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff *  omega_Arr[j])/sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
+            }
+            
         }
+        INT_Arr[i] += -0.05;
     }
 }
 
@@ -152,7 +175,7 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
     {
-        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi} 
+        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
         
         if (i<2)
         {
@@ -161,7 +184,7 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     }
     for (int i = 0; i < M ; i++)
     {
-        Blank += coup_Arr[i];  
+        Blank += coup_Arr[i];
     }
 
     INT_even(1,0) = INT_even(1,0) * -1;
@@ -192,7 +215,7 @@ void MD_OC::Hamiltonian_loc(MatrixXd evenEigenval, MatrixXd oddEigenval)
 void MD_OC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
 {
     Tilde_g_calculation_function(alpha,k_cutoff);
-    Interact_V();
+    Interact_V(k_cutoff);
     Hamiltonian_N(Eigenvector_Even(), Eigenvector_Odd());
     Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd());
 
@@ -241,8 +264,10 @@ int main()
     double& alp = alpha;
     double k_cutoff = 20;
 
+    //vector<double> alp_arr = OC.linspace(0,10,21);
+
     ref_g_ma = 1;
-    alp = 1;
+    alp = 0.5;
 
     OC.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
     OC.Dataoutput();
