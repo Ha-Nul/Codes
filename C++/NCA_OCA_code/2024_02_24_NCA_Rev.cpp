@@ -59,7 +59,7 @@ class MD_NC
 
         MatrixXd Matrix_Odd(int n, double r)
         {
-            MatrixXd Matrix1(n,n);
+            MatrixXd Matrix1 = MatrixXd::Zero(n,n);
 
             for (int i=0;i < n;i++){
                 for (int j=0;j < n;j++)
@@ -81,7 +81,7 @@ class MD_NC
 
         MatrixXd Matrix_Even(int n, double r)
         {
-            MatrixXd Matrix1(n,n);
+            MatrixXd Matrix1 = MatrixXd::Zero(n,n);
 
             for (int i=0;i < n;i++){
                 for (int j=0;j < n;j++)
@@ -110,7 +110,7 @@ class MD_NC
         double pi = dlib::pi;
         double hbar = dlib::planck_cst/2*dlib::pi;
 
-        vector<double> tau_grid = linspace(0,5,401);
+        vector<double> tau_grid = linspace(0,1,201);
         vector<double> mode_grid = linspace(1,4000,4000);
         int beta = tau_grid.size();
         int M = mode_grid.size();
@@ -132,7 +132,7 @@ class MD_NC
         MatrixXd Hamiltonian_loc_ite(MatrixXd a, MatrixXd b,const double &lambda);
 
         void CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff);
-        void NCA_self(const MatrixXd &N,const vector<MatrixXd> &H_exp, const vector<double> &V);
+        void NCA_self(const vector<MatrixXd> &H_exp, const vector<double> &V);
 
         MatrixXd round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite,int n, int boolean);
         vector<MatrixXd> Propagator(const vector<MatrixXd> &array , const MatrixXd &loc);
@@ -148,22 +148,23 @@ class MD_NC
 
 MD_NC MD;
 
-double gamma = 1;
+double gamma = 0;
+int siz = 3;
 //double nu = MD.pi/0.025;
 
 ///////////////////////////////////////////////////////////////
 
 vector<double> G_Arr(MD.M,0);
 vector<double> omega_Arr(MD.M,0);
-//vector<MatrixXd> H_N(MD.M,MatrixXd::Zero(3,3));
+//vector<MatrixXd> H_N(MD.M,MatrixXd::Zero(sizsiz);
 
 //////////////////////////////////////////////////////////////
 
 vector<double> INT_Arr(MD.beta, 0);
 vector<double> Chi_Arr(MD.beta, 0);
 
-vector<MatrixXd> SELF_E(MD.beta, MatrixXd::Zero(3, 3));
-MatrixXd MD_NC::H_N = MatrixXd::Zero(3,3);
+vector<MatrixXd> SELF_E(MD.beta, MatrixXd::Zero(siz,siz));
+MatrixXd MD_NC::H_N = MatrixXd::Zero(siz,siz);
 
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -173,7 +174,7 @@ void MD_NC::Tilde_g_calculation_function(double alpha, double k_cutoff)
     double nu = pi * k_cutoff / alpha;
 
     for (int i=0; i < M; i++)
-    {
+    {        
         omega_Arr[i] = 0;
         G_Arr[i] = 0;
         
@@ -226,42 +227,26 @@ vector<double> MD_NC::Interact_V()
 
 MatrixXd MD_NC::Eigenvector_Even()
 {
-    MatrixXd a;
-
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,gamma));
-    a = es.eigenvectors();
-
-    return a;
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(siz,gamma));
+    return es.eigenvectors();
 }
 
 MatrixXd MD_NC::Eigenvalue_Even()
 {
-    MatrixXd b;
-
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3,gamma));
-    b = es.eigenvalues();
-
-    return b;
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(siz,gamma));
+    return es.eigenvalues();
 }
 
 MatrixXd MD_NC::Eigenvector_Odd()
 {
-    MatrixXd a;
-
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,gamma));
-    a = es.eigenvectors();
-
-    return a;
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(siz,gamma));
+    return es.eigenvectors();
 }
 
 MatrixXd MD_NC::Eigenvalue_Odd()
 {
-    MatrixXd b;
-
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3,gamma));
-    b = es.eigenvalues();
-
-    return b;
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(siz,gamma));
+    return es.eigenvalues();
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -269,38 +254,58 @@ MatrixXd MD_NC::Eigenvalue_Odd()
 
 void MD_NC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 {
+    int siz = even.rows();
+
      //cout << "input g value :" << g << endl;
-    MatrixXd INT_odd = MatrixXd::Zero(3,3);
-    MatrixXd INT_even = MatrixXd::Zero(3,3);
-    double Blank = 0;
+    MatrixXd INT_odd = MatrixXd::Zero(siz,siz);
+    MatrixXd INT_even = MatrixXd::Zero(siz,siz);
+    
+    //H_N initialize
+    H_N = MatrixXd::Zero(siz,siz);
 
-    for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
+    cout << "initialized check" << endl;
+    cout << H_N << "\n" << endl;
+
+    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
     {
-        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
-        
-        if (i<2)
-        {
-            INT_odd(i+1,j) = odd(i,j);
-        }
-    }
-    for (int i = 0; i < M ; i++)
-    {
-        Blank += G_Arr[i];
+            INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
+
+            if (i<siz-1)
+            {
+                INT_odd(i+1,j) = odd(i,j);
+            }
+
     }
 
-    INT_even(1,0) = INT_even(1,0) * -1;
-    INT_even(2,0) = INT_even(2,0) * -1;
+    cout << "ODD" << endl;
+    cout << INT_odd << endl;
+    cout << "EVEN" << endl;
+    cout << INT_even << "\n" << endl;
 
     MatrixXd c = INT_even.transpose() * INT_odd;
     //cout << INT_even << endl;
 
-    H_N(0, 1) = -c(0, 0);
-    H_N(1, 0) = c(0, 0);
-    H_N(1, 2) = c(1, 0);
-    H_N(2, 1) = -c(1, 0);
+    //stocks matrix elements
+    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+    {
+        if (j%2 != 0 & i%2 == 0){
+            H_N(i,j) = c(i/2,j/2); // even * diff odd
+        }
+        else if (j%2 == 0 & i%2 != 0){
+            H_N(i,j) = c(j/2,i/2); // odd * diff even
+        }
+    }
+
+    //matching sign
+    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+    {
+        if (i>j)
+        {
+            H_N(i,j) = -H_N(i,j);
+        }
+    }
 
     cout << H_N << endl;
-
 }
 
 vector<MatrixXd> MD_NC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
@@ -319,7 +324,7 @@ vector<MatrixXd> MD_NC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
 
     for (int i = 0; i < beta; i++)
     {
-        Hamiltonian_exp = MatrixXd::Zero(3,3);
+        Hamiltonian_exp = MatrixXd::Zero(siz,siz);
 
         Hamiltonian_exp(0,0) = tau_grid[i] * zeroth;
         Hamiltonian_exp(1,1) = tau_grid[i] * first;
@@ -335,18 +340,28 @@ vector<MatrixXd> MD_NC::Hamiltonian_exp(MatrixXd a, MatrixXd b)
 
 MatrixXd MD_NC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
 {
-    MatrixXd Hamiltonian = MatrixXd::Zero(3,3);
+    int siz = a.rows();
+    MatrixXd Hamiltonian = MatrixXd::Zero(siz,siz);
 
-    Hamiltonian(0,0) = a(0);
-    Hamiltonian(1,1) = b(0);
-    Hamiltonian(2,2) = a(1);
+    for (int i = 0 ; i < siz ; i++) for (int j = 0; j < siz; j++)
+    {
+        if (i==j & i%2 == 0)
+        {
+            Hamiltonian(i,j) = a(i/2);
+        }
+        if (i==j & i%2 != 0)
+        {
+            Hamiltonian(i,j) = b(i/2);
+        }
+    }
 
     return Hamiltonian;
 }
 
 MatrixXd MD_NC::Hamiltonian_loc_ite(MatrixXd a, MatrixXd b, const double &lambda)
 {
-    MatrixXd Hamiltonian = MatrixXd::Zero(3,3);
+    int siz = a.rows();
+    MatrixXd Hamiltonian = MatrixXd::Zero(siz,siz);
 
     Hamiltonian(0,0) = a(0)-lambda;
     Hamiltonian(1,1) = b(0)-lambda;
@@ -367,11 +382,17 @@ void MD_NC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
 ////////////////////////////////////////////////////////////////////////////////
 
 
-void MD_NC::NCA_self(const MatrixXd &N,const vector<MatrixXd> &Prop, const vector<double> &V)
+void MD_NC::NCA_self(const vector<MatrixXd> &Prop, const vector<double> &V)
 {
+    //initializing SELF_Ee
     for (int i=0; i < beta ; i++)
     {
-        SELF_E[i] = V[i] * (N * Prop[i] * N);
+        SELF_E[i] = MatrixXd::Zero(siz,siz);
+    }
+
+    for (int i=0; i < beta ; i++)
+    {
+        SELF_E[i] = V[i] * (H_N * Prop[i] * H_N);
     }
 }
 
@@ -382,7 +403,7 @@ void MD_NC::NCA_self(const MatrixXd &N,const vector<MatrixXd> &Prop, const vecto
 MatrixXd MD_NC::round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd> &sigma, const vector<MatrixXd> &ite, int n, int boolean)
 {
 
-    MatrixXd sigsum = MatrixXd::Zero(3,3);
+    MatrixXd sigsum = MatrixXd::Zero(siz,siz);
     
     if (n == 1)
     {
@@ -403,7 +424,7 @@ MatrixXd MD_NC::round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd>
 
     //cout << sigsum << endl;
 
-    MatrixXd Bucket = MatrixXd::Zero(3,3);
+    MatrixXd Bucket = MatrixXd::Zero(siz,siz);
     if (boolean == 0)
     {
         Bucket = -loc * ite[n] + sigsum;
@@ -420,14 +441,14 @@ MatrixXd MD_NC::round_propagater_ite(const MatrixXd &loc, const vector<MatrixXd>
 
 vector<MatrixXd> MD_NC::Propagator(const vector<MatrixXd> &self_E, const MatrixXd &loc)
 {
-    vector<MatrixXd> P_arr(beta,MatrixXd::Zero(3,3));
-    vector<MatrixXd> S_arr(beta,MatrixXd::Zero(3,3));
+    vector<MatrixXd> P_arr(beta,MatrixXd::Zero(siz,siz));
+    vector<MatrixXd> S_arr(beta,MatrixXd::Zero(siz,siz));
 
-    P_arr[0] = MatrixXd::Identity(3,3);
-    S_arr[0] = MatrixXd::Identity(3,3);
+    P_arr[0] = MatrixXd::Identity(siz,siz);
+    S_arr[0] = MatrixXd::Identity(siz,siz);
 
-    MatrixXd sig_form = MatrixXd::Zero(3,3);
-    MatrixXd sig_late = MatrixXd::Zero(3,3);
+    MatrixXd sig_form = MatrixXd::Zero(siz,siz);
+    MatrixXd sig_late = MatrixXd::Zero(siz,siz);
 
     for (int i=1; i < beta; i++)
     {
@@ -464,13 +485,13 @@ double MD_NC::chemical_poten(MatrixXd prop)
 
 vector<MatrixXd> MD_NC::Iteration(const int &n)
 {
-    vector<MatrixXd> Prop(beta,MatrixXd::Identity(3,3));
-    Prop[0] = MatrixXd::Identity(3,3);
+    vector<MatrixXd> Prop(beta,MatrixXd::Zero(siz,siz));
+    Prop[0] = MatrixXd::Identity(siz,siz);
 
-    vector<MatrixXd> H_loc(n+1,MatrixXd::Zero(3,3));
+    vector<MatrixXd> H_loc(n+1,MatrixXd::Zero(siz,siz));
     H_loc[0] = Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd());
 
-    MatrixXd Iden = MatrixXd::Identity(3,3);
+    MatrixXd Iden = MatrixXd::Identity(siz,siz);
     
     vector<double> lambda(n+1,0);
     double expDtauLambda;
@@ -480,11 +501,9 @@ vector<MatrixXd> MD_NC::Iteration(const int &n)
     {
         if (i==0)
         {
-            for(int j=0; j<beta; j++)
+            for(int j=0; j<beta; j++) for(int k=0; k<siz; k++)
             {
-                Prop[j](0, 0) = exp(-tau_grid[j] * H_loc[0](0, 0));
-                Prop[j](1, 1) = exp(-tau_grid[j] * H_loc[0](1, 1));
-                Prop[j](2, 2) = exp(-tau_grid[j] * H_loc[0](2, 2));
+                Prop[j](k, k) = exp(-tau_grid[j] * H_loc[0](k, k));
             }
 
             lambda[0] = chemical_poten(Prop[beta-1]);
@@ -506,7 +525,7 @@ vector<MatrixXd> MD_NC::Iteration(const int &n)
             std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
             cout << "Iteration " << i << " Starts" << endl;
             H_loc[i] = H_loc[i - 1] - lambda[i - 1] * Iden;
-            NCA_self(H_N,Prop,INT_Arr);
+            NCA_self(Prop,INT_Arr);
             Prop = Propagator(SELF_E,H_loc[i]);
 
             lambda[i] = chemical_poten(Prop[beta-1]);
@@ -534,7 +553,7 @@ vector<MatrixXd> MD_NC::Iteration(const int &n)
 
 void MD_NC::Chi_sp(int ITE)
 {
-    MatrixXd Gellmann_1 = MatrixXd::Zero(3,3);
+    MatrixXd Gellmann_1 = MatrixXd::Zero(siz,siz);
     Gellmann_1(0,1) = 1;
     Gellmann_1(1,0) = 1;
 
@@ -567,7 +586,7 @@ int main()
     double k_cutoff = 20;
     double& ref_gamma = gamma;
     
-      cout << " ## Program begins ##" << endl;
+    cout << " ## Program begins ##" << endl;
     cout << "-------------------------------" << endl;
     /*
     double& taulimit = MD.bett;
@@ -582,12 +601,12 @@ int main()
     /*while (modeselec != -1)
     {
 
-    cout << "< Select mode to run >" << "\n"  << " 1. Prop(G), 2. Chi, 3. beta*Chi " << "\n" << "MODE INDEX : ";
+    cout << "< Select mode to run >" << "\n"  << " 1. Prop(G), 2. Chi, siz beta*Chi " << "\n" << "MODE INDEX : ";
     cin >> modeselec;
     */
 
-    vector<double> gamma_arr(21, 0);
-    for (int i = 0; i < 21; i++)
+    vector<double> gamma_arr(11, 0);
+    for (int i = 0; i < 11; i++)
     {
         if (i==0)
         {
@@ -615,9 +634,9 @@ int main()
     for (int ga = 0; ga < gamma_arr.size(); ga++) //for (int al = 0; al < alp_arr.size(); al++)
     {
 
-        //ref_gamma = 0.02;
+        //ref_gamma = 0.8;
         ref_gamma = gamma_arr[ga];
-        alpha = 0.39;
+        alpha = 0.2;
 
         /****************************G(tau) Calcultaion******************************/
         for (int i = 0; i < 1; i++)
@@ -649,10 +668,12 @@ int main()
             name += gri.str();
             name += ".txt";
 
+            //cout << gamma_arr[ga] << endl;
+
             outputFile.open(name);
             MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
             vector<MatrixXd> a = MD.Iteration(20);
-
+            
             for (int i = 0; i < a.size(); i++)
             {
                 //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
@@ -661,7 +682,10 @@ int main()
                     << (a[i])(2, 0) << "\t" << (a[i])(2, 1) << "\t" << (a[i])(2, 2) << "\t" << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
                 cout << setprecision(16);
             }
+            
             outputFile.close();
+            
+            
         }
         /****************************************************************************/
 
