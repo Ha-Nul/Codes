@@ -111,8 +111,8 @@ public:
     double pi = dlib::pi;
     double hbar = dlib::planck_cst / 2 * dlib::pi;
 
-    vector<double> tau_grid = linspace(0, 1, 201);
-    vector<double> mode_grid = linspace(1, 4000, 4000);
+    vector<double> tau_grid = linspace(0, 20, 401);
+    vector<double> mode_grid = linspace(1, 5000, 5000);
     int beta = tau_grid.size();
     int M = mode_grid.size();
     double Delta_t = tau_grid[1] - tau_grid[0];
@@ -282,8 +282,8 @@ void MD_NC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     //H_N initialize
     H_N = MatrixXd::Zero(siz, siz);
 
-    cout << "initialized check" << endl;
-    cout << H_N << "\n" << endl;
+    //cout << "initialized check" << endl;
+    //cout << H_N << "\n" << endl;
 
     for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
     {
@@ -302,7 +302,7 @@ void MD_NC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     //cout << INT_even << "\n" << endl;
 
     MatrixXd c = INT_even.transpose() * INT_odd;
-    cout << c << endl;
+    //cout << c << endl;
 
     //stocks matrix elements
     for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
@@ -367,18 +367,22 @@ MatrixXd MD_NC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
         if (i == j & i % 2 == 0)
         {
             Hamiltonian(i, j) = a(i / 2);
+            /*
             if (a(i / 2) > 30)
             {
                 Hamiltonian(i, j) = 30;
             }
+            */
         }
         if (i == j & i % 2 != 0)
         {
             Hamiltonian(i, j) = b(i / 2);
+            /*
             if (b(i / 2) > 30)
             {
                 Hamiltonian(i, j) = 30;
             }
+            */
         }
     }
 
@@ -404,7 +408,7 @@ void MD_NC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
     Tilde_g_calculation_function(alpha, k_cutoff);
     INT_Arr = Interact_V();
     Hamiltonian_N(Eigenvector_Even(), Eigenvector_Odd());
-    cout << "TESTING" << endl;
+    cout << "** bare H_loc \n" << endl;
     cout << Hamiltonian_loc(Eigenvalue_Even(), Eigenvalue_Odd()) << endl;
     cout << "--------------" << endl;
 }
@@ -425,6 +429,7 @@ void MD_NC::NCA_self(const vector<MatrixXd>& Prop, const vector<double>& V)
     {
         SELF_E[i] = V[i] * (H_N * Prop[i] * H_N);
     }
+    cout << "     ******* SELF_E (beta) : \n " << SELF_E[beta-1] << endl;
 }
 
 
@@ -509,7 +514,7 @@ double MD_NC::chemical_poten(MatrixXd prop)
     double Trace = prop.trace();
     double lambda = -(1 / tau_grid[beta - 1]) * log(Trace);
 
-    cout << "Trace checking : " << Trace << endl;
+    cout << " \n lambda checking : " << lambda << endl;
 
     return lambda;
 }
@@ -542,7 +547,7 @@ vector<MatrixXd> MD_NC::Iteration(const int& n)
                 }
             }
 
-            //cout << "Prop at " << beta << " : \n " << Prop[200] << endl;
+            cout << "************* bare Prop at " << beta << " : \n " << Prop[beta-1] << endl;
 
             lambda[0] = chemical_poten(Prop[beta - 1]);
             expDtauLambda = exp(Delta_t * lambda[0]);
@@ -563,9 +568,10 @@ vector<MatrixXd> MD_NC::Iteration(const int& n)
             std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
             cout << "Iteration " << i << " Starts" << endl;
             H_loc[i] = H_loc[i - 1] - lambda[i - 1] * Iden;
-            cout << "  H_loc at " << beta << " : \n " << H_loc[i] << endl;
+            cout << " ***  H_loc (BEFORE NORMALIZE)  " << beta << " : \n " << H_loc[i] << endl;
             NCA_self(Prop, INT_Arr);
             Prop = Propagator(SELF_E, H_loc[i]);
+            cout << " ***  Prop (BEFORE NORMALIZE)  " << beta << " with Trace " << Prop[beta-1].trace() << ": \n " << Prop[beta-1] << endl;
 
             //cout << "  Prop at " << beta << " : \n " << Prop[beta-1] << endl;
 
@@ -580,7 +586,9 @@ vector<MatrixXd> MD_NC::Iteration(const int& n)
                 Prop[j] *= factor;
                 factor *= expDtauLambda;
             }
+            cout << " -- Norm -- " << endl;
             cout << i << "th iteration Prop : \n " << Prop[beta - 1] << endl;
+            cout << " ----" << endl;
             cout << " ** " << i << "th Trace Prop : " << Prop[beta - 1].trace() << endl;
 
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
@@ -628,7 +636,7 @@ int main()
     */
 
     std::chrono::system_clock::time_point P_start = std::chrono::system_clock::now();
-    double alpha = 0.5;
+    double alpha = 1;
     double k_cutoff = 20;
     double& ref_gamma = gamma;
 
@@ -652,7 +660,7 @@ int main()
     */
 
     vector<double> gamma_arr(21, 0);
-    for (int i = 0; i < 21; i++)
+    for (int i = 0; i < 11; i++)
     {
         if (i == 0)
         {
@@ -660,7 +668,7 @@ int main()
         }
         if (i != 0)
         {
-            gamma_arr[i] = gamma_arr[i - 1] + 0.05;
+            gamma_arr[i] = gamma_arr[i - 1] + 0.1;
         }
 
     }
@@ -673,7 +681,7 @@ int main()
         }
         if (i != 0)
         {
-            alp_arr[i] = alp_arr[i - 1] + 0.05;
+            alp_arr[i] = alp_arr[i - 1] + 0.1;
         }
     }
 
@@ -686,7 +694,7 @@ int main()
         alpha = alp_arr[al];
 
         /****************************G(tau) Calcultaion******************************/
-
+        
         for (int i = 0; i < 1; i++)
         {
             std::ofstream outputFile("");
@@ -725,7 +733,7 @@ int main()
 
             outputFile.open(name);
             MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
-            vector<MatrixXd> a = MD.Iteration(10);
+            vector<MatrixXd> a = MD.Iteration(20);
             /*
             for (int i = 0; i < a.size(); i++)
             {
@@ -764,12 +772,14 @@ int main()
             std::stringstream cuof;
             std::stringstream bet;
             std::stringstream gri;
+            std::stringstream size;
 
             gam << gamma;
             alp << alpha;
             cuof << k_cutoff;
             bet << MD.tau_grid[MD.tau_grid.size() - 1];
             gri << MD.beta;
+            size << siz;
 
             name += gam.str();
             name += "_ALPHA_";
@@ -780,11 +790,12 @@ int main()
             name += bet.str();
             name += "_GRID_";
             name += gri.str();
+            name += "_SIZE_";
+            name += size.str();
             name += ".txt";
 
             outputFile.open(name);
-            MD.CAL_COUP_INT_with_g_arr(1);
-            //MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
+            MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
             MD.Chi_sp(10);
 
             for (int i = 0; i < MD.beta; i++)
@@ -794,7 +805,7 @@ int main()
             outputFile.close();
 
         }
-        */
+        
         /**************************************************************************/
 
 
