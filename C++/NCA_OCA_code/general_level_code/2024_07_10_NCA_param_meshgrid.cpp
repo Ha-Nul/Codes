@@ -18,8 +18,8 @@ int siz = 0;
 
 MD_OC::MD_OC()
 {
-    tau_grid = linspace(0,20,401);
-    mode_grid = linspace(1,5000,5000);
+    tau_grid = linspace(0,5,401);
+    mode_grid = linspace(1,30000,30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
 
@@ -513,12 +513,12 @@ int main()
     double& ref_g_ma = g_ma;
     int& size = siz;
 
-    size = 5;
+    size = 3;
 
     /////////////////////////////////
     
-    vector<double> alp_arr(21,0);
-    for (int i = 0; i < 21 ; i++)
+    vector<double> alp_arr(5,0);
+    for (int i = 0; i < 5 ; i++)
     {
         if (i==0)
         {
@@ -532,8 +532,8 @@ int main()
     }
     
     
-    vector<double> g_ma_arr(21,0);
-    for (int i = 0; i < 21 ; i++)
+    vector<double> g_ma_arr(5,0);
+    for (int i = 0; i < 5 ; i++)
     {
         if (i==0)
         {
@@ -541,7 +541,7 @@ int main()
         }
         if (i!=0)
         {
-            g_ma_arr[i] = g_ma_arr[i-1] + 0.01;
+            g_ma_arr[i] = g_ma_arr[i-1] + 0.1;
         }
     }
 

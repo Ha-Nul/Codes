@@ -86,6 +86,7 @@ public:
         result.insert(result.begin() + iterator, max);
         return result;
     }
+    
 
     /*
     vector<MatrixXd> convolve(const vector<MatrixXd>& Signal,

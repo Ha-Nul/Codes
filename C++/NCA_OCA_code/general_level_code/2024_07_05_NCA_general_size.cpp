@@ -112,7 +112,7 @@ public:
     double hbar = dlib::planck_cst / 2 * dlib::pi;
 
     vector<double> tau_grid = linspace(0, 20, 401);
-    vector<double> mode_grid = linspace(1, 5000, 5000);
+    vector<double> mode_grid = linspace(1, 30000, 30000);
     int beta = tau_grid.size();
     int M = mode_grid.size();
     double Delta_t = tau_grid[1] - tau_grid[0];
@@ -660,7 +660,7 @@ int main()
     */
 
     vector<double> gamma_arr(21, 0);
-    for (int i = 0; i < 11; i++)
+    for (int i = 0; i < 21; i++)
     {
         if (i == 0)
         {
@@ -707,10 +707,12 @@ int main()
             std::stringstream bet;
             std::stringstream gri;
             std::stringstream size;
+            std::stringstream mod;
 
             gam << gamma;
             alp << alpha;
             cuof << k_cutoff;
+            mod << MD.mode_grid.size();
             bet << MD.tau_grid[MD.tau_grid.size() - 1];
             gri << MD.beta;
             size << siz;
@@ -718,8 +720,10 @@ int main()
             name += gam.str();
             name += "_ALPHA_";
             name += alp.str();
-            name += "_MODE_";
+            name += "_CUTOF_";
             name += cuof.str();
+            name += "_MODE_";
+            name += mod.str();
             name += "_BETA_";
             name += bet.str();
             name += "_GRID_";
