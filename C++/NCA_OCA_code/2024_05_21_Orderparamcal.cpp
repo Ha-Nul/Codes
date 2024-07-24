@@ -16,7 +16,7 @@ MD_OC MD;
 
 int MD_OC::M = MD.mode_grid.size();
 int MD_OC::t = MD.tau_grid.size();
-vector<double> k_mode(100, 1);
+vector<double> k_mode(10000, 1);
 double g_ma = 1;
 
 //////////////////////////////////////////////////////////////
@@ -200,22 +200,19 @@ MatrixXd MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 void Ordercal(MatrixXd even, MatrixXd odd)
 {
     Order_param = MatrixXd::Zero(3,3);
-    double fac = 0.5 * dlib::pi;
 
     MatrixXd uptri = MatrixXd::Zero(3,3);
     MatrixXd dotri = MatrixXd::Zero(3,3);
 
-    uptri(0,1) = even(0,0)*odd(1,0) + even(2,0)*odd(1,0) + even(1,0)*odd(2,0);
-    uptri(0,2) = even(0,0)*even(1,1) + even(0,1)*even(1,0) + even(1,0)*even(2,1) + even(2,0)*even(1,1);
-    uptri(1,2) = even(0,1)*odd(1,0) + even(1,1)*odd(2,0) + even(2,1)*odd(1,0);
+    uptri(0,2) = -1/sqrt(2) * (even(0,0)*even(1,1) + even(0,1)*even(1,0)) + 0.5 * (even(1,0)*even(2,1) + even(2,0)*even(1,1));
 
     dotri = uptri.transpose();
 
-    Order_param(0,0) = 2 * (even(0,0)*even(1,0) + even(1,0)*even(2,0));
-    Order_param(1,1) = 2 * (odd(1,0)*odd(2,0));
-    Order_param(2,2) = 2 * (even(0,1)*even(1,1) + even(1,1)*even(2,1));
+    Order_param(0,0) = sqrt(2) * (even(0,0)*even(1,0) + even(1,0)*even(2,0));
+    Order_param(1,1) = (odd(0,0)*odd(1,0));
+    Order_param(2,2) = sqrt(2) * (even(0,1)*even(1,1) + even(1,1)*even(2,1));
 
-    Order_param += fac * (dotri + uptri);
+    Order_param += (dotri + uptri);
 
 }
 /*
@@ -269,6 +266,17 @@ void MD_OC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
     Tilde_g_calculation_function(alpha,k_cutoff);
     INT_Arr = Interact_V();
     H_N = Hamiltonian_N(Eigenvector_Even(), Eigenvector_Odd());
+    
+    cout << "-------------------- block ------------------------" << endl;
+
+    cout << "\t ********** even Matrix : " << "\n" << Matrix_Even(3, g_ma) << "\n" <<  endl;
+    
+    cout << "\t ********** Eigenvector even : " << "\n" << Eigenvector_Even() << endl;
+    cout << "\t ********** Eigenvector odd : " << "\n" << Eigenvector_Odd() << endl;
+
+    cout << "\t *** Orthonormality check : " << "\n" << Eigenvector_Even() * Eigenvector_Even().transpose() << endl;
+    cout << "-------------------- block ------------------------" << endl;
+    
     Ordercal(MD.Eigenvector_Even(), MD.Eigenvector_Odd());
 }
 
@@ -519,9 +527,9 @@ int main()
 {
     MD_OC MD;
     std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
-    cout << " ## OCA Program begins ##" << endl;
+    cout << " ## Approx Program begins ##" << endl;
+    cout << " Program now set in One-crossing mode " << endl;
     cout << "-------------------------------" << endl;
-    int modeselec = 0;
     /*
     double& taulimit = MD.beta;
 
@@ -549,7 +557,7 @@ int main()
         }
         if (i!=0)
         {
-            alp_arr[i] = alp_arr[i-1] + 0.02;
+            alp_arr[i] = alp_arr[i-1] + 0.1;
         }
         
     }
@@ -568,19 +576,76 @@ int main()
         }
     }
     
+    vector<double> output(g_ma_arr.size(),0);
 
-    //for (int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
-    {
-        //ref_g_ma = g_ma_arr[ga];
-        alpha = 0.5;
-        //alpha = alp_arr[al];
-        ref_g_ma = 1;
-        
+
+    //for (int al = 0; al < alp_arr.size(); al ++)
+    //{
+        for (int ga = 0; ga < g_ma_arr.size(); ga++)
         {
-            /*
-            std::ofstream outputFile ("./");
+            ref_g_ma = g_ma_arr[ga];
+            alpha = 0.39;
+            //alpha = alp_arr[al];
+            //ref_g_ma = 1;
+            
+        
+                /*
+                std::ofstream outputFile ("./");
 
-                string name = "OCA_HYB_G_GAMMA_";
+                    string name = "NCA_Orderparm_";
+
+                    std::stringstream gam;
+                    std::stringstream alp;
+                    std::stringstream cuof;
+                    std::stringstream bet;
+                    std::stringstream gri;
+
+                    gam << g_ma;
+                    alp << alpha;
+                    cuof << k_cutoff;
+                    bet << MD.tau_grid[MD.t-1];
+                    gri << MD.t;
+
+                    name += gam.str();
+                    name += "_ALPHA_";
+                    name += alp.str();
+                    name += "_MODE_";
+                    name += cuof.str();
+                    name += "_BETA_";
+                    name += bet.str();
+                    name += "_GRID_";
+                    name += gri.str();
+                    name += ".txt";
+                */
+                    /*
+
+                    MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
+                    //vector<MatrixXd> a = MD.Iteration(1);
+            
+                    outputFile.open(name);
+                    for (int i = 0; i < MD.t; i++)
+                    {
+                        outputFile << MD.tau_grid[i] << "\t" << G_Arr[i] << endl;
+                    }
+                    outputFile.close();
+                    */
+        
+
+                
+                /****************************************************************************/
+
+                /****************************G(tau) Calcultaion******************************/
+                
+                /*
+                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
+
+                cout << "\n" << "TEST ORD MAT : " << "\n" << Order_param << endl;
+
+                MatrixXd a = Order_param;
+                
+                std::ofstream Gamblock("./");
+
+                string name = "ORDER_CHECK_GAM_";
 
                 std::stringstream gam;
                 std::stringstream alp;
@@ -605,71 +670,81 @@ int main()
                 name += gri.str();
                 name += ".txt";
 
+                
+                Gamblock.open(name);
+
+                for (int i = 0; i < 1; i++)
+                {
+                    Gamblock << MD.tau_grid[i] << "\t" << (a)(0,0)<< "\t" << (a)(0,1) << "\t" << (a)(0,2) << "\t"
+                    << (a)(1,0) << "\t" << (a)(1,1) << "\t"  << (a)(1,2) << "\t"
+                    << (a)(2,0) << "\t" << (a)(2,1) << "\t" << (a)(2,2) << "\t" << endl;
+                }
+
+                Gamblock.close();
+                */
+
                 MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                //vector<MatrixXd> a = MD.Iteration(1);
-        
+                vector<MatrixXd> a = MD.Iteration(20);
+                double b = (a[(MD.t-1)] * Order_param).trace();
+                //cout << "TEST PROP BETA : " << "\n" << a[MD.t-1] << endl;
+
+                output[ga] = b;
+
+                /*
                 outputFile.open(name);
                 for (int i = 0; i < MD.t; i++)
                 {
-                    outputFile << MD.tau_grid[i] << "\t" << G_Arr[i] << endl;
+                    outputFile << MD.tau_grid[i] << "\t" << (a[i])(0,0)<< "\t" << (a[i])(0,1) << "\t" << (a[i])(0,2) << "\t"
+                    << (a[i])(1,0) << "\t" << (a[i])(1,1) << "\t"  << (a[i])(1,2) << "\t"
+                    << (a[i])(2,0) << "\t" << (a[i])(2,1) << "\t" << (a[i])(2,2) << "\t" << endl;
+                    //cout << setprecision(16);
                 }
                 outputFile.close();
                 */
+                
+        }
+        
+        std::ofstream outputFile("./");
+
+        string name = "OCA_COS_TEST_CAL_";
+
+        std::stringstream gam;
+        std::stringstream alp;
+        std::stringstream cuof;
+        std::stringstream bet;
+        std::stringstream gri;
+
+        gam << g_ma;
+        alp << alpha;
+        cuof << k_cutoff;
+        bet << MD.tau_grid[MD.t-1];
+        gri << MD.t;
+
+        name += gam.str();
+        name += "_ALPHA_";
+        name += alp.str();
+        name += "_MODE_";
+        name += cuof.str();
+        name += "_BETA_";
+        name += bet.str();
+        name += "_GRID_";
+        name += gri.str();
+        name += ".txt";
+
+        outputFile.open(name);
+
+        for (int i = 0; i < output.size(); i++)
+        {
+            outputFile << g_ma_arr[i] << "\t" << output[i] << endl;
         }
 
-            
-            /****************************************************************************/
+        outputFile.close();
+    
 
-            /****************************G(tau) Calcultaion******************************/
-            
-            std::ofstream outputFile("./");
+        }
+        
+        
+        
 
-            string name = "OCA_PROP_GAMMA_";
-
-            std::stringstream gam;
-            std::stringstream alp;
-            std::stringstream cuof;
-            std::stringstream bet;
-            std::stringstream gri;
-
-            gam << g_ma;
-            alp << alpha;
-            cuof << k_cutoff;
-            bet << MD.tau_grid[MD.t-1];
-            gri << MD.t;
-
-            name += gam.str();
-            name += "_ALPHA_";
-            name += alp.str();
-            name += "_MODE_";
-            name += cuof.str();
-            name += "_BETA_";
-            name += bet.str();
-            name += "_GRID_";
-            name += gri.str();
-            name += ".txt";
-
-            MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-
-            cout << "\n" << "TEST ORD MAT : " << "\n" << Order_param << endl;
-
-            vector<MatrixXd> a = MD.Iteration(20);
-
-            double b = (a[(MD.t-1)] * Order_param).trace();
-
-            cout << "TEST TRA ORDER" << b << endl;
-            
-            /*
-            outputFile.open(name);
-            for (int i = 0; i < MD.t; i++)
-            {
-                outputFile << MD.tau_grid[i] << "\t" << (a[i])(0,0)<< "\t" << (a[i])(0,1) << "\t" << (a[i])(0,2) << "\t"
-                << (a[i])(1,0) << "\t" << (a[i])(1,1) << "\t"  << (a[i])(1,2) << "\t"
-                << (a[i])(2,0) << "\t" << (a[i])(2,1) << "\t" << (a[i])(2,2) << "\t" << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
-                //cout << setprecision(16);
-            }
-            outputFile.close();
-            */
-            
-    }
-}
+    //}
+//}
