@@ -18,8 +18,8 @@ int siz = 0;
 
 MD_OC::MD_OC()
 {
-    tau_grid = linspace(0,5,401);
-    mode_grid = linspace(1,30000,30000);
+    tau_grid = linspace(0,70,401);
+    mode_grid = linspace(1,5000,5000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
 
@@ -39,7 +39,6 @@ MD_OC::~MD_OC()
     //blank;
 }
 
-
 //////////////////////////////////////////////////////////////
 
 void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
@@ -50,12 +49,13 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
     
     for (int i=0; i < M; i++)
     {
-        omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
-        coup_Arr[i] = sqrt((2 * k_cutoff / (alpha * M)) * (omega_Arr[i] / (1 + pow(nu * omega_Arr[i] / k_cutoff,2))));
+        //omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
+        //coup_Arr[i] = sqrt((2 * k_cutoff / (alpha * M)) * (omega_Arr[i] / (1 + pow(nu * omega_Arr[i] / k_cutoff,2))));
 
         //simpson formulae
-        //omega_Arr[i] = (mode_grid[i]/mode_grid[M-1]); // fix to x to adjust simpson's rule
-        //coup_Arr[i] = sqrt((2 * k_cutoff / (alpha)) * ( k_cutoff * omega_Arr[i] / (1 + pow(nu * omega_Arr[i],2)))); // fix to adjust simpson's rule
+        omega_Arr[0] = -0.05;
+        omega_Arr[i] = (mode_grid[i]/mode_grid[M-1]); // fix to x to adjust simpson's rule
+        coup_Arr[i] = sqrt((2 * k_cutoff / (alpha)) * ( k_cutoff * omega_Arr[i] / (1 + pow(nu * omega_Arr[i],2)))); // fix to adjust simpson's rule
     }
 
     if (alpha == 0)
@@ -66,27 +66,40 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
         }
     }
 }
+
+
 ////////////////////////////////////////////////////////////////////////////////////
 
 void MD_OC::Interact_V(double k_cutoff)
 {
-    //Initializing block
-    
-    for (int i=0; i < t; i++)
-    {
-        INT_Arr[i] = 0;
-    }
-    
-
     for (int i = 0; i < t; i++)
     {
         for (int j = 0; j < M ;j++)
         {
-            INT_Arr[i] += -pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * omega_Arr[j])/sinh(tau_grid[t - 1] * omega_Arr[j] / 2); //caution for sign
-        }
-    }        
+            //INT_Arr[i] += -pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * omega_Arr[j])/sinh(tau_grid[t - 1] * omega_Arr[j] / 2); //caution for sign
+            
+            //simpson formulae
+            
+            if(j == 0 || j == M-1)
+            {
+                INT_Arr[i] += - ( 1.0 /( 3 * M) ) * pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff *  omega_Arr[j])/sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
+            }
 
+            else if (j%2 != 0)
+            {
+                INT_Arr[i] += - ( 1.0 /(3 * M)) * 4 * pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff *  omega_Arr[j])/sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
+            }
+
+            else if (j%2 == 0)
+            {
+                INT_Arr[i] += - (1.0/(3 * M)) * 2 * pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff *  omega_Arr[j])/sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
+            }
+            
+        }
+        //INT_Arr[i] += -0.05;
+    }
 }
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -537,63 +550,72 @@ int main()
     {
         if (i==0)
         {
-            g_ma_arr[i] = 0;
+            g_ma_arr[i] = 5;
         }
         if (i!=0)
         {
-            g_ma_arr[i] = g_ma_arr[i-1] + 0.1;
+            g_ma_arr[i] = g_ma_arr[i-1] + 1;
         }
+    }
+    
+    vector<double> bet_arr(5,0);
+    for (int i = 0; i<5 ; i++)
+    {
+        bet_arr[i] = i+1;
     }
 
     std::ofstream outputFile ("./");
 
-    string name = "NCA_GENSIZE_";
-    
-    std::stringstream cuof;
-    std::stringstream bet;
-    std::stringstream gri;
-    std::stringstream sizz;
-
-    cuof << k_cutoff;
-    bet << MD.tau_grid[MD.tau_grid.size() - 1];
-    gri << MD.t;
-    sizz << siz;
-
-    name += sizz.str();
-    name += "_MODE_";
-    name += cuof.str();
-    name += "_BETA_";
-    name += bet.str();
-    name += "_GRID_";
-    name += gri.str();
-    name += ".txt";
-
-    outputFile.open(name);
-
-
-    for (int ga = 0; ga < g_ma_arr.size() ; ga++)
+    for (int j=0; j<bet_arr.size(); j++)
     {
-        ref_g_ma = g_ma_arr[ga];
-        //alpha = 1;
-        for (int al = 0; al < alp_arr.size(); al ++)
+        string name = "NCA_GENSIZE_";
+        
+        std::stringstream cuof;
+        std::stringstream bet;
+        std::stringstream gri;
+        std::stringstream sizz;
+
+        cuof << k_cutoff;
+        bet << MD.tau_grid[MD.tau_grid.size() - 1];
+        gri << MD.t;
+        sizz << siz;
+
+        name += sizz.str();
+        name += "_MODE_";
+        name += cuof.str();
+        name += "_BETA_";
+        name += bet.str();
+        name += "_GRID_";
+        name += gri.str();
+        name += ".txt";
+
+        outputFile.open(name);
+
+
+        for (int ga = 0; ga < g_ma_arr.size() ; ga++)
         {
-        alpha = alp_arr[al];
-        //ref_g_ma = 1;
+            ref_g_ma = g_ma_arr[ga];
+            //alpha = 1;
+            for (int al = 0; al < alp_arr.size(); al ++)
+            {
+            alpha = alp_arr[al];
+            //ref_g_ma = 1;
 
-            /********************\beta * Chi(\beta / 2) Calculation****************************/
-                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(10);
-                vector<double> a = MD.Chi_sp_Function(ITER);
+                /********************\beta * Chi(\beta / 2) Calculation****************************/
+                    MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
+                    vector<MatrixXd> ITER = MD.Iteration(10);
+                    vector<double> a = MD.Chi_sp_Function(ITER);
 
-                //outputFile << "(" << ga << al << ")" << "\t" ; 
-                outputFile << MD.tau_grid[MD.t-1] * a[int(MD.t/2)] << "\t";
-            /**************************************************************************/
+                    //outputFile << "(" << ga << al << ")" << "\t" ; 
+                    outputFile << MD.tau_grid[MD.t-1] * a[int(MD.t/2)] << "\t";
+                /**************************************************************************/
+            }
+            outputFile << "\n";
+
         }
-        outputFile << "\n";
 
+        outputFile.close();
     }
-
-    outputFile.close();
 
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
     std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
