@@ -21,8 +21,8 @@ double alpha;
 
 MD_OC::MD_OC()
 {
-    tau_grid = linspace(0,2,401);
-    mode_grid = linspace(1,1000,1000);
+    tau_grid = linspace(0,10,401);
+    mode_grid = linspace(1,30000,30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
 
@@ -76,6 +76,7 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
         //coup_Arr[i] = sqrt((2 * k_cutoff / (alpha * M)) * (omega_Arr[i] / (1 + pow(nu * omega_Arr[i] / k_cutoff,2))));
 
         //simpson formulae
+        omega_Arr[0] = -0.05;
         omega_Arr[i] = (mode_grid[i]/mode_grid[M-1]); // fix to x to adjust simpson's rule
         coup_Arr[i] = sqrt((2 * k_cutoff / (alpha)) * ( k_cutoff * omega_Arr[i] / (1 + pow(nu * omega_Arr[i],2)))); // fix to adjust simpson's rule
     }
@@ -118,7 +119,7 @@ void MD_OC::Interact_V(double k_cutoff)
             }
             
         }
-        INT_Arr[i] += -0.05;
+        //INT_Arr[i] += -0.05;
     }
 }
 
@@ -175,7 +176,7 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
     {
-        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
+        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi} 
         
         if (i<2)
         {
@@ -184,7 +185,7 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     }
     for (int i = 0; i < M ; i++)
     {
-        Blank += coup_Arr[i];
+        Blank += coup_Arr[i];  
     }
 
     INT_even(1,0) = INT_even(1,0) * -1;
@@ -267,7 +268,7 @@ int main()
     //vector<double> alp_arr = OC.linspace(0,10,21);
 
     ref_g_ma = 1;
-    alp = 0.5;
+    alp = 1;
 
     OC.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
     OC.Dataoutput();
