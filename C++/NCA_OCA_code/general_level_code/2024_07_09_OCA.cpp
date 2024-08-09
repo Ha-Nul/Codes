@@ -74,6 +74,12 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 
 void MD_OC::Interact_V(double k_cutoff)
 {
+        //Initializing Interaction array
+    for (int i = 0; i < t; i++)
+    {
+        INT_Arr[i] = 0;
+    }
+    
     for (int i = 0; i < t; i++)
     {
         for (int j = 0; j < M ;j++)

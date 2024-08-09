@@ -5,6 +5,7 @@
 #include <cmath>
 #include <OCA_bath.hpp>
 #include <chrono>
+#include <mpi.h>
 
 using namespace std;
 using namespace Eigen;
@@ -18,8 +19,8 @@ int siz = 0;
 
 MD_OC::MD_OC()
 {
-    tau_grid = linspace(0,10,101);
-    mode_grid = linspace(1,30000,30000);
+    tau_grid = linspace(0,20,101);
+    mode_grid = linspace(1,5000,5000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
 
@@ -44,13 +45,8 @@ MD_OC::~MD_OC()
 
 void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 {
-    //Initializing data
-    for (int j = 0 ; j < M ; j++)
-    {
-        omega_Arr[j] = 0;
-        coup_Arr[j] = 0;
-    }
-
+    omega_Arr.resize(M);
+    coup_Arr.resize(M);
     double nu = pi * k_cutoff / alpha;
     
     for (int i=0; i < M; i++)
@@ -78,7 +74,7 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 
 void MD_OC::Interact_V(double k_cutoff)
 {
-    //Initializing Interaction array
+        //Initializing Interaction array
     for (int i = 0; i < t; i++)
     {
         INT_Arr[i] = 0;
@@ -231,15 +227,15 @@ void MD_OC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
     Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd());
 
 
-    cout << "$ H_N value : \n " << H_N << endl;
-    cout << "$ H_loc value : \n " << H_loc << endl;
+    //cout << "$ H_N value : \n " << H_N << endl;
+    //cout << "$ H_loc value : \n " << H_loc << endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 void MD_OC::NCA_self()
 {
-    cout << "\t ** NCA RUN" << endl;
+    //cout << "\t ** NCA RUN" << endl;
     SELF_E.resize(t);
     for (int i = 0; i < t; i++)
     {
@@ -250,7 +246,7 @@ void MD_OC::NCA_self()
 void MD_OC::OCA_T()
 {
 
-    cout << "\t ** OCA_T RUN" << endl;
+    //cout << "\t ** OCA_T RUN" << endl;
     T.resize(t);
     for (int n = 0; n < t; n++)
     {
@@ -264,7 +260,7 @@ void MD_OC::OCA_T()
 
 void MD_OC::OCA_self()
 {
-    cout << "\t ** OCA_self RUN" << endl;
+    //cout << "\t ** OCA_self RUN" << endl;
     MatrixXd Stmp;
     for (int i = 0; i < t; i++)
     {
@@ -294,16 +290,16 @@ void MD_OC::OCA_self()
 
 void MD_OC::SELF_Energy()
 {
-    cout << "** SELF_Energy RUN" << endl;
+    //cout << "** SELF_Energy RUN" << endl;
     NCA_self();
     OCA_T();
-    std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
-    cout << "\t" << "OCA calculation Starts" << endl;
+    //std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
+    //cout << "\t" << "OCA calculation Starts" << endl;
     OCA_self();
-    std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
-    std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec - start);
-    cout << "\t" << "Calculation ends : " << microseconds.count() << "[sec]" << endl;
-    cout << "-----------------------------" << endl;
+    //std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
+    //std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec - start);
+    //cout << "\t" << "Calculation ends : " << microseconds.count() << "[sec]" << endl;
+    //cout << "-----------------------------" << endl;
 
     //cout << SELF_E[99] << endl;
 }
@@ -396,7 +392,7 @@ double MD_OC::chemical_poten(MatrixXd prop)
 
 vector<MatrixXd> MD_OC::Iteration(const int& n)
 {
-    cout << "** Iteration RUN " << endl;
+    //cout << "** Iteration RUN " << endl;
 
     Prop.resize(t, MatrixXd::Zero(siz,siz));
     Prop[0] = MatrixXd::Identity(siz,siz);
@@ -435,8 +431,8 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
         else
         {
-            std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
-            cout << "Iteration " << i << " Starts" << endl;
+            //std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
+            //cout << "Iteration " << i << " Starts" << endl;
             H_loc = H_loc - lambda[i - 1] * Iden;
             SELF_Energy();
             Prop = Propagator(SELF_E, H_loc);
@@ -453,10 +449,10 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
                 //cout << Prop[j] << endl;
             }
-            std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
-            std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec - start);
-            cout << "Process ends in : " << microseconds.count() << "[sec]" << endl;
-            cout << "-----------------------------" << endl;
+            //std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
+            //std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec - start);
+            //cout << "Process ends in : " << microseconds.count() << "[sec]" << endl;
+            //cout << "-----------------------------" << endl;
         }
     }
 
@@ -522,13 +518,13 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 }
 ////////////////////////////////////////////////////////////////////////////////////
 
-int main()
+int main(int argc, char *argv[])
 {
     MD_OC MD;
-    std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
-    cout << " ## OCA Program begins ##" << endl;
-    cout << "-------------------------------" << endl;
-    int modeselec = 0;
+    //std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
+    //cout << " ## OCA Program begins ##" << endl;
+    //cout << "-------------------------------" << endl;
+    //int modeselec = 0;
 
 
     /// Parameter adjustment ////
@@ -537,6 +533,8 @@ int main()
     double k_cutoff = 20;
     double& ref_g_ma = g_ma;
     int& size = siz;
+
+    vector<double> resultarr;
 
     size = 5;
 
@@ -551,14 +549,14 @@ int main()
         }
         if (i!=0)
         {
-            alp_arr[i] = alp_arr[i-1] + 1;
+            alp_arr[i] = alp_arr[i-1] + 0.1;
         }
         
     }
     
     
-    vector<double> g_ma_arr(10,0);
-    for (int i = 0; i < 10; i++)
+    vector<double> g_ma_arr(21,0);
+    for (int i = 0; i < 21 ; i++)
     {
         if (i==0)
         {
@@ -566,10 +564,10 @@ int main()
         }
         if (i!=0)
         {
-            g_ma_arr[i] = g_ma_arr[i-1] + 1;
+            g_ma_arr[i] = g_ma_arr[i-1] + 0.1;
         }
     }
-
+    
     std::ofstream outputFile ("./");
 
     string name = "OCA_GENSIZE_";
@@ -591,41 +589,144 @@ int main()
     name += bet.str();
     name += "_GRID_";
     name += gri.str();
-    name += ".txt";
+    name += "_MPI.txt";
 
     outputFile.open(name);
 
+    //////////////////////////////////////////MPI code activate ////////////////////////////
+    int id;
+    int ierr;
+    int p;
+    MPI_Status status;
+    vector<vector<double> > arr(g_ma_arr.size(), vector<double>(alp_arr.size(), 0));
 
-    for (int ga = 0; ga < g_ma_arr.size() ; ga++)
+    ierr = MPI_Init(&argc, &argv);
+    ierr = MPI_Comm_rank(MPI_COMM_WORLD, &id);
+    ierr = MPI_Comm_size(MPI_COMM_WORLD, &p);
+
+    if (id == 0)
     {
-        //ref_g_ma = 1;
-        ref_g_ma = g_ma_arr[ga];
-        //alpha = 1;
-        for (int al = 0; al < alp_arr.size(); al ++)
-        {
-            alpha = alp_arr[al];
-    
-            /********************\beta * Chi(\beta / 2) Calculation****************************/
-                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(25);
-                vector<double> a = MD.Chi_sp_Function(ITER);
-
-                //outputFile << "(" << ga << al << ")" << "\t" ; 
-                outputFile << MD.tau_grid[MD.t-1] * a[int(MD.t/2)] << "\t";
-            /**************************************************************************/
-        }
-        outputFile << "\n";
-
+        cout << "MPI process activated" << endl;
+        cout << "Number of activated processes: " << p << endl;
+        cout << " ** Test for calculating the value of f(x) in separated interval ** " << endl;
     }
 
-    outputFile.close();
+    cout << "Process " << id << ": Active!\n";
 
-    std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
-    std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
-    cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
-    cout << "-----------------------------" << endl;
+    if (id == 0)
+    {
+        for (int process = 1; process < p; process++)
+        {
+            int index_s = g_ma_arr.size() * (process - 1) / (p - 1);
+            int index_e = g_ma_arr.size() * process / (p - 1) - 1;
+
+            vector<double> bound(2);
+            bound[0] = index_s;
+            bound[1] = index_e;
+
+            MPI_Send(bound.data(), bound.size(), MPI_DOUBLE, process, 0, MPI_COMM_WORLD);
+        }
+    }
+    else if (id == 1)
+    {
+        vector<double> bound(2);
+        MPI_Recv(bound.data(), bound.size(), MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        cout << "\t ***** Process " << id << " , bound : " << bound[0] << " , " << bound[1] << endl;
+
+        int num_rows = bound[1] - bound[0] + 1;
+        vector<double> iinterarr(num_rows * alp_arr.size(), 0);
+
+        for (int ga = 0; ga < num_rows; ga++)
+        {
+            ref_g_ma = g_ma_arr[bound[0] + ga];
+            cout << "\t\tGamma value with Process " << id << "  : " << ref_g_ma << endl;
+            for (int al = 0; al < alp_arr.size(); al++)
+            {
+                alpha = alp_arr[al];
+                MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
+                vector<MatrixXd> ITER = MD.Iteration(10);
+                vector<double> a = MD.Chi_sp_Function(ITER);
+                iinterarr[ga * alp_arr.size() + al] = MD.tau_grid[MD.t - 1] * a[int(MD.t / 2)];
+            }
+        }
+        MPI_Send(iinterarr.data(), iinterarr.size(), MPI_DOUBLE, 0, 1, MPI_COMM_WORLD);
+    }
+    else
+    {
+        vector<double> bound(2);
+        MPI_Recv(bound.data(), bound.size(), MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        cout << "\t ***** Process " << id << " , bound : " << bound[0] << " , " << bound[1] << endl;
+
+        int num_rows = bound[1] - bound[0] + 1;
+        vector<double> iinterarr(num_rows * alp_arr.size(), 0);
+
+        for (int ga = 0; ga < num_rows; ga++)
+        {
+            ref_g_ma = g_ma_arr[bound[0] + ga];
+            cout << "\t\tGamma value with Process " << id << "  : " << ref_g_ma << endl;
+            for (int al = 0; al < alp_arr.size(); al++)
+            {
+                alpha = alp_arr[al];
+                MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
+                vector<MatrixXd> ITER = MD.Iteration(10);
+                vector<double> a = MD.Chi_sp_Function(ITER);
+                iinterarr[ga * alp_arr.size() + al] = MD.tau_grid[MD.t - 1] * a[int(MD.t / 2)];
+            }
+        }
+        MPI_Send(iinterarr.data(), iinterarr.size(), MPI_DOUBLE, 0, 1, MPI_COMM_WORLD);
+    }
+
+    if (id == 0)
+    {
+        for (int i = 1; i < p; i++)
+        {
+            MPI_Status status;
+            MPI_Probe(MPI_ANY_SOURCE, 1, MPI_COMM_WORLD, &status);
+            int count;
+            MPI_Get_count(&status, MPI_DOUBLE, &count);
+            vector<double> temp_results(count);
+            MPI_Recv(temp_results.data(), count, MPI_DOUBLE, status.MPI_SOURCE, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
+            int row_start = g_ma_arr.size() * (status.MPI_SOURCE - 1) / (p - 1);
+            for (int j = 0; j < count / alp_arr.size(); j++)
+            {
+                copy(temp_results.begin() + j * alp_arr.size(), temp_results.begin() + (j + 1) * alp_arr.size(), arr[row_start + j].begin());
+            }
+        }
+
+        cout << "Final results:" << endl;
+        for (int i = 0; i < arr.size(); i++)
+        {
+            for (int j = 0; j < arr[i].size(); j++)
+            {
+                cout << arr[i][j] << " ";
+            }
+            cout << "\n";
+        }
+
+        for (int i = 0; i < arr.size(); i++)
+        {
+            for (int j = 0; j < arr[i].size(); j++)
+            {
+                outputFile << arr[i][j] << "\t";
+            }
+            outputFile << "\n";
+        }
+
+        outputFile.close();
+    }
+
+    MPI_Finalize(); // 모든 프로세스에서 호출
+    //////////////////////////////////////////MPI final ///////////////////////////
+        
+
+    //std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
+    //std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
+    //cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
+    //cout << "-----------------------------" << endl;
 
     return 0;
 
     
 }
+
