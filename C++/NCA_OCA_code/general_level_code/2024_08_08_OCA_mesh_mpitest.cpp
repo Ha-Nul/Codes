@@ -19,8 +19,8 @@ int siz = 0;
 
 MD_OC::MD_OC()
 {
-    tau_grid = linspace(0,20,101);
-    mode_grid = linspace(1,5000,5000);
+    tau_grid = linspace(0,10,101);
+    mode_grid = linspace(1,30000,30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
 
@@ -626,30 +626,6 @@ int main(int argc, char *argv[])
 
             MPI_Send(bound.data(), bound.size(), MPI_DOUBLE, process, 0, MPI_COMM_WORLD);
         }
-    }
-    else if (id == 1)
-    {
-        vector<double> bound(2);
-        MPI_Recv(bound.data(), bound.size(), MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        cout << "\t ***** Process " << id << " , bound : " << bound[0] << " , " << bound[1] << endl;
-
-        int num_rows = bound[1] - bound[0] + 1;
-        vector<double> iinterarr(num_rows * alp_arr.size(), 0);
-
-        for (int ga = 0; ga < num_rows; ga++)
-        {
-            ref_g_ma = g_ma_arr[bound[0] + ga];
-            cout << "\t\tGamma value with Process " << id << "  : " << ref_g_ma << endl;
-            for (int al = 0; al < alp_arr.size(); al++)
-            {
-                alpha = alp_arr[al];
-                MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(10);
-                vector<double> a = MD.Chi_sp_Function(ITER);
-                iinterarr[ga * alp_arr.size() + al] = MD.tau_grid[MD.t - 1] * a[int(MD.t / 2)];
-            }
-        }
-        MPI_Send(iinterarr.data(), iinterarr.size(), MPI_DOUBLE, 0, 1, MPI_COMM_WORLD);
     }
     else
     {
