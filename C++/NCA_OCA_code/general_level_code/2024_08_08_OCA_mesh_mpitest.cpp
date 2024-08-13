@@ -19,7 +19,7 @@ int siz = 0;
 
 MD_OC::MD_OC()
 {
-    tau_grid = linspace(0,10,101);
+    tau_grid = linspace(0,20,101);
     mode_grid = linspace(1,30000,30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
@@ -278,7 +278,7 @@ void MD_OC::OCA_self()
             //std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
             //std::chrono::duration<double> nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(sec-start);
             //cout << "\t" << "\t" << "Calculation ends : " << nanoseconds.count() << "[sec]" << endl;
-            //cout << "-----------------------------------------------------" << endl;  
+            //cout << "-----------------------------------------------------" << endl;
 
         }
         SELF_E[i] += pow(Delta_t, 2) * Stmp;
@@ -540,8 +540,8 @@ int main(int argc, char *argv[])
 
     /////////////////////////////////
     
-    vector<double> alp_arr(2,0);
-    for (int i = 0; i < 2 ; i++)
+    vector<double> alp_arr(10,0);
+    for (int i = 0; i < 10 ; i++)
     {
         if (i==0)
         {
@@ -555,8 +555,8 @@ int main(int argc, char *argv[])
     }
     
     
-    vector<double> g_ma_arr(21,0);
-    for (int i = 0; i < 21 ; i++)
+    vector<double> g_ma_arr(10,0);
+    for (int i = 0; i < 10; i++)
     {
         if (i==0)
         {
@@ -594,11 +594,13 @@ int main(int argc, char *argv[])
     outputFile.open(name);
 
     //////////////////////////////////////////MPI code activate ////////////////////////////
+    // Mode gamma
+
     int id;
     int ierr;
     int p;
     MPI_Status status;
-    vector<vector<double> > arr(g_ma_arr.size(), vector<double>(alp_arr.size(), 0));
+    MatrixXd CHI_BET_STOR = MatrixXd::Zero(g_ma_arr.size(),alp_arr.size());
 
     ierr = MPI_Init(&argc, &argv);
     ierr = MPI_Comm_rank(MPI_COMM_WORLD, &id);
@@ -617,8 +619,8 @@ int main(int argc, char *argv[])
     {
         for (int process = 1; process < p; process++)
         {
-            int index_s = g_ma_arr.size() * (process - 1) / (p - 1);
-            int index_e = g_ma_arr.size() * process / (p - 1) - 1;
+            int index_s = alp_arr.size() * (process - 1) / (p - 1);
+            int index_e = alp_arr.size() * process / (p - 1) - 1;
 
             vector<double> bound(2);
             bound[0] = index_s;
@@ -633,10 +635,12 @@ int main(int argc, char *argv[])
         MPI_Recv(bound.data(), bound.size(), MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         cout << "\t ***** Process " << id << " , bound : " << bound[0] << " , " << bound[1] << endl;
 
-        int num_rows = bound[1] - bound[0] + 1;
-        vector<double> iinterarr(num_rows * alp_arr.size(), 0);
+        int num_lim = bound[1] - bound[0] + 1;
+        MatrixXd INDEX_CAL = MatrixXd::Zero(g_ma_arr.size(),alp_arr.size());
 
-        for (int ga = 0; ga < num_rows; ga++)
+        // gamma block
+        
+        for (int ga = 0; ga < num_lim; ga++)
         {
             ref_g_ma = g_ma_arr[bound[0] + ga];
             cout << "\t\tGamma value with Process " << id << "  : " << ref_g_ma << endl;
@@ -644,47 +648,69 @@ int main(int argc, char *argv[])
             {
                 alpha = alp_arr[al];
                 MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(10);
+                vector<MatrixXd> ITER = MD.Iteration(5);
                 vector<double> a = MD.Chi_sp_Function(ITER);
-                iinterarr[ga * alp_arr.size() + al] = MD.tau_grid[MD.t - 1] * a[int(MD.t / 2)];
+                INDEX_CAL(int(ga+bound[0]),al) = MD.tau_grid[MD.t - 1] * a[int(MD.t / 2)];
             }
         }
-        MPI_Send(iinterarr.data(), iinterarr.size(), MPI_DOUBLE, 0, 1, MPI_COMM_WORLD);
+        
+
+       // alpha block
+       /*
+        for (int ga = 0; ga < g_ma_arr.size(); ga++)
+        {
+            ref_g_ma = g_ma_arr[ga];
+            //cout << "\t\tGamma value with Process " << id << "  : " << ref_g_ma << endl;
+            for (int al = 0; al < num_lim; al++)
+            {
+                alpha = alp_arr[al+bound[0]];
+                cout << "\tAlpha value with Process " << id << "(" << al + bound[0] << ") : " << alpha << endl;
+                MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
+                vector<MatrixXd> ITER = MD.Iteration(5);
+                vector<double> a = MD.Chi_sp_Function(ITER);
+                if (int(al+bound[0]) < alp_arr.size())
+                {
+                    INDEX_CAL(ga,int(al+bound[0])) = MD.tau_grid[MD.t - 1] * a[int(MD.t / 2)];
+                }
+                
+            }
+        }
+        */
+
+        int rows, cols;
+        
+        rows = INDEX_CAL.rows();
+        cols = INDEX_CAL.cols();
+
+        MPI_Send(&rows, 1, MPI_INT, 0, 1, MPI_COMM_WORLD);
+        MPI_Send(&cols, 1, MPI_INT, 0, 1, MPI_COMM_WORLD);
+        MPI_Send(INDEX_CAL.data(), rows * cols, MPI_DOUBLE, 0, 1, MPI_COMM_WORLD);
     }
 
     if (id == 0)
     {
         for (int i = 1; i < p; i++)
         {
-            MPI_Status status;
-            MPI_Probe(MPI_ANY_SOURCE, 1, MPI_COMM_WORLD, &status);
-            int count;
-            MPI_Get_count(&status, MPI_DOUBLE, &count);
-            vector<double> temp_results(count);
-            MPI_Recv(temp_results.data(), count, MPI_DOUBLE, status.MPI_SOURCE, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            int rows, cols;
+            MatrixXd INDEX_CAL = MatrixXd::Zero(g_ma_arr.size(),alp_arr.size());
 
-            int row_start = g_ma_arr.size() * (status.MPI_SOURCE - 1) / (p - 1);
-            for (int j = 0; j < count / alp_arr.size(); j++)
-            {
-                copy(temp_results.begin() + j * alp_arr.size(), temp_results.begin() + (j + 1) * alp_arr.size(), arr[row_start + j].begin());
-            }
+            MPI_Recv(&rows, 1, MPI_INT, i, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            MPI_Recv(&cols, 1, MPI_INT, i, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
+            MPI_Recv(INDEX_CAL.data(), rows * cols, MPI_DOUBLE, i, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
+            CHI_BET_STOR += INDEX_CAL;
+
         }
 
         cout << "Final results:" << endl;
-        for (int i = 0; i < arr.size(); i++)
-        {
-            for (int j = 0; j < arr[i].size(); j++)
-            {
-                cout << arr[i][j] << " ";
-            }
-            cout << "\n";
-        }
+        cout << CHI_BET_STOR << endl;
 
-        for (int i = 0; i < arr.size(); i++)
+        for (int i = 0; i < g_ma_arr.size(); i++)
         {
-            for (int j = 0; j < arr[i].size(); j++)
+            for (int j = 0; j < alp_arr.size(); j++)
             {
-                outputFile << arr[i][j] << "\t";
+                outputFile << CHI_BET_STOR(i,j) << "\t";
             }
             outputFile << "\n";
         }
@@ -705,4 +731,5 @@ int main(int argc, char *argv[])
 
     
 }
+
 
