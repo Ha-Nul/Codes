@@ -79,7 +79,7 @@ void MD_OC::Interact_V(double k_cutoff)
     {
         INT_Arr[i] = 0;
     }
-    
+
     for (int i = 0; i < t; i++)
     {
         for (int j = 0; j < M ;j++)
@@ -275,7 +275,7 @@ void MD_OC::OCA_self()
             //std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
             //std::chrono::duration<double> nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(sec-start);
             //cout << "\t" << "\t" << "Calculation ends : " << nanoseconds.count() << "[sec]" << endl;
-            //cout << "-----------------------------------------------------" << endl;  
+            //cout << "-----------------------------------------------------" << endl;
 
         }
         SELF_E[i] += pow(Delta_t, 2) * Stmp;
@@ -387,6 +387,31 @@ double MD_OC::chemical_poten(MatrixXd prop)
 
 ///////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////
+
+double MD_OC::temp_minpoint(vector<MatrixXd> &arr)
+{
+    for (int i = 1; i < arr.size(); i++)
+    {
+        double grad = arr[i](0,0)-arr[i-1](0,0);
+        cout << "\t""\t" << "Prop (0,0)  : " << arr[i](0,0);
+        if (grad>0){
+            
+            cout << " Min value is : " << arr[i-1] << " ! " << endl;
+
+            return i-1;
+            break;
+        }
+    }
+}
+
+double MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo)
+{
+    return arrr[minpo](0,0);
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
 vector<MatrixXd> MD_OC::Iteration(const int& n)
 {
     cout << "** Iteration RUN " << endl;
@@ -395,9 +420,20 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
     Prop[0] = MatrixXd::Identity(siz,siz);
     MatrixXd Iden = MatrixXd::Identity(siz,siz);
 
+    //Iterarion stop condition block
+
+
     vector<double> lambda(n + 1, 0);
     double expDtauLambda;
     double factor;
+
+    ///////////////////////////////////////////////////////////////
+
+    double temp_minpoin;
+    vector<double> temp_itemi(2,0);
+    vector<double> temp_itest(2,0);
+
+    ///////////////////////////////////////////////////////////////
 
     for (int i = 0; i <= n; i++)
     {
@@ -424,12 +460,24 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
                 factor *= expDtauLambda;
                 //cout << Prop[j] << endl;
             }
+
+            //////////////////////////////////////////////////////////////////////////////
+
+            temp_minpoin = t-1;//temp_minpoint(Prop);
+
+            //////////////////////////////////////////////////////////////////////////////
         }
 
         else
         {
             std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
             cout << "Iteration " << i << " Starts" << endl;
+            /////////////////////////////////////////////////////////////////////////////
+
+            temp_itemi[i%2-1] = temp_itemin(Prop,temp_minpoin);
+
+            /////////////////////////////////////////////////////////////////////////////
+
             H_loc = H_loc - lambda[i - 1] * Iden;
             SELF_Energy();
             Prop = Propagator(SELF_E, H_loc);
@@ -446,6 +494,23 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
                 //cout << Prop[j] << endl;
             }
+
+            /////////////////////////////////////////////////////////////////////////////
+
+            temp_itemi[i%2] = temp_itemin(Prop,temp_minpoin);
+            cout << "\t\t" << temp_itemin(Prop,temp_minpoin) << endl;
+            cout << " 0 : " << temp_itemi[i%2] << "\t 1 : " << temp_itemi[(i-1)%2] << endl;
+            temp_itest[i%2] = temp_itemi[i%2-1] - temp_itemi[i%2];
+
+            if (i > 1){
+                cout << "\t""\t" << i << " th Iteration stop value : " << temp_itest[i%2]-temp_itest[(i-1)%2] << endl;
+                if (temp_itest[i%2]-temp_itest[(i-1)%2] > 0 && temp_itest[i%2]-temp_itest[(i-1)%2] < 0.00001){
+                    break;
+                }
+            }
+
+            /////////////////////////////////////////////////////////////////////////////
+
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
             std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec - start);
             cout << "Process ends in : " << microseconds.count() << "[sec]" << endl;
@@ -562,56 +627,12 @@ int main()
     }
     
 
-    for (int ga = 0; ga< 1; ga++) for (int al = 0; al<1;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
+    for (int ga = 0; ga< 1; ga++) //for (int al = 0; al<1;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
     {
         //ef_g_ma = g_ma_arr[ga];
         alpha = 1;
         //alpha = alp_arr[al];
         ref_g_ma = 1;
-        
-        
-            /*
-            std::ofstream outputFile ("./");
-
-                string name = "OCA_HYB_G_GAMMA_";
-
-                std::stringstream gam;
-                std::stringstream alp;
-                std::stringstream cuof;
-                std::stringstream bet;
-                std::stringstream gri;
-
-                gam << g_ma;
-                alp << alpha;
-                cuof << k_cutoff;
-                bet << MD.tau_grid[MD.t-1];
-                gri << MD.t;
-
-                name += gam.str();
-                name += "_ALPHA_";
-                name += alp.str();
-                name += "_MODE_";
-                name += cuof.str();
-                name += "_BETA_";
-                name += bet.str();
-                name += "_GRID_";
-                name += gri.str();
-                name += ".txt";
-
-                MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                //vector<MatrixXd> a = MD.Iteration(1);
-        
-                outputFile.open(name);
-                for (int i = 0; i < MD.t; i++)
-                {
-                    outputFile << MD.tau_grid[i] << "\t" << G_Arr[i] << endl;
-                }
-                outputFile.close();
-                */
-        
-
-            
-            /****************************************************************************/
 
             /****************************G(tau) Calcultaion******************************/
             
@@ -634,7 +655,7 @@ int main()
             mod << MD.mode_grid.size();
             bet << MD.tau_grid[MD.tau_grid.size() - 1];
             gri << MD.t;
-            size << siz;
+            size << ga;
 
             Prop_name += gam.str();
             Prop_name += "_ALPHA_";
@@ -647,7 +668,7 @@ int main()
             Prop_name += bet.str();
             Prop_name += "_GRID_";
             Prop_name += gri.str();
-            Prop_name += "_SIZE_";
+            Prop_name += "_ITE_";
             Prop_name += size.str();
             Prop_name += ".txt";
 
@@ -655,7 +676,7 @@ int main()
             //cout << gamma_arr[ga] << endl;
 
             MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
-            vector<MatrixXd> a = MD.Iteration(20);
+            vector<MatrixXd> a = MD.Iteration(25);
             /*
             for (int i = 0; i < a.size(); i++)
             {
@@ -730,7 +751,7 @@ int main()
             //cin >> ref_g_ma;
             /********************\beta * Chi(\beta / 2) Calculation****************************/
                 //std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
-                
+                /*
                 string BETC_name = "OCA_BETATIMES_CHI_GAMMA_";
                 /*
                 std::stringstream gam;
@@ -744,7 +765,7 @@ int main()
                 cuof << k_cutoff;s
                 bet << MD.tau_grid[MD.t-1];
                 gri << MD.t;
-                */
+                
 
                 BETC_name += gam.str();
                 BETC_name += "_ALPHA_";
@@ -774,7 +795,7 @@ int main()
 
                 outputFile.close();
                 
-            /*************************************************************************/   
+            /*************************************************************************/
 
     }
 
