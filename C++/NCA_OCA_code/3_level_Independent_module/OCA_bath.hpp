@@ -86,6 +86,10 @@ public:
         result.insert(result.begin() + iterator, max);
         return result;
     }
+    
+    double Limit;
+    void SetLimit(double value);
+    void Setgrid();
 
     /*
     vector<MatrixXd> convolve(const vector<MatrixXd>& Signal,
@@ -140,7 +144,7 @@ public:
     void Hamiltonian_N(MatrixXd even, MatrixXd odd);
     void Hamiltonian_loc(MatrixXd a, MatrixXd b);
     
-    void CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff);
+    void CAL_COUP_INT_with_g_arr(double alp, double cutoff);
     void Tilde_g_calculation_function(double alpha, double k_cutoff);
 
     void Dataoutput();
@@ -181,6 +185,13 @@ public:
     double chemical_poten(MatrixXd prop);
 
     vector<MatrixXd> Iteration(const int& iteration);
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    double temp_minpoint(vector<MatrixXd> &arr);
+    vector<double> temp_itemin(vector<MatrixXd> &arr, double minpo, double size);
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
 
     void NCA_Chi_sp(vector<MatrixXd> &ITER);
     void OCA_store(vector<MatrixXd> &ITER);

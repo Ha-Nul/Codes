@@ -5,7 +5,8 @@
 #include <vector>
 #include <cmath>
 #include <OCA_bath.hpp>
-#include <chrono>
+#include <string>
+#include <sstream>
 
 using namespace std;
 using namespace Eigen;
@@ -254,7 +255,6 @@ void MD_OC::Dataoutput()
     outputFile.close();
 
 }
-
 /////////////////////////////////////////////////////////////////////////////////
 
 int main()
@@ -265,10 +265,13 @@ int main()
     double& alp = alpha;
     double k_cutoff = 20;
 
-    //vector<double> alp_arr = OC.linspace(0,10,21);
+    string input;
+    getline(cin, input); // 한 줄을 입력받음
 
-    ref_g_ma = 1;
-    alp = 1;
+    istringstream iss(input);
+    iss >> g_ma >> alpha;
+
+    cout << " Value of gamma : " << g_ma << ", alpha : " << alpha << endl; 
 
     OC.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
     OC.Dataoutput();
