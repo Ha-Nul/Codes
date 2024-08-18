@@ -271,7 +271,7 @@ int main()
     istringstream iss(input);
     iss >> g_ma >> alpha;
 
-    cout << " ** H_loc, INT_Arr, H_N sending process activates"
+    cout << " ** H_loc, INT_Arr, H_N sending process activates";
     cout << " Value of gamma : " << g_ma << ", alpha : " << alpha << endl; 
 
     OC.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
@@ -279,4 +279,3 @@ int main()
 
     return 0;
 }
-∏
