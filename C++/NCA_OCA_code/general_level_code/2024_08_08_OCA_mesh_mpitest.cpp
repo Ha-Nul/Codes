@@ -389,6 +389,41 @@ double MD_OC::chemical_poten(MatrixXd prop)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////erase////////////////////////////
+/*
+double MD_OC::temp_minpoint(vector<MatrixXd> &arr)
+{
+    for (int i = 1; i < arr.size(); i++)
+    {
+        double grad = arr[i](0,0)-arr[i-1](0,0);
+        cout << "\t""\t" << "Prop (0,0)  : " << arr[i](0,0);
+        if (grad>0){
+            
+            cout << " Min value is : " << arr[i-1] << " ! " << endl;
+
+            return i-1;
+            break;
+        }
+    }
+}
+*/
+
+vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, double size)
+{
+    vector<double> dist_return(size,0);
+
+    for (int i = 0 ; i < size; i++)
+    {
+        dist_return[i] = arrr[t-1](i,i);
+    }
+
+    return dist_return;
+}
+
+///////////////////////////////////////////////////////////////////////////////////
 
 vector<MatrixXd> MD_OC::Iteration(const int& n)
 {
@@ -398,9 +433,20 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
     Prop[0] = MatrixXd::Identity(siz,siz);
     MatrixXd Iden = MatrixXd::Identity(siz,siz);
 
+    //Iterarion stop condition block
+
+
     vector<double> lambda(n + 1, 0);
     double expDtauLambda;
     double factor;
+
+    ///////////////////////////////////////////////////////////////
+
+    double temp_minpoin;
+    vector<vector<double> > temp_itemi(2,vector<double>(siz,0));
+    vector<double> temp_itest(2,0);
+
+    ///////////////////////////////////////////////////////////////
 
     for (int i = 0; i <= n; i++)
     {
@@ -427,12 +473,24 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
                 factor *= expDtauLambda;
                 //cout << Prop[j] << endl;
             }
+
+            //////////////////////////////////////////////////////////////////////////////
+
+            temp_minpoin = int(t/2);//temp_minpoint(Prop);
+
+            //////////////////////////////////////////////////////////////////////////////
         }
 
         else
         {
             //std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
             //cout << "Iteration " << i << " Starts" << endl;
+            /////////////////////////////////////////////////////////////////////////////
+
+            temp_itemi[i%2-1] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
+
+            /////////////////////////////////////////////////////////////////////////////
+
             H_loc = H_loc - lambda[i - 1] * Iden;
             SELF_Energy();
             Prop = Propagator(SELF_E, H_loc);
@@ -449,6 +507,32 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
                 //cout << Prop[j] << endl;
             }
+
+            /////////////////////////////////////////////////////////////////////////////
+
+            temp_itemi[i%2] = temp_itemin(Prop,temp_minpoin,siz);
+            //cout << "\t\t" << temp_itemin(Prop,temp_minpoin,siz) << endl;
+            cout << " 0 : " << "\n";
+            for (int j=0; j< siz; j++){
+                cout << temp_itemi[i%2][j] << "\t";
+            }
+            cout << "\n" << " 1 : " << "\n";
+            for (int k=0; k<siz; k++){
+                cout << temp_itemi[(i-1)%2][k] << "\t";
+            }
+            
+            // temporary store for current iteration data
+            temp_itest[i%2] = temp_itemi[i%2-1][siz-1] - temp_itemi[i%2][siz-1];
+            
+            if (i > 1){
+                cout << "\t""\t" << i << " th Iteration stop value : " << fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) << endl;
+                if (fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) < 0.00001){
+                    break;
+                }
+            }
+            
+            /////////////////////////////////////////////////////////////////////////////
+
             //std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
             //std::chrono::duration<double> microseconds = std::chrono::duration_cast<std::chrono::milliseconds>(sec - start);
             //cout << "Process ends in : " << microseconds.count() << "[sec]" << endl;
@@ -458,6 +542,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
     return Prop;
 }
+
 
 //////////////////////////////////////////////////////////////////////////////
 
