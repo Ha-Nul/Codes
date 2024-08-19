@@ -387,31 +387,8 @@ double MD_OC::chemical_poten(MatrixXd prop)
 
     return lambda;
 }
-
 ///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////
-//////////////////////////////erase////////////////////////////
-/*
-double MD_OC::temp_minpoint(vector<MatrixXd> &arr)
-{
-    for (int i = 1; i < arr.size(); i++)
-    {
-        double grad = arr[i](0,0)-arr[i-1](0,0);
-        cout << "\t""\t" << "Prop (0,0)  : " << arr[i](0,0);
-        if (grad>0){
-            
-            cout << " Min value is : " << arr[i-1] << " ! " << endl;
-
-            return i-1;
-            break;
-        }
-    }
-}
-*/
-
-vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, double size)
+vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, int size)
 {
     vector<double> dist_return(size,0);
 
@@ -422,8 +399,7 @@ vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, double s
 
     return dist_return;
 }
-
-///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 vector<MatrixXd> MD_OC::Iteration(const int& n)
 {
@@ -433,16 +409,13 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
     Prop[0] = MatrixXd::Identity(siz,siz);
     MatrixXd Iden = MatrixXd::Identity(siz,siz);
 
-    //Iterarion stop condition block
-
-
     vector<double> lambda(n + 1, 0);
     double expDtauLambda;
     double factor;
 
     ///////////////////////////////////////////////////////////////
 
-    double temp_minpoin;
+    double temp_minpoin = 30;
     vector<vector<double> > temp_itemi(2,vector<double>(siz,0));
     vector<double> temp_itest(2,0);
 
@@ -474,11 +447,6 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
                 //cout << Prop[j] << endl;
             }
 
-            //////////////////////////////////////////////////////////////////////////////
-
-            temp_minpoin = int(t/2);//temp_minpoint(Prop);
-
-            //////////////////////////////////////////////////////////////////////////////
         }
 
         else
@@ -487,10 +455,9 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             //cout << "Iteration " << i << " Starts" << endl;
             /////////////////////////////////////////////////////////////////////////////
 
-            temp_itemi[i%2-1] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
+            temp_itemi[(i-1)%2] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
 
             /////////////////////////////////////////////////////////////////////////////
-
             H_loc = H_loc - lambda[i - 1] * Iden;
             SELF_Energy();
             Prop = Propagator(SELF_E, H_loc);
@@ -521,8 +488,10 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
                 cout << temp_itemi[(i-1)%2][k] << "\t";
             }
             
+            cout << "\n";
+            
             // temporary store for current iteration data
-            temp_itest[i%2] = temp_itemi[i%2-1][siz-1] - temp_itemi[i%2][siz-1];
+            temp_itest[i%2] = temp_itemi[(i-1)%2][0] - temp_itemi[i%2][0];
             
             if (i > 1){
                 cout << "\t""\t" << i << " th Iteration stop value : " << fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) << endl;
@@ -542,7 +511,6 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
     return Prop;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -702,6 +670,21 @@ int main(int argc, char *argv[])
 
     if (id == 0)
     {
+        //gamma block
+        for (int process = 1; process < p; process++)
+        {
+            int index_s = g_ma_arr.size() * (process - 1) / (p - 1);
+            int index_e = g_ma_arr.size() * process / (p - 1) - 1;
+
+            vector<double> bound(2);
+            bound[0] = index_s;
+            bound[1] = index_e;
+
+            MPI_Send(bound.data(), bound.size(), MPI_DOUBLE, process, 0, MPI_COMM_WORLD);
+        }
+
+        /*
+        //alpha block
         for (int process = 1; process < p; process++)
         {
             int index_s = alp_arr.size() * (process - 1) / (p - 1);
@@ -713,6 +696,7 @@ int main(int argc, char *argv[])
 
             MPI_Send(bound.data(), bound.size(), MPI_DOUBLE, process, 0, MPI_COMM_WORLD);
         }
+        */
     }
     else
     {
@@ -724,7 +708,7 @@ int main(int argc, char *argv[])
         MatrixXd INDEX_CAL = MatrixXd::Zero(g_ma_arr.size(),alp_arr.size());
 
         // gamma block
-        
+    
         for (int ga = 0; ga < num_lim; ga++)
         {
             ref_g_ma = g_ma_arr[bound[0] + ga];
@@ -816,5 +800,4 @@ int main(int argc, char *argv[])
 
     
 }
-
 

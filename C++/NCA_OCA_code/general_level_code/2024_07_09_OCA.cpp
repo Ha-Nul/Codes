@@ -407,7 +407,7 @@ double MD_OC::temp_minpoint(vector<MatrixXd> &arr)
 }
 */
 
-vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, double size)
+vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, int size)
 {
     vector<double> dist_return(size,0);
 
@@ -472,7 +472,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
             //////////////////////////////////////////////////////////////////////////////
 
-            temp_minpoin = int(t/2);//temp_minpoint(Prop);
+            temp_minpoin = 30;//temp_minpoint(Prop);
 
             //////////////////////////////////////////////////////////////////////////////
         }
@@ -483,7 +483,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             cout << "Iteration " << i << " Starts" << endl;
             /////////////////////////////////////////////////////////////////////////////
 
-            temp_itemi[i%2-1] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
+            temp_itemi[(i-1)%2] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
 
             /////////////////////////////////////////////////////////////////////////////
 
@@ -517,8 +517,10 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
                 cout << temp_itemi[(i-1)%2][k] << "\t";
             }
             
+            cout << "\n";
+            
             // temporary store for current iteration data
-            temp_itest[i%2] = temp_itemi[i%2-1][siz-1] - temp_itemi[i%2][siz-1];
+            temp_itest[i%2] = temp_itemi[(i-1)%2][0] - temp_itemi[i%2][0];
             
             if (i > 1){
                 cout << "\t""\t" << i << " th Iteration stop value : " << fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) << endl;
@@ -614,7 +616,7 @@ int main()
 
     int& size = siz;
 
-    size = 3;
+    size = 7;
     
     vector<double> alp_arr(2,0);
     for (int i = 0; i < 2 ; i++)
