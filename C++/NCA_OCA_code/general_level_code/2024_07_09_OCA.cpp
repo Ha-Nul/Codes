@@ -19,7 +19,7 @@ int siz = 0;
 
 MD_OC::MD_OC()
 {
-    tau_grid = linspace(0,1,101);
+    tau_grid = linspace(0,1,10);
     mode_grid = linspace(1,30000,30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
@@ -388,7 +388,8 @@ double MD_OC::chemical_poten(MatrixXd prop)
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
-
+//////////////////////////////erase////////////////////////////
+/*
 double MD_OC::temp_minpoint(vector<MatrixXd> &arr)
 {
     for (int i = 1; i < arr.size(); i++)
@@ -404,10 +405,18 @@ double MD_OC::temp_minpoint(vector<MatrixXd> &arr)
         }
     }
 }
+*/
 
-double MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo)
+vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, double size)
 {
-    return arrr[minpo](0,0);
+    vector<double> dist_return(size,0);
+
+    for (int i = 0 ; i < size; i++)
+    {
+        dist_return[i] = arrr[t-1](i,i);
+    }
+
+    return dist_return;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -430,7 +439,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
     ///////////////////////////////////////////////////////////////
 
     double temp_minpoin;
-    vector<double> temp_itemi(2,0);
+    vector<vector<double> > temp_itemi(2,vector<double>(siz,0));
     vector<double> temp_itest(2,0);
 
     ///////////////////////////////////////////////////////////////
@@ -463,7 +472,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
             //////////////////////////////////////////////////////////////////////////////
 
-            temp_minpoin = t-1;//temp_minpoint(Prop);
+            temp_minpoin = int(t/2);//temp_minpoint(Prop);
 
             //////////////////////////////////////////////////////////////////////////////
         }
@@ -474,7 +483,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             cout << "Iteration " << i << " Starts" << endl;
             /////////////////////////////////////////////////////////////////////////////
 
-            temp_itemi[i%2-1] = temp_itemin(Prop,temp_minpoin);
+            temp_itemi[i%2-1] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
 
             /////////////////////////////////////////////////////////////////////////////
 
@@ -497,18 +506,27 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
             /////////////////////////////////////////////////////////////////////////////
 
-            temp_itemi[i%2] = temp_itemin(Prop,temp_minpoin);
-            cout << "\t\t" << temp_itemin(Prop,temp_minpoin) << endl;
-            cout << " 0 : " << temp_itemi[i%2] << "\t 1 : " << temp_itemi[(i-1)%2] << endl;
-            temp_itest[i%2] = temp_itemi[i%2-1] - temp_itemi[i%2];
-
+            temp_itemi[i%2] = temp_itemin(Prop,temp_minpoin,siz);
+            //cout << "\t\t" << temp_itemin(Prop,temp_minpoin,siz) << endl;
+            cout << " 0 : " << "\n";
+            for (int j=0; j< siz; j++){
+                cout << temp_itemi[i%2][j] << "\t";
+            }
+            cout << "\n" << " 1 : " << "\n";
+            for (int k=0; k<siz; k++){
+                cout << temp_itemi[(i-1)%2][k] << "\t";
+            }
+            
+            // temporary store for current iteration data
+            temp_itest[i%2] = temp_itemi[i%2-1][siz-1] - temp_itemi[i%2][siz-1];
+            
             if (i > 1){
-                cout << "\t""\t" << i << " th Iteration stop value : " << temp_itest[i%2]-temp_itest[(i-1)%2] << endl;
-                if (temp_itest[i%2]-temp_itest[(i-1)%2] > 0 && temp_itest[i%2]-temp_itest[(i-1)%2] < 0.00001){
+                cout << "\t""\t" << i << " th Iteration stop value : " << fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) << endl;
+                if (fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) < 0.00001){
                     break;
                 }
             }
-
+            
             /////////////////////////////////////////////////////////////////////////////
 
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
@@ -596,7 +614,7 @@ int main()
 
     int& size = siz;
 
-    size = 5;
+    size = 3;
     
     vector<double> alp_arr(2,0);
     for (int i = 0; i < 2 ; i++)
