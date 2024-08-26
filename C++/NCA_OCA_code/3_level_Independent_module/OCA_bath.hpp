@@ -65,7 +65,7 @@ private:
     
 public:
 
-    MD_OC();
+    MD_OC(double beta,int grid);
     ~MD_OC();
 
     vector<double> linspace(const double& min, const double& max, int n)
@@ -86,10 +86,6 @@ public:
         result.insert(result.begin() + iterator, max);
         return result;
     }
-    
-    double Limit;
-    void SetLimit(double value);
-    void Setgrid();
 
     /*
     vector<MatrixXd> convolve(const vector<MatrixXd>& Signal,
@@ -132,19 +128,19 @@ public:
     double Delta_t;
 
     double pi = dlib::pi;
-    //vector<double> green();   
+    //vector<double> green();
     void Interact_V(double k_cutoff);
 
     MatrixXd Eigenvector_Even();
     MatrixXd Eigenvalue_Even();
     MatrixXd Eigenvector_Odd();
-    MatrixXd Eigenvalue_Odd();        
+    MatrixXd Eigenvalue_Odd();
     
     
     void Hamiltonian_N(MatrixXd even, MatrixXd odd);
     void Hamiltonian_loc(MatrixXd a, MatrixXd b);
     
-    void CAL_COUP_INT_with_g_arr(double alp, double cutoff);
+    void CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff);
     void Tilde_g_calculation_function(double alpha, double k_cutoff);
 
     void Dataoutput();
@@ -185,13 +181,6 @@ public:
     double chemical_poten(MatrixXd prop);
 
     vector<MatrixXd> Iteration(const int& iteration);
-
-    //////////////////////////////////////////////////////////////////////////////////////////////
-
-    double temp_minpoint(vector<MatrixXd> &arr);
-    vector<double> temp_itemin(vector<MatrixXd> &arr, double minpo, double size);
-
-    //////////////////////////////////////////////////////////////////////////////////////////////
 
     void NCA_Chi_sp(vector<MatrixXd> &ITER);
     void OCA_store(vector<MatrixXd> &ITER);
