@@ -1,6 +1,7 @@
 #!/opt/homebrew/bin/bash
-echo "** Parameter meshgrid creation process activates" 
-python3 ./2024_08_17_Parameter_output.py -o Param 
+echo "** Parameter meshgrid creation process activates"
+echo "************ CAUTION : PLZ CHECK REFRESHING HYBtest PROGRAM  ******************"
+python3 ./2024_08_17_Parameter_output.py -o Param
 
 mapfile -t lines < "Param.txt"
 
@@ -16,7 +17,7 @@ for ((i=0; i<${#line1[@]}; i++)); do
         echo "Passing values: ${line1[i]} ${line2[j]}"
         echo "${line1[i]} ${line2[j]}" | ./HYBtest
 
-        ./build/RSJJ_TOA test.json
+        ./build/RSJJ_NCA test.json
 
     done
 done

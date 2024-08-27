@@ -11,8 +11,6 @@
 using namespace std;
 using namespace Eigen;
 
-MD_OC MD;
-
 ///////////////////////////////////////////////////////////////////////
 
 double g_ma;
@@ -20,9 +18,9 @@ double alpha;
 
 ///////////////////////////////////////////////////////////////////////
 
-MD_OC::MD_OC()
+MD_OC::MD_OC(double beta, int grid)
+     : tau_grid(linspace(0,beta,grid)) , t(grid-1)
 {
-    tau_grid = linspace(0,10,401);
     mode_grid = linspace(1,30000,30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
@@ -177,7 +175,7 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++)
     {
-        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi} 
+        INT_even(i,j) = -1 * even(i,j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
         
         if (i<2)
         {
@@ -186,7 +184,7 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     }
     for (int i = 0; i < M ; i++)
     {
-        Blank += coup_Arr[i];  
+        Blank += coup_Arr[i];
     }
 
     INT_even(1,0) = INT_even(1,0) * -1;
@@ -238,7 +236,7 @@ void MD_OC::Dataoutput()
     outputFile.open(INT);
     for (int i = 0; i < t; i++)
     {
-        outputFile << INT_Arr[i] << endl;
+        outputFile << tau_grid[i] << "\t" << INT_Arr[i] << endl;
     }
     outputFile.close();
 
@@ -259,7 +257,10 @@ void MD_OC::Dataoutput()
 
 int main()
 {
-    MD_OC OC;
+    double beta = 10;
+    int grid = 100;
+
+    MD_OC OC(beta,grid);
 
     double& ref_g_ma = g_ma;
     double& alp = alpha;
@@ -272,10 +273,11 @@ int main()
     iss >> g_ma >> alpha;
 
     cout << " ** H_loc, INT_Arr, H_N sending process activates";
-    cout << " Value of gamma : " << g_ma << ", alpha : " << alpha << endl; 
+    cout << " Value of gamma : " << g_ma << ", alpha : " << alpha << endl;
 
     OC.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
     OC.Dataoutput();
 
     return 0;
 }
+
