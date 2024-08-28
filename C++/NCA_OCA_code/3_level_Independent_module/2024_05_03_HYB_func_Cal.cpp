@@ -251,7 +251,7 @@ void MD_OC::Dataoutput(double gamma, double alpha)
     }
     outputFile.close();
 
-    string HN= "H_N.dat";
+    string HN= "H_N_g";
     HN += gam.str();
     HN += "_a";
     HN += alp.str();
@@ -261,7 +261,7 @@ void MD_OC::Dataoutput(double gamma, double alpha)
     outputFile << H_N << endl;
     outputFile.close();
 
-    string HL= "H_loc.dat";
+    string HL= "H_loc_g";
     HL += gam.str();
     HL += "_a";
     HL += alp.str();
