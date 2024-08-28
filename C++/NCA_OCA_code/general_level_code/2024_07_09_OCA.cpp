@@ -9,25 +9,21 @@
 using namespace std;
 using namespace Eigen;
 
-MD_OC MD;
-
 vector<double> k_mode(30000, 1);
 double g_ma = 1;
-int siz = 0;
+int siz = 1;
 
 /////////////////////////////////////////////////////////////
 
-MD_OC::MD_OC()
+MD_OC::MD_OC(double beta, int grid)
+     : tau_grid(linspace(0,beta,grid)) , t(grid-1)
 {
-    tau_grid = linspace(0,1,10);
     mode_grid = linspace(1,30000,30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
 
     M = mode_grid.size();
     t = tau_grid.size();
-    H_N = MatrixXd::Zero(3,3);
-    H_loc = MatrixXd::Zero(3,3);
     
     coup_Arr.resize(M);
     omega_Arr.resize(M);
@@ -602,11 +598,21 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 
 int main()
 {
-    MD_OC MD;
+    double beta;
+    int grid;
+
+    cout << " * Set beta : ";
+    cin >> beta;
+
+    cout << " * Set grid (number of index, not interval count) : ";
+    cin >> grid;
+
     std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
     cout << " ## OCA Program begins ##" << endl;
     cout << "-------------------------------" << endl;
     int modeselec = 0;
+
+    MD_OC MD(beta,grid);
 
     /// Parameter adjustment ////
 
@@ -616,25 +622,25 @@ int main()
 
     int& size = siz;
 
-    size = 7;
-    
+    size = 5;
+
+    //alpha adjust
     vector<double> alp_arr(2,0);
     for (int i = 0; i < 2 ; i++)
     {
         if (i==0)
         {
-            alp_arr[i] = 5;
+            alp_arr[i] = 1;
         }
         if (i!=0)
         {
-            alp_arr[i] = alp_arr[i-1] + 5;
+            alp_arr[i] = alp_arr[i-1] + 1;
         }
-        
     }
     
-    
-    vector<double> g_ma_arr(41,0);
-    for (int i = 0; i < 41 ; i++)
+    //gamma adjust
+    vector<double> g_ma_arr(2,0);
+    for (int i = 0; i < 2 ; i++)
     {
         if (i==0)
         {
@@ -642,7 +648,7 @@ int main()
         }
         if (i!=0)
         {
-            g_ma_arr[i] = g_ma_arr[i-1] + 0.05;
+            g_ma_arr[i] = g_ma_arr[i-1] + 1;
         }
     }
     
@@ -723,42 +729,30 @@ int main()
             //cin >> ref_g_ma;
 
             /********************Chi(\tau) Calculation****************************/
-            /*
+            
 
                 string Chi_name = "OCA_CHI_GAMMA_";
-                
-                std::stringstream gam;
-                std::stringstream alp;
-                std::stringstream cuof;
-                std::stringstream bet;
-                std::stringstream gri;
 
-                gam << g_ma;
-                alp << alpha;
-                cuof << k_cutoff;
-                bet << MD.tau_grid[MD.t-1];
-                gri << MD.t;
-
-                name += gam.str();
-                name += "_ALPHA_";
-                name += alp.str();
-                name += "_MODE_";
-                name += cuof.str();
-                name += "_BETA_";
-                name += bet.str();
-                name += "_GRID_";
-                name += gri.str();
-                name += ".txt";
+                Chi_name += gam.str();
+                Chi_name += "_ALPHA_";
+                Chi_name += alp.str();
+                Chi_name += "_MODE_";
+                Chi_name += cuof.str();
+                Chi_name += "_BETA_";
+                Chi_name += bet.str();
+                Chi_name += "_GRID_";
+                Chi_name += gri.str();
+                Chi_name += ".txt";
 
                 //MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
                 //vector<MatrixXd> ITER = MD.Iteration(20);
-                vector<double> b = MD.Chi_sp_Function(ITER);
+                vector<double> b = MD.Chi_sp_Function(a);
 
-                outputFile.open(name);
+                outputFile.open(Chi_name);
 
                 for (int j = 0; j < MD.tau_grid.size(); j++)
                 {
-                    outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
+                    outputFile << MD.tau_grid[j] << "\t" << b[j] << endl;
                 }
 
                 outputFile.close();

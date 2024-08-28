@@ -65,7 +65,7 @@ private:
     
 public:
 
-    MD_OC(double beta,int grid);
+    MD_OC();
     ~MD_OC();
 
     vector<double> linspace(const double& min, const double& max, int n)
@@ -132,13 +132,13 @@ public:
     double Delta_t;
 
     double pi = dlib::pi;
-    //vector<double> green();   
+    //vector<double> green();
     void Interact_V(double k_cutoff);
 
     MatrixXd Eigenvector_Even();
     MatrixXd Eigenvalue_Even();
     MatrixXd Eigenvector_Odd();
-    MatrixXd Eigenvalue_Odd();        
+    MatrixXd Eigenvalue_Odd();
     
     
     void Hamiltonian_N(MatrixXd even, MatrixXd odd);
@@ -189,7 +189,7 @@ public:
     //////////////////////////////////////////////////////////////////////////////////////////////
 
     double temp_minpoint(vector<MatrixXd> &arr);
-    vector<double> temp_itemin(vector<MatrixXd> &arr, double minpo,int size);
+    vector<double> temp_itemin(vector<MatrixXd> &arr, double minpo, int size);
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 

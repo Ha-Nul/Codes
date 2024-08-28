@@ -9,16 +9,14 @@
 using namespace std;
 using namespace Eigen;
 
-MD_OC MD;
-
 double g_ma = 1;
 int siz = 0;
 
 /////////////////////////////////////////////////////////////
 
-MD_OC::MD_OC()
+MD_OC::MD_OC(double beta, int grid)
+     : tau_grid(linspace(0,beta,grid)) , t(grid-1)
 {
-    tau_grid = linspace(0,20,101);
     mode_grid = linspace(1,30000,30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
@@ -579,13 +577,21 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 
 int main()
 {
-    MD_OC MD;
+    double beta;
+    int grid;
+
+    cout << " * Set beta : ";
+    cin >> beta;
+
+    cout << " * Set grid (number of index, not interval count) : ";
+    cin >> grid;
+
     std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
     cout << " ## OCA Program begins ##" << endl;
     cout << "-------------------------------" << endl;
     int modeselec = 0;
 
-
+    MD_OC MD(beta,grid);
     /// Parameter adjustment ////
 
     double alpha = 0;
