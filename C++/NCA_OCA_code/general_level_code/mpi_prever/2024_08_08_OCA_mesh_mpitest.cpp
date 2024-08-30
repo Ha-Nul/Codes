@@ -9,17 +9,14 @@
 
 using namespace std;
 using namespace Eigen;
-
-MD_OC MD;
-
 double g_ma = 1;
 int siz = 0;
 
 /////////////////////////////////////////////////////////////
 
-MD_OC::MD_OC()
+MD_OC::MD_OC(double beta, int grid)
+     : tau_grid(linspace(0,beta,grid)) , t(grid-1)
 {
-    tau_grid = linspace(0,20,101);
     mode_grid = linspace(1,30000,30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
@@ -415,9 +412,9 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
     ///////////////////////////////////////////////////////////////
 
-    double temp_minpoin = 30;
+    double temp_minpoin;
     vector<vector<double> > temp_itemi(2,vector<double>(siz,0));
-    vector<double> temp_itest(2,0);
+    double RELA_ENTROPY;
 
     ///////////////////////////////////////////////////////////////
 
@@ -446,6 +443,11 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
                 factor *= expDtauLambda;
                 //cout << Prop[j] << endl;
             }
+            //////////////////////////////////////////////////////////////////////////////
+
+            temp_minpoin = t-1;
+
+            //////////////////////////////////////////////////////////////////////////////
 
         }
 
@@ -456,6 +458,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             /////////////////////////////////////////////////////////////////////////////
 
             temp_itemi[(i-1)%2] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
+            RELA_ENTROPY = 0;
 
             /////////////////////////////////////////////////////////////////////////////
             H_loc = H_loc - lambda[i - 1] * Iden;
@@ -478,24 +481,20 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             /////////////////////////////////////////////////////////////////////////////
 
             temp_itemi[i%2] = temp_itemin(Prop,temp_minpoin,siz);
-            //cout << "\t\t" << temp_itemin(Prop,temp_minpoin,siz) << endl;
-            cout << " 0 : " << "\n";
-            for (int j=0; j< siz; j++){
-                cout << temp_itemi[i%2][j] << "\t";
-            }
-            cout << "\n" << " 1 : " << "\n";
-            for (int k=0; k<siz; k++){
-                cout << temp_itemi[(i-1)%2][k] << "\t";
-            }
-            
+
             cout << "\n";
             
-            // temporary store for current iteration data
-            temp_itest[i%2] = temp_itemi[(i-1)%2][0] - temp_itemi[i%2][0];
+            // Relative entropy calculation
             
+            for (int j = 0; j < siz; j++)
+            {
+                RELA_ENTROPY += temp_itemi[i%2][j] * log(temp_itemi[i%2][j]/temp_itemi[(i-1)%2][j]);
+            }
+            
+
             if (i > 1){
-                cout << "\t""\t" << i << " th Iteration stop value : " << fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) << endl;
-                if (fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) < 0.00001){
+                cout << "\t""\t" << i << " th Iteration stop value : " << fabs(RELA_ENTROPY) << endl;
+                if (fabs(RELA_ENTROPY) < 0.00001){
                     break;
                 }
             }
@@ -573,13 +572,10 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 
 int main(int argc, char *argv[])
 {
-    MD_OC MD;
-    //std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
-    //cout << " ## OCA Program begins ##" << endl;
-    //cout << "-------------------------------" << endl;
-    //int modeselec = 0;
+    double beta = 1;
+    int grid = 201;
 
-
+    MD_OC MD(beta,grid);
     /// Parameter adjustment ////
 
     double alpha = 0;
@@ -593,8 +589,8 @@ int main(int argc, char *argv[])
 
     /////////////////////////////////
     
-    vector<double> alp_arr(10,0);
-    for (int i = 0; i < 10 ; i++)
+    vector<double> alp_arr(5,0);
+    for (int i = 0; i < 5 ; i++)
     {
         if (i==0)
         {
@@ -608,8 +604,8 @@ int main(int argc, char *argv[])
     }
     
     
-    vector<double> g_ma_arr(10,0);
-    for (int i = 0; i < 10; i++)
+    vector<double> g_ma_arr(5,0);
+    for (int i = 0; i < 5; i++)
     {
         if (i==0)
         {
@@ -673,6 +669,11 @@ int main(int argc, char *argv[])
         //gamma block
         for (int process = 1; process < p; process++)
         {
+            //cout << " * Set beta : ";
+            //cin >> beta;
+
+            //cout << " * Set grid (not interval, number of indices) : ";
+            //cin >> grid;
             int index_s = g_ma_arr.size() * (process - 1) / (p - 1);
             int index_e = g_ma_arr.size() * process / (p - 1) - 1;
 
@@ -680,6 +681,8 @@ int main(int argc, char *argv[])
             bound[0] = index_s;
             bound[1] = index_e;
 
+            //MPI_Send(&beta, 1, MPI_INT, process, 0, MPI_COMM_WORLD);
+            //MPI_Send(&grid, 1, MPI_INT, process, 0, MPI_COMM_WORLD);
             MPI_Send(bound.data(), bound.size(), MPI_DOUBLE, process, 0, MPI_COMM_WORLD);
         }
 
@@ -700,6 +703,8 @@ int main(int argc, char *argv[])
     }
     else
     {
+        //MPI_Recv(&beta, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        //MPI_Recv(&grid, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         vector<double> bound(2);
         MPI_Recv(bound.data(), bound.size(), MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         cout << "\t ***** Process " << id << " , bound : " << bound[0] << " , " << bound[1] << endl;
@@ -717,7 +722,7 @@ int main(int argc, char *argv[])
             {
                 alpha = alp_arr[al];
                 MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(5);
+                vector<MatrixXd> ITER = MD.Iteration(25);
                 vector<double> a = MD.Chi_sp_Function(ITER);
                 INDEX_CAL(int(ga+bound[0]),al) = MD.tau_grid[MD.t - 1] * a[int(MD.t / 2)];
             }

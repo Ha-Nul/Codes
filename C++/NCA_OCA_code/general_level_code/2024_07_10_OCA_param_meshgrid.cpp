@@ -418,9 +418,9 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
     ///////////////////////////////////////////////////////////////
 
-    double temp_minpoin = 30;
+    double temp_minpoin = t-1;
     vector<vector<double> > temp_itemi(2,vector<double>(siz,0));
-    vector<double> temp_itest(2,0);
+    double RELA_ENTROPY;
 
     ///////////////////////////////////////////////////////////////
 
@@ -449,6 +449,11 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
                 factor *= expDtauLambda;
                 //cout << Prop[j] << endl;
             }
+            //////////////////////////////////////////////////////////////////////////////
+
+            temp_minpoin = t-1;
+
+            //////////////////////////////////////////////////////////////////////////////
 
         }
 
@@ -459,6 +464,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             /////////////////////////////////////////////////////////////////////////////
 
             temp_itemi[(i-1)%2] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
+            RELA_ENTROPY = 0;
 
             /////////////////////////////////////////////////////////////////////////////
             H_loc = H_loc - lambda[i - 1] * Iden;
@@ -481,24 +487,19 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             /////////////////////////////////////////////////////////////////////////////
 
             temp_itemi[i%2] = temp_itemin(Prop,temp_minpoin,siz);
-            //cout << "\t\t" << temp_itemin(Prop,temp_minpoin,siz) << endl;
-            cout << " 0 : " << "\n";
-            for (int j=0; j< siz; j++){
-                cout << temp_itemi[i%2][j] << "\t";
-            }
-            cout << "\n" << " 1 : " << "\n";
-            for (int k=0; k<siz; k++){
-                cout << temp_itemi[(i-1)%2][k] << "\t";
-            }
-            
             cout << "\n";
             
-            // temporary store for current iteration data
-            temp_itest[i%2] = temp_itemi[(i-1)%2][0] - temp_itemi[i%2][0];
+            // Relative entropy calculation
             
+            for (int j = 0; j < siz; j++)
+            {
+                RELA_ENTROPY += temp_itemi[i%2][j] * log(temp_itemi[i%2][j]/temp_itemi[(i-1)%2][j]);
+            }
+            
+
             if (i > 1){
-                cout << "\t""\t" << i << " th Iteration stop value : " << fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) << endl;
-                if (fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) < 0.00001){
+                cout << "\t""\t" << i << " th Iteration stop value : " << fabs(RELA_ENTROPY) << endl;
+                if (fabs(RELA_ENTROPY) < 0.00001){
                     break;
                 }
             }
@@ -603,8 +604,8 @@ int main()
 
     /////////////////////////////////
     
-    vector<double> alp_arr(10,0);
-    for (int i = 0; i < 10 ; i++)
+    vector<double> alp_arr(5,0);
+    for (int i = 0; i < 5 ; i++)
     {
         if (i==0)
         {
@@ -618,8 +619,8 @@ int main()
     }
     
     
-    vector<double> g_ma_arr(10,0);
-    for (int i = 0; i < 10 ; i++)
+    vector<double> g_ma_arr(5,0);
+    for (int i = 0; i < 5 ; i++)
     {
         if (i==0)
         {
@@ -656,7 +657,6 @@ int main()
 
     outputFile.open(name);
 
-
     for (int ga = 0; ga < g_ma_arr.size() ; ga++)
     {
         //ref_g_ma = 1;
@@ -668,12 +668,46 @@ int main()
     
             /********************\beta * Chi(\beta / 2) Calculation****************************/
                 MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> ITER = MD.Iteration(5);
+                vector<MatrixXd> ITER = MD.Iteration(25);
                 vector<double> a = MD.Chi_sp_Function(ITER);
 
-                //outputFile << "(" << ga << al << ")" << "\t" ;
                 outputFile << MD.tau_grid[MD.t-1] * a[int(MD.t/2)] << "\t";
             /**************************************************************************/
+            /********************Hybridization Check****************************/
+            /*
+                std::stringstream gam;
+                std::stringstream alp;
+                
+                gam << g_ma_arr[ga];
+                alp << alp_arr[al];
+
+                string Hyb = "HYB_SIZE_";
+
+                Hyb += sizz.str();
+                Hyb += "_MODE_";
+                Hyb += cuof.str();
+                Hyb += "_BETA_";
+                Hyb += bet.str();
+                Hyb += "_GRID_";
+                Hyb += gri.str();
+                Hyb += "_GAM_";
+                Hyb += gam.str();
+                Hyb += "_ALP_";
+                Hyb += alp.str();
+                Hyb += ".txt";
+
+                outputFile.open(Hyb);
+
+                for (int j = 0; j < MD.tau_grid.size(); j++)
+                {
+                    outputFile << MD.tau_grid[j] << "\t" << MD.INT_Arr[j] << endl;
+                }
+
+                outputFile.close();
+                
+            */
+            /*************************************************************************/
+
         }
         outputFile << "\n";
 
@@ -681,6 +715,7 @@ int main()
 
     outputFile.close();
 
+                
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
     std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
     cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;

@@ -41,10 +41,14 @@ MD_OC::~MD_OC()
 
 void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 {
-    omega_Arr.resize(M);
-    coup_Arr.resize(M);
     double nu = pi * k_cutoff / alpha;
-    
+    //Initializing Array
+    for (int j = 0 ; j < M ; j++)
+    {
+        omega_Arr[j] = 0;
+        coup_Arr[j] = 0;
+    }
+
     for (int i=0; i < M; i++)
     {
         //omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
@@ -70,7 +74,7 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 
 void MD_OC::Interact_V(double k_cutoff)
 {
-        //Initializing Interaction array
+    //Initializing Interaction array
     for (int i = 0; i < t; i++)
     {
         INT_Arr[i] = 0;
@@ -436,7 +440,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
     double temp_minpoin;
     vector<vector<double> > temp_itemi(2,vector<double>(siz,0));
-    vector<double> temp_itest(2,0);
+    double RELA_ENTROPY;
 
     ///////////////////////////////////////////////////////////////
 
@@ -468,7 +472,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
             //////////////////////////////////////////////////////////////////////////////
 
-            temp_minpoin = 30;//temp_minpoint(Prop);
+            temp_minpoin = t-1;
 
             //////////////////////////////////////////////////////////////////////////////
         }
@@ -480,6 +484,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             /////////////////////////////////////////////////////////////////////////////
 
             temp_itemi[(i-1)%2] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
+            RELA_ENTROPY = 0;
 
             /////////////////////////////////////////////////////////////////////////////
 
@@ -503,28 +508,23 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             /////////////////////////////////////////////////////////////////////////////
 
             temp_itemi[i%2] = temp_itemin(Prop,temp_minpoin,siz);
-            //cout << "\t\t" << temp_itemin(Prop,temp_minpoin,siz) << endl;
-            cout << " 0 : " << "\n";
-            for (int j=0; j< siz; j++){
-                cout << temp_itemi[i%2][j] << "\t";
-            }
-            cout << "\n" << " 1 : " << "\n";
-            for (int k=0; k<siz; k++){
-                cout << temp_itemi[(i-1)%2][k] << "\t";
-            }
-            
+ 
             cout << "\n";
             
-            // temporary store for current iteration data
-            temp_itest[i%2] = temp_itemi[(i-1)%2][0] - temp_itemi[i%2][0];
+            // Relative entropy calculation
             
+            for (int j = 0; j < siz; j++)
+            {
+                RELA_ENTROPY += temp_itemi[i%2][j] * log(temp_itemi[i%2][j]/temp_itemi[(i-1)%2][j]);
+            }
+            
+
             if (i > 1){
-                cout << "\t""\t" << i << " th Iteration stop value : " << fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) << endl;
-                if (fabs(temp_itest[i%2]-temp_itest[(i-1)%2]) < 0.00001){
+                cout << "\t""\t" << i << " th Iteration stop value : " << fabs(RELA_ENTROPY) << endl;
+                if (fabs(RELA_ENTROPY) < 0.00001){
                     break;
                 }
             }
-            
             /////////////////////////////////////////////////////////////////////////////
 
             std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
@@ -617,7 +617,7 @@ int main()
     /// Parameter adjustment ////
 
     double alpha = 1;
-    double k_cutoff = 1;
+    double k_cutoff = 20;
     double& ref_g_ma = g_ma;
 
     int& size = siz;
@@ -625,22 +625,22 @@ int main()
     size = 5;
 
     //alpha adjust
-    vector<double> alp_arr(2,0);
-    for (int i = 0; i < 2 ; i++)
+    vector<double> alp_arr(5,0);
+    for (int i = 0; i < 5 ; i++)
     {
         if (i==0)
         {
-            alp_arr[i] = 1;
+            alp_arr[i] = 0;
         }
         if (i!=0)
         {
-            alp_arr[i] = alp_arr[i-1] + 1;
+            alp_arr[i] = alp_arr[i-1] + 0.1;
         }
     }
     
     //gamma adjust
-    vector<double> g_ma_arr(2,0);
-    for (int i = 0; i < 2 ; i++)
+    vector<double> g_ma_arr(5,0);
+    for (int i = 0; i < 5 ; i++)
     {
         if (i==0)
         {
@@ -648,14 +648,14 @@ int main()
         }
         if (i!=0)
         {
-            g_ma_arr[i] = g_ma_arr[i-1] + 1;
+            g_ma_arr[i] = g_ma_arr[i-1] + 0.1;
         }
     }
     
 
-    for (int ga = 0; ga< 1; ga++) //for (int al = 0; al<1;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
+    for (int ga = 0; ga< 1; ga++) //for (int al = 0; al< alp_arr.size() ;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
     {
-        //ef_g_ma = g_ma_arr[ga];
+        //ref_g_ma = g_ma_arr[ga];
         alpha = 1;
         //alpha = alp_arr[al];
         ref_g_ma = 1;
@@ -724,10 +724,6 @@ int main()
             outputFile.close();
             
             /****************************************************************************/
-    
-            //cout << "input g_ma value : ";
-            //cin >> ref_g_ma;
-
             /********************Chi(\tau) Calculation****************************/
             
 
@@ -759,10 +755,33 @@ int main()
                 
             
             /*************************************************************************/
-        
-        //if (modeselec == 3)
-            //cout << "input g_ma value : ";
-            //cin >> ref_g_ma;
+            /********************Hybridization Check****************************/
+            
+            /*
+                string Hyb = "HYB_GAMMA_";
+
+                Hyb += gam.str();
+                Hyb += "_ALPHA_";
+                Hyb += alp.str();
+                Hyb += "_MODE_";
+                Hyb += cuof.str();
+                Hyb += "_BETA_";
+                Hyb += bet.str();
+                Hyb += "_GRID_";
+                Hyb += gri.str();
+                Hyb += ".txt";
+
+                outputFile.open(Hyb);
+
+                for (int j = 0; j < MD.tau_grid.size(); j++)
+                {
+                    outputFile << MD.tau_grid[j] << "\t" << MD.INT_Arr[j] << endl;
+                }
+
+                outputFile.close();
+                
+            */
+            /*************************************************************************/
             /********************\beta * Chi(\beta / 2) Calculation****************************/
                 //std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
                 /*
