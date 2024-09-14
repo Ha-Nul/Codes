@@ -3,7 +3,7 @@
 #include <Eigen/Eigenvalues>
 #include <vector>
 #include <cmath>
-#include <OCA_bath.hpp>
+#include <OCA_bath_pre.hpp>
 #include <chrono>
 #include <const.h>
 
@@ -204,13 +204,13 @@ void Ordercal(MatrixXd even, MatrixXd odd)
     MatrixXd uptri = MatrixXd::Zero(3,3);
     MatrixXd dotri = MatrixXd::Zero(3,3);
 
-    uptri(0,2) = -1/sqrt(2) * (even(0,0)*even(1,1) + even(0,1)*even(1,0)) + 0.5 * (even(1,0)*even(2,1) + even(2,0)*even(1,1));
+    uptri(0,2) = -1/sqrt(2) * (even(0,0)*even(1,1) + even(0,1)*even(1,0)) + 0.5 * (even(1,0)*even(2,1) + even(2,0)*even(1,1));//Sign problem????
 
     dotri = uptri.transpose();
 
-    Order_param(0,0) = sqrt(2) * (even(0,0)*even(1,0) + even(1,0)*even(2,0));
+    Order_param(0,0) = sqrt(2) * (even(0,0)*even(1,0)) + even(1,0)*even(2,0);
     Order_param(1,1) = (odd(0,0)*odd(1,0));
-    Order_param(2,2) = sqrt(2) * (even(0,1)*even(1,1) + even(1,1)*even(2,1));
+    Order_param(2,2) = sqrt(2) * (even(0,1)*even(1,1)) + even(1,1)*even(2,1);
 
     Order_param += (dotri + uptri);
 
@@ -473,6 +473,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
                 Prop[j](2, 2) = exp(-tau_grid[j] * H_loc[0](2, 2));
             }
 
+            //
             cout << "H_loc : \n" << Prop[100] << endl;
 
 
@@ -563,8 +564,8 @@ int main()
     }
     
     
-    vector<double> g_ma_arr(21,0);
-    for (int i = 0; i < 21 ; i++)
+    vector<double> g_ma_arr(11,0);
+    for (int i = 0; i < 11 ; i++)
     {
         if (i==0)
         {
@@ -584,7 +585,7 @@ int main()
         for (int ga = 0; ga < g_ma_arr.size(); ga++)
         {
             ref_g_ma = g_ma_arr[ga];
-            alpha = 0.39;
+            alpha = 1;
             //alpha = alp_arr[al];
             //ref_g_ma = 1;
             
@@ -684,7 +685,9 @@ int main()
                 */
 
                 MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                vector<MatrixXd> a = MD.Iteration(20);
+                vector<MatrixXd> a = MD.Iteration(5);
+                cout << "------------------output value---------------------" << endl;
+                cout << Order_param << endl;
                 double b = (a[(MD.t-1)] * Order_param).trace();
                 //cout << "TEST PROP BETA : " << "\n" << a[MD.t-1] << endl;
 

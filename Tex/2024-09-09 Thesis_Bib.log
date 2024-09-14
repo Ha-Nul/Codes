@@ -1,0 +1,157 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  9 SEP 2024 21:28
+entering extended mode
+**"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex"
+(e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-08-27> (G:\Install_Program\MikTex\tex/latex/base\article.cls
+Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
+(G:\Install_Program\MikTex\tex/latex/base\size10.clo
+File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count182
+\c@section=\count183
+\c@subsection=\count184
+\c@subsubsection=\count185
+\c@paragraph=\count186
+\c@subparagraph=\count187
+\c@figure=\count188
+\c@table=\count189
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (G:\Install_Program\MikTex\tex/latex/cjk-ko\kotex.sty
+Package: kotex 2015/04/19 v1.6 Korean TeX (ko.TeX)
+ (G:\Install_Program\MikTex\tex/latex/kotex-utf\kotex.cfg) (G:\Install_Program\MikTex\tex/latex/kotex-utf\kotexutf.sty
+Package: kotexutf 2015/07/18 v2.1.1 typesetting UTF-8 Korean documents
+ (G:\Install_Program\MikTex\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+) (G:\Install_Program\MikTex\tex/plain/kotex-plain\kotexutf-core.tex
+\unih@ngulpoint=\count190
+\dhucs@emph@raise=\dimen139
+)
+Now handling font encoding LUC ...
+... processing UTF-8 mapping file for font encoding LUC
+ (G:\Install_Program\MikTex\tex/latex/kotex-utf\lucenc.dfu
+File: lucenc.dfu 2007/09/05 UTF-8 support for dhucs
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+3001 (decimal 12289)
+   defining Unicode char U+3002 (decimal 12290)
+   defining Unicode char U+3008 (decimal 12296)
+   defining Unicode char U+3009 (decimal 12297)
+   defining Unicode char U+300A (decimal 12298)
+   defining Unicode char U+300B (decimal 12299)
+   defining Unicode char U+300C (decimal 12300)
+   defining Unicode char U+300D (decimal 12301)
+   defining Unicode char U+300E (decimal 12302)
+   defining Unicode char U+300F (decimal 12303)
+   defining Unicode char U+3010 (decimal 12304)
+   defining Unicode char U+3011 (decimal 12305)
+   defining Unicode char U+3014 (decimal 12308)
+   defining Unicode char U+3015 (decimal 12309)
+   defining Unicode char U+3016 (decimal 12310)
+   defining Unicode char U+3017 (decimal 12311)
+   defining Unicode char U+3018 (decimal 12312)
+   defining Unicode char U+3019 (decimal 12313)
+   defining Unicode char U+301A (decimal 12314)
+   defining Unicode char U+301B (decimal 12315)
+   defining Unicode char U+FF01 (decimal 65281)
+   defining Unicode char U+FF08 (decimal 65288)
+   defining Unicode char U+FF09 (decimal 65289)
+   defining Unicode char U+FF0C (decimal 65292)
+   defining Unicode char U+FF0E (decimal 65294)
+   defining Unicode char U+FF1A (decimal 65306)
+   defining Unicode char U+FF1B (decimal 65307)
+   defining Unicode char U+FF1C (decimal 65308)
+   defining Unicode char U+FF1D (decimal 65309)
+   defining Unicode char U+FF1E (decimal 65310)
+   defining Unicode char U+FF1F (decimal 65311)
+   defining Unicode char U+FF3B (decimal 65339)
+   defining Unicode char U+FF3D (decimal 65341)
+   defining Unicode char U+FF5B (decimal 65371)
+   defining Unicode char U+FF5D (decimal 65373)
+   defining Unicode char U+FF61 (decimal 65377)
+   defining Unicode char U+FF62 (decimal 65378)
+   defining Unicode char U+FF63 (decimal 65379)
+   defining Unicode char U+FF64 (decimal 65380)
+   defining Unicode char U+FF65 (decimal 65381)
+)
+\@josa=\count191
+\josatoks=\toks18
+ (G:\Install_Program\MikTex\tex/latex/cjk-ko\kolabels-utf.sty
+Package: kolabels-utf 2015/03/20 v1.5 UTF-8 Hangul item labels
+))) (G:\Install_Program\MikTex\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count192
+\l__pdf_internal_box=\box50
+) (2024-09-09 Thesis_Bib.aux)
+\openout1 = `"2024-09-09 Thesis_Bib.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for LUC/nanummj/m/n on input line 4.
+LaTeX Font Info:    Trying to load font information for LUC+nanummj on input line 4.
+ (G:\Install_Program\MikTex\tex/latex/nanumtype1\lucnanummj.fd
+File: lucnanummj.fd 2013/02/12 v0.1 Nanum Myeongjo font definitions
+)
+LaTeX Font Info:    ... okay on input line 4.
+
+
+LaTeX Warning: Citation `TEST' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Citation `ARF' on page 1 undefined on input line 8.
+
+(2024-09-09 Thesis_Bib.bbl
+2024-09-09 Thesis_Bib.bbl:7: Misplaced alignment tab character &.
+l.7 \newblock John Wiley &
+                           Sons, Ltd, 1982.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+) [1
+
+{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] (2024-09-09 Thesis_Bib.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 833 strings out of 478927
+ 14274 string characters out of 2861478
+ 307873 words of memory out of 3000000
+ 18721 multiletter control sequences out of 15000+600000
+ 409059 words of font info for 46 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,5n,66p,208b,148s stack positions out of 5000i,500n,10000p,200000b,80000s
+<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmac.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmae.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb0.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb2.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb4.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb9.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmba.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmbb.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmbc.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc2.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc4.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc5.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc6.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc7.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmd5.pfb>
+Output written on "2024-09-09 Thesis_Bib.pdf" (1 page, 608033 bytes).
+PDF statistics:
+ 101 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

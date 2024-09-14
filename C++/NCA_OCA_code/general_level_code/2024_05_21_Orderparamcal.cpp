@@ -167,7 +167,7 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 
 MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
 {
-    MatrixXd Order_param = MatrixXd::Zero(siz,siz);
+    MatrixXd Order_param = MatrixXd::Zero(siz, siz);
 
     cout << "**EVENMAT**" << endl;
     cout << even << endl;
@@ -176,25 +176,30 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
     MatrixXd eve_0 = even;//MatrixXd::Zero(siz,siz);
     for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
     {
-        if (i==0){
-            eve_0(i,j) = (1/sqrt(2)) * even(i,j); 
+        if (i == 0) {
+            eve_0(i, j) = (1 / sqrt(2)) * even(i, j);
         }
-        else{
-            eve_0(i,j) = even(i,j);
+        else {
+            eve_0(i, j) = even(i, j);
         }
     }
-    
-        //Even OffDiagonal construct
-    MatrixXd eve_1 = MatrixXd::Zero(siz+1,siz+1);
-    MatrixXd eve_2 = MatrixXd::Zero(siz+1,siz+1);
 
-    for (int i = 0; i < siz+1; i++) for (int j = 0; j < siz+1; j++)
+    //Even OffDiagonal construct
+    MatrixXd eve_1 = MatrixXd::Zero(siz + 1, siz + 1);
+    MatrixXd eve_2 = MatrixXd::Zero(siz + 1, siz + 1);
+
+    for (int i = 0; i < siz + 1; i++) for (int j = 0; j < siz + 1; j++)
     {
-        if (i > 0 && j < siz){
-            eve_1(i,j) = eve_0(i-1,j);
+        if (i > 0 && j < siz) {
+            if (i > 1) {
+                eve_1(i, j) = 0.5 * eve_0(i - 1, j);
+            }
+            else {
+                eve_1(i, j) = eve_0(i - 1, j);
+            }
         }
-        if (j<siz && i<siz){
-            eve_2(i,j) = eve_0(i,j);
+        if (j < siz && i < siz) {
+            eve_2(i, j) = eve_0(i, j);
         }
     }
 
@@ -202,8 +207,8 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
     cout << "EVEOFF" << endl;
     cout << eve_off << endl;
 
-    //cout << "\t" << "Mateven 1" << endl;
-    //cout << eve_1.transpose() << endl;
+    cout << "\t" << "<Mateven 1>" << endl;
+    cout << eve_1.transpose() << endl;
     /*
     for (int i = 0; i < siz+1; i++) for (int j = 0; j< siz+1; j++)
     {
@@ -213,14 +218,19 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
         }
     }
     */
-    //cout << "\t" << "Mateven 2" << endl;
-    //cout << eve_2  << endl;
-    MatrixXd eve_ele = MatrixXd::Zero(siz,siz);
-    
+    cout << "\t" << "<Mateven 2>" << endl;
+    cout << eve_2 << endl;
+    MatrixXd eve_ele = MatrixXd::Zero(siz, siz);
+
     for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
     {
-        if ((i != j) && (i%2 ==0) && (j%2 == 0)){
-            eve_ele(i,j) = eve_off(i/2,j/2) + eve_off(j/2,i/2);
+        if ((i != j) && (i % 2 == 0) && (j % 2 == 0)) {
+            eve_ele(i, j) = eve_off(i / 2, j / 2) + eve_off(j / 2, i / 2);
+            //eve_ele(j,i) = eve_off(i/2,j/2) + eve_off(j/2,i/2);
+        }
+
+        if ((i == j) && (i % 2 == 0) && (j % 2 == 0)) {
+            eve_ele(i, j) = 2 * eve_off(i / 2, j / 2);
             //eve_ele(j,i) = eve_off(i/2,j/2) + eve_off(j/2,i/2);
         }
     }
@@ -228,21 +238,21 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
     cout << "*****EVEELE*****" << endl;
     cout << eve_ele << endl;
     ///////////// even matrix construction complete ///////////////
-   
+
     //constructing odd matrix
 
     cout << "**ODD Eigen matrix**" << endl;
     cout << odd << endl;
 
-    MatrixXd odd_ele = MatrixXd::Zero(siz,siz);
-    for (int i = 0; i<siz; i++) for (int j = 0 ; j<siz; j++)
+    MatrixXd odd_ele = MatrixXd::Zero(siz, siz);
+    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
     {
-        if ((i==j) && (i%2 != 0)) {
-            odd_ele(i,j) = odd(0,j/2) * odd(1,j/2); // Diagonal element analogous with odd basis
+        if ((i == j) && (i % 2 != 0)) {
+            odd_ele(i, j) = odd(0, j / 2) * odd(1, j / 2); // Diagonal element analogous with odd basis
         }
-        else if ((i < j) && (i%2 !=0) && (j%2 != 0)){
-            odd_ele(i,j) = (odd(0,i/2) * odd(1,j/2) + odd(1,i/2) * odd(0,j/2))/2;
-            odd_ele(j,i) = (odd(0,i/2) * odd(1,j/2) + odd(1,i/2) * odd(0,j/2))/2;
+        else if ((i < j) && (i % 2 != 0) && (j % 2 != 0)) {
+            odd_ele(i, j) = (odd(0, i / 2) * odd(1, j / 2) + odd(1, i / 2) * odd(0, j / 2)) / 2;
+            odd_ele(j, i) = (odd(0, i / 2) * odd(1, j / 2) + odd(1, i / 2) * odd(0, j / 2)) / 2;
         }
     }
     cout << "Odd" << endl;
@@ -250,24 +260,25 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
     cout << "\n\n";
 
     ///////////// odd matrix construction complete ///////////////
-    
-    for (int i = 0 ; i < siz; i++) for (int j = 0 ; j < siz; j++)
+
+    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
     {
-        if (i%2==0 && j%2==0)
+        if (i % 2 == 0 && j % 2 == 0)
         {
-            Order_param(i,j) = eve_ele(i,j) + eve_ele(j,i);
+            Order_param(i, j) = eve_ele(i, j);
         }
-        
-        else if (i%2 !=0 && j!=0)
+
+        else if (i % 2 != 0 && j != 0)
         {
-            Order_param(i,j) = odd_ele(i,j);
+            Order_param(i, j) = odd_ele(i, j);
         }
-        
+
     }
 
     return Order_param;
 
 }
+
 
 void MD_OC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
 {
@@ -590,8 +601,8 @@ int main()
     }
     
     
-    vector<double> g_ma_arr(21,0);
-    for (int i = 0; i < 21 ; i++)
+    vector<double> g_ma_arr(11,0);
+    for (int i = 0; i < 11 ; i++)
     {
         if (i==0)
         {
