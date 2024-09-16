@@ -673,6 +673,74 @@ int main()
 
                 outputFile << MD.tau_grid[MD.t-1] * a[int(MD.t/2)] << "\t";
             /**************************************************************************/
+            ////////////////////DATA OUTPUT ///////////////////
+                string Prop_name = "OCA_PROP_GAMMA_";
+
+                std::stringstream gam;
+                std::stringstream alp;
+                std::stringstream cuof;
+                std::stringstream bet;
+                std::stringstream gri;
+                std::stringstream sizz;
+                std::stringstream mod;
+
+                gam << g_ma;
+                alp << alpha;
+                cuof << k_cutoff;
+                mod << MD.mode_grid.size();
+                bet << MD.tau_grid[MD.tau_grid.size() - 1];
+                gri << MD.t;
+                sizz << siz;
+
+                Prop_name += gam.str();
+                Prop_name += "_ALPHA_";
+                Prop_name += alp.str();
+                Prop_name += "_CUTOF_";
+                Prop_name += cuof.str();
+                Prop_name += "_MODE_";
+                Prop_name += mod.str();
+                Prop_name += "_BETA_";
+                Prop_name += bet.str();
+                Prop_name += "_GRID_";
+                Prop_name += gri.str();
+                Prop_name += "_SIZE_";
+                Prop_name += sizz.str();
+                Prop_name += "_T.txt";
+
+                outputFile.open(Prop_name);
+
+                for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
+                {
+                    outputFile << ITER[MD.t - 1](i, i) << "\t";
+                }
+                
+                outputFile.close();
+            
+                string Chi_name = "OCA_CHI_GAMMA_";
+
+                Chi_name += gam.str();
+                Chi_name += "_ALPHA_";
+                Chi_name += alp.str();
+                Chi_name += "_MODE_";
+                Chi_name += cuof.str();
+                Chi_name += "_BETA_";
+                Chi_name += bet.str();
+                Chi_name += "_GRID_";
+                Chi_name += gri.str();
+                Chi_name += "_SIZE_";
+                Chi_name += sizz.str();
+                Chi_name += "_T.txt";
+
+                outputFile.open(Chi_name);
+
+                for (int j = 0; j < MD.tau_grid.size(); j++)
+                {
+                    outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
+                }
+
+                outputFile.close();
+                ////////////////////DATA OUTPUT ///////////////////
+
             /********************Hybridization Check****************************/
             /*
                 std::stringstream gam;

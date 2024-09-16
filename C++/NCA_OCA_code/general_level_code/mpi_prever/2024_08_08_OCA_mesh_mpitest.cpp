@@ -573,7 +573,7 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 int main(int argc, char *argv[])
 {
     double beta = 1;
-    int grid = 201;
+    int grid = 301;
 
     MD_OC MD(beta,grid);
     /// Parameter adjustment ////
@@ -589,7 +589,7 @@ int main(int argc, char *argv[])
 
     /////////////////////////////////
     
-    vector<double> alp_arr(5,0);
+    vector<double> alp_arr(3,0);
     for (int i = 0; i < 5 ; i++)
     {
         if (i==0)
@@ -604,7 +604,7 @@ int main(int argc, char *argv[])
     }
     
     
-    vector<double> g_ma_arr(5,0);
+    vector<double> g_ma_arr(3,0);
     for (int i = 0; i < 5; i++)
     {
         if (i==0)
@@ -716,7 +716,7 @@ int main(int argc, char *argv[])
         MatrixXd INDEX_CAL = MatrixXd::Zero(g_ma_arr.size(),alp_arr.size());
 
         // GAMMA BLOCK ...///////////////////////
-        /*
+        
         for (int ga = 0; ga < num_lim; ga++)
         {
             ref_g_ma = g_ma_arr[bound[0] + ga];
@@ -758,13 +758,13 @@ int main(int argc, char *argv[])
                 Prop_name += bet.str();
                 Prop_name += "_GRID_";
                 Prop_name += gri.str();
-                Prop_name += "_ITE_";
+                Prop_name += "_SIZE_";
                 Prop_name += sizz.str();
                 Prop_name += ".txt";
 
                 outputFile.open(Prop_name);
 
-                for (int i = 0; i < siz; i++)
+                for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
                 {
                     outputFile << ITER[MD.t - 1](i, i) << "\t";
                 }
@@ -782,6 +782,8 @@ int main(int argc, char *argv[])
                 Chi_name += bet.str();
                 Chi_name += "_GRID_";
                 Chi_name += gri.str();
+                Chi_name += "_SIZE_";
+                Chi_name += sizz.str();
                 Chi_name += ".txt";
 
                 outputFile.open(Chi_name);
@@ -797,11 +799,11 @@ int main(int argc, char *argv[])
                 INDEX_CAL(int(ga+bound[0]),al) = MD.tau_grid[MD.t - 1] * a[int(MD.t / 2)];
             }
         }
-        */
+        
         
 
        // ALPHA BLOCK ...///////////////////////
-       
+       /*
         for (int ga = 0; ga < g_ma_arr.size(); ga++)
         {
             ref_g_ma = g_ma_arr[ga];
@@ -851,7 +853,7 @@ int main(int argc, char *argv[])
 
                 outputFile.open(Prop_name);
 
-                for (int i = 0; i < siz; i++)
+                for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
                 {
                     outputFile << ITER[MD.t - 1](i, i) << "\t";
                 }
@@ -888,6 +890,7 @@ int main(int argc, char *argv[])
                 
             }
         }
+        */
     
 
         int rows, cols;

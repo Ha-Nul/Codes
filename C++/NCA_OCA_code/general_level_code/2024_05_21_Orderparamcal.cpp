@@ -83,7 +83,7 @@ void MD_OC::Interact_V(double k_cutoff)
         {
             INT_Arr[i] += -pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * omega_Arr[j])/sinh(tau_grid[t - 1] * omega_Arr[j] / 2); //caution for sign
         }
-    }        
+    }
 
 }
 
@@ -374,7 +374,7 @@ void MD_OC::OCA_self()
             //std::chrono::system_clock::time_point sec = std::chrono::system_clock::now();
             //std::chrono::duration<double> nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(sec-start);
             //cout << "\t" << "\t" << "Calculation ends : " << nanoseconds.count() << "[sec]" << endl;
-            //cout << "-----------------------------------------------------" << endl;  
+            //cout << "-----------------------------------------------------" << endl;
 
         }
         SELF_E[i] += pow(Delta_t, 2) * Stmp;
@@ -584,8 +584,8 @@ int main()
 
     int &size = siz;
 
-    size = 3;
-    
+    size = 5;
+    /*
     vector<double> alp_arr(21,0);
     for (int i = 0; i < 21 ; i++)
     {
@@ -599,6 +599,9 @@ int main()
         }
         
     }
+    */
+    
+    vector<double> alp_arr = {0,1,5,20};
     
     
     vector<double> g_ma_arr(11,0);
@@ -617,13 +620,13 @@ int main()
     vector<double> output(g_ma_arr.size(),0);
 
 
-    //for (int al = 0; al < alp_arr.size(); al ++)
-    //{
+    for (int al = 0; al < alp_arr.size(); al ++)
+    {
         for (int ga = 0; ga < g_ma_arr.size(); ga++)
         {
             //ref_g_ma = g_ma_arr[ga];
-            alpha = 1;
-            //alpha = alp_arr[al];
+            //alpha = 1;
+            alpha = alp_arr[al];
             ref_g_ma = g_ma_arr[ga];
         
                 MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
@@ -649,12 +652,14 @@ int main()
         std::stringstream cuof;
         std::stringstream bet;
         std::stringstream gri;
+        std::stringstream sizz;
 
         gam << g_ma;
         alp << alpha;
         cuof << k_cutoff;
         bet << MD.tau_grid[MD.t-1];
         gri << MD.t;
+        sizz << siz;
 
         name += gam.str();
         name += "_ALPHA_";
@@ -665,6 +670,8 @@ int main()
         name += bet.str();
         name += "_GRID_";
         name += gri.str();
+        name += "_SIZE_";
+        name += sizz.str();
         name += ".txt";
 
         outputFile.open(name);
@@ -681,6 +688,6 @@ int main()
         
         
         
-
+}
     //}
 //}
