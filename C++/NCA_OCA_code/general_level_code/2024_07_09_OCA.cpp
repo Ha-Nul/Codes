@@ -653,12 +653,12 @@ int main()
     }
     
 
-    for (int ga = 0; ga< 1; ga++) //for (int al = 0; al< alp_arr.size() ;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
+    for (int ga = 0; ga< 1; ga++) for (int al = 0; al< alp_arr.size() ;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
     {
-        //ref_g_ma = g_ma_arr[ga];
-        alpha = 1;
-        //alpha = alp_arr[al];
-        ref_g_ma = 1;
+        ref_g_ma = g_ma_arr[ga];
+        //alpha = 1;
+        alpha = alp_arr[al];
+        //ref_g_ma = 1;
 
             /****************************G(tau) Calcultaion******************************/
             
@@ -703,22 +703,13 @@ int main()
 
             MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
             vector<MatrixXd> a = MD.Iteration(25);
-            /*
-            for (int i = 0; i < a.size(); i++)
-            {
-                //cout << (a[i])[0][0] << (a[i])[0][1] << endl;
-                outputFile << MD.tau_grid[i] << "\t" << (a[i])(0, 0) << "\t" << (a[i])(0, 1) << "\t" << (a[i])(0, 2) << "\t"
-                    << (a[i])(1, 0) << "\t" << (a[i])(1, 1) << "\t" << (a[i])(1, 2) << "\t"
-                    << (a[i])(2, 0) << "\t" << (a[i])(2, 1) << "\t" << (a[i])(2, 2) << "\t" << endl; //변수 a에 값을 할당 후 벡터 각 요소를 반복문으로 불러옴. 이전에는 a 대신 함수를 반복해서 호출하는 방법을 썼는데 그래서 계산 시간이 오래 걸림.
-                cout << setprecision(16);
-            }
-            */
-            outputFile.open(Prop_name);
-            outputFile << MD.tau_grid[MD.t - 1] << "\t";
 
-            for (int i = 0; i < siz; i++)
+            outputFile.open(Prop_name);
+            // outputFile << MD.tau_grid[MD.t - 1] << "\t"; *beta값 확인용
+
+            for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
             {
-                outputFile << a[MD.t - 1](i, i) << "\t";
+                outputFile << a[MD.t - 1](i, j) << "\t";
             }
 
             outputFile.close();
