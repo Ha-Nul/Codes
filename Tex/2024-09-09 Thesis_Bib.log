@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  9 SEP 2024 21:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  16 SEP 2024 22:44
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex
@@ -119,6 +119,15 @@ LaTeX Warning: Citation `TEST' on page 1 undefined on input line 7.
 
 LaTeX Warning: Citation `ARF' on page 1 undefined on input line 8.
 
+
+LaTeX Warning: Citation `PhysRevB.54.R3756' on page 1 undefined on input line 9.
+
+
+LaTeX Warning: Citation `entropy' on page 1 undefined on input line 10.
+
+
+LaTeX Warning: Citation `PhysRevB.100.094506' on page 1 undefined on input line 11.
+
 (2024-09-09 Thesis_Bib.bbl
 2024-09-09 Thesis_Bib.bbl:7: Misplaced alignment tab character &.
 l.7 \newblock John Wiley &
@@ -129,6 +138,16 @@ simple: Just type `I\&' now. But if some right brace
 up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--19
+[]\OT1/cmr/m/n/10 Nandini Trivedi, Richard T. Scalet-tar, and Mo-hit Ran-de-ria.
+ []
+
+
+Underfull \hbox (badness 1371) in paragraph at lines 15--19
+\OT1/cmr/m/n/10 Superconductor-insulator tran-si-tion in a dis-or-dered elec-tronic sys-tem.
+ []
 
 ) [1
 
@@ -141,15 +160,15 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 833 strings out of 478927
- 14274 string characters out of 2861478
- 307873 words of memory out of 3000000
- 18721 multiletter control sequences out of 15000+600000
+ 837 strings out of 478927
+ 14331 string characters out of 2861478
+ 310873 words of memory out of 3000000
+ 18725 multiletter control sequences out of 15000+600000
  409059 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,5n,66p,208b,148s stack positions out of 5000i,500n,10000p,200000b,80000s
 <G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmac.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmae.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb0.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb2.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb4.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb9.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmba.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmbb.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmbc.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc2.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc4.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc5.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc6.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc7.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmd5.pfb>
-Output written on "2024-09-09 Thesis_Bib.pdf" (1 page, 608033 bytes).
+Output written on "2024-09-09 Thesis_Bib.pdf" (1 page, 615671 bytes).
 PDF statistics:
  101 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -202,6 +202,12 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
             eve_2(i, j) = eve_0(i, j);
         }
     }
+    //Activate only if size 3
+    for (int i = 0; i < siz + 1; i++) {
+        eve_1(i, 0) = -eve_1(i, 0);
+        eve_2(i, 0) = -eve_2(i, 0);
+    }
+
 
     MatrixXd eve_off = eve_1.transpose() * eve_2;
     cout << "EVEOFF" << endl;
@@ -622,12 +628,12 @@ int main()
 
     for (int al = 0; al < alp_arr.size(); al ++)
     {
-        for (int ga = 0; ga < g_ma_arr.size(); ga++)
+        for (int ga = 0; ga < 1 ; ga++)//g_ma_arr.size(); ga++)
         {
             //ref_g_ma = g_ma_arr[ga];
-            //alpha = 1;
+            alpha = 1;
             alpha = alp_arr[al];
-            ref_g_ma = g_ma_arr[ga];
+            //ref_g_ma = g_ma_arr[ga];
         
                 MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
                 MatrixXd Order_param = Ordercal(MD.Eigenvector_Even(),MD.Eigenvector_Odd());

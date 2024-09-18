@@ -1,0 +1,51 @@
+\documentclass{article}[10pt]
+\usepackage{physics}
+\usepackage[fleqn]{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=10mm,
+ right=10mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\begin{flalign*}
+    \bra{\text{even}_l}\cos{\phi} \ket{\text{even}_k} 
+    &= \int^{2\pi}_0 d\phi \bigg(\frac{a^{(l)}_0}{\sqrt{2\pi}} + \sum_{m=1}\frac{a^{(l)}}{\sqrt{\pi}}\cos{m\phi}\bigg)\bigg(\frac{a^{(k)}_0}{\sqrt{2\pi}}\cos{\phi} + \sum_{n=1}\frac{a^{(k)}}{\sqrt{\pi}}\cos{\phi}\cos{n\phi}\bigg)
+    \\ &= \int^{2\pi}_0 d\phi \bigg(\frac{a^{(k)}_0a^{(l)}_0}{2\pi} + \sum_{n=1} \frac{a^{(k)}_n a^{(l)}_0}{\pi\sqrt{2}} \cos{n\phi} +  
+    \sum_{m=1} \frac{a^{(k)}_0 a^{(l)}_m}{\pi\sqrt{2}} \cos{m\phi} + \sum_{n,m=1} \frac{a^{(k)}_na^{(m)}_l}{\pi}\cos{n\phi}\cos{m\phi}\bigg) \cos{\phi} \\
+    &=    \left\{
+        \begin{array}{ll}
+            \text{if k = l : }  \qquad \frac{2}{\sqrt{2}}a^{(k)}_0a^{(k)}_1 + \sum_{n=1}^{2k} a^{(k)}_{2n-1}a^{(k)}_{2n}\\
+            \text{if k} \neq \text{l : }  \qquad \frac{1}{\sqrt{2}}(a^{(k)}_0a^{(l)}_1 +a^{(k)}_1a^{(l)}_0) + \frac{1}{2}\sum_{n=1}^{2k} (a^{(k)}_{n}a^{(l)}_{n+1} + a^{(l)}_{n}a^{(k)}_{n+1}) 
+        \end{array}
+        \right. &&
+\end{flalign*}
+
+\begin{flalign*}
+  \bra{\text{odd}_l}\cos{\phi} \ket{\text{odd}_k} 
+  &= \sum_{n,m=1}\int^{2\pi}_0 d\phi \bigg(\frac{b_n^{(k)}b_m^{(l)}}{\pi}\cos{\phi}\sin{n\phi}\sin{m\phi}\bigg) \\
+  &=    \left\{
+      \begin{array}{ll}
+          \text{if n = 1, m = 2 : }  \qquad \frac{b_1^{(k)}b_2^{(l)}}{2}\\
+          \text{if n = 2, m = 1 : }  \qquad \frac{b_2^{(k)}b_1^{(l)}}{2}
+      \end{array}
+      \right. &&
+\end{flalign*}
+\begin{equation*}
+\hat{\cos{\phi}} = \begin{pmatrix}
+   \ddots & & \vdots & & \\
+  & \bra{\text{even}_k}\cos\phi\ket{\text{even}_k} & 0 & \bra{\text{even}_k}\cos\phi\ket{\text{even}_{k+1}} & \cdots \\
+  & 0 & \bra{\text{odd}_k}\cos\phi\ket{\text{odd}_k} & 0 & \bra{\text{odd}_k}\cos\phi\ket{\text{odd}_{k+1}} \\
+  & \bra{\text{even}_{k+1}}\cos\phi\ket{\text{even}_k} & 0 & \bra{\text{even}_{k+1}}\cos\phi\ket{\text{even}_{k+1}} & \\
+  & & \vdots & &\ddots \\
+  \end{pmatrix} 
+\end{equation*}
+
+\end{document}

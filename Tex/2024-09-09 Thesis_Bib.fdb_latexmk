@@ -2,14 +2,14 @@
 ["bibtex 2024-09-09 Thesis_Bib"] 0 "2024-09-09 Thesis_Bib.aux" "2024-09-09 Thesis_Bib.bbl" "2024-09-09 Thesis_Bib" 0
   "2024-09-09 Thesis_Bib.aux" 0 -1 0 "pdflatex"
   "G:/Install_Program/MikTex/bibtex/bst/bibtex/unsrt.bst" 1291864736 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "Master_Thesis.bib" 1725884847 2380 3e540b7609d932b631d7237569ec857c ""
+  "Master_Thesis.bib" 1726494213 4008 aea9643f014c593d593f597728ef606e ""
   (generated)
   "2024-09-09 Thesis_Bib.bbl"
   "2024-09-09 Thesis_Bib.blg"
-["pdflatex"] 1725884898 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex" "2024-09-09 Thesis_Bib.pdf" "2024-09-09 Thesis_Bib" 1725884898
-  "2024-09-09 Thesis_Bib.aux" 1725884898 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "2024-09-09 Thesis_Bib.bbl" 1725884897 400 6da54d4aaf3d1f84890bb8f6a568b6b5 "bibtex 2024-09-09 Thesis_Bib"
-  "2024-09-09 Thesis_Bib.tex" 1725884845 265 cbac0df7fe3e9f083bfcafb52fc828e9 ""
+["pdflatex"] 1726494254 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex" "2024-09-09 Thesis_Bib.pdf" "2024-09-09 Thesis_Bib" 1726494254
+  "2024-09-09 Thesis_Bib.aux" 1726494254 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "2024-09-09 Thesis_Bib.bbl" 1726494252 1127 43f4866656846f553e83f258e989337e "bibtex 2024-09-09 Thesis_Bib"
+  "2024-09-09 Thesis_Bib.tex" 1726494231 335 0b7e3614b26152bf067038172160612c ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1631711725 9706441 1ba0b62526dbb03e76eb2b56d7479493 ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1713765306 122622 e2c67b0be065930cb35d7614391ab4dc ""
   "G:/Install_Program/MikTex/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -62,8 +62,8 @@
   "G:/Install_Program/MikTex/tex/latex/l3backend/l3backend-pdftex.def" 1628077986 27662 df2ac0cbce6c3f309d48d78e7c627ccb ""
   "G:/Install_Program/MikTex/tex/latex/nanumtype1/lucnanummj.fd" 1361513724 606 98e762485af72dfce2b68e2919fca6ec ""
   "G:/Install_Program/MikTex/tex/plain/kotex-plain/kotexutf-core.tex" 1444722538 21208 e360f57835b2ac285fa5dae58aee69f2 ""
-  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex" 1725884845 265 cbac0df7fe3e9f083bfcafb52fc828e9 ""
+  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex" 1726494231 335 0b7e3614b26152bf067038172160612c ""
   (generated)
   "2024-09-09 Thesis_Bib.log"
-  "2024-09-09 Thesis_Bib.aux"
   "2024-09-09 Thesis_Bib.pdf"
+  "2024-09-09 Thesis_Bib.aux"

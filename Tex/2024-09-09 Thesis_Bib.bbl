@@ -11,4 +11,23 @@ George Arfken.
 \newblock {\em Mathematical Methods for Physicists}.
 \newblock Academic Press, {Inc.}, San Diego, third edition, 1985.
 
+\bibitem{PhysRevB.54.R3756}
+Nandini Trivedi, Richard~T. Scalettar, and Mohit Randeria.
+\newblock Superconductor-insulator transition in a disordered electronic
+  system.
+\newblock {\em Phys. Rev. B}, 54:R3756--R3759, Aug 1996.
+
+\bibitem{entropy}
+James~P. Sethna.
+\newblock {\em Statistical Mechanics: Entropy, Order Parameters and
+  Complexity}.
+\newblock Oxford University Press, Great Clarendon Street, Oxford OX2 6DP,
+  first edition edition, 2006.
+
+\bibitem{PhysRevB.100.094506}
+O.~Simard, C.-D. H\'ebert, A.~Foley, D.~S\'en\'echal, and A.-M.~S. Tremblay.
+\newblock Superfluid stiffness in cuprates: Effect of mott transition and phase
+  competition.
+\newblock {\em Phys. Rev. B}, 100:094506, Sep 2019.
+
 \end{thebibliography}
