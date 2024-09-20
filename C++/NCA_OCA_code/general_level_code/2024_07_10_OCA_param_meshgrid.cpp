@@ -711,7 +711,7 @@ int main()
 
                 for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
                 {
-                    outputFile << ITER[MD.t - 1](i, i) << "\t";
+                    outputFile << ITER[MD.t - 1](i, j) << "\t";
                 }
                 
                 outputFile.close();
