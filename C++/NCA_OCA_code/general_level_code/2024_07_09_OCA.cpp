@@ -622,7 +622,7 @@ int main()
 
     int& size = siz;
 
-    size = 5;
+    size = 3;
 
     //alpha adjust
     vector<double> alp_arr(5,0);
@@ -655,10 +655,10 @@ int main()
 
     for (int ga = 0; ga< 1; ga++) for (int al = 0; al< alp_arr.size() ;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
     {
-        ref_g_ma = g_ma_arr[ga];
+        //ref_g_ma = g_ma_arr[ga];
         //alpha = 1;
         alpha = alp_arr[al];
-        //ref_g_ma = 1;
+        ref_g_ma = 1;
 
             /****************************G(tau) Calcultaion******************************/
             
@@ -706,10 +706,12 @@ int main()
 
             outputFile.open(Prop_name);
             // outputFile << MD.tau_grid[MD.t - 1] << "\t"; *beta값 확인용
-
-            for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
-            {
-                outputFile << a[MD.t - 1](i, j) << "\t";
+            for (int k = 0; k < MD.tau_grid.size(); k++){
+                for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
+                {
+                    outputFile << a[k](i, j) << "\t";
+                }
+                outputFile << "\n";
             }
 
             outputFile.close();

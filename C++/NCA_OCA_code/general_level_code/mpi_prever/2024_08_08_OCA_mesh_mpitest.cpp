@@ -764,9 +764,12 @@ int main(int argc, char *argv[])
 
                 outputFile.open(Prop_name);
 
-                for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
-                {
-                    outputFile << ITER[MD.t - 1](i, j) << "\t";
+                for (int k = 0; k < MD.tau_grid.size(); k++){
+                    for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
+                    {
+                        outputFile << ITER[k](i, j) << "\t";
+                    }
+                    outputFile << "\n";
                 }
                 
                 outputFile.close();
