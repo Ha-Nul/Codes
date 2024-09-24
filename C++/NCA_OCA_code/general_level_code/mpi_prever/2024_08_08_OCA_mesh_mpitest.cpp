@@ -11,6 +11,7 @@ using namespace std;
 using namespace Eigen;
 double g_ma = 1;
 int siz = 0;
+int sys = 0;
 
 /////////////////////////////////////////////////////////////
 
@@ -111,25 +112,25 @@ void MD_OC::Interact_V(double k_cutoff)
 
 MatrixXd MD_OC::Eigenvector_Even()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(sys, g_ma));
     return es.eigenvectors();
 }
 
 MatrixXd MD_OC::Eigenvalue_Even()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(sys, g_ma));
     return es.eigenvalues();
 }
 
 MatrixXd MD_OC::Eigenvector_Odd()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(sys, g_ma));
     return es.eigenvectors();
 }
 
 MatrixXd MD_OC::Eigenvalue_Odd()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(sys, g_ma));
     return es.eigenvalues();
 }
 
@@ -186,7 +187,6 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 
 void MD_OC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
 {
-    int siz = a.rows();
     H_loc = MatrixXd::Zero(siz,siz);
 
     for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
@@ -572,8 +572,8 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 
 int main(int argc, char *argv[])
 {
-    double beta = 1;
-    int grid = 301;
+    double beta = 3;
+    int grid = 701;
 
     MD_OC MD(beta,grid);
     /// Parameter adjustment ////
@@ -582,15 +582,17 @@ int main(int argc, char *argv[])
     double k_cutoff = 20;
     double& ref_g_ma = g_ma;
     int& size = siz;
+    int& syst = sys;
 
     vector<double> resultarr;
 
     size = 5;
+    syst = 21;
 
     /////////////////////////////////
     
     vector<double> alp_arr(3,0);
-    for (int i = 0; i < 5 ; i++)
+    for (int i = 0; i < 3 ; i++)
     {
         if (i==0)
         {
@@ -605,7 +607,7 @@ int main(int argc, char *argv[])
     
     
     vector<double> g_ma_arr(3,0);
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 3; i++)
     {
         if (i==0)
         {
@@ -613,7 +615,7 @@ int main(int argc, char *argv[])
         }
         if (i!=0)
         {
-            g_ma_arr[i] = g_ma_arr[i-1] + 0.1;
+            g_ma_arr[i] = g_ma_arr[i-1] + 0.5;
         }
     }
     
@@ -669,6 +671,7 @@ int main(int argc, char *argv[])
     if (id == 0)
     {
         //gamma block
+        
         for (int process = 1; process < p; process++)
         {
             //cout << " * Set beta : ";
@@ -687,9 +690,11 @@ int main(int argc, char *argv[])
             //MPI_Send(&grid, 1, MPI_INT, process, 0, MPI_COMM_WORLD);
             MPI_Send(bound.data(), bound.size(), MPI_DOUBLE, process, 0, MPI_COMM_WORLD);
         }
+        
 
-        /*
+        
         //alpha block
+        /*
         for (int process = 1; process < p; process++)
         {
             int index_s = alp_arr.size() * (process - 1) / (p - 1);
@@ -702,6 +707,7 @@ int main(int argc, char *argv[])
             MPI_Send(bound.data(), bound.size(), MPI_DOUBLE, process, 0, MPI_COMM_WORLD);
         }
         */
+        
     }
     ///////////////////////CALCULATION ACTIVATED..//////////////////////////
     else
@@ -716,7 +722,6 @@ int main(int argc, char *argv[])
         MatrixXd INDEX_CAL = MatrixXd::Zero(g_ma_arr.size(),alp_arr.size());
 
         // GAMMA BLOCK ...///////////////////////
-        
         for (int ga = 0; ga < num_lim; ga++)
         {
             ref_g_ma = g_ma_arr[bound[0] + ga];
@@ -803,7 +808,6 @@ int main(int argc, char *argv[])
             }
         }
         
-        
 
        // ALPHA BLOCK ...///////////////////////
        /*
@@ -819,8 +823,8 @@ int main(int argc, char *argv[])
                 vector<MatrixXd> ITER = MD.Iteration(25);
                 vector<double> a = MD.Chi_sp_Function(ITER);
 
-
                 ////////////////////DATA OUTPUT ///////////////////
+                
                 string Prop_name = "OCA_PROP_GAMMA_";
 
                 std::stringstream gam;
@@ -854,15 +858,19 @@ int main(int argc, char *argv[])
                 Prop_name += sizz.str();
                 Prop_name += ".txt";
 
+                
                 outputFile.open(Prop_name);
-
-                for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
-                {
-                    outputFile << ITER[MD.t - 1](i, i) << "\t";
+                
+                for (int k = 0; k < MD.tau_grid.size(); k++){
+                    for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
+                    {
+                        outputFile << ITER[k](i, j) << "\t";
+                    }
+                    outputFile << "\n";
                 }
                 
                 outputFile.close();
-    
+                /*
                 string Chi_name = "OCA_CHI_GAMMA_";
 
                 Chi_name += gam.str();
@@ -884,7 +892,8 @@ int main(int argc, char *argv[])
                 }
 
                 outputFile.close();
-
+                
+                //////////////////////////////DATA OUTPUT///////////////////////////
             
                 if (int(al+bound[0]) < alp_arr.size())
                 {
@@ -894,7 +903,6 @@ int main(int argc, char *argv[])
             }
         }
         */
-    
 
         int rows, cols;
         

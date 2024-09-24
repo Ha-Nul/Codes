@@ -12,6 +12,7 @@ using namespace Eigen;
 vector<double> k_mode(30000, 1);
 double g_ma = 1;
 int siz = 1;
+int sys = 1;
 
 /////////////////////////////////////////////////////////////
 
@@ -111,25 +112,25 @@ void MD_OC::Interact_V(double k_cutoff)
 
 MatrixXd MD_OC::Eigenvector_Even()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(sys, g_ma));
     return es.eigenvectors();
 }
 
 MatrixXd MD_OC::Eigenvalue_Even()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(sys, g_ma));
     return es.eigenvalues();
 }
 
 MatrixXd MD_OC::Eigenvector_Odd()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(sys, g_ma));
     return es.eigenvectors();
 }
 
 MatrixXd MD_OC::Eigenvalue_Odd()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(sys, g_ma));
     return es.eigenvalues();
 }
 
@@ -186,7 +187,6 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 
 void MD_OC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
 {
-    int siz = a.rows();
     H_loc = MatrixXd::Zero(siz,siz);
 
     for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
@@ -621,8 +621,10 @@ int main()
     double& ref_g_ma = g_ma;
 
     int& size = siz;
+    int& syst = sys;
 
-    size = 3;
+    size = 5;
+    syst = 21;
 
     //alpha adjust
     vector<double> alp_arr(5,0);
@@ -653,12 +655,12 @@ int main()
     }
     
 
-    for (int ga = 0; ga< 1; ga++) for (int al = 0; al< alp_arr.size() ;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
+    for (int ga = 0; ga< 1; ga++) //for (int al = 0; al< alp_arr.size() ;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
     {
         //ref_g_ma = g_ma_arr[ga];
-        //alpha = 1;
-        alpha = alp_arr[al];
-        ref_g_ma = 1;
+        alpha = 1;
+        //alpha = alp_arr[al];
+        ref_g_ma = 2;
 
             /****************************G(tau) Calcultaion******************************/
             
