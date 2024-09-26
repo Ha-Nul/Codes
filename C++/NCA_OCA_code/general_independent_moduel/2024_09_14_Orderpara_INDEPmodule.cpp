@@ -13,6 +13,7 @@ using namespace Eigen;
 vector<double> k_mode(30000, 1);
 double g_ma = 1;
 int siz = 0;
+int sys = 1;
 
 ///////////////////////////////////////////////////////
 
@@ -91,25 +92,25 @@ void MD_OC::Interact_V(double k_cutoff)
 
 MatrixXd MD_OC::Eigenvector_Even()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(sys, g_ma));
     return es.eigenvectors();
 }
 
 MatrixXd MD_OC::Eigenvalue_Even()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(sys, g_ma));
     return es.eigenvalues();
 }
 
 MatrixXd MD_OC::Eigenvector_Odd()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(sys, g_ma));
     return es.eigenvectors();
 }
 
 MatrixXd MD_OC::Eigenvalue_Odd()
 {
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(siz, g_ma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(sys, g_ma));
     return es.eigenvalues();
 }
 
@@ -173,8 +174,8 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
     cout << even << endl;
 
     //** constructing even matrix
-    MatrixXd eve_0 = even;//MatrixXd::Zero(siz,siz);
-    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+    MatrixXd eve_0 = even;//MatrixXd::Zero(sys,sys);
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
     {
         if (i == 0) {
             eve_0(i, j) = (1 / sqrt(2)) * even(i, j);
@@ -185,12 +186,12 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
     }
 
     //Even OffDiagonal construct
-    MatrixXd eve_1 = MatrixXd::Zero(siz + 1, siz + 1);
-    MatrixXd eve_2 = MatrixXd::Zero(siz + 1, siz + 1);
+    MatrixXd eve_1 = MatrixXd::Zero(sys + 1, sys + 1);
+    MatrixXd eve_2 = MatrixXd::Zero(sys + 1, sys + 1);
 
-    for (int i = 0; i < siz + 1; i++) for (int j = 0; j < siz + 1; j++)
+    for (int i = 0; i < sys + 1; i++) for (int j = 0; j < sys + 1; j++)
     {
-        if (i > 0 && j < siz) {
+        if (i > 0 && j < sys) {
             if (i > 1) {
                 eve_1(i, j) = 0.5 * eve_0(i - 1, j);
             }
@@ -198,12 +199,12 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
                 eve_1(i, j) = eve_0(i - 1, j);
             }
         }
-        if (j < siz && i < siz) {
+        if (j < sys && i < sys) {
             eve_2(i, j) = eve_0(i, j);
         }
     }
-    //Activate only if size 3
-    for (int i = 0; i < siz + 1; i++) {
+    //Activate to change the direction of groundstate eigenvector
+    for (int i = 0; i < sys + 1; i++) {
         eve_1(i, 0) = -eve_1(i, 0);
         eve_2(i, 0) = -eve_2(i, 0);
     }
@@ -216,9 +217,9 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
     //cout << "\t" << "<Mateven 1>" << endl;
     //cout << eve_1.transpose() << endl;
     /*
-    for (int i = 0; i < siz+1; i++) for (int j = 0; j< siz+1; j++)
+    for (int i = 0; i < sys+1; i++) for (int j = 0; j< sys+1; j++)
     {
-        if (j<siz && i<siz)
+        if (j<sys && i<sys)
         {
             eve_2(i,j) = eve_0(i,j);
         }
@@ -226,9 +227,9 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
     */
     //cout << "\t" << "<Mateven 2>" << endl;
     //cout << eve_2 << endl;
-    MatrixXd eve_ele = MatrixXd::Zero(siz, siz);
+    MatrixXd eve_ele = MatrixXd::Zero(sys, sys);
 
-    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
     {
         if ((i != j) && (i % 2 == 0) && (j % 2 == 0)) {
             eve_ele(i, j) = eve_off(i / 2, j / 2) + eve_off(j / 2, i / 2);
@@ -249,22 +250,54 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
 
     cout << "**ODD Eigen matrix**" << endl;
     cout << odd << endl;
-
-    MatrixXd odd_ele = MatrixXd::Zero(siz, siz);
-    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+        //odd matrix calculation structure design
+    MatrixXd odd_ele1 = MatrixXd::Zero(sys, sys);
+    MatrixXd odd_ele2 = MatrixXd::Zero(sys, sys);
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
     {
-        if ((i == j) && (i % 2 != 0)) {
-            odd_ele(i, j) = odd(0, j / 2) * odd(1, j / 2); // Diagonal element analogous with odd basis
-        }
-        else if ((i < j) && (i % 2 != 0) && (j % 2 != 0)) {
-            odd_ele(i, j) = (odd(0, i / 2) * odd(1, j / 2) + odd(1, i / 2) * odd(0, j / 2)) / 2;
-            odd_ele(j, i) = (odd(0, i / 2) * odd(1, j / 2) + odd(1, i / 2) * odd(0, j / 2)) / 2;
+        if (i!=0){
+            odd_ele1(i,j)=odd(i-1,j);
         }
     }
-    //cout << "Odd" << endl;
-    //cout << odd_ele << endl;
-    //cout << "\n\n";
 
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
+    {
+        if (i!=0){
+            odd_ele1(i,j)=odd(i-1,j);
+        }
+    }
+
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
+    {
+        if (i!=(sys-1)){
+            odd_ele2(i,j)=odd(i,j);
+        }
+    }
+        //calculation
+    MatrixXd odd_ele = MatrixXd::Zero(sys,sys);
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
+    {
+        if ((i == j) && (i % 2 == 1) && (j % 2 == 1)){
+            odd_ele(i,j) = (odd_ele1.transpose() * odd)(i/2,j/2);
+        }
+        else if ((i < j) && (i % 2 == 1) && (j % 2 == 1)){
+            odd_ele(i,j) = 0.5 * (odd_ele1.transpose()*odd + odd_ele2.transpose()*odd_ele1)(i,j);
+            odd_ele(j,i) = odd_ele(i,j);
+        }
+    }
+
+    /*
+    cout << "ODD_element 1 is : " << endl;
+    cout << odd_ele1 << endl;
+
+    cout << "\n";
+
+    cout << "ODD_element 2 is : " << endl;
+    cout << odd_ele2 << endl;
+    */
+
+    cout << "Structure check" << endl;
+    cout << odd_ele << endl;
     ///////////// odd matrix construction complete ///////////////
 
     for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
@@ -280,7 +313,7 @@ MatrixXd Ordercal(MatrixXd even, MatrixXd odd)
         }
 
     }
-
+    
     return Order_param;
 
 }
@@ -369,8 +402,10 @@ int main()
     double& ref_g_ma = g_ma;
 
     int& size = siz;
+    int& syst = sys;
 
-    size = 5;
+    size = 3;
+    syst = 21;
     /*
     vector<double> alp_arr(21,0);
     for (int i = 0; i < 21 ; i++)
@@ -387,11 +422,10 @@ int main()
     }
     */
 
-    vector<double> alp_arr = { 0,1,5,20 };
+    vector<double> alp_arr = {5};
 
-
-    vector<double> g_ma_arr(5, 0);
-    for (int i = 0; i < 5; i++)
+    vector<double> g_ma_arr(21, 0);
+    for (int i = 0; i < 21; i++)
     {
         if (i == 0)
         {
@@ -399,7 +433,7 @@ int main()
         }
         if (i != 0)
         {
-            g_ma_arr[i] = g_ma_arr[i - 1] + 0.2;
+            g_ma_arr[i] = g_ma_arr[i - 1] + 0.05;
         }
     }
 
