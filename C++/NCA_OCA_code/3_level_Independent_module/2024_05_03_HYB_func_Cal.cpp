@@ -5,8 +5,7 @@
 #include <vector>
 #include <cmath>
 #include <OCA_bath.hpp>
-#include <string>
-#include <sstream>
+#include <chrono>
 
 using namespace std;
 using namespace Eigen;
@@ -15,6 +14,7 @@ using namespace Eigen;
 
 double gamma;
 double alpha;
+int sys;
 
 ///////////////////////////////////////////////////////////////////////
 
@@ -36,6 +36,7 @@ MD_OC::MD_OC(double beta, int grid)
     //vector<double> k_mode(100,1);
 
 }
+
 
 MD_OC::~MD_OC()
 {
@@ -128,7 +129,7 @@ MatrixXd MD_OC::Eigenvector_Even()
 {
     MatrixXd a;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, gamma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(sys, gamma));
     a = es.eigenvectors();
 
     return a;
@@ -138,7 +139,7 @@ MatrixXd MD_OC::Eigenvalue_Even()
 {
     MatrixXd b;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(3, gamma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Even(sys, gamma));
     b = es.eigenvalues();
 
     return b;
@@ -148,7 +149,7 @@ MatrixXd MD_OC::Eigenvector_Odd()
 {
     MatrixXd a;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, gamma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(sys, gamma));
     a = es.eigenvectors();
 
     return a;
@@ -158,7 +159,7 @@ MatrixXd MD_OC::Eigenvalue_Odd()
 {
     MatrixXd b;
 
-    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(3, gamma));
+    SelfAdjointEigenSolver<MatrixXd> es(Matrix_Odd(sys, gamma));
     b = es.eigenvalues();
 
     return b;
@@ -228,75 +229,55 @@ void MD_OC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
 
 ///////////////////////////////////////////////////////////////////////////////
 
-void MD_OC::Dataoutput(double gamma, double alpha)
+void MD_OC::Dataoutput()
 {
     std::ofstream outputFile("./");
-    std::stringstream gam;
-    std::stringstream alp;
 
-    gam << gamma;
-    alp << alpha;
-
-    string INT= "INT_Arr_g";
-
-    INT += gam.str();
-    INT += "_a";
-    INT += alp.str();
-    INT += ".dat";
+    string INT= "INT_Arr.dat";
 
     outputFile.open(INT);
     for (int i = 0; i < t; i++)
     {
-        outputFile << tau_grid[i] << "\t" << INT_Arr[i] << endl;
+        outputFile << tau_grid[i] << "\t" <<INT_Arr[i] << endl;
     }
     outputFile.close();
 
-    string HN= "H_N_g";
-    HN += gam.str();
-    HN += "_a";
-    HN += alp.str();
-    HN += ".dat";
+    string HN= "H_N.dat";
 
     outputFile.open(HN);
     outputFile << H_N << endl;
     outputFile.close();
 
-    string HL= "H_loc_g";
-    HL += gam.str();
-    HL += "_a";
-    HL += alp.str();
-    HL += ".dat";
+    string HL= "H_loc.dat";
 
     outputFile.open(HL);
-    outputFile << H_loc << endl;
+    outputFile <<H_loc << endl;
     outputFile.close();
 
 }
+
 /////////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    double beta = 3.3;
-    int grid = 201;
+    double beta = 10;
+    int grid = 100;
 
     MD_OC OC(beta,grid);
 
     double& ref_gamma = gamma;
     double& alp = alpha;
+    int& syst = sys;
     double k_cutoff = 20;
 
-    string input;
-    getline(cin, input); // 한 줄을 입력받음
+    //vector<double> alp_arr = OC.linspace(0,10,21);
 
-    istringstream iss(input);
-    iss >> gamma >> alpha;
-
-    cout << " ** H_loc, INT_Arr, H_N sending process activates";
-    cout << " Value of gamma : " << gamma << ", alpha : " << alpha << endl;
+    ref_gamma = 1;
+    alp = 1;
+    syst = 21;
 
     OC.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-    OC.Dataoutput(gamma,alpha);
+    OC.Dataoutput();
 
     return 0;
 }
-
