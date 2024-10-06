@@ -479,4 +479,30 @@ $\\ \\ \\ \\$
     \mathcal{G}(\tau-\tau_1) \\ \mathcal{G}(\tau_2-\tau) \\ \omega(\tau_2-\tau_1)
     \\ \mathcal{G}(\beta-\tau_2) \\ \mathcal{G}(\tau_1) \\ \lambda_1
 \end{equation*}
+
+\begin{fmffile}{Thes1}
+    \parbox{20mm}{\begin{fmfgraph*}(50,120)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{fermion,label=$\mathcal{G}$}{a,b}
+        %label
+        \fmfv{lab=$\hat{a}$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\hat{b}^\dagger$,lab.dist=0.05w}{b}
+      \end{fmfgraph*}}
+\end{fmffile}
+\\
+\begin{fmffile}{Thes2}
+    \parbox{20mm}{\begin{fmfgraph*}(50,120)
+        \fmfleft{a}
+        \fmf{fermion,label=$\mathcal{G}_0$}{a,b1}
+        \fmf{boson}{b1,b2}
+        \fmf{fermion}{b2,b3}
+        \fmf{fermion}{b3,b2}
+        \fmfright{b}
+        %label
+        \fmfv{lab=$\psi_a$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\psi^\dagger_b$,lab.dist=0.05w}{b}
+      \end{fmfgraph*}}
+\end{fmffile}
+
 \end{document}

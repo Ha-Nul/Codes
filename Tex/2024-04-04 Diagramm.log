@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  23 APR 2024 16:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  6 OCT 2024 12:53
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-04-04 Diagramm.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-04-04 Diagramm.tex
@@ -413,17 +413,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 458--460
 
  []
 
-[5] (2024-04-04 Diagramm.aux) ) 
+\openout3 = `Thes1.mp'.
+
+feynmp: File Thes1.1 not found:
+feynmp: Process Thes1.mp with MetaPost and then reprocess this file.
+feynmf: Label file Thes1.t1 not found:
+feynmf: Process Thes1.mp with MetaPost and then reprocess this file.
+\openout3 = `Thes2.mp'.
+
+File: Thes2.1 Graphic file (type mps)
+[MP to PDF] (Thes2.1) (Thes2.t1) [5] (2024-04-04 Diagramm.aux) ) 
 Here is how much of TeX's memory you used:
- 4410 strings out of 478927
- 62782 string characters out of 2861478
+ 4458 strings out of 478927
+ 63601 string characters out of 2861478
  377608 words of memory out of 3000000
- 22121 multiletter control sequences out of 15000+600000
+ 22163 multiletter control sequences out of 15000+600000
  406551 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,16n,80p,316b,578s stack positions out of 5000i,500n,10000p,200000b,80000s
 <G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "2024-04-04 Diagramm.pdf" (5 pages, 171150 bytes).
+Output written on "2024-04-04 Diagramm.pdf" (5 pages, 171341 bytes).
 PDF statistics:
  83 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -33,8 +33,8 @@
   &= \sum_{n,m=1}\int^{2\pi}_0 d\phi \bigg(\frac{b_n^{(k)}b_m^{(l)}}{\pi}\cos{\phi}\sin{n\phi}\sin{m\phi}\bigg) \\
   &=    \left\{
       \begin{array}{ll}
-          \text{if n = 1, m = 2 : }  \qquad \frac{b_1^{(k)}b_2^{(l)}}{2}\\
-          \text{if n = 2, m = 1 : }  \qquad \frac{b_2^{(k)}b_1^{(l)}}{2}
+          \text{if k > l : }  \qquad \sum^N_{n=1} \bigg(\frac{\hat{b}^{(k)}_n\hat{b}^{(l)}_{n-1}}{2} + \frac{\hat{b}^{(k)}_n\hat{b}^{(l)}_{n+1}}{2}\bigg)\\
+          \text{if k < l : }  \qquad \sum^N_{n=1} \bigg(\frac{\hat{b}^{(k)}_{n-1}\hat{b}^{(l)}_{n}}{2} + \frac{\hat{b}^{(k)}_{n+1}\hat{b}^{(l)}_{n}}{2}\bigg)
       \end{array}
       \right. &&
 \end{flalign*}
