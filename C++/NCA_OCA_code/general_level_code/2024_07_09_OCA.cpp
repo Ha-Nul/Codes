@@ -17,15 +17,15 @@ int sys = 1;
 /////////////////////////////////////////////////////////////
 
 MD_OC::MD_OC(double beta, int grid)
-     : tau_grid(linspace(0,beta,grid)) , t(grid-1)
+    : tau_grid(linspace(0, beta, grid)), t(grid - 1)
 {
-    mode_grid = linspace(1,30000,30000);
+    mode_grid = linspace(1, 30000, 30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
 
     M = mode_grid.size();
     t = tau_grid.size();
-    
+
     coup_Arr.resize(M);
     omega_Arr.resize(M);
     INT_Arr.resize(t);
@@ -44,26 +44,26 @@ void MD_OC::Tilde_g_calculation_function(double alpha, double k_cutoff)
 {
     double nu = pi * k_cutoff / alpha;
     //Initializing Array
-    for (int j = 0 ; j < M ; j++)
+    for (int j = 0; j < M; j++)
     {
         omega_Arr[j] = 0;
         coup_Arr[j] = 0;
     }
 
-    for (int i=0; i < M; i++)
+    for (int i = 0; i < M; i++)
     {
         //omega_Arr[i] = k_cutoff * (mode_grid[i]/mode_grid[M-1]);
         //coup_Arr[i] = sqrt((2 * k_cutoff / (alpha * M)) * (omega_Arr[i] / (1 + pow(nu * omega_Arr[i] / k_cutoff,2))));
 
         //simpson formulae
         omega_Arr[0] = -0.05;
-        omega_Arr[i] = (mode_grid[i]/mode_grid[M-1]); // fix to x to adjust simpson's rule
-        coup_Arr[i] = sqrt((2 * k_cutoff / (alpha)) * ( k_cutoff * omega_Arr[i] / (1 + pow(nu * omega_Arr[i],2)))); // fix to adjust simpson's rule
+        omega_Arr[i] = (mode_grid[i] / mode_grid[M - 1]); // fix to x to adjust simpson's rule
+        coup_Arr[i] = sqrt((2 * k_cutoff / (alpha)) * (k_cutoff * omega_Arr[i] / (1 + pow(nu * omega_Arr[i], 2)))); // fix to adjust simpson's rule
     }
 
     if (alpha == 0)
     {
-        for (int i=0; i < M; i++)
+        for (int i = 0; i < M; i++)
         {
             coup_Arr[i] = 0;
         }
@@ -83,27 +83,27 @@ void MD_OC::Interact_V(double k_cutoff)
 
     for (int i = 0; i < t; i++)
     {
-        for (int j = 0; j < M ;j++)
+        for (int j = 0; j < M; j++)
         {
             //INT_Arr[i] += -pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * omega_Arr[j])/sinh(tau_grid[t - 1] * omega_Arr[j] / 2); //caution for sign
-            
+
             //simpson formulae
-            
-            if(j == 0 || j == M-1)
+
+            if (j == 0 || j == M - 1)
             {
-                INT_Arr[i] += - ( 1.0 /( 3 * M) ) * pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff *  omega_Arr[j])/sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
+                INT_Arr[i] += -(1.0 / (3 * M)) * pow(coup_Arr[j], 2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff * omega_Arr[j]) / sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
             }
 
-            else if (j%2 != 0)
+            else if (j % 2 != 0)
             {
-                INT_Arr[i] += - ( 1.0 /(3 * M)) * 4 * pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff *  omega_Arr[j])/sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
+                INT_Arr[i] += -(1.0 / (3 * M)) * 4 * pow(coup_Arr[j], 2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff * omega_Arr[j]) / sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
             }
 
-            else if (j%2 == 0)
+            else if (j % 2 == 0)
             {
-                INT_Arr[i] += - (1.0/(3 * M)) * 2 * pow(coup_Arr[j],2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff *  omega_Arr[j])/sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
+                INT_Arr[i] += -(1.0 / (3 * M)) * 2 * pow(coup_Arr[j], 2) * cosh((tau_grid[i] - tau_grid[t - 1] / 2) * k_cutoff * omega_Arr[j]) / sinh(tau_grid[t - 1] * k_cutoff * omega_Arr[j] / 2);
             }
-            
+
         }
         //INT_Arr[i] += -0.05;
     }
@@ -139,8 +139,8 @@ MatrixXd MD_OC::Eigenvalue_Odd()
 void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 {
     //cout << "input g value :" << g << endl;
-    MatrixXd INT_odd = MatrixXd::Zero(siz, siz);
-    MatrixXd INT_even = MatrixXd::Zero(siz, siz);
+    MatrixXd INT_odd = MatrixXd::Zero(sys, sys);
+    MatrixXd INT_even = MatrixXd::Zero(sys, sys);
 
     //H_N initialize
     H_N = MatrixXd::Zero(siz, siz);
@@ -148,11 +148,11 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     //cout << "initialized check" << endl;
     //cout << H_N << "\n" << endl;
 
-    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
     {
         INT_even(i, j) = -1 * even(i, j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
 
-        if (i < siz - 1)
+        if (i < sys - 1)
         {
             INT_odd(i + 1, j) = odd(i, j);
         }
@@ -187,7 +187,7 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 
 void MD_OC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
 {
-    H_loc = MatrixXd::Zero(siz,siz);
+    H_loc = MatrixXd::Zero(siz, siz);
 
     for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
     {
@@ -218,10 +218,10 @@ void MD_OC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
 
 void MD_OC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
 {
-    Tilde_g_calculation_function(alpha,k_cutoff);
+    Tilde_g_calculation_function(alpha, k_cutoff);
     Interact_V(k_cutoff);
     Hamiltonian_N(Eigenvector_Even(), Eigenvector_Odd());
-    Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd());
+    Hamiltonian_loc(Eigenvalue_Even(), Eigenvalue_Odd());
 
 
     cout << "$ H_N value : \n " << H_N << endl;
@@ -345,14 +345,14 @@ MatrixXd MD_OC::round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>
 
 vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& loc)
 {
-    vector<MatrixXd> P_arr(t, MatrixXd::Zero(siz,siz));
-    vector<MatrixXd> S_arr(t, MatrixXd::Zero(siz,siz));
+    vector<MatrixXd> P_arr(t, MatrixXd::Zero(siz, siz));
+    vector<MatrixXd> S_arr(t, MatrixXd::Zero(siz, siz));
 
-    P_arr[0] = MatrixXd::Identity(siz,siz);
-    S_arr[0] = MatrixXd::Identity(siz,siz);
+    P_arr[0] = MatrixXd::Identity(siz, siz);
+    S_arr[0] = MatrixXd::Identity(siz, siz);
 
-    MatrixXd sig_form = MatrixXd::Zero(siz,siz);
-    MatrixXd sig_late = MatrixXd::Zero(siz,siz);
+    MatrixXd sig_form = MatrixXd::Zero(siz, siz);
+    MatrixXd sig_late = MatrixXd::Zero(siz, siz);
 
     for (int i = 1; i < t; i++)
     {
@@ -397,7 +397,7 @@ double MD_OC::temp_minpoint(vector<MatrixXd> &arr)
         double grad = arr[i](0,0)-arr[i-1](0,0);
         cout << "\t""\t" << "Prop (0,0)  : " << arr[i](0,0);
         if (grad>0){
-            
+
             cout << " Min value is : " << arr[i-1] << " ! " << endl;
 
             return i-1;
@@ -407,13 +407,13 @@ double MD_OC::temp_minpoint(vector<MatrixXd> &arr)
 }
 */
 
-vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, int size)
+vector<double> MD_OC::temp_itemin(vector<MatrixXd>& arrr, double minpo, int size)
 {
-    vector<double> dist_return(size,0);
+    vector<double> dist_return(size, 0);
 
-    for (int i = 0 ; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
-        dist_return[i] = arrr[t-1](i,i);
+        dist_return[i] = arrr[t - 1](i, i);
     }
 
     return dist_return;
@@ -425,9 +425,9 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 {
     cout << "** Iteration RUN " << endl;
 
-    Prop.resize(t, MatrixXd::Zero(siz,siz));
-    Prop[0] = MatrixXd::Identity(siz,siz);
-    MatrixXd Iden = MatrixXd::Identity(siz,siz);
+    Prop.resize(t, MatrixXd::Zero(siz, siz));
+    Prop[0] = MatrixXd::Identity(siz, siz);
+    MatrixXd Iden = MatrixXd::Identity(siz, siz);
 
     //Iterarion stop condition block
 
@@ -439,7 +439,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
     ///////////////////////////////////////////////////////////////
 
     double temp_minpoin;
-    vector<vector<double> > temp_itemi(2,vector<double>(siz,0));
+    vector<vector<double> > temp_itemi(2, vector<double>(siz, 0));
     double RELA_ENTROPY;
 
     ///////////////////////////////////////////////////////////////
@@ -472,7 +472,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
             //////////////////////////////////////////////////////////////////////////////
 
-            temp_minpoin = t-1;
+            temp_minpoin = t - 1;
 
             //////////////////////////////////////////////////////////////////////////////
         }
@@ -483,7 +483,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             cout << "Iteration " << i << " Starts" << endl;
             /////////////////////////////////////////////////////////////////////////////
 
-            temp_itemi[(i-1)%2] = temp_itemin(Prop,temp_minpoin,siz); // temporary store for previous iteration data
+            temp_itemi[(i - 1) % 2] = temp_itemin(Prop, temp_minpoin, siz); // temporary store for previous iteration data
             RELA_ENTROPY = 0;
 
             /////////////////////////////////////////////////////////////////////////////
@@ -507,21 +507,21 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
             /////////////////////////////////////////////////////////////////////////////
 
-            temp_itemi[i%2] = temp_itemin(Prop,temp_minpoin,siz);
- 
+            temp_itemi[i % 2] = temp_itemin(Prop, temp_minpoin, siz);
+
             cout << "\n";
-            
+
             // Relative entropy calculation
-            
+
             for (int j = 0; j < siz; j++)
             {
-                RELA_ENTROPY += temp_itemi[i%2][j] * log(temp_itemi[i%2][j]/temp_itemi[(i-1)%2][j]);
+                RELA_ENTROPY += temp_itemi[i % 2][j] * log(temp_itemi[i % 2][j] / temp_itemi[(i - 1) % 2][j]);
             }
-            
 
-            if (i > 1){
+
+            if (i > 1) {
                 cout << "\t""\t" << i << " th Iteration stop value : " << fabs(RELA_ENTROPY) << endl;
-                if (fabs(RELA_ENTROPY) < 0.00001){
+                if (fabs(RELA_ENTROPY) < 0.00001) {
                     break;
                 }
             }
@@ -542,7 +542,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 void MD_OC::NCA_Chi_sp(vector<MatrixXd>& iter)
 {
     Chi_Arr.resize(t);
-    MatrixXd GELL = MatrixXd::Zero(siz,siz);
+    MatrixXd GELL = MatrixXd::Zero(siz, siz);
     GELL(0, 1) = 1;
     GELL(1, 0) = 1;
 
@@ -554,7 +554,7 @@ void MD_OC::NCA_Chi_sp(vector<MatrixXd>& iter)
 
 void MD_OC::OCA_store(vector<MatrixXd>& iter)
 {
-    MatrixXd GELL = MatrixXd::Zero(siz,siz);
+    MatrixXd GELL = MatrixXd::Zero(siz, siz);
     GELL(0, 1) = 1;
     GELL(1, 0) = 1;
 
@@ -575,7 +575,7 @@ void MD_OC::OCA_Chi_sp(vector<MatrixXd>& iter)
 {
     for (int i = 0; i < t; i++)
     {
-        MatrixXd Stmp = MatrixXd::Zero(siz,siz);
+        MatrixXd Stmp = MatrixXd::Zero(siz, siz);
 
         for (int n = 0; n <= i; n++) for (int m = i; m < t; m++)
         {
@@ -607,12 +607,12 @@ int main()
     cout << " * Set grid (number of index, not interval count) : ";
     cin >> grid;
 
-    std::chrono::system_clock::time_point P_start= std::chrono::system_clock::now();
+    std::chrono::system_clock::time_point P_start = std::chrono::system_clock::now();
     cout << " ## OCA Program begins ##" << endl;
     cout << "-------------------------------" << endl;
     int modeselec = 0;
 
-    MD_OC MD(beta,grid);
+    MD_OC MD(beta, grid);
 
     /// Parameter adjustment ////
 
@@ -624,213 +624,213 @@ int main()
     int& syst = sys;
 
     size = 5;
-    syst = 21;
+    syst = 9;
 
     //alpha adjust
-    vector<double> alp_arr(5,0);
-    for (int i = 0; i < 5 ; i++)
+    vector<double> alp_arr(5, 0);
+    for (int i = 0; i < 5; i++)
     {
-        if (i==0)
+        if (i == 0)
         {
             alp_arr[i] = 0;
         }
-        if (i!=0)
+        if (i != 0)
         {
-            alp_arr[i] = alp_arr[i-1] + 0.1;
+            alp_arr[i] = alp_arr[i - 1] + 0.1;
         }
     }
-    
+
     //gamma adjust
-    vector<double> g_ma_arr(5,0);
-    for (int i = 0; i < 5 ; i++)
+    vector<double> g_ma_arr(5, 0);
+    for (int i = 0; i < 5; i++)
     {
-        if (i==0)
+        if (i == 0)
         {
             g_ma_arr[i] = 0;
         }
-        if (i!=0)
+        if (i != 0)
         {
-            g_ma_arr[i] = g_ma_arr[i-1] + 0.1;
+            g_ma_arr[i] = g_ma_arr[i - 1] + 0.1;
         }
     }
-    
 
-    for (int ga = 0; ga< 1; ga++) //for (int al = 0; al< alp_arr.size() ;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
+
+    for (int ga = 0; ga < g_ma_arr.size(); ga++) //for (int al = 0; al< alp_arr.size() ;al++)//(int ga = 0; ga < g_ma_arr.size() ; ga++) for (int al = 0; al < alp_arr.size(); al ++)
     {
-        //ref_g_ma = g_ma_arr[ga];
+        ref_g_ma = g_ma_arr[ga];
         alpha = 1;
         //alpha = alp_arr[al];
-        ref_g_ma = 2;
+        //ref_g_ma = 2;
 
             /****************************G(tau) Calcultaion******************************/
-            
-            std::ofstream outputFile ("");
 
-            string Prop_name = "OCA_PROP_GAMMA_";
+        std::ofstream outputFile("");
+
+        string Prop_name = "OCA_PROP_GAMMA_";
 
 
+        std::stringstream gam;
+        std::stringstream alp;
+        std::stringstream cuof;
+        std::stringstream bet;
+        std::stringstream gri;
+        std::stringstream sizz;
+        std::stringstream mod;
+
+        gam << g_ma;
+        alp << alpha;
+        cuof << k_cutoff;
+        mod << MD.mode_grid.size();
+        bet << MD.tau_grid[MD.tau_grid.size() - 1];
+        gri << MD.t;
+        sizz << siz;
+
+        Prop_name += gam.str();
+        Prop_name += "_ALPHA_";
+        Prop_name += alp.str();
+        Prop_name += "_CUTOF_";
+        Prop_name += cuof.str();
+        Prop_name += "_MODE_";
+        Prop_name += mod.str();
+        Prop_name += "_BETA_";
+        Prop_name += bet.str();
+        Prop_name += "_GRID_";
+        Prop_name += gri.str();
+        Prop_name += "_SIZE_";
+        Prop_name += sizz.str();
+        Prop_name += ".txt";
+
+
+        //cout << gamma_arr[ga] << endl;
+
+        MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
+        vector<MatrixXd> a = MD.Iteration(25);
+
+        outputFile.open(Prop_name);
+        // outputFile << MD.tau_grid[MD.t - 1] << "\t"; *beta값 확인용
+        for (int k = 0; k < MD.tau_grid.size(); k++) {
+            for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+            {
+                outputFile << a[k](i, j) << "\t";
+            }
+            outputFile << "\n";
+        }
+
+        outputFile.close();
+
+        /****************************************************************************/
+        /********************Chi(\tau) Calculation****************************/
+
+
+        string Chi_name = "OCA_CHI_GAMMA_";
+
+        Chi_name += gam.str();
+        Chi_name += "_ALPHA_";
+        Chi_name += alp.str();
+        Chi_name += "_MODE_";
+        Chi_name += cuof.str();
+        Chi_name += "_BETA_";
+        Chi_name += bet.str();
+        Chi_name += "_GRID_";
+        Chi_name += gri.str();
+        Chi_name += "_SIZE_";
+        Chi_name += sizz.str();
+        Chi_name += ".txt";
+
+        //MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
+        //vector<MatrixXd> ITER = MD.Iteration(20);
+        vector<double> b = MD.Chi_sp_Function(a);
+
+        outputFile.open(Chi_name);
+
+        for (int j = 0; j < MD.tau_grid.size(); j++)
+        {
+            outputFile << MD.tau_grid[j] << "\t" << b[j] << endl;
+        }
+
+        outputFile.close();
+
+
+        /*************************************************************************/
+        /********************Hybridization Check****************************/
+
+        /*
+            string Hyb = "HYB_GAMMA_";
+
+            Hyb += gam.str();
+            Hyb += "_ALPHA_";
+            Hyb += alp.str();
+            Hyb += "_MODE_";
+            Hyb += cuof.str();
+            Hyb += "_BETA_";
+            Hyb += bet.str();
+            Hyb += "_GRID_";
+            Hyb += gri.str();
+            Hyb += ".txt";
+
+            outputFile.open(Hyb);
+
+            for (int j = 0; j < MD.tau_grid.size(); j++)
+            {
+                outputFile << MD.tau_grid[j] << "\t" << MD.INT_Arr[j] << endl;
+            }
+
+            outputFile.close();
+
+        */
+        /*************************************************************************/
+        /********************\beta * Chi(\beta / 2) Calculation****************************/
+            //std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
+            /*
+            string BETC_name = "OCA_BETATIMES_CHI_GAMMA_";
+            /*
             std::stringstream gam;
             std::stringstream alp;
             std::stringstream cuof;
             std::stringstream bet;
             std::stringstream gri;
-            std::stringstream sizz;
-            std::stringstream mod;
 
             gam << g_ma;
             alp << alpha;
-            cuof << k_cutoff;
-            mod << MD.mode_grid.size();
-            bet << MD.tau_grid[MD.tau_grid.size() - 1];
+            cuof << k_cutoff;s
+            bet << MD.tau_grid[MD.t-1];
             gri << MD.t;
-            sizz << siz;
-
-            Prop_name += gam.str();
-            Prop_name += "_ALPHA_";
-            Prop_name += alp.str();
-            Prop_name += "_CUTOF_";
-            Prop_name += cuof.str();
-            Prop_name += "_MODE_";
-            Prop_name += mod.str();
-            Prop_name += "_BETA_";
-            Prop_name += bet.str();
-            Prop_name += "_GRID_";
-            Prop_name += gri.str();
-            Prop_name += "_SIZE_";
-            Prop_name += sizz.str();
-            Prop_name += ".txt";
 
 
-            //cout << gamma_arr[ga] << endl;
+            BETC_name += gam.str();
+            BETC_name += "_ALPHA_";
+            BETC_name += alp.str();
+            BETC_name += "_CUTOF_";
+            BETC_name += cuof.str();
+            BETC_name += "_MODE_";
+            BETC_name += mod.str();
+            BETC_name += "_BETA_";
+            BETC_name += bet.str();
+            BETC_name += "_GRID_";
+            BETC_name += gri.str();
+            BETC_name += "_SIZE_";
+            BETC_name += size.str();
+            BETC_name += ".txt";
 
-            MD.CAL_COUP_INT_with_g_arr(alpha, k_cutoff);
-            vector<MatrixXd> a = MD.Iteration(25);
+            //MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
+            //vector<MatrixXd> ITER = MD.Iteration(20);
+            vector<double> b = MD.Chi_sp_Function(a);
 
-            outputFile.open(Prop_name);
-            // outputFile << MD.tau_grid[MD.t - 1] << "\t"; *beta값 확인용
-            for (int k = 0; k < MD.tau_grid.size(); k++){
-                for (int i = 0; i < siz; i++) for (int j = 0; j<siz; j++)
-                {
-                    outputFile << a[k](i, j) << "\t";
-                }
-                outputFile << "\n";
+            outputFile.open(BETC_name);
+
+            for (int j = 0; j < MD.tau_grid.size(); j++)
+            {
+                outputFile << MD.tau_grid[j] << "\t" << MD.tau_grid[MD.t-1] * b[j] << endl;
             }
 
             outputFile.close();
-            
-            /****************************************************************************/
-            /********************Chi(\tau) Calculation****************************/
-            
 
-                string Chi_name = "OCA_CHI_GAMMA_";
-
-                Chi_name += gam.str();
-                Chi_name += "_ALPHA_";
-                Chi_name += alp.str();
-                Chi_name += "_MODE_";
-                Chi_name += cuof.str();
-                Chi_name += "_BETA_";
-                Chi_name += bet.str();
-                Chi_name += "_GRID_";
-                Chi_name += gri.str();
-                Chi_name += "_SIZE_";
-                Chi_name += sizz.str();
-                Chi_name += ".txt";
-
-                //MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                //vector<MatrixXd> ITER = MD.Iteration(20);
-                vector<double> b = MD.Chi_sp_Function(a);
-
-                outputFile.open(Chi_name);
-
-                for (int j = 0; j < MD.tau_grid.size(); j++)
-                {
-                    outputFile << MD.tau_grid[j] << "\t" << b[j] << endl;
-                }
-
-                outputFile.close();
-                
-            
-            /*************************************************************************/
-            /********************Hybridization Check****************************/
-            
-            /*
-                string Hyb = "HYB_GAMMA_";
-
-                Hyb += gam.str();
-                Hyb += "_ALPHA_";
-                Hyb += alp.str();
-                Hyb += "_MODE_";
-                Hyb += cuof.str();
-                Hyb += "_BETA_";
-                Hyb += bet.str();
-                Hyb += "_GRID_";
-                Hyb += gri.str();
-                Hyb += ".txt";
-
-                outputFile.open(Hyb);
-
-                for (int j = 0; j < MD.tau_grid.size(); j++)
-                {
-                    outputFile << MD.tau_grid[j] << "\t" << MD.INT_Arr[j] << endl;
-                }
-
-                outputFile.close();
-                
-            */
-            /*************************************************************************/
-            /********************\beta * Chi(\beta / 2) Calculation****************************/
-                //std::ofstream outputFile ("/Users/e2_602_qma/Documents/GitHub/Anaconda/C++_Mac/EXECUTION");
-                /*
-                string BETC_name = "OCA_BETATIMES_CHI_GAMMA_";
-                /*
-                std::stringstream gam;
-                std::stringstream alp;
-                std::stringstream cuof;
-                std::stringstream bet;
-                std::stringstream gri;
-
-                gam << g_ma;
-                alp << alpha;
-                cuof << k_cutoff;s
-                bet << MD.tau_grid[MD.t-1];
-                gri << MD.t;
-                
-
-                BETC_name += gam.str();
-                BETC_name += "_ALPHA_";
-                BETC_name += alp.str();
-                BETC_name += "_CUTOF_";
-                BETC_name += cuof.str();
-                BETC_name += "_MODE_";
-                BETC_name += mod.str();
-                BETC_name += "_BETA_";
-                BETC_name += bet.str();
-                BETC_name += "_GRID_";
-                BETC_name += gri.str();
-                BETC_name += "_SIZE_";
-                BETC_name += size.str();
-                BETC_name += ".txt";
-
-                //MD.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
-                //vector<MatrixXd> ITER = MD.Iteration(20);
-                vector<double> b = MD.Chi_sp_Function(a);
-
-                outputFile.open(BETC_name);
-
-                for (int j = 0; j < MD.tau_grid.size(); j++)
-                {
-                    outputFile << MD.tau_grid[j] << "\t" << MD.tau_grid[MD.t-1] * b[j] << endl;
-                }
-
-                outputFile.close();
-                
-            /*************************************************************************/
+        /*************************************************************************/
 
     }
 
     std::chrono::system_clock::time_point P_sec = std::chrono::system_clock::now();
-    std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec-P_start);
+    std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::seconds>(P_sec - P_start);
     cout << "## Total Process ends with : " << seconds.count() << "[sec] ##" << endl;
     cout << "-----------------------------" << endl;
 
@@ -840,9 +840,9 @@ int main()
         //break;
     }
 
-    
+
 
     return 0;
 
-    
+
 }

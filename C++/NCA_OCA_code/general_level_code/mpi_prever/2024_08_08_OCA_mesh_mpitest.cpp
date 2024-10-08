@@ -139,8 +139,8 @@ MatrixXd MD_OC::Eigenvalue_Odd()
 void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 {
     //cout << "input g value :" << g << endl;
-    MatrixXd INT_odd = MatrixXd::Zero(siz, siz);
-    MatrixXd INT_even = MatrixXd::Zero(siz, siz);
+    MatrixXd INT_odd = MatrixXd::Zero(sys, sys);
+    MatrixXd INT_even = MatrixXd::Zero(sys, sys);
 
     //H_N initialize
     H_N = MatrixXd::Zero(siz, siz);
@@ -148,11 +148,11 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     //cout << "initialized check" << endl;
     //cout << H_N << "\n" << endl;
 
-    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
     {
         INT_even(i, j) = -1 * even(i, j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
 
-        if (i < siz - 1)
+        if (i < sys - 1)
         {
             INT_odd(i + 1, j) = odd(i, j);
         }
