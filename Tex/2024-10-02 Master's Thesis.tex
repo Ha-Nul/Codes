@@ -5,6 +5,7 @@
 \usepackage{mathrsfs}
 \usepackage{amssymb}
 \usepackage{feynmp-auto}
+\usepackage{tgtermes}
 \onehalfspacing  % 1배 간격
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
@@ -28,9 +29,12 @@ The Phase transition between metal and insulator is defined as a rapid transitio
 
 Several theories have been developed to describe this phase transition phenomenon. In the Mott transition, the change of conductivity is explained through the Coulomb interactions between the electrons. While the density of the electrons inside the material becomes saturated, the interaction effect leads to repulsion between the particles which impedes current flow. Alternatively, In Andersen's transition model, the transition between the two phases is explained from more microscopic points of view by using the concept of disorder and impurities.
 
-In our study, we investigate the phase transition of a resistively shunted Josephson junction within the framework of the quantum impurity model. We establish a quantum mechanical framework based on the state vector of the macroscopic Josephson junction model. Using the impurity solving method (Non-crossing approximation, One-crossing approximation, TOA) , we then evaluate the evolution of correlation of energy change ratio in imaginary time.
+\subsection*{Summary}
+In our study, we investigate the phase transition of a resistively shunted Josephson junction within the framework of the quantum impurity model. 
+We establish a quantum mechanical framework based on the state vector of the macroscopic Josephson junction model. 
+As starting in the very first step, we use impurity solving method (Non-crossing approximation, One-crossing approximation, TOA) in thermally stable state with Matsubara formalism , then evaluate the evolution of correlation of energy change ratio.
 
-By employing the framework of full counting statistics, we expect a concrete description of the phase transition in a resistively shunted Josephson junction which is an ongoing debate. The precise nature of this transition is to be addressed through the analysis of the quantum state of electrons.
+By employing the framework of strong correlation method, we expect a concrete description of the phase transition in a resistively shunted Josephson junction which is an ongoing debate. The precise nature of this transition is to be addressed through the analysis of the quantum state of electrons.
 \end{spacing}
 
 \pagebreak
@@ -255,7 +259,81 @@ To study how system changes depends on coupling parameters and finite temperatur
 
 \subsection*{Matrix form of $\hat{N}$  in local basis}
 
-The charge operator $\hat{N}$ pursues polarization operator in our expansion model, endows coupling effect between local system and bath system. Exploiting local basis from previous procedure, We can write $\hat{N}$ in aspect of local system view. To get its matrix form, let eigenvectors of $H_{\text{loc even}}$ and $H_{\text{loc odd}}$ as $\ket{\Phi_{\text{loc even}}}$ and $\ket{\Phi_{\text{loc odd}}}$.
+The charge operator $\hat{N}$ pursues polarization operator in our expansion model, endows coupling effect between local system and bath system. Exploiting local basis from previous procedure, We can write $\hat{N}$ in aspect of local system view.
+
+The charge operator $\hat{N}$ is defined as a differential operator, it’s original form is given by follows
+
+\begin{flalign*}
+\hat{N}=-i\frac{\partial}{\partial \phi}
+\end{flalign*}
+
+To get its matrix form, let eigenvectors of $H_{\text{loc even}}$ and $H_{\text{loc odd}}$ as $\ket{\text{even}}$ and $\ket{\text{odd}}$,
+
+\begin{flalign*}
+\ket{\text{even}}=\frac{a_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a_n}{\sqrt{\pi}}\cos{n\phi}
+\end{flalign*}
+
+\begin{flalign*}
+\ket{\text{odd}} = \sum_{m=1}\frac{b_m}{\sqrt{\pi}}\sin{m\phi}
+\end{flalign*}
+
+\subsubsection*{2-level case}
+
+Now, we can span the charge operator in eigenvectors of $H_{\text{loc even}}$ and $H_{\text{loc odd}}$. In 2-level case, we can use total lowest three states as basis vector,
+
+\begin{flalign*}
+\ket{\text{gs}}=\frac{a^{(0)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(0)}_n}{\sqrt{\pi}}\cos{n\phi} \\
+\ket{\text{1st}} = \sum_{m=1}\frac{b^{(1)}_m}{\sqrt{\pi}}\sin{m\phi}\\
+\ket{\text{2nd}}=\frac{a^{(1)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(1)}_n}{\sqrt{\pi}}\cos{n\phi}
+\end{flalign*}
+
+Here we note the upper indices with round brace to indicate the energy excitation of local system. Then matrix form of $\hat{N}$ becomes :
+
+\begin{flalign*}
+\hat{N} = \begin{pmatrix}
+\bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} & \bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{1st}} & \bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{2nd}} \\
+\bra{\text{1st}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} &  \bra{\text{1st}}-i\frac{\partial}{\partial\phi}\ket{\text{1st}} & \bra{\text{1st}}-i\frac{\partial}{\partial\phi}\ket{\text{2nd}} \\ 
+\bra{\text{2nd}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} & \bra{\text{2nd}}-i\frac{\partial}{\partial\phi}\ket{\text{1st}} & \bra{\text{2nd}}-i\frac{\partial}{\partial\phi}\ket{\text{2nd}}
+\end{pmatrix} \\ \quad \\ 
+=i\begin{pmatrix}
+0 & \sum_{n=1}na^{(0)}_n b^{(1)}_n & 0\\
+-\sum_{n=1}na^{(0)}_n b^{(1)}_n &  0 & -\sum_{n=1}na^{(1)}_n b^{(1)}_n \\ 
+0 & \sum_{n=1}na^{(1)}_n b^{(1)}_n & 0
+\end{pmatrix}
+\end{flalign*}
+
+\subsubsection*{Multilevel case}
+
+For a 2-level system (without considering energy level splitting; the energy level needs to be split by external perturbation to become a 3-level Hamiltonian) or higher, the process of expressing the order parameter in matrix form for the Hamiltonian $H_{loc}$ of the system under consideration involves the following steps.
+
+In a Hamiltonian of a system with arbitrary dimensions, the eigenvector written in the form of an even function is as follows:
+
+\begin{flalign*}
+\ket{\text{even}_k}=\frac{a^{(k)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(k)}}{\sqrt{\pi}}\cos{n\phi}
+\end{flalign*}
+
+Here, (k) represents the k-th split state, that is, the energy state of the even function basis split by external perturbation in the k-th excited state. In the same way, the eigenvector written in the form of an odd function is as follows: 
+
+\begin{flalign*}
+\ket{\text{odd}_k} = \sum_{m=1}\frac{b_m^{(k)}}{\sqrt{\pi}}\sin{m\phi}
+\end{flalign*}
+
+Now based on the above discussion, the extended form of charge operator in higher dimension is :
+
+\begin{flalign*}
+\hat{N} = \begin{pmatrix}
+\bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} & \bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{1st}} & \cdots \\
+\bra{\text{1st}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} &  \ddots & \vdots \\ 
+\vdots & \cdots & \bra{\text{nth}}-i\frac{\partial}{\partial\phi}\ket{\text{nth}}
+\end{pmatrix} \\ \quad \\ 
+=i\begin{pmatrix}
+0 & \sum_{n=1}na^{(0)}_n b^{(1)}_n & \cdots \\
+-\sum_{n=1}na^{(0)}_n b^{(1)}_n &  \ddots & \ \\ & &-\sum_{n=1}na^{(n-1)}_n b^{(n)}_n \\ 
+\vdots & \sum_{n=1}na^{(n-1)}_n b^{(n)}_n & 
+\end{pmatrix}
+\end{flalign*}
+
+In this case, the maximum dimension of $\hat{N}$  is $n$ .
 
 \subsection*{Transformation of the Order Parameter into Matrix Form}
 
@@ -340,20 +418,20 @@ The calculation for the odd function form is as follows:
 \cos{\phi}\ket{\text{odd}}=\sum_{n=1}\frac{b_n^{(k)}}{\sqrt{\pi}}\cos{\phi}\sin{n\phi}
 \end{flalign*}
 
-\begin{equation*}
+\begin{flalign*}
     \bra{\text{odd}_l}\cos{\phi} \ket{\text{odd}_k} 
     &= \sum_{n,m=1}\int^{2\pi}_0 d\phi \bigg(\frac{b_n^{(k)}b_m^{(l)}}{\pi}\cos{\phi}\sin{n\phi}\sin{m\phi}\bigg) \\
     &=    \left\{
         \begin{array}{ll}
-            \text{if k > l : }  \qquad \sum^N_{n=1} \bigg(\frac{\hat{b}^{(k)}_n\hat{b}^{(l)}_{n-1}}{2} + \frac{\hat{b}^{(k)}_n\hat{b}^{(l)}_{n+1}}{2}\bigg)\\
-            \text{if k < l : }  \qquad \sum^N_{n=1} \bigg(\frac{\hat{b}^{(k)}_{n-1}\hat{b}^{(l)}_{n}}{2} + \frac{\hat{b}^{(k)}_{n+1}\hat{b}^{(l)}_{n}}{2}\bigg)
+            \text{if k} \nleq \text{l : }  \qquad \sum^N_{n=1} \bigg(\frac{\hat{b}^{(k)}_n\hat{b}^{(l)}_{n-1}}{2} + \frac{\hat{b}^{(k)}_n\hat{b}^{(l)}_{n+1}}{2}\bigg)\\
+            \text{if k } \ngeq \text{l : }  \qquad \sum^N_{n=1} \bigg(\frac{\hat{b}^{(k)}_{n-1}\hat{b}^{(l)}_{n}}{2} + \frac{\hat{b}^{(k)}_{n+1}\hat{b}^{(l)}_{n}}{2}\bigg)
         \end{array}
         \right. &&
-  \end{equation*}
+\end{flalign*}
 
 Therefore, when the entire cosϕ is expressed in matrix form, it takes the following form:
 
-\begin{equation*}
+\begin{flalign*}
     \hat{\cos{\phi}} = \begin{pmatrix}
        \ddots & & \vdots & & \\
       & \bra{\text{even}_k}\cos\phi\ket{\text{even}_k} & 0 & \bra{\text{even}_k}\cos\phi\ket{\text{even}_{k+1}} & \cdots \\
@@ -361,7 +439,7 @@ Therefore, when the entire cosϕ is expressed in matrix form, it takes the follo
       & \bra{\text{even}_{k+1}}\cos\phi\ket{\text{even}_k} & 0 & \bra{\text{even}_{k+1}}\cos\phi\ket{\text{even}_{k+1}} & \\
       & & \vdots & &\ddots \\
       \end{pmatrix} 
-    \end{equation*}
+    \end{flalign*}
 
 \end{spacing}
 

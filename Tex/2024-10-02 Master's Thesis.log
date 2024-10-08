@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  3 OCT 2024 06:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  7 OCT 2024 08:32
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex
@@ -131,12 +131,22 @@ Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (G:\Install_Program\MikTex\tex/latex/geometry\geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
+)) (G:\Install_Program\MikTex\tex/latex/tex-gyre\tgtermes.sty
+Package: tgtermes 2009/09/27 v1.2 TeX Gyre Termes as default roman family
+ (G:\Install_Program\MikTex\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
  (G:\Install_Program\MikTex\tex/latex/graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks22
-) (G:\Install_Program\MikTex\tex/generic/iftex\ifvtex.sty
+) (G:\Install_Program\MikTex\tex/generic/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)))
+LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 9.
+ (G:\Install_Program\MikTex\tex/latex/tex-gyre\ot1qtm.fd
+File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
+) (G:\Install_Program\MikTex\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (G:\Install_Program\MikTex\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
 \Gm@cnth=\count270
@@ -154,20 +164,20 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (G:\Install_Program\MikTex\tex/latex/geometry\geometry.cfg)) (2024-10-02 Master's Thesis.aux)
 \openout1 = `"2024-10-02 Master's Thesis.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
  (G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count273
@@ -224,173 +234,121 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 [1
 
 {C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 43.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 47.
  (G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2]
-Overfull \hbox (21.55896pt too wide) detected at line 108
+Overfull \hbox (21.55896pt too wide) detected at line 112
 []
  []
 
-[3] [4] [5] [6] [7]
+[3] [4] [5] [6] [7] [8] [9]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:262: Package inputenc Error: Unicode character ϕ (U+03D5)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:340: Package inputenc Error: Unicode character ϕ (U+03D5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.262 ...parameter.  In this simulation, the cosϕ
+l.340 ...parameter.  In this simulation, the cosϕ
                                                    function, which represent...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:262: Package inputenc Error: Unicode character ϕ (U+03D5)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:340: Package inputenc Error: Unicode character ϕ (U+03D5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.262 ... order parameter. A larger value of cosϕ
+l.340 ... order parameter. A larger value of cosϕ
                                                    can be interpreted as the...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[8]
+[10]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:286: Package inputenc Error: Unicode character ϕ (U+03D5)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:364: Package inputenc Error: Unicode character ϕ (U+03D5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.286 ...e obtained eigenvectors as a basis, cosϕ
+l.364 ...e obtained eigenvectors as a basis, cosϕ
                                                    can be rewritten as a mat...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-Overfull \hbox (0.49371pt too wide) in paragraph at lines 296--297
-[]\OT1/cmr/m/n/10 where $[] [] \OML/cmm/m/it/10  [] \OT1/cmr/m/n/10 = [][] [][] + [] [] \OML/cmm/m/it/10  \OT1/cmr/m/n/10 + [] [] [] + [] [][][] [] \OML/cmm/m/it/10  \OT1/cmr/m/n/10 + [] [][] \OML/cmm/m/it/10  \OT1/cmr/m/n/10 + [] [] \OML/cmm/m/it/10  [] [] \OT1/cmr/m/n/10 +
- []
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:298: Package inputenc Error: Unicode character ϕ (U+03D5)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:376: Package inputenc Error: Unicode character ϕ (U+03D5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.298 ...H_{loc}$ matrix, the matrix form of cosϕ
+l.376 ...H_{loc}$ matrix, the matrix form of cosϕ
                                                    is expressed as follows.
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[9]
+[11]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:326: Package inputenc Error: Unicode character ϕ (U+03D5)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:404: Package inputenc Error: Unicode character ϕ (U+03D5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.326 ...unction form of the order parameter cosϕ
+l.404 ...unction form of the order parameter cosϕ
                                                    is as follows:
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:345: Misplaced alignment tab character &.
-l.345     &
-           = \sum_{n,m=1}\int^{2\pi}_0 d\phi \bigg(\frac{b_n^{(k)}b_m^{(l)}}...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:346: Misplaced alignment tab character &.
-<recently read> &
-                 
-l.346     &
-           =    \left\{
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:351: Misplaced alignment tab character &.
-l.351         \right. &
-                       &
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:351: Misplaced alignment tab character &.
-l.351         \right. &&
-                        
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-
-Overfull \hbox (38.66301pt too wide) detected at line 352
-[] [] \OML/cmm/m/it/10  [] \OT1/cmr/m/n/10 = [] [][] \OML/cmm/m/it/10 d[][] []  [] [] [] [][][]  \OT1/cmr/m/n/10 = []
- []
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:354: Package inputenc Error: Unicode character ϕ (U+03D5)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:432: Package inputenc Error: Unicode character ϕ (U+03D5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.354 Therefore, when the entire cosϕ
+l.432 Therefore, when the entire cosϕ
                                        is expressed in matrix form, it takes...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-Overfull \hbox (24.46298pt too wide) detected at line 364
-[] \OT1/cmr/m/n/10 = []
+Overfull \hbox (13.41588pt too wide) detected at line 442
+[]
  []
 
-[10] [11] (2024-10-02 Master's Thesis.aux) ) 
+[12] (2024-10-02 Master's Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 3936 strings out of 478927
- 52497 string characters out of 2861478
- 376856 words of memory out of 3000000
- 21737 multiletter control sequences out of 15000+600000
- 411983 words of font info for 63 fonts, out of 8000000 for 9000
+ 4201 strings out of 478927
+ 57107 string characters out of 2861478
+ 383560 words of memory out of 3000000
+ 21987 multiletter control sequences out of 15000+600000
+ 433335 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,18n,81p,848b,305s stack positions out of 5000i,500n,10000p,200000b,80000s
-<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "2024-10-02 Master's Thesis.pdf" (11 pages, 236108 bytes).
+{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
+Output written on "2024-10-02 Master's Thesis.pdf" (12 pages, 260044 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 132 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

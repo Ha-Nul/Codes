@@ -1,0 +1,88 @@
+\documentclass[12pt,a4paper]{article}
+
+% 필요한 패키지들
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}  % Times New Roman과 유사한 폰트
+\usepackage[left=1.5cm,right=7cm,top=2.5cm,bottom=2.5cm,marginparwidth=5cm,marginparsep=0.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{marginnote}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{titling}
+
+% 색상 정의
+\definecolor{sectionlinecolor}{RGB}{100,100,100} % 청회색
+\begin{document}
+\setcounter{page}{0}
+
+% 페이지 스타일 설정
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}  % 페이지 번호를 하단 우측으로 이동
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 제목 스타일 설정
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[\titlerule[0pt]]
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% section 제목 아래 밑줄 추가
+\newcommand{\sectionline}{%
+  \nointerlineskip \vspace{\dimexpr-\parskip-2pt}%
+  {\color{sectionlinecolor}\rule{\linewidth}{0.4pt}}%
+  \vspace{\dimexpr-\parskip+3pt}%
+}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection}
+  {1em}
+  {}
+  [\sectionline]
+
+% 문단 간격 설정
+\setlength{\parskip}{6pt}
+
+% 여백 노트 스타일 설정
+\newcommand{\marginnotetext}[1]{%
+  \marginnote{\raggedright\footnotesize#1}[-1cm]%
+}
+
+% 제목, 저자, 날짜 간격 조정
+\setlength{\droptitle}{-60pt}
+\pretitle{\begin{center}\Large\bfseries}
+\posttitle{\par\end{center}\vskip 0.5em}
+\preauthor{\begin{center}\large}
+\postauthor{\par\end{center}}
+\predate{\begin{center}\large}
+\postdate{\par\end{center}}
+
+% 문서 제목 정보
+\title{Title}
+\author{Hanul}
+\date{\today}
+
+
+% 제목 페이지 생성
+\maketitle
+\thispagestyle{fancy}  % 첫 페이지에도 페이지 번호 표시
+
+\section{Introduction}
+\lipsum[1]
+\marginnotetext{This is a margin note for the introduction section. It should now be more to the left and not cut off.}
+
+\subsection{Background}
+\lipsum[2]
+\marginnotetext{Additional information can be added here in the margin. This text should be fully visible.}
+
+\lipsum[3]
+
+\section{Methodology}
+\lipsum[4-5]
+\marginnotetext{You can use this space for comments, references, or additional explanations. The text should fit well now.}
+
+\end{document}
