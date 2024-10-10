@@ -6,7 +6,11 @@
 \usepackage{amssymb}
 \usepackage{feynmp-auto}
 \usepackage{tgtermes}
-\onehalfspacing  % 1배 간격
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\captionsetup{font=footnotesize}
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
@@ -25,9 +29,7 @@
 The study of the correlation between the particle-like systems in a many-body framework can predict a wide range of novel phenomena in condensed matter physics, especially in the aspects of phase transition. 
 This perspective is crucial for the recent advances in quantum technologies such as quantum simulators implemented through optical lattice, superconducting circuits, and quantum materials (e.g., quantum dots).
 
-The Phase transition between metal and insulator is defined as a rapid transition of conductivity. In the metallic phase, inside the material structure, there are free electrons exist and make available to electric current flows throughout the material, in the insulating phase the electrons are bonded tightly with atoms which hinders the flow of electric current.
-
-Several theories have been developed to describe this phase transition phenomenon. In the Mott transition, the change of conductivity is explained through the Coulomb interactions between the electrons. While the density of the electrons inside the material becomes saturated, the interaction effect leads to repulsion between the particles which impedes current flow. Alternatively, In Andersen's transition model, the transition between the two phases is explained from more microscopic points of view by using the concept of disorder and impurities.
+The Phase transition between metal and insulator is defined as a rapid transition of conductivity. In the metallic phase, inside the material structure, there are free electrons exist and make available to electric current flows throughout the material, in the insulating phase the electrons are bonded tightly with atoms which hinders the flow of electric current.Several theories have been developed to describe this phase transition phenomenon. In the Mott transition, the change of conductivity is explained through the Coulomb interactions between the electrons. While the density of the electrons inside the material becomes saturated, the interaction effect leads to repulsion between the particles which impedes current flow. Alternatively, In Andersen's transition model, the transition between the two phases is explained from more microscopic points of view by using the concept of disorder and impurities.
 
 \subsection*{Summary}
 In our study, we investigate the phase transition of a resistively shunted Josephson junction within the framework of the quantum impurity model. 
@@ -35,182 +37,272 @@ We establish a quantum mechanical framework based on the state vector of the mac
 As starting in the very first step, we use impurity solving method (Non-crossing approximation, One-crossing approximation, TOA) in thermally stable state with Matsubara formalism , then evaluate the evolution of correlation of energy change ratio.
 
 By employing the framework of strong correlation method, we expect a concrete description of the phase transition in a resistively shunted Josephson junction which is an ongoing debate. The precise nature of this transition is to be addressed through the analysis of the quantum state of electrons.
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=10cm]{TexFigure/kps_create_junction.png}}
+  \caption{Brief Image of total circuit.("LATER FIX")}
+\end{figure}
+
+\pagebreak
+\subsection*{Previous work}
+
+A resistively shunted Josephson junction(RSJJ) is a circuit consisting of a single Josephson junction simultaneously connected to an RC resonator structure which acts as a circuit resistance. Several studies have reported that the Josephson junction in this structure reveals a unique phase transition scheme that depends on the coupling strength between the Junction and the circuit resistance. This phenomenon allows RSJJ to play a physical role as a simulator for the quantum phase transition, especially for the Schmid quantum dissipative transition. Although RSJJ can be a well-defined physical structure for simulating the phase transition, it is limited to zero-temperature conditions, which is hard to achieve in an experimental approach.
+
+\subsection*{Our approach}
+
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=7cm]{TexFigure/kps_INT_exp.PNG}}
+  \caption{Zero temperature phase diagram with reentrant phase transition}
+\end{figure}
+
+
+In the latest study, a novel phase transition scheme called the ‘reentrant phase transition’ was predicted due to the potential independence of the dispersion relation of the RC resonator. Based on previous research, we’ll investigate this structure in a finite-temperature scheme. We construct the RSJJ Hamiltonian as a pseudo particle impurity model, which is described by the action of system $S$ separated into two parts: for local system $S_{loc}$ and for interaction $S_{int}$, 
+\begin{flalign*}
+S = S_{loc} + S_{int}  
+\end{flalign*}
+
+using Matsubara Green’s function. 
+
+In our model, $S_{loc}$ will be correspond to the dynamics of Josephson junction, and $S_{int}$ will represents the interaction of Josephson junction and the RC resonator.
+
 \end{spacing}
 
 \pagebreak
 
 \section*{2. Diagrammatic method}
+\begin{spacing}{1.5}
+In this chapter, We will briefly introduce the theoretical framework of the method of Green’s function, and pseudo-particle solvers, such as Non-crossing approximation. The detailed derivation will treated on appendix.
+\subsection*{Field operator and Green’s function}
 
-In this chapter, We will discuss the basic formation of operators and how it describes the dynamics of target system. After dealing the theoretical basis of diagrammatic methods, we will explain how we adjust the given calculation method into our system. 
-
-\subsection*{Green’s function}
-If we consider the Hamiltonian of system without interaction, we can write total Hamiltonian $H$:
-
+In quantum many-body theory, the physical system is depicted over the frame of the fermionic(bosonic) creation and annihilation operator, and $\hat{a}(\hat{a}^\dagger)$ as an annihilation(creation) operator, it satisfies the following commutation relations:
 \begin{flalign*}
-H = H_0
+[\hat{a_i},\hat{a_j}] &= \{\hat{a_i},\hat{a_j}\} = 0 \\ 
+[\hat{a_i}^\dagger,\hat{a_j}^\dagger] &= \{\hat{a_i}^\dagger,\hat{a_j}^\dagger\}=0\\ 
+[\hat{a_i},\hat{a_j}^\dagger] = \{\hat{a_i},\hat{a_j}^\dagger\} &= \delta_{ij} = \begin{cases} 1 \quad (i=j)\\  0 \quad (i \neq j)\quad \end{cases}
 \end{flalign*}
 
-To express the time variance of given operator, we can derive the time dependence of operator using equation of motion in quantum mechanics. In interaction picture, its result is given:
+Where the square bracket informs the bosonic case, and its RHS indicates the fermionic case. In the following discussion, we will drop out the lower indices of the field operator, assuming it can indicate any arbitrary quantum states.
 
+If we consider the Hamiltonian system can be split into two parts: for the local system and for interaction, we can write the total Hamiltonian $H$:
 \begin{flalign*}
-\hat{a}(t) = e^{iH_0t}\hat{a}e^{-iH_0t} \\
-\hat{a}^\dagger(t) = e^{-iH_0t}\hat{a}^\dagger e^{iH_0t}
+H = H_0 + H_{int}
 \end{flalign*}
 
-The letter $H$with 0 as its indices means Free Hamiltonian without interaction. Now, we can define the Green’s function as follows :
+Here, $H_0$ is the local(Free) Hamiltonian, $H_{int}$  is the Hamiltonian for interaction (external potential). To express the dynamics of a given operator, we depict the time dependency of the operator in the interaction picture :
+\begin{flalign*}
+\hat{a}(t) = e^{iH_0t}\hat{a}e^{-iH_0t} \\ \hat{a}^\dagger(t) =  e^{-iH_0t}\hat{a}^\dagger e^{iH_0t} 
+\end{flalign*}
 
+With the above time dependency, we can define the Green’s function as follows :
 \begin{flalign*}
 G_0(t,t') = \frac{i}{\hbar}\langle \mathcal{T}\hat{a}^\dagger(t)\hat{a}(t')\rangle = \begin{cases} \frac{i}{\hbar}\langle \hat{a}^\dagger(t)\hat{a}(t')\rangle  \quad (t>t')\\  \pm\frac{i}{\hbar}\langle \hat{a}(t')\hat{a}^\dagger(t)\rangle \quad (t<t')\quad \end{cases}
 \end{flalign*}
 
-Here, the symbol $\mathcal{T}$ is the time ordering operator. One of the features of Green’s function is that it satisfies given equation of motion :
-
+Here, the symbol $\mathcal{T}$ is the time ordering operator. One of the features of Green’s function is that it satisfies the given equation of motion :
 \begin{flalign*}
-\frac{\partial}{\partial t}G_0(t,t') = \delta(t-t')H_0G_0(t,t') \\ \Leftrightarrow \quad [\frac{\partial}{\partial t}-H_0]G_0(t,t')=\delta(t-t')
+[i \partial_t-H] &G(t,t')=\delta(t-t') \\
+[i \partial_t-H_0]G_0(t,t')&=[i \partial_t-H+H']G_0(t,t')=\delta(t-t')
 \end{flalign*}
-
-According to statistical mechanics, the expectation value of physical observable is characterized the partition function satisfies the given restricted energy condition in phase space. Base on this concepts, on the grand cannonical ensemble the statistical structure of counting Green’s function becomes :
-
-\begin{flalign*}
-G_0(t,t') =\frac{\text{Tr}[e^{-\beta H} e^{iH_0 t} \hat{a}^\dagger e^{-iH_0 (t-t')}\hat{a}e^{-iH_0 t'}]}{\text{Tr}[e^{-\beta H}]} = \frac{\text{Tr}[e^{-\beta H} \hat{a}^\dagger(t)\hat{a}(t')]}{\text{Tr}[e^{-\beta H]}}
-\end{flalign*}
-
 \subsection*{Diagrammatic expansion of Green’s function}
 
-In the statistical framework, it is easy to calculate the Green’s function in the imaginary time $\tau$ due to the wick rotation of time axis, which mapped time-dependent system progression into thermal equilibrium problem with temperature dependency.
-
+In the statistical framework, it is easy to calculate Green’s function in the imaginary time $\tau$ due to the wick rotation of the time axis, which mapped time-dependent system progression into thermal equilibrium problems with temperature dependency.
 \begin{flalign*}
 \frac{it}{\hbar}=\tau = \beta = \frac{1}{k_BT}
 \end{flalign*}
 
-
 We will use $\hbar=1$ in overall discussion. In this new frame, Green’s function can be rewritten :
-
 \begin{flalign*}
 G_0(\tau,\tau') = \langle\mathcal{T}\hat{a}^\dagger(\tau)\hat{a}(\tau)\rangle\begin{cases} \langle \hat{a}^\dagger(\tau)\hat{a}(\tau')\rangle  \quad (\tau>\tau')\\  \pm \langle \hat{a}(\tau')\hat{a}^\dagger(\tau)\rangle \quad (\tau<\tau')\quad \end{cases}
 \end{flalign*}
 
-This is the very basic form of Green’s function in imaginary time corresponding into diagram structure. We can draw simple arrow start from $\hat{a}(\tau')$ heading toward $\hat{a}^\dagger(\tau)$. 
-
-If We considering the interaction between the system and exterior environment, we can seperate the System’s Hamiltonian into two parts : for local system term $H_0$ , and external potential term $H'$.
-
+There are particular relationship between real-time Green’s function and imaginary time(temperature dependence) Green’s function, which is :
 \begin{flalign*}
-H = H_0 + H'
+G(t,t')\vert_{t=0} = \pm e^{\beta H} G(t,t')\vert_{t=i\beta}
 \end{flalign*}
 
-Now, according to the equation of motion, 
+These temperature dependence Green’s function is often called in another term, Matsubara Green’s function. Single Green’s function corresponding with one specific imaginary time interval can be represented in a diagrammatic way, which is the very basic formulation of the diagrammatic method. We can draw a line from $\tau'$  to $\tau$,
 
+\begin{minipage}{0.5\textwidth}
+  \vfill
+  \begin{fmffile}{MS_The_1}
+    \begin{fmfgraph*}(120,80)
+      \fmfleft{i1,i2}
+      \fmfright{o1,o2}
+      \fmf{fermion}{i1,v1,o1}
+      \fmf{fermion}{i2,v2,o2}
+      \fmf{photon,tension=0.4}{v1,v2}
+      \fmfdot{v1,v2}
+    \end{fmfgraph*}
+  \end{fmffile}
+  \vfill
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+  \vfill
+  \begin{fmffile}{MS_The_2}
+    \begin{fmfgraph*}(120,80)
+      \fmfleft{i}
+      \fmfright{o}
+      \fmf{fermion,tension=0.4}{i,v1,v2,o}
+      \fmf{photon,left,tension=0}{v1,v2,v1}
+      \fmfdot{v1,v2}
+    \end{fmfgraph*}
+  \end{fmffile}
+  \vfill
+\end{minipage}
+\\
+According to statistical mechanics, the expectation value of the physical observable is characterized by the partition function that satisfies the given restricted energy condition in phase space. Based on these concepts, on the grand canonical ensemble, the statistical structure of counting Green’s function becomes :  
 \begin{flalign*}
-[i \partial_t-H]G(t,t')=\delta(t-t') \\
-[i \partial_t-H_0]G_0(t,t')=[i \partial_t-H+H']G_0(t,t')=\delta(t-t')
+G_0(\tau,\tau') = \frac{\text{Tr}[e^{-\beta H_0} \hat{a}^\dagger(\tau)\hat{a}(\tau')]}{\text{Tr}[e^{-\beta H_0}]} =\frac{\text{Tr}[e^{-\beta H_0} e^{iH_0 \tau} \hat{a}^\dagger e^{-H_0 (\tau-\tau')}\hat{a}e^{-iH_0 \tau'}]}{\text{Tr}[e^{-\beta H_0}]}
 \end{flalign*}
 
-Here $G_0$ is Green’s function for bare system, and $G$ is full Green’s function including external potential. Using the relation in appropriate procedure, we can expand the full Green’s function into perturbative series, which is :
-
+This is the very basic form of Green’s function in imaginary time corresponding to the diagram structure. Similar case with the creation and annihilation operator, the time dependency of external potential term Hamiltonian : 
 \begin{flalign*}
-G(t,t') = G_0(t,t') + \int dt_1  G_0(t,t_1)H'(t_1)G_0(t_1,t') + \int dt_2\int dt_1  G_0(t,t_2)H'(t_2)G_0(t_2,t_1)H'(t_1)G_0(t_1,t') +... 
+H'(\tau) = e^{H_0\tau}He^{-H_0\tau}
 \end{flalign*}
 
-We can draw basic diagram structures corresponding the series, Using following rules, 
-
-\subsubsection*{Example - second quantization form of interacting system}
-
-we can follow below procedure. Due to the second quantization, we also can write Hamiltonian itself into the form of field operators. For example, if we consider the Coulomb interaction between the two particles (states), the interaction Hamiltonian can be written in the following form.
-
+If we consider the effect of interaction, we can adopt full Green’s function includes the interaction operator $U(\tau)$,
 \begin{flalign*}
-H' = \frac{1}{2}\sum_{i,j,k,l}V_{i,j,k,l}\hat{a}^\dagger_i\hat{a}^\dagger_j\hat{a}_k\hat{a}_l
+G(\tau,\tau') = \frac{\text{Tr}[e^{-\beta H_0} U(\beta)\hat{a}^\dagger(\tau)\hat{a}(\tau')]}{\text{Tr}[e^{-\beta H_0}U(\beta)]} =\frac{\text{Tr}[e^{-\beta H} U(\tau) \hat{a}^\dagger U(\tau'-\tau)\hat{a}U(\tau')]}{\text{Tr}[e^{-\beta H}]} 
 \end{flalign*}
 
-To consider the interaction effect due to the external potential in more specific, we can calculate the Green’s function in interaction picture. To begin, we define the Interaction operator $U(\tau)$ :
-
+where interaction operator is : 
 \begin{flalign*}
-U(\tau) = \sum_{n=0}^\infty (-1)^n \frac{1}{n!} \int^\tau_0d\tau_1 \int^\tau_0 d\tau_2 ...\int^\tau_0d\tau_n[\mathcal{T}\hat{H}'(\tau_1)\hat{H}'(\tau_2)...\hat{H}'(\tau_n)]\\  =\mathcal{T}e^{-\int^{\tau}_0 d\tau_1 \hat{H}'}
+U(\tau) = \mathcal{T}e^{-\int^\tau_0 d\tau' H_{int}(\tau')}
 \end{flalign*}
 
-Using second quantization form, This can be rewritten,
-
+In the imaginary time interval $[\tau,0]$ , full Green’s function in the expectation form can be represented , 
 \begin{flalign*}
-U(\tau) = \mathcal{T}e^{-\int^{\tau}_0 d\tau_1 \frac{1}{2}\sum_{i,j,k,l}V_{i,j,k,l}\hat{a}^\dagger_i\hat{a}^\dagger_j\hat{a}_k\hat{a}_l}
+G(\tau,0) = \frac{\text{Tr}[e^{-\beta H_0} U(\beta)\hat{a}^\dagger(\tau)\hat{a}]}{\text{Tr}[e^{-\beta H_0}U(\beta)]} = \frac{\langle U(\beta)\hat{a}^\dagger(\tau)\hat{a}\rangle_0}{\langle U(\beta)\rangle_0}
 \end{flalign*}
 
-Now we can rewrite Green’s function in the interaction picture with including interaction between quasi-particles :
-
+The under index 0 of angled bracket indicates its expectation value was calculated in $H_{loc}$ frame. If the interaction hamiltonian is in the form of multiplication of pair of annihilation-creation operator $\hat{a}^\dagger$ and $\hat{a}$ , we can adjust Wick’s theorem to expand the each of the expectation value in denominator and numerator into a multiplication of Green’s functions in each time interval. For example, if 
 \begin{flalign*}
-G(\tau,0) = \frac{-\langle\mathcal{T}(U(\beta)\hat{a}_k(\tau)\hat{a}_k^\dagger)\rangle_0}{\langle U(\beta)\rangle_0} = \frac{\text{Tr}[e^{-\beta H_0}(U(\beta)\hat{a}_k(\tau)\hat{a}_k^\dagger)]}{\text{Tr}[e^{-\beta H_0}(U(\beta)]}
+H_{int} =V_{ijkl}\hat{a}^\dagger_i\hat{a}^\dagger_j\hat{a}_k\hat{a}_l
 \end{flalign*}
 
-In above formula, We can rewrite the denominator into expand form in distinct time interval $\tau_i$ , 
-
+then 
 \begin{flalign*}
-\langle U (\beta) \rangle_0 & = \langle \mathcal{T}e^{-\int^{\tau}_0 d\tau_1 \hat{H}'} \rangle_0 \\ 
-                            &= 1-\frac{1}{2} \sum_{i,j}V_{i,j}\int^\beta_0d\tau\langle\mathcal{T}\hat{a}_i^\dagger(\tau)\hat{a}_j(\tau)^\dagger \hat{a}_{i'}(\tau)\hat{a}_{j'}\rangle \\
-                            & + \frac{1}{2^3}\sum_{l,n,m,o}V_{l,m,n,o}\int^\beta_0d\tau_1\int^\beta_0d\tau_2 \underbrace {\langle \mathcal{T}\hat{a}^\dagger_l(\tau)\hat{a}^\dagger_m(\tau)\hat{a}^\dagger_n(\tau)\hat{a}^\dagger_o(\tau)\hat{a}_l(\tau)\hat{a}_m(\tau)\hat{a}_n(\tau)\hat{a}_o(\tau)\rangle }_{(**)} + \cdots
+\langle U(\beta)\rangle_0 \sim 1-\frac{1}{2}V_{ijkl}\int^\beta_0d\tau_1\langle\mathcal{T}\hat{a}^\dagger_i(\tau_1)\hat{a}_j^\dagger(\tau_1)\hat{a}_k(\tau_1)\hat{a}_l(\tau_1)\rangle + ... \\=1 - \frac{1}{2}\int^\beta_0\langle\mathcal{T}\hat{a}^\dagger_i(\tau_1)\hat{a}_j^\dagger(\tau_1)\rangle \langle\mathcal{T}\hat{a}_k(\tau_1)\hat{a}_l(\tau_1)\rangle + ...
 \end{flalign*}
 
-To calculate the numerically ordered terms like $(**)$ , we can apply Wick’s theorem to contract the given term into multiplication of expectation value of the two operators. Which means,
+This kind of form of expansion represents the expectation value of the interaction operator in the multiplication of diagrams.
+\pagebreak
 
+\subsection*{Diagrammatic Hybridization expansion for impurity model}
+In this section, we will introduce the hybridization method based on the former discussion. We follow the notation of []. In the case of the impurity model with a bosonic bath, the action of the full system can be written into : 
 \begin{flalign*}
-W_n = \langle\mathcal{T}X_1X_2\cdots X_{2n}\rangle = \sum_{P}P_{per}\langle\mathcal{T}X_{i_1}X_{i_2}\rangle\langle\mathcal{T}X_{i_3}X_{i_4}\rangle...\langle\mathcal{T}X_{i_{2n-1}}X_{i_{2n}}\rangle
+S = \int^\beta_0 d\tau H_{loc}(\tau) + \int^\beta_0 d\tau d\tau' P(\tau)\mathcal{W}(\tau-\tau')P(\tau')
 \end{flalign*}
 
-To apply the Wick’s theorem and map into Feynman diagram, we choose $\langle\mathcal{T}\hat{a}_i^\dagger(\tau)\hat{a}_j(\tau)^\dagger \hat{a}_{i'}(\tau)\hat{a}_{j'}\rangle$ as an example, which is:
-
+With simliar procedure with the diagram expansion, We can calculate the expectation value of observavble using the partition function Z,
 \begin{flalign*}
-\langle\mathcal{T}\hat{a}_i^\dagger(\tau)\hat{a}_j(\tau)^\dagger \hat{a}_{i'}(\tau)\hat{a}_{j'}\rangle = \langle\hat{a}_i^\dagger(\tau)\hat{a}_{i'}(\tau)\rangle\langle\hat{a}_j^\dagger(\tau)\hat{a}_{j'}(\tau)\rangle \pm \langle\hat{a}_i^\dagger(\tau)\hat{a}_{j'}(\tau)\rangle\langle\hat{a}_j^\dagger(\tau)\hat{a}_{i'}(\tau)\rangle
+Z=\text{tr}\bigg[T_{\tau}e^{-S}\bigg]
 \end{flalign*}
 
-Using the above 
-
-\subsection*{Non-crossing approximation}
-
-If we consider the interaction term with exterior conditions, we can use the concept of self-energy $\Sigma$ to describe the system’s dynamics. The self-energy $\Sigma$ is defined by : 
-
+And it’s expectation value can be measured as 
 \begin{flalign*}
-(i\frac{\partial}{\partial t_1} + H_0)G(t_1-t_1') - \int^{-i\beta}_0 d\tau_1 \Sigma(t_1-\tau_1)G(\tau_1-t_1) = \delta(t_1-t_1')
+\langle T_\tau O(\tau)\rangle = \frac{\text{tr}[T_{\tau}e^{-S} O(\tau)]}{\text{tr[}T_{\tau}e^{-S}]}
 \end{flalign*}
 
-Now for static case, the solution become in the form of:
+Which has a similiar form of the full Green’s function. Similiar with it’s diagrammatic expansion, the partition function can be expanded to 
+\begin{flalign*}
+Z=\sum^{\infty}_{n=0}Z^{(n)}
+\end{flalign*}
 
-Which can be compare with the equation $(*)$ , form of the equation brings out full Green’s function G,
+and it can be normalized in grand cannonical ensemble, 
+\begin{flalign*}
+\mathcal{G}(\tau) = \sum^{\infty}_{n=0} \mathcal{G}^{(n)}(\tau)
+\end{flalign*}
 
+which is : 
+\begin{flalign*}
+&\mathcal{G}^{(0)}(\tau) = \mathcal{G}_{loc}(\tau) \\ 
+&\mathcal{G}^{(1)} (\tau) = \int^\beta_0 d\tau_1 \int^{\tau_1}_0 d\tau_2 \bigg[  \mathcal{G}_{loc}(\beta-\tau) P \mathcal{G}_{loc}(\tau_1 - \tau_2) P\mathcal{G}_{loc}(\tau_2)\bigg ] \mathcal{W}(\tau_1 - \tau_2)\\ ...
+\end{flalign*}
+
+During the calculation and the diagrams earned from previous procedure, We can collect the irreducible diagrams which cannot be seperated into number of single propagators. These diagrams are defines self-energy, described as follows : 
+\begin{flalign*}
+\Sigma(\tau) = \sum_{n=1}^{\infty}\Sigma^{(n)}(\tau)
+\end{flalign*}
+
+and,
+\begin{flalign*}
+&\Sigma^{(1)}(\tau) = \bigg[P\mathcal{G}_{at}(\tau)P\bigg]\bar{\mathcal{W}}(\tau) \\ 
+&\Sigma^{(2)}(tau) = \int^\beta_0d\tau_1\int^{\tau_1}_0d\tau_2 \bigg[P\mathcal{G}_{loc}(\tau-\tau_1)P\mathcal{G}_{loc}(\tau_1-\tau_2)P\mathcal{G}_{loc}(\tau_2)P\bigg](\bar{\mathcal{W}(\tau)}\bar{\mathcal{W}}(\tau_1-\tau_2) + \bar{\mathcal{W}}(\tau-\tau_2)\bar{\mathcal{W}}(\tau_1))
+\end{flalign*}
+
+Adopting the self-energy in normalized Partition function, we can gain the equation :
+\begin{flalign*}
+\mathcal{G} = &\mathcal{G}_{loc}(\tau)  \\ &+ \int^\beta_0d\tau_1\int^{\tau_1}_0d\tau_2\mathcal{G}_{loc}(\beta-\tau_1)\Sigma(\tau_1-\tau_2)\mathcal{G}^{(2)}(\tau_2) \\ &+ \int^{\beta}_0d\tau_1\int^{\tau_1}_0d\tau_2\int^{\tau_2}_0d\tau_3\int^{\tau_3}_0d\tau_4 \mathcal{G}_{loc}(\beta-\tau_1)\Sigma(\tau_1-\tau_2)\mathcal{G}_{loc}(\tau_2-\tau_3)\Sigma(\tau_3-\tau_4)\mathcal{G}_{loc} + ...
+\end{flalign*}
+
+During represent the self-energy into exteneded diagrammatic formation, we can collect the diagrams with some featured topological structure. If we consider only the first order self-energy expansion, the result coincide with the well-known Non-crossing approximation method. 
+
+This form of equation satisfies the integral-differential form, agrees with the equation of motion of in the quantum mechanical aspect.
+\begin{flalign*}
+[-\partial_{\tau}-H_{loc}+\lambda]\mathcal{G}(\tau)-\int^\tau_0 d\tau_1\Sigma(\tau-\tau_1)\mathcal{G}(\tau_1) = 0 \quad, \quad(\tau>0)
+\end{flalign*}
+\end{spacing}
 \pagebreak
 
 \section*{3. Simulation model}
 \begin{spacing}{1.5}
-
+  \begin{figure}[htbp]
+    \centerline{\includegraphics[width=12cm]{TexFigure/circuit_supp_ashida.PNG}}
+    \caption{ Picture of resistivity shunted Josephson junction connected with exterior transmission line.}
+  \end{figure}
+  
 We set the Resistivity shunted Josephson junction(RSJJ) circuit as an impurity model. 
 The circuit is composed of a single Josephson junction connected to the transmission line, 
 which acts as the resistance of the total circuit system. 
 Each component of the circuit is mapped onto each composition of the total Hamiltonian. 
 The given circuit Hamiltonian form is represented as follows : 
-
 \begin{flalign*}
 H_{sys} = (E_c\hat{N^2}-E_J\cos{\phi})\otimes I -\hat{N}\otimes\sum_{0<k\leq K}\hbar g_k(\hat{b}_k^\dagger + \hat{b}_k) + I \otimes \sum_{0<k\leq K}\hbar\omega_k\hat{b_k}^\dagger\hat{b_k}
 \end{flalign*}
 
-
+Specific description of each parts of system Hamiltonian composed by : 
 \begin{flalign*}
-H_{loc}=E_C\hat{N}^2 - E_J \cos{\phi} \\ H_{bath} = \sum_{0<k\leq K} \hbar \omega_k \hat{b}^\dagger_k \hat{b}_k \\ H_{int} = -\hat{N}\otimes\sum_{0<k\leq K} \hbar g_k (\hat{b}^\dagger_k + \hat{b}_k)
+H_{loc} &=E_C\hat{N}^2 - E_J \cos{\phi} \\ H_{bath} &= \sum_{0<k\leq K} \hbar \omega_k \hat{b}^\dagger_k \hat{b}_k \\ H_{int} &= -\hat{N}\otimes\sum_{0<k\leq K} \hbar g_k (\hat{b}^\dagger_k + \hat{b}_k)
 \end{flalign*}
+ 
 
-The description of basic symbols is in Table. 1. 
-Interaction effect of local(impurity) system between bath is described through  
+$\\$Interaction effect of local(impurity) system between bath is described through  
 $g_k$ and the parameter $\alpha =\frac{R_Q}{R}$ .  We use $\alpha$ and $\gamma = \frac{E_J}{E_C}$ 
 as parameters to control the criticality of the Josephson junction. We’ve set $E_C$ and $\hbar$ as energy units, 
-1 as the value of each parameter during the calculation process.  
+1 as the value of each parameter during the calculation process. Detailed description of basic symbols is in Table. 1. 
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.2}  % 행 간격 조정
+  \begin{tabular}{@{}ccc@{}}
+  \toprule
+  \textbf{Symbols} & \textbf{Formula} & \textbf{Physical quantities} \\ 
+  \midrule
+  $\phi$ & & Phase of Josephson junction \\ 
+  $\hat{N}$ & $-i\frac{\partial}{\partial \phi}$ & Charge operator \\ 
+  $\omega_k$ & $vk =\frac{vm\pi}{L}$ & Bath frequency \\ 
+  $\hat{b_k}^\dagger,\hat{b_k}$ & & Bosonic creation, annihilation operator \\
+  $R_Q$ & $\frac{h}{4e^2}$ & Quantum resistance of junction \\
+  $R$ & & Resistance of bath \\
+  $E_C$ & $\frac{(2e)^2}{2C_J}$ & Josephson junction charging energy \\ 
+  $E_J$ & & Josephson coupling energy \\ 
+  $g_k$ & $\sqrt{\frac{2\pi v}{\alpha L} \frac{\omega_k}{1+(\frac{\nu \omega_k}{W})^2}}$ & Coupling with bath in mode $k$ \\ 
+  $\nu$ & $\frac{\pi}{\alpha \epsilon_C}$ & \\
+  $\epsilon_C$ & $\frac{E_C}{\hbar W}$ & \\
+  \bottomrule
+  \end{tabular}
+  \caption{Table 1.Basic symbols used for describing Hamiltonian.}
+  \end{table}
 
-Table 1. Basic symbols used for describing Hamiltonian.
 
 \subsection*{Span of $H_{loc}$ in Josephson effect basis}
 
 To adjust the expansion method to the RSJJ Hamiltonian model, We represent the local system Hamiltonian in matrix formulation using the Josephson wave function as its basis. We adopt the macroscopic point of view to observe the superconducting effect expected in our junction system. The free-particle basis in exponential form is written as : 
-
 \begin{flalign*}
 \ket{\psi_{JJ}} = \sum_{-\infty}^{\infty} c_me^{im\phi}
 \end{flalign*}
 
 Here, $c_m$ and $m$ indicates the normalization factor and wave number which analogous to energy excitations. In trigonometric form, it turns out : 
-
 \begin{flalign*}
 \ket{\psi_{JJ}}=\sum_{m=0}^\infty a_m\cos{m\phi} +b_m\sin{m\phi}
 \end{flalign*}
@@ -218,25 +310,34 @@ Here, $c_m$ and $m$ indicates the normalization factor and wave number which ana
 Where $a_m$ and $b_m$ are the normalization factor corresponds to even and odd trigonal function. separating in odd and even function,
 
 \begin{flalign*}
-\text{even part of the basis} : \sum_{m=0}^\infty \alpha_m(a_m\cos{m\phi})\\\text{odd part of the basis} : \sum_{n=1}^\infty \beta_n(b_n\sin{n\phi})
+\text{even part of the basis} : \sum_{m=0}^\infty a_m\cos{m\phi}\\\text{odd part of the basis} : \sum_{n=1}^\infty b_n\sin{n\phi}
 \end{flalign*}
 
+In a Hamiltonian of a system with arbitrary dimensions, the eigenvector written in the form of an even function in form of series expansion:
 \begin{flalign*}
-\ket{\psi_{JJeven}}=\begin{pmatrix} \alpha_0 \\ \alpha_1\\ \vdots \\\alpha_m\end{pmatrix}\quad, \quad \ket{\psi_{JJodd}}=\begin{pmatrix} \beta_1 \\ \beta_2\\ \vdots \\\beta_m\end{pmatrix}
+\ket{\text{even}_k}=\frac{a^{(k)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(k)}}{\sqrt{\pi}}\cos{n\phi}
 \end{flalign*}
 
-We can span the target Hamiltonian in given basis. According to Strum-Liouville theory, the second order differential equation can be mapped into linear operator (Self-adjoint operator) form. Considering the differential form of local system Hamiltonian with using above result,  
+Here, (k) represents the k-th split state, that is, the energy state of the even function basis split by external perturbation in the k-th excited state. In the same way, the eigenvector written in the form of an odd function is as follows: 
+\begin{flalign*}
+\ket{\text{odd}_k} = \sum_{m=1}\frac{b_m^{(k)}}{\sqrt{\pi}}\sin{m\phi}
+\end{flalign*}
 
+And its matrix form is : 
+\begin{flalign*}
+\ket{\text{even}_k}=\begin{pmatrix} \alpha_0 \\ \alpha_1\\ \vdots \\\alpha_m\end{pmatrix}\quad, \quad \ket{\text{odd}_k}=\begin{pmatrix} \beta_1 \\ \beta_2\\ \vdots \\\beta_m\end{pmatrix}
+\end{flalign*}
+
+We can span the target Hamiltonian in given basis.Considering the differential form of local system Hamiltonian with using above result,  
 \begin{flalign*}
 H_{loc} = -\frac{\partial^2}{\partial \phi^2} - \gamma\cos{\phi}
 \end{flalign*}
 
 \begin{flalign*}
-H_{loc}\ket{\psi_{JJ}} = H_{loc}(\ket{\psi_{JJeven}}+\ket{\psi_{JJodd}} \\ \text{ } \\ \bigg(-\frac{\partial^2}{\partial \phi^2} - \gamma\cos{\phi}\bigg)\bigg(\sum_{m=0}^\infty a_m\cos{m\phi} +\sum_{n=1}^\infty b_n\sin{n\phi}\bigg) \\= -\sum_{m=0}^\infty (ma_m\cos{m\phi}+\gamma\cos{\phi}\cos{m\phi})-\sum_{n=1}^\infty (nb_n\sin{n\phi}+\gamma\cos{\phi}\sin{n\phi})
+&H_{loc}\ket{\psi_{JJ}} = H_{loc}(\ket{\text{even}_k}+\ket{\text{odd}_k}) \\ \text{ } \\ &\bigg(-\frac{\partial^2}{\partial \phi^2} - \gamma\cos{\phi}\bigg)\bigg(\sum_{m=0}^\infty a_m\cos{m\phi} +\sum_{n=1}^\infty b_n\sin{n\phi}\bigg) \\&= -\sum_{m=0}^\infty (ma_m\cos{m\phi}+\gamma\cos{\phi}\cos{m\phi})-\sum_{n=1}^\infty (nb_n\sin{n\phi}+\gamma\cos{\phi}\sin{n\phi})
 \end{flalign*}
 
 In matrix representation,
-
 \begin{flalign*}
 H_{\text{loc even}} = \begin{pmatrix}
 \alpha_0 & -\frac{\gamma}{\sqrt{2}} & 0 & \cdots \\
@@ -261,41 +362,23 @@ To study how system changes depends on coupling parameters and finite temperatur
 
 The charge operator $\hat{N}$ pursues polarization operator in our expansion model, endows coupling effect between local system and bath system. Exploiting local basis from previous procedure, We can write $\hat{N}$ in aspect of local system view.
 
-The charge operator $\hat{N}$ is defined as a differential operator, it’s original form is given by follows
-
-\begin{flalign*}
-\hat{N}=-i\frac{\partial}{\partial \phi}
-\end{flalign*}
-
-To get its matrix form, let eigenvectors of $H_{\text{loc even}}$ and $H_{\text{loc odd}}$ as $\ket{\text{even}}$ and $\ket{\text{odd}}$,
-
-\begin{flalign*}
-\ket{\text{even}}=\frac{a_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a_n}{\sqrt{\pi}}\cos{n\phi}
-\end{flalign*}
-
-\begin{flalign*}
-\ket{\text{odd}} = \sum_{m=1}\frac{b_m}{\sqrt{\pi}}\sin{m\phi}
-\end{flalign*}
-
 \subsubsection*{2-level case}
 
 Now, we can span the charge operator in eigenvectors of $H_{\text{loc even}}$ and $H_{\text{loc odd}}$. In 2-level case, we can use total lowest three states as basis vector,
-
 \begin{flalign*}
-\ket{\text{gs}}=\frac{a^{(0)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(0)}_n}{\sqrt{\pi}}\cos{n\phi} \\
-\ket{\text{1st}} = \sum_{m=1}\frac{b^{(1)}_m}{\sqrt{\pi}}\sin{m\phi}\\
-\ket{\text{2nd}}=\frac{a^{(1)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(1)}_n}{\sqrt{\pi}}\cos{n\phi}
+&\ket{\text{gs}}=\frac{a^{(0)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(0)}_n}{\sqrt{\pi}}\cos{n\phi} = \frac{a_0}{\sqrt{2\pi}} + \frac{a_1}{{\sqrt{\pi}}}\cos{\phi} + \frac{a_2}{\sqrt{\pi}} \cos{2\phi} +\cdots\\
+&\ket{\text{1st}} = \sum_{m=1}\frac{b^{(1)}_m}{\sqrt{\pi}}\sin{m\phi} = \frac{b_1}{{\sqrt{\pi}}}\sin{\phi} +  \frac{b_2}{\sqrt{\pi}} \sin{2\phi}+\cdots\\
+&\ket{\text{2nd}}=\frac{a^{(1)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(1)}_n}{\sqrt{\pi}}\cos{n\phi}= \frac{a'_0}{\sqrt{2\pi}} + \frac{a'_1}{{\sqrt{\pi}}}\cos{\phi} + \frac{a'_2}{\sqrt{\pi}} \cos{2\phi} +\cdots
 \end{flalign*}
 
 Here we note the upper indices with round brace to indicate the energy excitation of local system. Then matrix form of $\hat{N}$ becomes :
-
 \begin{flalign*}
-\hat{N} = \begin{pmatrix}
+\hat{N} &= \begin{pmatrix}
 \bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} & \bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{1st}} & \bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{2nd}} \\
 \bra{\text{1st}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} &  \bra{\text{1st}}-i\frac{\partial}{\partial\phi}\ket{\text{1st}} & \bra{\text{1st}}-i\frac{\partial}{\partial\phi}\ket{\text{2nd}} \\ 
 \bra{\text{2nd}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} & \bra{\text{2nd}}-i\frac{\partial}{\partial\phi}\ket{\text{1st}} & \bra{\text{2nd}}-i\frac{\partial}{\partial\phi}\ket{\text{2nd}}
 \end{pmatrix} \\ \quad \\ 
-=i\begin{pmatrix}
+&=i\begin{pmatrix}
 0 & \sum_{n=1}na^{(0)}_n b^{(1)}_n & 0\\
 -\sum_{n=1}na^{(0)}_n b^{(1)}_n &  0 & -\sum_{n=1}na^{(1)}_n b^{(1)}_n \\ 
 0 & \sum_{n=1}na^{(1)}_n b^{(1)}_n & 0
@@ -305,35 +388,21 @@ Here we note the upper indices with round brace to indicate the energy excitatio
 \subsubsection*{Multilevel case}
 
 For a 2-level system (without considering energy level splitting; the energy level needs to be split by external perturbation to become a 3-level Hamiltonian) or higher, the process of expressing the order parameter in matrix form for the Hamiltonian $H_{loc}$ of the system under consideration involves the following steps.
-
-In a Hamiltonian of a system with arbitrary dimensions, the eigenvector written in the form of an even function is as follows:
-
-\begin{flalign*}
-\ket{\text{even}_k}=\frac{a^{(k)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(k)}}{\sqrt{\pi}}\cos{n\phi}
-\end{flalign*}
-
-Here, (k) represents the k-th split state, that is, the energy state of the even function basis split by external perturbation in the k-th excited state. In the same way, the eigenvector written in the form of an odd function is as follows: 
-
-\begin{flalign*}
-\ket{\text{odd}_k} = \sum_{m=1}\frac{b_m^{(k)}}{\sqrt{\pi}}\sin{m\phi}
-\end{flalign*}
-
 Now based on the above discussion, the extended form of charge operator in higher dimension is :
-
 \begin{flalign*}
-\hat{N} = \begin{pmatrix}
+\hat{N} &= \begin{pmatrix}
 \bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} & \bra{\text{gs}}-i\frac{\partial}{\partial\phi}\ket{\text{1st}} & \cdots \\
 \bra{\text{1st}}-i\frac{\partial}{\partial\phi}\ket{\text{gs}} &  \ddots & \vdots \\ 
 \vdots & \cdots & \bra{\text{nth}}-i\frac{\partial}{\partial\phi}\ket{\text{nth}}
 \end{pmatrix} \\ \quad \\ 
-=i\begin{pmatrix}
+&=i\begin{pmatrix}
 0 & \sum_{n=1}na^{(0)}_n b^{(1)}_n & \cdots \\
 -\sum_{n=1}na^{(0)}_n b^{(1)}_n &  \ddots & \ \\ & &-\sum_{n=1}na^{(n-1)}_n b^{(n)}_n \\ 
 \vdots & \sum_{n=1}na^{(n-1)}_n b^{(n)}_n & 
 \end{pmatrix}
 \end{flalign*}
-
-In this case, the maximum dimension of $\hat{N}$  is $n$ .
+$\\$
+In this case, the maximum dimension of $\hat{N}$  is $2n+1$ .
 
 \subsection*{Transformation of the Order Parameter into Matrix Form}
 
@@ -341,28 +410,9 @@ The order parameter represents a set of values arranged in an ordered manner acc
 
 \subsubsection*{2-level case}
 
-Since we aim to understand the system from the perspective of which represents the Josephson junction with three energy levels, we intend to express  which represents the interaction between the reservoir and the system, in matrix form using the eigenvectors of the local Hamiltonian obtained above. It is important to note that the basis of the eigenvectors obtained from the local Hamiltonian is the Fourier basis. The form of the local Hamiltonian for which we want to obtain the eigenvectors is as follows:
-
-\begin{flalign*}
-H_{loc}=-\frac{\partial^2}{\partial \phi^2} - E_J \cos{\phi}
-\end{flalign*}
-
-\subsubsection*{Expansion of the Interaction Hamiltonian in Matrix Form}
-
-The Hamiltonian of the system $H_{loc}$ can be expressed in matrix form using the following basis:
-
-\begin{flalign*}
-\ket{\text{even}} = \bigg( \frac{1}{\sqrt{2\pi}} , \frac{1}{{\sqrt{\pi}}}\cos{\phi}, \frac{1}{\sqrt{\pi}} \cos{2\phi},\cdots\bigg) \\ \ket{\text{odd}} = \bigg(  \frac{1}{{\sqrt{\pi}}}\sin{\phi}, \frac{1}{\sqrt{\pi}} \sin{2\phi},\cdots\bigg) \\ 
-\end{flalign*}
-
-The eigenvectors of the Hamiltonian expressed in matrix form can be written in the following form:
-
-\begin{flalign*}
-\ket{\text{gs}} = \frac{a_0}{\sqrt{2\pi}} + \frac{a_1}{{\sqrt{\pi}}}\cos{\phi} + \frac{a_2}{\sqrt{\pi}} \cos{2\phi} +\cdots \\ \ket{\text{1st}} =   \frac{b_1}{{\sqrt{\pi}}}\sin{\phi} +  \frac{b_2}{\sqrt{\pi}} \sin{2\phi}+\cdots\\ \ket{\text{2nd}} = \frac{a'_0}{\sqrt{2\pi}} + \frac{a'_1}{{\sqrt{\pi}}}\cos{\phi} + \frac{a'_2}{\sqrt{\pi}} \cos{2\phi} +\cdots
-\end{flalign*}
-
-Using the obtained eigenvectors as a basis, cosϕ can be rewritten as a matrix operator, and 
-
+Since we aim to understand the system from the perspective of which represents the Josephson junction with three energy levels, 
+we intend to expand order parameter $\cos \phi$ in simliar procedure with calculating $\hat{N}$ matrix. Adopting the form of fourier basis 
+in the case of 2-level in the representing $\hat{N}$ matrix, cosϕ can be rewritten as a matrix operator, and 
 \begin{flalign*}
 \hat{\cos{\phi}} = \begin{pmatrix}
 \bra{\text{gs}}\cos{\phi} \ket{\text{gs}} & \bra{\text{gs}}\cos{\phi}\ket{\text{1st}} & \bra{\text{gs}}\cos{\phi}\ket{\text{2nd}}  \\
@@ -370,11 +420,7 @@ Using the obtained eigenvectors as a basis, cosϕ can be rewritten as a matrix o
 \bra{\text{2nd}}\cos{\phi}\ket{\text{gs}} & \bra{\text{2nd}}\cos{\phi}\ket{\text{1st}} & \bra{\text{2nd}}\cos{\phi}\ket{\text{2nd}} \\
 \end{pmatrix} 
 \end{flalign*}
-
-where $\bra{\text{gs}}\cos{\phi} \ket{\text{gs}} = \int^{2\pi}_0 \bigg(\frac{a_0}{\sqrt{2\pi}} + \frac{a_1}{{\sqrt{\pi}}}\cos{\phi} + \frac{a_2}{\sqrt{\pi}} \cos{2\phi} +\cdots\bigg)\bigg(\frac{a_0}{\sqrt{2\pi}}\cos{\phi} + \frac{a_1}{{\sqrt{\pi}}}\cos^2{\phi} + \frac{a_2}{\sqrt{\pi}} \cos{\phi}\cos{2\phi} +\cdots \bigg)$
-
-When obtaining eigenvectors for the 3*3 $H_{loc}$ matrix, the matrix form of cosϕ is expressed as follows.
-
+When obtaining eigenvectors for the 2-level truncated 3*3 $H_{loc}$ matrix, the matrix form of $\cos\phi$ is expressed as follows.
 \begin{flalign*}
 \hat{\cos{\phi}} = \begin{pmatrix}
 \frac{2}{\sqrt{2}}a_0a_1 + a_1a_2 & 0 & \frac{1}{\sqrt{2}}(a_1a'_0 + a_0a'_1) + \frac{1}{2}(a_1a'_2 + a_2a'_1)  \\
@@ -382,55 +428,36 @@ When obtaining eigenvectors for the 3*3 $H_{loc}$ matrix, the matrix form of cos
 \frac{1}{\sqrt{2}}(a_1a'_0 + a_0a'_1) + \frac{1}{2}(a_1a'_2 + a_2a'_1) & 0 & \frac{2}{\sqrt{2}}a'_0a'_1 + a'_1a'_2 \\
 \end{pmatrix} 
 \end{flalign*}
-
+$\\$
 \subsubsection*{Multilevel case}
 
 For a 2-level system (without considering energy level splitting; the energy level needs to be split by external perturbation to become a 3-level Hamiltonian) or higher, the process of expressing the order parameter in matrix form for the Hamiltonian $H_{loc}$ of the system under consideration involves the following steps.
 
 \subsubsection*{Order parameter in the even function form}
-
-In a Hamiltonian of a system with arbitrary dimensions, the eigenvector written in the form of an even function is as follows:
-
-\begin{flalign*}
-\ket{\text{even}_k}=\frac{a^{(k)}_0}{\sqrt{2\pi}} + \sum_{n=1}\frac{a^{(k)}}{\sqrt{\pi}}\cos{n\phi}
-\end{flalign*}
-
-Here, (k) represents the k-th split state, that is, the energy state of the even function basis split by external perturbation in the k-th excited state. In the same way, the eigenvector written in the form of an odd function is as follows: 
-
-\begin{flalign*}
-\ket{\text{odd}_k} = \sum_{m=1}\frac{b_m^{(k)}}{\sqrt{\pi}}\sin{m\phi}
-\end{flalign*}
-
-First, the calculation of the even function form of the order parameter cosϕ is as follows:
-
+First, the calculation of the even function form of the order parameter $\cos \phi$ is as follows:
 \begin{flalign*}
 \cos{\phi} \ket{\text{even}_k} = \frac{a^{(k)}_0}{\sqrt{2\pi}}\cos{\phi} + \sum_{n=1}\frac{a^{(k)}}{\sqrt{\pi}}\cos{\phi}\cos{n\phi}
 \end{flalign*}
-
+And Final innerproduct result is:
 \begin{flalign*}
 \bra{\text{even}_l}\cos{\phi} \ket{\text{even}_k} = \int^{2\pi}_0\bigg(\frac{a^{(m)}_0}{\sqrt{2\pi}} + \sum_{m=1}\frac{a^{(m)}}{\sqrt{\pi}}\cos{m\phi}\bigg)\bigg(\frac{a^{(n)}_0}{\sqrt{2\pi}}\cos{\phi} + \sum_{n=1}\frac{a^{(n)}}{\sqrt{\pi}}\cos{\phi}\cos{n\phi}\bigg)
 \end{flalign*}
-
 The calculation for the odd function form is as follows:
-
 \begin{flalign*}
 \ket{\text{odd}}=\sum_{n=1} \frac{b_n^{(k)}}{\sqrt{\pi}}\sin{n\phi} \quad , \quad
 \cos{\phi}\ket{\text{odd}}=\sum_{n=1}\frac{b_n^{(k)}}{\sqrt{\pi}}\cos{\phi}\sin{n\phi}
 \end{flalign*}
-
+Similar with the case of even state eigenvector, innerproduct result is:
 \begin{flalign*}
-    \bra{\text{odd}_l}\cos{\phi} \ket{\text{odd}_k} 
-    &= \sum_{n,m=1}\int^{2\pi}_0 d\phi \bigg(\frac{b_n^{(k)}b_m^{(l)}}{\pi}\cos{\phi}\sin{n\phi}\sin{m\phi}\bigg) \\
+    &\bra{\text{odd}_l}\cos{\phi} \ket{\text{odd}_k} = \sum_{n,m=1}\int^{2\pi}_0 d\phi \bigg(\frac{b_n^{(k)}b_m^{(l)}}{\pi}\cos{\phi}\sin{n\phi}\sin{m\phi}\bigg) \\
     &=    \left\{
         \begin{array}{ll}
             \text{if k} \nleq \text{l : }  \qquad \sum^N_{n=1} \bigg(\frac{\hat{b}^{(k)}_n\hat{b}^{(l)}_{n-1}}{2} + \frac{\hat{b}^{(k)}_n\hat{b}^{(l)}_{n+1}}{2}\bigg)\\
             \text{if k } \ngeq \text{l : }  \qquad \sum^N_{n=1} \bigg(\frac{\hat{b}^{(k)}_{n-1}\hat{b}^{(l)}_{n}}{2} + \frac{\hat{b}^{(k)}_{n+1}\hat{b}^{(l)}_{n}}{2}\bigg)
         \end{array}
-        \right. &&
+        \right.
 \end{flalign*}
-
-Therefore, when the entire cosϕ is expressed in matrix form, it takes the following form:
-
+Therefore, when the entire $\cos{\phi}$ is expressed in matrix form, it takes the following form:
 \begin{flalign*}
     \hat{\cos{\phi}} = \begin{pmatrix}
        \ddots & & \vdots & & \\
@@ -440,7 +467,5 @@ Therefore, when the entire cosϕ is expressed in matrix form, it takes the follo
       & & \vdots & &\ddots \\
       \end{pmatrix} 
     \end{flalign*}
-
 \end{spacing}
-
 \end{document}

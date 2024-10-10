@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  7 OCT 2024 08:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  10 OCT 2024 16:36
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex
@@ -140,63 +140,114 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks22
 ) (G:\Install_Program\MikTex\tex/generic/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-)))
-LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 9.
- (G:\Install_Program\MikTex\tex/latex/tex-gyre\ot1qtm.fd
-File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
+))) (G:\Install_Program\MikTex\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+\Gin@req@height=\dimen148
+\Gin@req@width=\dimen149
+) (G:\Install_Program\MikTex\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen150
+\lightrulewidth=\dimen151
+\cmidrulewidth=\dimen152
+\belowrulesep=\dimen153
+\belowbottomsep=\dimen154
+\aboverulesep=\dimen155
+\abovetopsep=\dimen156
+\cmidrulesep=\dimen157
+\cmidrulekern=\dimen158
+\defaultaddspace=\dimen159
+\@cmidla=\count270
+\@cmidlb=\count271
+\@aboverulesep=\dimen160
+\@belowrulesep=\dimen161
+\@thisruleclass=\count272
+\@lastruleclass=\count273
+\@thisrulewidth=\dimen162
+) (G:\Install_Program\MikTex\tex/latex/tools\array.sty
+Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
+\col@sep=\dimen163
+\ar@mcellbox=\box53
+\extrarowheight=\dimen164
+\NC@list=\toks23
+\extratabsurround=\skip52
+\backup@length=\skip53
+\ar@cellbox=\box54
+) (G:\Install_Program\MikTex\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (G:\Install_Program\MikTex\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen165
+\captionmargin=\dimen166
+\caption@leftmargin=\dimen167
+\caption@rightmargin=\dimen168
+\caption@width=\dimen169
+\caption@indent=\dimen170
+\caption@parindent=\dimen171
+\caption@hangindent=\dimen172
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count274
+\c@continuedfloat=\count275
 ) (G:\Install_Program\MikTex\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (G:\Install_Program\MikTex\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count270
-\Gm@cntv=\count271
-\c@Gm@tempcnt=\count272
-\Gm@bindingoffset=\dimen148
-\Gm@wd@mp=\dimen149
-\Gm@odd@mp=\dimen150
-\Gm@even@mp=\dimen151
-\Gm@layoutwidth=\dimen152
-\Gm@layoutheight=\dimen153
-\Gm@layouthoffset=\dimen154
-\Gm@layoutvoffset=\dimen155
-\Gm@dimlist=\toks23
- (G:\Install_Program\MikTex\tex/latex/geometry\geometry.cfg)) (2024-10-02 Master's Thesis.aux)
+\Gm@cnth=\count276
+\Gm@cntv=\count277
+\c@Gm@tempcnt=\count278
+\Gm@bindingoffset=\dimen173
+\Gm@wd@mp=\dimen174
+\Gm@odd@mp=\dimen175
+\Gm@even@mp=\dimen176
+\Gm@layoutwidth=\dimen177
+\Gm@layoutheight=\dimen178
+\Gm@layouthoffset=\dimen179
+\Gm@layoutvoffset=\dimen180
+\Gm@dimlist=\toks24
+ (G:\Install_Program\MikTex\tex/latex/geometry\geometry.cfg))
+LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 25.
+ (G:\Install_Program\MikTex\tex/latex/tex-gyre\ot1qtm.fd
+File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
+) (2024-10-02 Master's Thesis.aux)
 \openout1 = `"2024-10-02 Master's Thesis.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
  (G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count273
-\scratchdimen=\dimen156
-\scratchbox=\box53
-\nofMPsegments=\count274
-\nofMParguments=\count275
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count276
-\MPscratchDim=\dimen157
-\MPnumerator=\count277
-\makeMPintoPDFobject=\count278
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count279
+\scratchdimen=\dimen181
+\scratchbox=\box55
+\nofMPsegments=\count280
+\nofMParguments=\count281
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count282
+\MPscratchDim=\dimen182
+\MPnumerator=\count283
+\makeMPintoPDFobject=\count284
+\everyMPtoPDFconversion=\toks26
 ) (G:\Install_Program\MikTex\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (G:\Install_Program\MikTex\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -231,124 +282,117 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+<TexFigure/kps_create_junction.png, id=1, 1465.475pt x 803.0pt>
+File: TexFigure/kps_create_junction.png Graphic file (type png)
+<use TexFigure/kps_create_junction.png>
+Package pdftex.def Info: TexFigure/kps_create_junction.png  used on input line 41.
+(pdftex.def)             Requested size: 284.52756pt x 155.90434pt.
 [1
 
-{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 47.
+{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./TexFigure/kps_create_junction.png>]
+<TexFigure/kps_INT_exp.PNG, id=10, 311.66437pt x 317.68687pt>
+File: TexFigure/kps_INT_exp.PNG Graphic file (type png)
+<use TexFigure/kps_INT_exp.PNG>
+Package pdftex.def Info: TexFigure/kps_INT_exp.PNG  used on input line 53.
+(pdftex.def)             Requested size: 199.16928pt x 203.01834pt.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 58.
  (G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2]
-Overfull \hbox (21.55896pt too wide) detected at line 112
+) [2 <./TexFigure/kps_INT_exp.PNG>] [3]
+\openout3 = `MS_The_1.mp'.
+
+File: MS_The_1.1 Graphic file (type mps)
+ [MP to PDF] (MS_The_1.1) (MS_The_1.t1)
+\openout3 = `MS_The_2.mp'.
+
+File: MS_The_2.1 Graphic file (type mps)
+ [MP to PDF] (MS_The_2.1) (MS_The_2.t1)
+Overfull \hbox (16.67pt too wide) in paragraph at lines 124--154
+[]$[]$  $[]$ 
+ []
+
+[4] [5]
+Overfull \hbox (12.24689pt too wide) detected at line 232
 []
  []
 
-[3] [4] [5] [6] [7] [8] [9]
+[6] [7]
+<TexFigure/circuit_supp_ashida.PNG, id=44, 403.5075pt x 123.46124pt>
+File: TexFigure/circuit_supp_ashida.PNG Graphic file (type png)
+<use TexFigure/circuit_supp_ashida.PNG>
+Package pdftex.def Info: TexFigure/circuit_supp_ashida.PNG  used on input line 251.
+(pdftex.def)             Requested size: 341.43306pt x 104.46968pt.
+ [8 <./TexFigure/circuit_supp_ashida.PNG>] [9] [10] [11]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:340: Package inputenc Error: Unicode character ϕ (U+03D5)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:409: Package inputenc Error: Unicode character ϕ (U+03D5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.340 ...parameter.  In this simulation, the cosϕ
+l.409 ...parameter.  In this simulation, the cosϕ
                                                    function, which represent...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:340: Package inputenc Error: Unicode character ϕ (U+03D5)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:409: Package inputenc Error: Unicode character ϕ (U+03D5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.340 ... order parameter. A larger value of cosϕ
+l.409 ... order parameter. A larger value of cosϕ
                                                    can be interpreted as the...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[10]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:364: Package inputenc Error: Unicode character ϕ (U+03D5)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:415: Package inputenc Error: Unicode character ϕ (U+03D5)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.364 ...e obtained eigenvectors as a basis, cosϕ
+l.415 ... the representing $\hat{N}$ matrix, cosϕ
                                                    can be rewritten as a mat...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:376: Package inputenc Error: Unicode character ϕ (U+03D5)
-(inputenc)                not set up for use with LaTeX.
+Underfull \hbox (badness 10000) in paragraph at lines 430--432
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.376 ...H_{loc}$ matrix, the matrix form of cosϕ
-                                                   is expressed as follows.
-You may provide a definition with
-\DeclareUnicodeCharacter 
+ []
 
-[11]
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:404: Package inputenc Error: Unicode character ϕ (U+03D5)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.404 ...unction form of the order parameter cosϕ
-                                                   is as follows:
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:432: Package inputenc Error: Unicode character ϕ (U+03D5)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.432 Therefore, when the entire cosϕ
-                                       is expressed in matrix form, it takes...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-Overfull \hbox (13.41588pt too wide) detected at line 442
+[12]
+Overfull \hbox (13.41595pt too wide) detected at line 469
 []
  []
 
-[12] (2024-10-02 Master's Thesis.aux) ) 
+[13] (2024-10-02 Master's Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4201 strings out of 478927
- 57107 string characters out of 2861478
- 383560 words of memory out of 3000000
- 21987 multiletter control sequences out of 15000+600000
- 433335 words of font info for 67 fonts, out of 8000000 for 9000
+ 5860 strings out of 478927
+ 87845 string characters out of 2861478
+ 406254 words of memory out of 3000000
+ 23600 multiletter control sequences out of 15000+600000
+ 436158 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,18n,81p,848b,305s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,18n,81p,1019b,432s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
-Output written on "2024-10-02 Master's Thesis.pdf" (12 pages, 260044 bytes).
+Output written on "2024-10-02 Master's Thesis.pdf" (13 pages, 373628 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
+ 143 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
