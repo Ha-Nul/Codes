@@ -391,7 +391,7 @@ vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, int size
 
     for (int i = 0 ; i < size; i++)
     {
-        dist_return[i] = arrr[t-1](i,i);
+        dist_return[i] = arrr[minpo](i,i);
     }
 
     return dist_return;
@@ -445,7 +445,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             }
             //////////////////////////////////////////////////////////////////////////////
 
-            temp_minpoin = t-1;
+            temp_minpoin = t/2;
 
             //////////////////////////////////////////////////////////////////////////////
 
@@ -573,7 +573,7 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 int main(int argc, char *argv[])
 {
     double beta = 3;
-    int grid = 701;
+    int grid = 401;
 
     MD_OC MD(beta,grid);
     /// Parameter adjustment ////
@@ -586,7 +586,7 @@ int main(int argc, char *argv[])
 
     vector<double> resultarr;
 
-    size = 5;
+    size = 3;
     syst = 21;
 
     /////////////////////////////////

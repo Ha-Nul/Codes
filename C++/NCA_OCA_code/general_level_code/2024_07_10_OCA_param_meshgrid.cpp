@@ -397,7 +397,7 @@ vector<double> MD_OC::temp_itemin(vector<MatrixXd>& arrr, double minpo, int size
 
     for (int i = 0; i < size; i++)
     {
-        dist_return[i] = arrr[t - 1](i, i);
+        dist_return[i] = arrr[minpo](i, i);
     }
 
     return dist_return;
@@ -451,7 +451,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
             }
             //////////////////////////////////////////////////////////////////////////////
 
-            temp_minpoin = t - 1;
+            temp_minpoin = t/2;
 
             //////////////////////////////////////////////////////////////////////////////
 
