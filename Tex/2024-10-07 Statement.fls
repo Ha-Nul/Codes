@@ -13,11 +13,10 @@ INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
-INPUT G:\Install_Program\MikTex\tex\latex\base\size12.clo
-INPUT G:\Install_Program\MikTex\tex\latex\base\size12.clo
-INPUT G:\Install_Program\MikTex\tex\latex\base\size12.clo
-INPUT G:\Install_Program\MikTex\tex\latex\base\size12.clo
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\cm\cmr12.tfm
+INPUT G:\Install_Program\MikTex\tex\latex\base\size10.clo
+INPUT G:\Install_Program\MikTex\tex\latex\base\size10.clo
+INPUT G:\Install_Program\MikTex\tex\latex\base\size10.clo
+INPUT G:\Install_Program\MikTex\tex\latex\base\size10.clo
 INPUT G:\Install_Program\MikTex\tex\latex\base\fontenc.sty
 INPUT G:\Install_Program\MikTex\tex\latex\base\fontenc.sty
 INPUT G:\Install_Program\MikTex\tex\latex\base\fontenc.sty
@@ -29,7 +28,7 @@ INPUT G:\Install_Program\MikTex\tex\latex\base\fontenc.sty
 INPUT G:\Install_Program\MikTex\tex\latex\base\fontenc.sty
 INPUT G:\Install_Program\MikTex\tex\latex\base\fontenc.sty
 INPUT G:\Install_Program\MikTex\tex\latex\base\fontenc.sty
-INPUT G:\Install_Program\MikTex\fonts\tfm\jknappen\ec\ecrm1200.tfm
+INPUT G:\Install_Program\MikTex\fonts\tfm\jknappen\ec\ecrm1000.tfm
 INPUT G:\Install_Program\MikTex\tex\latex\psnfss\mathptmx.sty
 INPUT G:\Install_Program\MikTex\tex\latex\psnfss\mathptmx.sty
 INPUT G:\Install_Program\MikTex\tex\latex\psnfss\mathptmx.sty

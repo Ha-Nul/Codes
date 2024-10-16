@@ -1,9 +1,8 @@
-\documentclass[12pt,a4paper]{article}
-
+\documentclass[10pt,a4paper]{article}
 % 필요한 패키지들
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}  % Times New Roman과 유사한 폰트
-\usepackage[left=1.5cm,right=7cm,top=2.5cm,bottom=2.5cm,marginparwidth=5cm,marginparsep=0.5cm]{geometry}
+\usepackage[left=1.5cm,right=6.5cm,top=2.5cm,bottom=2.5cm,marginparwidth=5cm,marginparsep=0.5cm]{geometry}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
 \usepackage{marginnote}
@@ -31,6 +30,20 @@
 \titleformat{\subsection}
   {\normalfont\large\bfseries}{\thesubsection}{1em}{}
 
+  % 제목, 저자, 날짜 간격 조정
+\setlength{\droptitle}{-60pt}
+\pretitle{\begin{center}\Large\bfseries}
+\posttitle{\par\end{center}\vskip 0.5em}
+\preauthor{\begin{center}\large}
+\postauthor{\par\end{center}}
+\predate{\begin{center}\large}
+\postdate{\par\end{center}}
+
+% 문서 제목 정보
+\title{Title}
+\author{Hanul}
+\date{\today}
+
 % section 제목 아래 밑줄 추가
 \newcommand{\sectionline}{%
   \nointerlineskip \vspace{\dimexpr-\parskip-2pt}%
@@ -49,23 +62,8 @@
 
 % 여백 노트 스타일 설정
 \newcommand{\marginnotetext}[1]{%
-  \marginnote{\raggedright\footnotesize#1}[-1cm]%
+  \marginnote{\raggedright\footnotesize#1}[1cm]%
 }
-
-% 제목, 저자, 날짜 간격 조정
-\setlength{\droptitle}{-60pt}
-\pretitle{\begin{center}\Large\bfseries}
-\posttitle{\par\end{center}\vskip 0.5em}
-\preauthor{\begin{center}\large}
-\postauthor{\par\end{center}}
-\predate{\begin{center}\large}
-\postdate{\par\end{center}}
-
-% 문서 제목 정보
-\title{Title}
-\author{Hanul}
-\date{\today}
-
 
 % 제목 페이지 생성
 \maketitle

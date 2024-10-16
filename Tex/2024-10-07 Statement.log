@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  8 OCT 2024 00:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  15 OCT 2024 21:21
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-07 Statement.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-07 Statement.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-08-27> (G:\Install_Program\MikTex\tex/latex/base\article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
-(G:\Install_Program\MikTex\tex/latex/base\size12.clo
-File: size12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+(G:\Install_Program\MikTex\tex/latex/base\size10.clo
+File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count182
 \c@section=\count183
@@ -140,26 +140,26 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmargin=\skip61
 \droptitle=\skip62
 )
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 16.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 15.
  (G:\Install_Program\MikTex\tex/latex/psnfss\t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (2024-10-07 Statement.aux)
 \openout1 = `"2024-10-07 Statement.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 \big@size=\dimen152
 
 *geometry* driver: auto-detecting
@@ -170,23 +170,23 @@ LaTeX Font Info:    ... okay on input line 16.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(42.67912pt, 355.65947pt, 199.16928pt)
+* h-part:(L,W,R)=(42.67912pt, 369.88585pt, 184.9429pt)
 * v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=355.65947pt
+* \textwidth=369.88585pt
 * \textheight=702.78308pt
 * \oddsidemargin=-29.59087pt
 * \evensidemargin=-29.59087pt
 * \topmargin=-38.1381pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=12.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
 * \marginparwidth=142.26378pt
 * \marginparsep=14.22636pt
 * \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -212,28 +212,27 @@ LaTeX Font Info:    ... okay on input line 16.
 ) [0
 
 {C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Package marginnote Info: Using workaround for absolute page number on input line 71.
-Package marginnote Info: Margin note 3.1 is on absolute page 3 on input line 76.
-Package marginnote Info: right page because not two side mode on input line 76.
-Package marginnote Info: xpos seems to be 294.92798pt on input line 76.
-Package marginnote Info: Margin note 3.2 is on absolute page 3 on input line 80.
-Package marginnote Info: right page because not two side mode on input line 80.
-Package marginnote Info: xpos seems to be 211.04893pt on input line 80.
- [1]
-Package marginnote Info: Margin note 4.1 is on absolute page 4 on input line 86.
-Package marginnote Info: right page because not two side mode on input line 86.
-Package marginnote Info: xpos seems to be 259.22864pt on input line 86.
- [2] (2024-10-07 Statement.aux) ) 
+Package marginnote Info: Using workaround for absolute page number on input line 69.
+Package marginnote Info: Margin note 3.1 is on absolute page 3 on input line 74.
+Package marginnote Info: right page because not two side mode on input line 74.
+Package marginnote Info: xpos seems to be 156.8876pt on input line 74.
+Package marginnote Info: Margin note 3.2 is on absolute page 3 on input line 78.
+Package marginnote Info: right page because not two side mode on input line 78.
+Package marginnote Info: xpos seems to be 394.93489pt on input line 78.
+Package marginnote Info: Margin note 3.3 is on absolute page 4 on input line 84.
+Package marginnote Info: right page because not two side mode on input line 84.
+Package marginnote Info: xpos seems to be 270.11671pt on input line 84.
+ [1] [2] (2024-10-07 Statement.aux) ) 
 Here is how much of TeX's memory you used:
- 3240 strings out of 478927
- 48119 string characters out of 2861478
- 449847 words of memory out of 3000000
+ 3239 strings out of 478927
+ 48098 string characters out of 2861478
+ 451826 words of memory out of 3000000
  21096 multiletter control sequences out of 15000+600000
- 419908 words of font info for 40 fonts, out of 8000000 for 9000
+ 419609 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,11n,81p,305b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,11n,81p,305b,220s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/base/8r.enc}<G:/Install_Program/MikTex/fonts/type1/urw/times/utmb8a.pfb><G:/Install_Program/MikTex/fonts/type1/urw/times/utmr8a.pfb>
-Output written on "2024-10-07 Statement.pdf" (3 pages, 32972 bytes).
+Output written on "2024-10-07 Statement.pdf" (3 pages, 32583 bytes).
 PDF statistics:
  23 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
