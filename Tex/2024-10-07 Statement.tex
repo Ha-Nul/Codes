@@ -2,7 +2,7 @@
 % 필요한 패키지들
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}  % Times New Roman과 유사한 폰트
-\usepackage[left=1.5cm,right=6.5cm,top=2.5cm,bottom=2.5cm,marginparwidth=5cm,marginparsep=0.5cm]{geometry}
+\usepackage[left=1.5cm,right=6.5cm,top=1.8cm,bottom=1.8cm,marginparwidth=5cm,marginparsep=0.5cm]{geometry}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
 \usepackage{marginnote}
@@ -11,7 +11,7 @@
 \usepackage{titling}
 
 % 색상 정의
-\definecolor{sectionlinecolor}{RGB}{100,100,100} % 청회색
+\definecolor{sectionlinecolor}{RGB}{0, 132, 255} % 청회색
 \begin{document}
 \setcounter{page}{0}
 
@@ -25,29 +25,27 @@
 % 제목 스타일 설정
 \titleformat{\section}
   {\normalfont\Large\bfseries}{\thesection}{1em}{}[\titlerule[0pt]]
-\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*{\section}{0pt}{2.0ex plus 1ex minus .1ex}{0ex}
 
 \titleformat{\subsection}
   {\normalfont\large\bfseries}{\thesubsection}{1em}{}
 
   % 제목, 저자, 날짜 간격 조정
-\setlength{\droptitle}{-60pt}
+\setlength{\droptitle}{0pt}
 \pretitle{\begin{center}\Large\bfseries}
 \posttitle{\par\end{center}\vskip 0.5em}
 \preauthor{\begin{center}\large}
 \postauthor{\par\end{center}}
-\predate{\begin{center}\large}
-\postdate{\par\end{center}}
 
 % 문서 제목 정보
 \title{Title}
 \author{Hanul}
-\date{\today}
+\date{}
 
 % section 제목 아래 밑줄 추가
 \newcommand{\sectionline}{%
   \nointerlineskip \vspace{\dimexpr-\parskip-2pt}%
-  {\color{sectionlinecolor}\rule{\linewidth}{0.4pt}}%
+  {\color{sectionlinecolor}\rule{\linewidth}{0.8pt}}%
   \vspace{\dimexpr-\parskip+3pt}%
 }
 \titleformat{\section}
@@ -69,18 +67,22 @@
 \maketitle
 \thispagestyle{fancy}  % 첫 페이지에도 페이지 번호 표시
 
-\section{Introduction}
-\lipsum[1]
-\marginnotetext{This is a margin note for the introduction section. It should now be more to the left and not cut off.}
+\section*{Dear Professor Gabriel T. Landi}
+\begin{spacing}{1.5}
+I am writing to briefly introduce myself as a prospective Ph.D. student in your laboratory. I hope my story will help you evaluate my potential as a candidate.
 
-\subsection{Background}
-\lipsum[2]
-\marginnotetext{Additional information can be added here in the margin. This text should be fully visible.}
+I first encountered the concept of quantum information when I was a child. Back then, I enjoyed reading several physics books, and one of them introduced me to the idea of information as a physical concept, which attracted me strongly.
 
-\lipsum[3]
+I've graduated in physics at the Catholic University of Korea, a small yet delightful place. Since most professors majored in statistical physics, I've got a thorough basis of statistical mechanics and related theoretical frameworks, where I achieved a high score.
 
-\section{Methodology}
-\lipsum[4-5]
-\marginnotetext{You can use this space for comments, references, or additional explanations. The text should fit well now.}
+During my undergraduate studies, I became aware of the research field of quantum optics. I came across a paper and a book that discussed the concept of coherence and the general properties of photons. Although I recognized the various research areas within quantum optics, I was still uncertain about my specific research direction.
+
+I am currently conducting research at the Daegu Gyeongbuk Institute of Science and Technology (DGIST) as a master's degree candidate. I met my current PI by chance and became involved in research related to open quantum systems. Through this research and an information theory course that I took during the first semester of my second year of graduate school, I was able to clarify my research interests.
+
+My master's thesis is related to the Schmid quantum dissipative phase transition. In brief, I treated the resistively shunted Josephson junction as a physical simulator for the phase transition and mapped it onto a many-body problem, observing some remarkable results. To evaluate its dynamics in thermal dependency, I utilized a diagrammatic expansion method, which expands the system's dynamics perturbatively within the grand canonical ensemble framework. This method maps each term from the partition function as a series expansion onto featured topological structures, allowing for the exact calculation of all terms.
+
+Focused on quantum optics and information for a long time, I am particularly interested in how systems lose their energy, or rather, information, through interaction with the environment over time. My expectation is to apply the methodology I learned during my master's degree to stochastic approaches and adapt it to open quantum systems.
+\end{spacing}
+\marginnotetext[15cm]{This is a margin note for the introduction section. It should now be more to the left and not cut off.}
 
 \end{document}

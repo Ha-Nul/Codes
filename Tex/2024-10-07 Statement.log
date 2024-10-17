@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  15 OCT 2024 21:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  16 OCT 2024 23:20
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-07 Statement.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-07 Statement.tex
@@ -143,7 +143,8 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 15.
  (G:\Install_Program\MikTex\tex/latex/psnfss\t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-) (2024-10-07 Statement.aux)
+)
+No file "2024-10-07 Statement".aux.
 \openout1 = `"2024-10-07 Statement.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -161,7 +162,6 @@ LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 \big@size=\dimen152
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -171,14 +171,14 @@ LaTeX Font Info:    ... okay on input line 15.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(42.67912pt, 369.88585pt, 184.9429pt)
-* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* v-part:(T,H,B)=(51.21504pt, 742.61676pt, 51.21504pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=369.88585pt
-* \textheight=702.78308pt
+* \textheight=742.61676pt
 * \oddsidemargin=-29.59087pt
 * \evensidemargin=-29.59087pt
-* \topmargin=-38.1381pt
+* \topmargin=-58.05495pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -212,29 +212,53 @@ LaTeX Font Info:    ... okay on input line 15.
 ) [0
 
 {C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Package marginnote Info: Using workaround for absolute page number on input line 69.
-Package marginnote Info: Margin note 3.1 is on absolute page 3 on input line 74.
-Package marginnote Info: right page because not two side mode on input line 74.
-Package marginnote Info: xpos seems to be 156.8876pt on input line 74.
-Package marginnote Info: Margin note 3.2 is on absolute page 3 on input line 78.
-Package marginnote Info: right page because not two side mode on input line 78.
-Package marginnote Info: xpos seems to be 394.93489pt on input line 78.
-Package marginnote Info: Margin note 3.3 is on absolute page 4 on input line 84.
-Package marginnote Info: right page because not two side mode on input line 84.
-Package marginnote Info: xpos seems to be 270.11671pt on input line 84.
- [1] [2] (2024-10-07 Statement.aux) ) 
+Package marginnote Info: Using workaround for absolute page number on input line 67.
+
+
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-07 Statement.tex:71: LaTeX Error: Environment spacing undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71 \begin{spacing}
+                    {1.5}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-07 Statement.tex:85: LaTeX Error: \begin{document} ended by \end{spacing}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 \end{spacing}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Package marginnote Info: right page because not two side mode on input line 86.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 86.
+[1] (2024-10-07 Statement.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3239 strings out of 478927
- 48098 string characters out of 2861478
- 451826 words of memory out of 3000000
- 21096 multiletter control sequences out of 15000+600000
- 419609 words of font info for 39 fonts, out of 8000000 for 9000
+ 3226 strings out of 478927
+ 47832 string characters out of 2861478
+ 448751 words of memory out of 3000000
+ 21086 multiletter control sequences out of 15000+600000
+ 416806 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,11n,81p,305b,220s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,11n,81p,718b,220s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/base/8r.enc}<G:/Install_Program/MikTex/fonts/type1/urw/times/utmb8a.pfb><G:/Install_Program/MikTex/fonts/type1/urw/times/utmr8a.pfb>
-Output written on "2024-10-07 Statement.pdf" (3 pages, 32583 bytes).
+Output written on "2024-10-07 Statement.pdf" (2 pages, 31060 bytes).
 PDF statistics:
- 23 PDF objects out of 1000 (max. 8388607)
+ 20 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
