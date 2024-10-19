@@ -494,7 +494,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
             if (i > 1){
                 cout << "\t""\t" << i << " th Iteration stop value : " << fabs(RELA_ENTROPY) << endl;
-                if (fabs(RELA_ENTROPY) < 0.0000005){
+                if (fabs(RELA_ENTROPY) < 0.0000001){
                     break;
                 }
             }
@@ -573,7 +573,7 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 int main(int argc, char *argv[])
 {
     double beta = 00;
-    int grid = 701;
+    int grid = 2001;
 
     MD_OC MD(beta,grid);
     /// Parameter adjustment ////
@@ -824,8 +824,6 @@ int main(int argc, char *argv[])
 
                 ////////////////////DATA OUTPUT ///////////////////
                 
-                string Prop_name = "OCA_PROP_GAMMA_";
-
                 std::stringstream gam;
                 std::stringstream alp;
                 std::stringstream cuof;
@@ -833,6 +831,33 @@ int main(int argc, char *argv[])
                 std::stringstream gri;
                 std::stringstream sizz;
                 std::stringstream mod;
+
+
+                string Chi_name = "OCA_CHI_GAMMA_";
+
+                Chi_name += gam.str();
+                Chi_name += "_ALPHA_";
+                Chi_name += alp.str();
+                Chi_name += "_MODE_";
+                Chi_name += cuof.str();
+                Chi_name += "_BETA_";
+                Chi_name += bet.str();
+                Chi_name += "_GRID_";
+                Chi_name += gri.str();
+                Chi_name += "_SIZE_";
+                Chi_name += sizz.str();
+                Chi_name += ".txt";
+
+                outputFile.open(Chi_name);
+
+                for (int j = 0; j < MD.tau_grid.size(); j++)
+                {
+                    outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
+                }
+
+                outputFile.close();
+
+                string Prop_name = "OCA_PROP_GAMMA_";
 
                 gam << g_ma;
                 alp << alpha;
@@ -868,30 +893,6 @@ int main(int argc, char *argv[])
                     outputFile << "\n";
                 }
                 
-                outputFile.close();
-                
-                string Chi_name = "OCA_CHI_GAMMA_";
-
-                Chi_name += gam.str();
-                Chi_name += "_ALPHA_";
-                Chi_name += alp.str();
-                Chi_name += "_MODE_";
-                Chi_name += cuof.str();
-                Chi_name += "_BETA_";
-                Chi_name += bet.str();
-                Chi_name += "_GRID_";
-                Chi_name += gri.str();
-                Chi_name += "_SIZE_";
-                Chi_name += sizz.str();
-                Chi_name += ".txt";
-
-                outputFile.open(Chi_name);
-
-                for (int j = 0; j < MD.tau_grid.size(); j++)
-                {
-                    outputFile << MD.tau_grid[j] << "\t" << a[j] << endl;
-                }
-
                 outputFile.close();
                 
                 //////////////////////////////DATA OUTPUT///////////////////////////
