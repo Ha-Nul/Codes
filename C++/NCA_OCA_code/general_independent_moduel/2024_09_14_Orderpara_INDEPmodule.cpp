@@ -119,8 +119,8 @@ MatrixXd MD_OC::Eigenvalue_Odd()
 void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
 {
     //cout << "input g value :" << g << endl;
-    MatrixXd INT_odd = MatrixXd::Zero(siz, siz);
-    MatrixXd INT_even = MatrixXd::Zero(siz, siz);
+    MatrixXd INT_odd = MatrixXd::Zero(sys, sys);
+    MatrixXd INT_even = MatrixXd::Zero(sys, sys);
 
     //H_N initialize
     H_N = MatrixXd::Zero(siz, siz);
@@ -128,11 +128,11 @@ void MD_OC::Hamiltonian_N(MatrixXd even, MatrixXd odd)
     //cout << "initialized check" << endl;
     //cout << H_N << "\n" << endl;
 
-    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
     {
         INT_even(i, j) = -1 * even(i, j) * i; // -\sum_1^\infty \alpha_i \sin{i\phi}
 
-        if (i < siz - 1)
+        if (i < sys - 1)
         {
             INT_odd(i + 1, j) = odd(i, j);
         }
@@ -386,14 +386,16 @@ int main()
 
     //cout << "< Select mode to run >" << "\n"  << " 1. Prop(G), 2. Chi, 3. beta*Chi " << "\n" << "MODE INDEX : ";
     //cin >> modeselec;
-    double beta;
-    int grid;
+    double beta = 1;
+    int grid = 1;
 
+    /*
     cout << " * Set beta : ";
     cin >> beta;
 
     cout << " * Set grid (number of index, not interval count) : ";
     cin >> grid;
+    */
 
     MD_OC MD(beta, grid);
 
@@ -404,36 +406,36 @@ int main()
     int& size = siz;
     int& syst = sys;
 
-    size = 3;
+    size = 5;
     syst = 21;
-    /*
-    vector<double> alp_arr(21,0);
-    for (int i = 0; i < 21 ; i++)
+    
+    vector<double> alp_arr(22,0);
+    for (int i = 0; i < 22 ; i++)
     {
-        if (i==0)
+        if (i==0 || i==1)
         {
             alp_arr[i] = 0;
         }
-        if (i!=0)
+        else
         {
-            alp_arr[i] = alp_arr[i-1] + 0.1;
+            alp_arr[i] = alp_arr[i-1] + 0.0005;
         }
 
     }
-    */
+    
 
-    vector<double> alp_arr = {5};
+    //vector<double> alp_arr = {0.01,0.05,0.1,0.2};
 
-    vector<double> g_ma_arr(21, 0);
-    for (int i = 0; i < 21; i++)
+    vector<double> g_ma_arr(22, 0);
+    for (int i = 0; i < 22; i++)
     {
-        if (i == 0)
+        if (i == 0||i==1)
         {
             g_ma_arr[i] = 0;
         }
-        if (i != 0)
+        else
         {
-            g_ma_arr[i] = g_ma_arr[i - 1] + 0.05;
+            g_ma_arr[i] = g_ma_arr[i - 1] + 0.01;
         }
     }
 
@@ -458,7 +460,7 @@ int main()
 
             std::ofstream outputFile("./");
 
-            string name = "OCA_COS_GAMMA_";
+            string name = "COS_GAMMA_";
 
             std::stringstream gam;
             std::stringstream alp;
@@ -483,10 +485,10 @@ int main()
             name += cuof.str();
             name += "_MODE_";
             name += kmod.str();
-            name += "_BETA_";
-            name += bet.str();
-            name += "_GRID_";
-            name += gri.str();
+            //name += "_BETA_";
+            //name += bet.str();
+            //name += "_GRID_";
+            //name += gri.str();
             name += "_SIZE_";
             name += sizz.str();
             name += ".txt";
