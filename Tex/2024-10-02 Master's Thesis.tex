@@ -296,6 +296,7 @@ c= \frac{\delta}{\delta a(\beta)}\frac{\delta}{\delta a(\tau)} \ln(Z[a(\tau)])\b
   \end{figure}
   
 We set the Resistivity shunted Josephson junction(RSJJ) circuit as an impurity model. 
+Specific Hamiltonians and physical parameters used in the study are based on the paper. 
 The circuit is composed of a single Josephson junction connected to the transmission line, 
 which acts as the resistance of the total circuit system. 
 Each component of the circuit is mapped onto each composition of the total Hamiltonian. 
@@ -308,8 +309,10 @@ Specific description of each parts of system Hamiltonian composed by :
 \begin{flalign*}
 H_{loc} &=E_C\hat{N}^2 - E_J \cos{\phi} \\ H_{bath} &= \sum_{0<k\leq K} \hbar \omega_k \hat{b}^\dagger_k \hat{b}_k \\ H_{int} &= -\hat{N}\otimes\sum_{0<k\leq K} \hbar g_k (\hat{b}^\dagger_k + \hat{b}_k)
 \end{flalign*}
- 
-
+The description of basic symbols is in Table. 1. Here the physical parameter [$\phi,\hat{N}]$ satisfies the commutation relation,
+\begin{flalign*}
+[\phi,\hat{N}]=i\hbar
+\end{flalign*}
 $\\$Interaction effect of local(impurity) system between bath is described through  
 $g_k$ and the parameter $\alpha =\frac{R_Q}{R}$ .  We use $\alpha$ and $\gamma = \frac{E_J}{E_C}$ 
 as parameters to control the criticality of the Josephson junction. We’ve set $E_C$ and $\hbar$ as energy units, 
@@ -508,6 +511,10 @@ Therefore, when the entire $\cos{\phi}$ is expressed in matrix form, it takes th
       & & \vdots & &\ddots \\
       \end{pmatrix} 
     \end{flalign*}
+And the expectation of order parameter can be calculated in following formula:
+\begin{flalign*}
+  \langle \cos\phi\rangle = \frac{\text{Tr}[\hat{\cos\phi}e^{\beta H}]}{\text{Tr}[e^{-\beta H}]}
+\end{flalign*}
 \end{spacing}
 \pagebreak
 

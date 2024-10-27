@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  12 OCT 2024 22:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  17 OCT 2024 18:58
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex
@@ -124,6 +124,9 @@ LaTeX Warning: Citation `Zee2010' on page 1 undefined on input line 18.
 
 LaTeX Warning: Citation `bruus' on page 1 undefined on input line 19.
 
+
+LaTeX Warning: Citation `PhysRevA.106.033707' on page 1 undefined on input line 20.
+
 (2024-09-09 Thesis_Bib.bbl
 2024-09-09 Thesis_Bib.bbl:7: Misplaced alignment tab character &.
 l.7 \newblock John Wiley &
@@ -147,14 +150,14 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
  ) 
 Here is how much of TeX's memory you used:
  977 strings out of 478927
- 16041 string characters out of 2861478
- 317310 words of memory out of 3000000
+ 16054 string characters out of 2861478
+ 318310 words of memory out of 3000000
  18893 multiletter control sequences out of 15000+600000
  404689 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,5n,66p,211b,150s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,5n,66p,211b,149s stack positions out of 5000i,500n,10000p,200000b,80000s
 <G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "2024-09-09 Thesis_Bib.pdf" (1 page, 65094 bytes).
+Output written on "2024-09-09 Thesis_Bib.pdf" (1 page, 65415 bytes).
 PDF statistics:
  26 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -38,6 +38,8 @@
     tabsize=2
 }
 \setcounter{page}{23}
+\setcounter{figure}{10}
+\setcounter{table}{1}
 \lstset{style=mystyle}
 \captionsetup{font=footnotesize}
 \newcommand{\RN}[1]{%s
@@ -53,118 +55,128 @@
  }
 \begin{document}
 \section*{5. Result}
-
 \begin{spacing}{1.5}
-
-\subsection*{single bath}
-
+\subsection*{5.1 Summary}
+  To investigate the physical changes occurring in the Josephson junction based on the results of the previous sections, 
+  we used two methods to analyze the calculation result. The first involved examining the changes in the order parameter, $\cos{\phi}$. 
+  As a second method, we calculate the correlation function between the excited and ground states, 
+  and express it using an approximation formula for conductivity based on fluctuation-dissipation theory. 
+  Through analyzing the method of the order parameter, we revealed that the system exhibited an insulating state as the temperature decreased. 
+  Secondly, the approximation formula showed the following results. To evaluate the accuracy of the calculated results, 
+  we tested each section of the integration code by comparing it with the case without reservoir effects, 
+  comparing it with higher-order approximation methods, and checking for convergence depending on the calculation conditions.
+\subsection*{5.2 Benchmark}
+\subsubsection*{Exact diagonalization in single mode}
+To compare with the result from exact diagonalization(ED), we set the condition when the bath has only a single mode. 
+The result shows approximation method could be reliable in high temperatures ($\beta = 1$).
 \begin{figure}[htbp]
-  \centerline{\includegraphics[width=10cm]{TexFigure/kps_singlebath.png}}
+  \centerline{\includegraphics[width=7cm]{TexFigure/kps_singlebath.png}}
   \caption{Brief circuit scheme for single bath condition. The crossing symbol  refers to the insulated junction of Josephson junction.}
 \end{figure}
-First, we performed the benchmark test of the numerical program by comparing with the exact diagonalization (ED) method in the single mode (k=1) case.
 \begin{figure}[htbp]
-  \centerline{\includegraphics[width=10cm]{TexFigure/Res_bench_Fig1.png}}
-  \caption{-edit-}
+  \centerline{\includegraphics[width=10cm]{TexFigure/bench_single_two.png}}
+  \caption{Result for single bath benchmark. For $\chi_{sp} - \tau$(Left), it conducted on overall condition g (coupling strength with system-bath) = 1.
+  With $\chi_{sp}(\tau=\beta/2)-g^2$(Right), It shows that if order of perturbation increases, the results approach the exact results.}
 \end{figure}
-
+\subsubsection*{Multi-mode case}
+To investigate the convergence of the diagrammatic approximation method in a general bosonic reservoir condition, 
+we calculated the order parameter and the correlation function using the NCA, OCA, and TOA. 
+The results showed no significant difference between the OCA and TOA calculations, confirming that the OCA is a sufficiently convergent method.
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=10cm]{TexFigure/Multi_bench.png}}
+  \caption{ Calculation results of the order parameter and correlation function using each order of the approximation method. 
+  Both figures are for the case of $\alpha$=5, with the left figure showing temperatures between 0.3 and 0.1, 
+  the right figure is for the temperature condition of 0.1. It can be observed that the calculation results of OCA and TOA are converged. 
+  The size of the τ grid used for the calculation is 701.}
+\end{figure}
+\subsubsection*{Benchmarking solver code in $\alpha$ = 0 condition}
+To check for the integration code, we compared the order parameter calculated using approximation methods for the case of α=0 
+with the order parameter calculated using the state density matrix of the Josephson junction system. 
+The results showed that the two cases were completely consistent.
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=10cm]{TexFigure/Dens_comp.png}}
+  \caption{In the case of $\alpha = 0$, order parameter calculation using the approximation method should be consistent with using $H_{loc}$.
+  The comparison confirmed that the two cases show consistency. The left figure shows the calculation of the order parameter, 
+  and the right figure shows the difference in the order parameter for consecutive $\beta$ values,
+   in the intervals [8.33, 10], [10, 12.5], and [12.5, 16.6].}
+\end{figure}
+\subsection*{5.3 Simulation condition}
+The control parameters are as follows: $\gamma$ represents the nonlinearity of the Josephson junction system, 
+$\alpha$ represents the interaction with the external environment. 
+The factors influencing the accuracy of the approximation method are the number of integration iterations and the size of the $\tau$ grid. 
+We set the range of variables used in the simulation as: 
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.2}  % 행 간격 조정
+  \begin{tabular}{@{}cccc@{}}
+  \toprule
+  \textbf{Variables} & \textbf{Min} & \textbf{Max}  & \textbf{Interval}\\ 
+  \midrule
+  $\gamma$ & 0 & 2 & 0.1 \\
+  $\alpha$ & 0 & 2 & 0.01 \\
+  $\beta$ & 7.14 & 62.5 &  \\
+  Temperature & 0.016 & 0.14 & 0.02 (until 0.04) \\
+  \bottomrule
+  \end{tabular}
+  \caption{Parameter interval used for calculation.}
+  \end{table}
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.2}  % 행 간격 조정
+  \begin{tabular}{@{}ccc@{}}
+  \toprule
+  \textbf{Number} & \textbf{Interval} & \textbf{Gridsize}\\ 
+  \midrule
+  $\tau$ grid & [0,$\beta$] & 2000 \\
+  k grid & [0,K = 30000] & 30000 \\
+  \bottomrule
+  \end{tabular}
+  \caption{Grid condition used for calculation.}
+  \end{table}
+\subsection*{Saturation test}
+We investigated the convergence behavior of the calculation results for the change of the order parameter. 
+We were able to confirm that the results converge for the case of a tau grid size of 1800 to 2000. 
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=7cm]{TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png}}
+  \caption{Saturation test in different time grid size. The temperature condition is $\beta = 41.67$}
+\end{figure}
+\subsection*{5.4 Orderparmeter}
+We calculated the expectation value of the order parameter, $\cos\phi$ for various temperatures at $\alpha = 0.1$. 
+In Figure 16, The results showed that the Josephson junction exhibits superconducting behavior as the nonlinearity increases at all temperatures. 
+Subsequently, we examined the diagonal elements of $\cos\phi \cdot e^{−βH_{loc}}$ for $\alpha=$ 0, 0.1, and 1. 
+In this case, the diagonal elements represent the system being in the ground state, the even-function form of the first excited state, 
+and the odd-function form of the first excited state, respectively. 
+For all cases, we confirmed that the system will localized as in the ground state. 
+This indicates that the system exhibits superconductivity, consistent with the observed expectation value of the order parameter.
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=9cm]{TexFigure/Expec_alp_0.1 (1).png}}
+  \caption{Result of the expectation of order parameter, $\cos\phi$.}
+\end{figure}
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=14cm]{TexFigure/Matele_Ns3_alp0.png}}
+  \centerline{\includegraphics[width=14cm]{TexFigure/Matele_Ns3_alp0_1.png}}
+  \centerline{\includegraphics[width=14cm]{TexFigure/Matele_Ns3_alp1.png}}
+  \caption{Change of matrix element of matrix multiplication result between $\cos\phi$ and density matrix.}
+\end{figure}
+\subsubsection*{Finite temperature criticality}
+To confirm the criticality of the system's phase with respect to temperature, 
+we observed the change in the order parameter while varying the temperature. As the temperature decreases, 
+the rate of change of the order parameter shifts from a high slope to a low slope. 
+It can be predicted that a temperature-dependent phase transition occurs at the given point.
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=9cm]{TexFigure/3dplot_Ns3_proj_n (2).png}}
+  \centerline{\includegraphics[width=9cm]{TexFigure/3dplot_COMP3_proj_n (2).png}}
+  \caption{Finite temperature change. Figure in below is the comparision between NCA and OCA.}
+\end{figure}
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=9cm]{TexFigure/3dplot_Ns3_proj_n (0).png}}
+  \caption{3-Dimension plotting with $\beta$ axis}
+\end{figure}
 \end{spacing}
+
+\section*{6. Discussion}
 
 \pagebreak
 \newpage
-
-\section*{ APPENDIX A. Perturbative field theory}
-\begin{spacing}{1.5}
-\subsection*{basic structure}
-
-We can start our discussion in very basic perturbation field method which is adapting Wick’s theorem is available. To begin, we can define the partition function of configuration space that governed by the certain energy condition. The dynamic of variables of given space are governed under the action functional, thus partition function of space dictates the probability distribution of possible paths make system propagates onto. The partition function $Z[J]$ can be calculated in path integral method. For field $\phi(x,t)$ , corresponding Lagrangian is : 
-
-\begin{flalign*}
-\mathcal{L} =\frac{1}{2}\phi^TA\phi +\phi\cdot J \\ =\frac{1}{2}(-\phi^T \partial_t^2\phi + \phi^T \nabla^2\phi - m^2\phi) + J\phi
-\end{flalign*}
-
-Here, $A$ is a form of diagonal matrix. Consider only time in 4-vector notation, and use the above notation, we can write partition function in following:
-
-\begin{flalign*}
-Z[J]=\int[D\phi]e^{\int d\phi [\frac{1}{2}\partial^2_\tau\phi - m^2\phi^2]+J\cdot\phi}
-\end{flalign*}
-
-Which is, in short way:
-
-\begin{flalign*}
-Z[J]=Z[0]W[J]
-\end{flalign*}
-
-where $W[J]=e^{\frac{1}{2}J_iA^{-1}_{ij}J_j}$ , $Z[0] = \big(\frac{(2\pi i)^N}{\text{det}A}\big)^{\frac{1}{2}}$ . The sub indice $i,j$ means $i$th and $j$th element of $J(\phi)$. Based upon the probability distribution points of view, we can calculate the $n$th moment of the path distribution. In general, we can recognize that :
-
-\begin{flalign*}
-\langle \phi^{2n} \rangle = \frac{\int [D\phi] \phi^{2n} e^{\frac{1}{2} \phi^i A_{ij} \phi^j + J\cdot \phi}}{Z[0]} = \frac{\Pi_{i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_j}\int[D\phi]e^{-\frac{1}{2}(J_{ij}A_{ij}J_{j})}}{Z[0]}= \Pi_{i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_j} \ln{Z[J]}
-\end{flalign*}
-
-In general, this form of equation is constructed when exterior force or reaction caused to free propagating field. Now if there are some interaction happened between the field and the environment, especially in Lorentz-invariant action, we can treat its effect as a weak perturbation. Let $-\frac{g}{4}\phi^4$ is the perturbation term. Then the partition function turns out to be:
-
-\begin{flalign*}
-Z[J]=\int[D\phi]e^{\int d\phi [\frac{1}{2}\partial^2_\tau\phi - m^2\phi^2]+J\cdot\phi -\frac{g}{4}\phi^4}
-\end{flalign*}
-
-In same formula, we can write :
-
-\subsection*{Perturbation theory and approximation method}
-
-Guess if there are infinitesimal “real-time” variance appears in external Hamiltonian $H'$. We will treat it as a perturbation effect in the given Hamiltonian. In real-time procedure, let 
-
-\begin{flalign*}
-H'(t) = H'(t)+ \mathcal{\delta}H'(t)
-\end{flalign*}
-
-Using the above concept, We can rewrite the equation of motion for total Green’s function into : 
-
-\begin{flalign*}
-\{i \frac{\partial}{\partial t_1} +  \frac{\nabla^2_1}{2m} - H'(t_1) \pm \int dr_2 v(r_1-r_2)[G(t_1, t_1^+ ; H') + \frac{\mathcal{\delta}}{\mathcal{\delta} H'(t_1^+)}]\}G(t_1,t_1';H') = \mathcal{\delta} (t_1- t_1')
-\end{flalign*}
-
-Summarizing the result using local green’s function, we can get : 
-
-\begin{flalign*}
-G(t,t';H') =& G_0(t,t';H') \pm i \int^{-i\beta}_0 d\tau_1 d\tau_2 G_0(t,\tau_1;H')V(\tau_1-\tau_2) \\ 
-&\bigg[G_0(\tau_2,\tau_2^+;H') + \frac{\mathcal{\delta}}{\mathcal{\delta} H'(\tau_2)}\bigg]G(\tau_1,t';H')
-\end{flalign*}
-
-This term can recursively solvable using the inverse matrix form of the bare Green’s function $G_0$,
-
-\begin{flalign*}
-G^{-1}(t,t';H') = \bigg[i\frac{\partial}{\partial t_1} + \frac{\nabla^2_1}{2m} - H(t)\bigg]\delta(t-t')
-\end{flalign*}
-
-And, 
-
-\begin{flalign*}
-\mathcal{\delta}G_0 = -G_0\mathcal{\delta}G_0^{-1}G_0
-\end{flalign*}
-
-Skipping the specific procedure, the final result of total Hamiltonian can be expanded to bare Green’s function with each time intervals : 
-
-\begin{flalign*}
-G(t,t';H') = G_0(t,t';H') \pm i\int^{-i\beta}_0 d\tau_1 d\tau_2 G_0(t,\tau_1;H')V(\tau_1-\tau_2)\bigg[G_0(\tau_2,\tau_2^+;H')G_0(\tau_1,t';H') \pm G_0(\tau_1,\tau_2^+;H')G_0(\tau_2;t_1;H')\bigg] 
-\end{flalign*}
-
-From the above derivation, we can get very basic two diagrams as and example of the result from the expansion. Corresponding diagrams are :
-
-We can get more expanded term substitute the result recursively into $(***)$.
-
-If we consider the interaction term with exterior conditions, we can use the concept of self-energy $\Sigma$ to describe the system’s dynamics. The self-energy $\Sigma$ is defined by : 
-
-\begin{flalign*}
-(i\frac{\partial}{\partial t_1} + H_0)G(t_1-t_1') - \int^{-i\beta}_0 d\tau_1 \Sigma(t_1-\tau_1)G(\tau_1-t_1) = \delta(t_1-t_1')
-\end{flalign*}
-
-And 
-
-\begin{flalign*}
-\Sigma(t,t';H')=\pm \int d\tau_2 V(t-\tau_2)G(\tau_2,\tau_2^+,H')\delta(t-t') + i \int d\tau_2 d\tau_1 V(t-\tau_2)\bigg[\frac{\delta G(t,\tau_1;H')}{\delta H'(\tau_2)}\bigg] G^{-1}(\tau,t',H')
-\end{flalign*}
-
-Which can be compare with the equation $(*)$ , form of the equation brings out full Green’s function G,
-\end{spacing}
 
 \end{document}

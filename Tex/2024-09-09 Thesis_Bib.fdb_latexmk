@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex 2024-09-09 Thesis_Bib"] 1728740544 "2024-09-09 Thesis_Bib.aux" "2024-09-09 Thesis_Bib.bbl" "2024-09-09 Thesis_Bib" 1728740544
-  "2024-09-09 Thesis_Bib.aux" 1728740544 249 36d206446fb66a688afe9582db3bc58e "pdflatex"
-  "G:/Install_Program/MikTex/bibtex/bst/bibtex/unsrt.bst" 1291864736 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "Master_Thesis.bib" 1727686055 5481 7b0e7183046467d00bbf94e896745c5b ""
+["bibtex 2024-09-09 Thesis_Bib"] 0 "2024-09-09 Thesis_Bib.aux" "2024-09-09 Thesis_Bib.bbl" "2024-09-09 Thesis_Bib" 0
+  "2024-09-09 Thesis_Bib.aux" 0 -1 0 "pdflatex"
+  "Citation.bib" 1729159018 5959 8fcc5536ff44bbcdd8a4d3fffe252c1c ""
+  "G:/Install_Program/MikTex/bibtex/bst/bibtex/abbrv.bst" 1291864736 20329 b5fed53e10044d0f8112183785c759b1 ""
   (generated)
   "2024-09-09 Thesis_Bib.blg"
   "2024-09-09 Thesis_Bib.bbl"
-["pdflatex"] 1728740545 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex" "2024-09-09 Thesis_Bib.pdf" "2024-09-09 Thesis_Bib" 1728740545
-  "2024-09-09 Thesis_Bib.aux" 1728740544 249 36d206446fb66a688afe9582db3bc58e "pdflatex"
-  "2024-09-09 Thesis_Bib.bbl" 1728740544 1820 55e47095dab60cc0f998cb96b95f1fcb "bibtex 2024-09-09 Thesis_Bib"
-  "2024-09-09 Thesis_Bib.tex" 1728740542 376 058a93ee4776f175ac3e5c4bc7d64d50 ""
+["pdflatex"] 1729159094 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex" "2024-09-09 Thesis_Bib.pdf" "2024-09-09 Thesis_Bib" 1729159094
+  "2024-09-09 Thesis_Bib.aux" 1729159094 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "2024-09-09 Thesis_Bib.bbl" 1729159093 1970 9845a03a1eb767b64210a6ad1af1d738 "bibtex 2024-09-09 Thesis_Bib"
+  "2024-09-09 Thesis_Bib.tex" 1729159085 399 867fd59de451b65bc74b4ac005a8e784 ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1631711725 9706441 1ba0b62526dbb03e76eb2b56d7479493 ""
-  "C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1728312475 215536 fb59ab450577c3af3a030a07d758269b ""
+  "C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1729100879 215536 fb59ab450577c3af3a030a07d758269b ""
   "G:/Install_Program/MikTex/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "G:/Install_Program/MikTex/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "G:/Install_Program/MikTex/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
@@ -28,8 +28,8 @@
   "G:/Install_Program/MikTex/tex/latex/geometry/geometry.sty" 1578053545 42759 9cf6c5257b1bc7af01a58859749dd37a ""
   "G:/Install_Program/MikTex/tex/latex/graphics/keyval.sty" 1623003325 2671 4de6781a30211fe0ea4c672e4a2a8166 ""
   "G:/Install_Program/MikTex/tex/latex/l3backend/l3backend-pdftex.def" 1628077986 27662 df2ac0cbce6c3f309d48d78e7c627ccb ""
-  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex" 1728740542 376 058a93ee4776f175ac3e5c4bc7d64d50 ""
+  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-09-09 Thesis_Bib.tex" 1729159085 399 867fd59de451b65bc74b4ac005a8e784 ""
   (generated)
-  "2024-09-09 Thesis_Bib.aux"
   "2024-09-09 Thesis_Bib.pdf"
+  "2024-09-09 Thesis_Bib.aux"
   "2024-09-09 Thesis_Bib.log"

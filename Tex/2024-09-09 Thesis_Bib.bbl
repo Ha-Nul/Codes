@@ -1,3 +1,59 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{TEST}
+G.~P. Antonio~Barone.
+\newblock {\em Weak Superconductivity — Phenomenological Aspects}, chapter~1,
+  pages 1--24.
+\newblock John Wiley & Sons, Ltd, 1982.
+
+\bibitem{ARF}
+G.~Arfken.
+\newblock {\em Mathematical Methods for Physicists}.
+\newblock Academic Press, {Inc.}, San Diego, third edition, 1985.
+
+\bibitem{bruus}
+H.~Bruus and K.~Flensberg.
+\newblock {\em Many-body quantum theory in condensed matter physics - an
+  introduction}.
+\newblock Oxford University Press, United States, 2004.
+
+\bibitem{PhysRevA.106.033707}
+M.~J. Kewming, M.~T. Mitchison, and G.~T. Landi.
+\newblock Diverging current fluctuations in critical kerr resonators.
+\newblock {\em Phys. Rev. A}, 106:033707, Sep 2022.
+
+\bibitem{PSS}
+R.~K. Pathria and P.~D. Beale.
+\newblock {\em Statistical Mechanics}.
+\newblock Elsevier/Academic Press, Amsterdam ; Boston, 3rd ed edition, 2011.
+
+\bibitem{entropy}
+J.~P. Sethna.
+\newblock {\em Statistical Mechanics: Entropy, Order Parameters and
+  Complexity}.
+\newblock Oxford University Press, Great Clarendon Street, Oxford OX2 6DP,
+  first edition edition, 2006.
+
+\bibitem{PhysRevB.100.094506}
+O.~Simard, C.-D. H\'ebert, A.~Foley, D.~S\'en\'echal, and A.-M.~S. Tremblay.
+\newblock Superfluid stiffness in cuprates: Effect of mott transition and phase
+  competition.
+\newblock {\em Phys. Rev. B}, 100:094506, Sep 2019.
+
+\bibitem{GMS}
+C.~Stoica, T.~Schmah, and D.~D. Holm.
+\newblock Geometric mechanics and symmetry: From finite to infinite dimensions.
+\newblock 2009.
+
+\bibitem{PhysRevB.54.R3756}
+N.~Trivedi, R.~T. Scalettar, and M.~Randeria.
+\newblock Superconductor-insulator transition in a disordered electronic
+  system.
+\newblock {\em Phys. Rev. B}, 54:R3756--R3759, Aug 1996.
+
+\bibitem{Zee2010}
+A.~Zee.
+\newblock {\em Quantum field theory in a nutshell}.
+\newblock Princeton University Press, second edition edition, 2010.
 
 \end{thebibliography}

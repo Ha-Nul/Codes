@@ -2,57 +2,49 @@ This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: .\2024-09-09 Thesis_Bib.aux
 Reallocating 'name_of_file' (item size: 1) to 6 items.
-The style file: unsrt.bst
-Reallocating 'name_of_file' (item size: 1) to 14 items.
-Database file #1: Master_Thesis.bib
-Warning--I didn't find a database entry for "TEST"
-Warning--I didn't find a database entry for "ARF"
-Warning--I didn't find a database entry for "PhysRevB.54.R3756"
-Warning--I didn't find a database entry for "entropy"
-Warning--I didn't find a database entry for "PhysRevB.100.094506"
-Warning--I didn't find a database entry for "PSS"
-Warning--I didn't find a database entry for "GMS"
-Warning--I didn't find a database entry for "Zee2010"
-Warning--I didn't find a database entry for "bruus"
-You've used 0 entries,
-            1791 wiz_defined-function locations,
-            461 strings with 3681 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+The style file: abbrv.bst
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+Database file #1: Citation.bib
+Warning--empty booktitle in GMS
+You've used 10 entries,
+            2118 wiz_defined-function locations,
+            571 strings with 5270 characters,
+and the built_in function-call counts, 2988 in all, are:
+= -- 277
+> -- 136
+< -- 2
++ -- 54
+- -- 44
+* -- 196
+:= -- 515
+add.period$ -- 30
+call.type$ -- 10
+change.case$ -- 50
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 11
+duplicate$ -- 125
+empty$ -- 252
+format.name$ -- 44
+if$ -- 625
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 10
+missing$ -- 16
+newline$ -- 53
+num.names$ -- 20
+pop$ -- 68
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 42
 quote$ -- 0
-skip$ -- 1
+skip$ -- 71
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 138
+swap$ -- 16
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There were 9 warnings)
+type$ -- 28
+warning$ -- 1
+while$ -- 26
+width$ -- 12
+write$ -- 113
+(There was 1 warning)
