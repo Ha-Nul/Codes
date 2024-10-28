@@ -104,7 +104,7 @@ The results showed that the two cases were completely consistent.
 The control parameters are as follows: $\gamma$ represents the nonlinearity of the Josephson junction system, 
 $\alpha$ represents the interaction with the external environment. 
 The factors influencing the accuracy of the approximation method are the number of integration iterations and the size of the $\tau$ grid. 
-We set the range of variables used in the simulation as: 
+We set the range of variables used in the simulation as Table 2 and Table 3.
 \begin{table}[htbp]
   \centering
   \renewcommand{\arraystretch}{1.2}  % 행 간격 조정
@@ -147,7 +147,7 @@ Subsequently, we examined the diagonal elements of $\cos\phi \cdot e^{−βH_{lo
 In this case, the diagonal elements represent the system being in the ground state, the even-function form of the first excited state, 
 and the odd-function form of the first excited state, respectively. 
 For all cases, we confirmed that the system will localized as in the ground state. 
-This indicates that the system exhibits superconductivity, consistent with the observed expectation value of the order parameter.
+This indicates that the system exhibits superconductivity, consistent with the observed expectation value of the order parameter.\\
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=9cm]{TexFigure/Expec_alp_0.1 (1).png}}
   \caption{Result of the expectation of order parameter, $\cos\phi$.}
@@ -162,7 +162,7 @@ This indicates that the system exhibits superconductivity, consistent with the o
 To confirm the criticality of the system's phase with respect to temperature, 
 we observed the change in the order parameter while varying the temperature. As the temperature decreases, 
 the rate of change of the order parameter shifts from a high slope to a low slope. 
-It can be predicted that a temperature-dependent phase transition occurs at the given point.
+It can be predicted that a temperature-dependent phase transition occurs at the given point.\\
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=9cm]{TexFigure/3dplot_Ns3_proj_n (2).png}}
   \centerline{\includegraphics[width=9cm]{TexFigure/3dplot_COMP3_proj_n (2).png}}
@@ -170,11 +170,37 @@ It can be predicted that a temperature-dependent phase transition occurs at the 
 \end{figure}
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=9cm]{TexFigure/3dplot_Ns3_proj_n (0).png}}
-  \caption{3-Dimension plotting with $\beta$ axis}
+  \caption{3-Dimension plotting of upper Figure, Fig.17,  with $\beta$ axis}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=12cm]{TexFigure/swap_fig.png}}
+  \caption{The crossing picture in $\alpha$ swapping, $\gamma$ swapping}
+\end{figure}
+\pagebreak
+\section*{5.5 $\chi_{sp}$}
+Calculating the phase transition using the relationship between the correlation function and the DC conductivity, 
+we observed the following results: Varying the $\gamma$ value at a fixed $\alpha$ value, 
+conductivity tended to decrease as the interaction with the external environment increased. 
+In particular, at low temperatures, the conductivity increased up to a certain value
+while the rate of change decreased with respect to the $\alpha $ value. \\
+When we fixed the $\gamma$ value and varied the $\alpha$ value, the conductivity always increased at high temperatures. 
+However, at low temperatures, we observed that the conductivity decreased as the $\alpha$ value increased.
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=14cm]{TexFigure/chi_gam_swp.png}}
+  \centerline{\includegraphics[width=14cm]{TexFigure/chi_alp_swp.png}}
+  \caption{The crossing picture in $\chi_{sp}$ with $\gamma$ swapping and $\alpha$ swapping}
+\end{figure}
+To observe how the conductivity changes for all $\gamma$ and $\alpha$ value conditions at a fixed temperature, 
+we visualized the results using a 2D color map. At high temperatures, 
+we observed that the conductivity increased as the $\gamma$ and $\alpha$ values increased. 
+At low temperatures, the conductivity generally decreased as the influence of the external environment increased. 
+Yet the junction energy increased, conductivity tended to increase in stronger influence from the external environment.
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=16cm]{TexFigure/chi_color.png}}
+  \caption{Colored plot for DC conductivity approximation. Left figure is in $\beta=10$, Right is for $\beta=25$.}
 \end{figure}
 \end{spacing}
-
-\section*{6. Discussion}
 
 \pagebreak
 \newpage

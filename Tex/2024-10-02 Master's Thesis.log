@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  27 OCT 2024 00:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  29 OCT 2024 03:09
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex
@@ -347,7 +347,63 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2 <./TexFigure/kps_INT_exp.PNG>] [3]
+) [2 <./TexFigure/kps_INT_exp.PNG>]
+<TexFigure/circuit_supp_ashida.PNG, id=18, 403.5075pt x 123.46124pt>
+File: TexFigure/circuit_supp_ashida.PNG Graphic file (type png)
+<use TexFigure/circuit_supp_ashida.PNG>
+Package pdftex.def Info: TexFigure/circuit_supp_ashida.PNG  used on input line 107.
+(pdftex.def)             Requested size: 341.43306pt x 104.46968pt.
+ [3 <./TexFigure/circuit_supp_ashida.PNG>] [4] [5] [6] [7]
+
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:287: Package inputenc Error: Unicode character ϕ (U+03D5)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.287 ...parameter.  In this simulation, the cosϕ
+                                                   function, which represent...
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:287: Package inputenc Error: Unicode character ϕ (U+03D5)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.287 ... order parameter. A larger value of cosϕ
+                                                   can be interpreted as the...
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:291: Package inputenc Error: Unicode character ϕ (U+03D5)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.291 ... the representing $\hat{N}$ matrix, cosϕ
+                                                   can be rewritten as a mat...
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--312
+
+ []
+
+[8]
+Overfull \hbox (13.41595pt too wide) detected at line 357
+[]
+ []
+
+[9] [10]
 \openout3 = `MS_The_1.mp'.
 
 File: MS_The_1.1 Graphic file (type mps)
@@ -356,205 +412,72 @@ File: MS_The_1.1 Graphic file (type mps)
 
 File: MS_The_2.1 Graphic file (type mps)
  [MP to PDF] (MS_The_2.1) (MS_The_2.t1)
-Overfull \hbox (16.67pt too wide) in paragraph at lines 147--177
+Overfull \hbox (16.67pt too wide) in paragraph at lines 430--460
 []$[]$  $[]$ 
  []
 
-[4] [5] [6]
-<TexFigure/Dyson_eq.PNG, id=40, 1608.0075pt x 240.14719pt>
+[11] [12] [13]
+<TexFigure/Dyson_eq.PNG, id=65, 1608.0075pt x 240.14719pt>
 File: TexFigure/Dyson_eq.PNG Graphic file (type png)
 <use TexFigure/Dyson_eq.PNG>
-Package pdftex.def Info: TexFigure/Dyson_eq.PNG  used on input line 267.
+Package pdftex.def Info: TexFigure/Dyson_eq.PNG  used on input line 589.
 (pdftex.def)             Requested size: 369.88582pt x 55.24pt.
- [7] [8 <./TexFigure/Dyson_eq.PNG>]
-<TexFigure/circuit_supp_ashida.PNG, id=49, 403.5075pt x 123.46124pt>
-File: TexFigure/circuit_supp_ashida.PNG Graphic file (type png)
-<use TexFigure/circuit_supp_ashida.PNG>
-Package pdftex.def Info: TexFigure/circuit_supp_ashida.PNG  used on input line 294.
-(pdftex.def)             Requested size: 341.43306pt x 104.46968pt.
- [9 <./TexFigure/circuit_supp_ashida.PNG>] [10] [11] [12]
+ [14] [15 <./TexFigure/Dyson_eq.PNG>] [16]
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:696: Missing $ inserted.
+<inserted text> 
+                $
+l.696 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:455: Package inputenc Error: Unicode character ϕ (U+03D5)
-(inputenc)                not set up for use with LaTeX.
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:696: Display math should end with $$.
+<to be read again> 
+                   \tex_par:D 
+l.696 
+      
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.455 ...parameter.  In this simulation, the cosϕ
-                                                   function, which represent...
-You may provide a definition with
-\DeclareUnicodeCharacter 
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:697: Missing $ inserted.
+<inserted text> 
+                $
+l.697 \langle
+              \hat{b}_{k_1}(\tau'_1)\hat{b}^\dagger_{k_1}(\tau_1)\rangle_\te...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:455: Package inputenc Error: Unicode character ϕ (U+03D5)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.455 ... order parameter. A larger value of cosϕ
-                                                   can be interpreted as the...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:461: Package inputenc Error: Unicode character ϕ (U+03D5)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.461 ... the representing $\hat{N}$ matrix, cosϕ
-                                                   can be rewritten as a mat...
-You may provide a definition with
-\DeclareUnicodeCharacter 
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:699: Missing $ inserted.
+<inserted text> 
+                $
+l.699 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--478
-
+Overfull \hbox (252.22308pt too wide) detected at line 707
+\OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 e[][]e[][]\OMS/cmsy/m/n/10 i[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 e[][][]\OMS/cmsy/m/n/10 i[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 e[]n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 ) (\OML/cmm/m/it/10  > []\OT1/cmr/m/n/10 )[] \OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 e[][]e[][]\OMS/cmsy/m/n/10 i[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 e[][][]\OMS/cmsy/m/n/10 i[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 (1 + [][]\OMS/cmsy/m/n/10 i[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 e[]\OT1/cmr/m/n/10 (1 + \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 )) (\OML/cmm/m/it/10  < []\OT1/cmr/m/n/10 )
  []
 
-[13]
-Overfull \hbox (13.41595pt too wide) detected at line 513
-[]
+[17]
+Overfull \hbox (369.51186pt too wide) detected at line 716
+\OMS/cmsy/m/n/10 hT[]\OML/cmm/m/it/10 e[]Z[]\OMS/cmsy/m/n/10 i[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 g[][]e[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 [] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 [] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )[1 + \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 ])[][]  \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 g[][]e[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 [] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 [] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )[1 + \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 ])[][] [][]  \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 g[][]e[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 [] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 [] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )[1 + \OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 ])[]
  []
 
-[14]
-<TexFigure/Flowchart_brokengraph.png, id=73, 579.693pt x 528.228pt>
-File: TexFigure/Flowchart_brokengraph.png Graphic file (type png)
-<use TexFigure/Flowchart_brokengraph.png>
-Package pdftex.def Info: TexFigure/Flowchart_brokengraph.png  used on input line 532.
-(pdftex.def)             Requested size: 369.88582pt x 337.0492pt.
- [15 <./TexFigure/Flowchart_brokengraph.png>]
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:546: Package inputenc Error: Unicode character τ (U+03C4)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.546 ... length of the k-index to calculate  V(τ
-                                                  ),  the integration is per...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:546: Package inputenc Error: Unicode character τ (U+03C4)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.546 ...alue for $g_k$ and $\omega_k$ in the V(τ
-                                                  ) expression. Using the re...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:546: Package inputenc Error: Unicode character τ (U+03C4)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.546 ...sulting expression, the value for each τ
-                                                   interval is stored in an ...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:546: Package inputenc Error: Unicode character τ (U+03C4)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.546 ...terval is stored in an array of length τ
-                                                  .
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-<TexFigure/self_structure.png, id=78, 785.772pt x 242.433pt>
-File: TexFigure/self_structure.png Graphic file (type png)
-<use TexFigure/self_structure.png>
-Package pdftex.def Info: TexFigure/self_structure.png  used on input line 576.
-(pdftex.def)             Requested size: 426.79134pt x 131.6776pt.
-(G:\Install_Program\MikTex\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (G:\Install_Program\MikTex\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (G:\Install_Program\MikTex\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-)
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 581.
- (G:\Install_Program\MikTex\tex/latex/psnfss\ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [16]
-LaTeX Font Info:    Trying to load font information for OML+pcr on input line 582.
- (G:\Install_Program\MikTex\tex/latex/psnfss\omlpcr.fd
-File: omlpcr.fd 
-)
-LaTeX Font Info:    Font shape `OML/pcr/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 582.
-LaTeX Font Info:    Trying to load font information for OMS+pcr on input line 583.
- (G:\Install_Program\MikTex\tex/latex/psnfss\omspcr.fd
-File: omspcr.fd 
-)
-LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 583.
-LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 597.
- (G:\Install_Program\MikTex\tex/latex/psnfss\ts1pcr.fd
-File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [17 <./TexFigure/self_structure.png>]
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex:622: Package inputenc Error: Unicode character τ (U+03C4)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.622 ...gned to terminate the calculation of G(τ
-                                                  ) when the distance betwee...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-[18] [19]
-<TexFigure/Tmat.png, id=95, 541.149pt x 511.803pt>
-File: TexFigure/Tmat.png Graphic file (type png)
-<use TexFigure/Tmat.png>
-Package pdftex.def Info: TexFigure/Tmat.png  used on input line 710.
-(pdftex.def)             Requested size: 341.43306pt x 322.92958pt.
-<TexFigure/Tmat2.png, id=96, 300.468pt x 218.343pt>
-File: TexFigure/Tmat2.png Graphic file (type png)
-<use TexFigure/Tmat2.png>
-Package pdftex.def Info: TexFigure/Tmat2.png  used on input line 715.
-(pdftex.def)             Requested size: 256.0748pt x 186.09882pt.
-<TexFigure/Tmat3.png, id=97, 831.543pt x 508.08pt>
-File: TexFigure/Tmat3.png Graphic file (type png)
-<use TexFigure/Tmat3.png>
-Package pdftex.def Info: TexFigure/Tmat3.png  used on input line 720.
-(pdftex.def)             Requested size: 341.43306pt x 208.6165pt.
- [20] [21 <./TexFigure/Tmat.png> <./TexFigure/Tmat2.png>] [22 <./TexFigure/Tmat3.png>] (2024-10-02 Master's Thesis.aux) ) 
+[18] (2024-10-02 Master's Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 8344 strings out of 478927
- 120594 string characters out of 2861478
- 948203 words of memory out of 3000000
- 26033 multiletter control sequences out of 15000+600000
- 437182 words of font info for 72 fonts, out of 8000000 for 9000
+ 7683 strings out of 478927
+ 112847 string characters out of 2861478
+ 443354 words of memory out of 3000000
+ 25408 multiletter control sequences out of 15000+600000
+ 439449 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,18n,81p,1019b,1812s stack positions out of 5000i,500n,10000p,200000b,80000s
-{G:/Install_Program/MikTex/fonts/enc/dvips/base/8r.enc}{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb><G:/Install_Program/MikTex/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on "2024-10-02 Master's Thesis.pdf" (22 pages, 1459242 bytes).
+ 71i,24n,81p,1019b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
+{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmri.pfb>
+Output written on "2024-10-02 Master's Thesis.pdf" (18 pages, 417410 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
+ 150 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -493,7 +493,6 @@ INPUT G:\Install_Program\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT G:\Install_Program\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
@@ -518,10 +517,12 @@ INPUT G:\Install_Program\MikTex\tex\latex\amsfonts\umsb.fd
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 OUTPUT 2024-10-27 Master's Thesis_Appen.pdf
 INPUT C:\Users\128kbps\AppData\Local\MiKTeX\pdftex\config\pdftex.map
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT 2024-10-27 Master's Thesis_Appen.aux
 INPUT G:\Install_Program\MikTex\fonts\enc\dvips\tex-gyre\q-rm.enc
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmex10.pfb

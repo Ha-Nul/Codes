@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  27 OCT 2024 12:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  27 OCT 2024 20:58
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-27 Master's Thesis_Appen.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-27 Master's Thesis_Appen.tex
@@ -323,37 +323,37 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 61.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 69.
 (G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [23
+) [31
 
-{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Overfull \hbox (89.40088pt too wide) detected at line 130
+{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [32]
+Overfull \hbox (89.40088pt too wide) detected at line 162
 []
  []
 
-[24] [25] (2024-10-27 Master's Thesis_Appen.aux) ) 
+[33] [34] (2024-10-27 Master's Thesis_Appen.aux) ) 
 Here is how much of TeX's memory you used:
- 7525 strings out of 478927
- 109942 string characters out of 2861478
+ 7526 strings out of 478927
+ 109956 string characters out of 2861478
  425344 words of memory out of 3000000
- 25282 multiletter control sequences out of 15000+600000
- 425377 words of font info for 45 fonts, out of 8000000 for 9000
+ 25283 multiletter control sequences out of 15000+600000
+ 428196 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,12n,81p,729b,263s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,12n,81p,668b,263s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
-Output written on "2024-10-27 Master's Thesis_Appen.pdf" (3 pages, 179379 bytes).
+Output written on "2024-10-27 Master's Thesis_Appen.pdf" (4 pages, 185328 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
+ 81 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
