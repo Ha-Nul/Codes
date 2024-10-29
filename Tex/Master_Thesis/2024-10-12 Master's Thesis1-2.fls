@@ -1,6 +1,6 @@
-PWD e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex
+PWD e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex\Master_Thesis
 INPUT C:\Users\128kbps\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex\2024-10-12 Master's Thesis1-2.tex
+INPUT e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex\Master_Thesis\2024-10-12 Master's Thesis1-2.tex
 OUTPUT 2024-10-12 Master's Thesis1-2.log
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
@@ -468,9 +468,6 @@ INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ot1qtm.fd
 INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ot1qtm.fd
 INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ot1qtm.fd
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT .\2024-10-12 Master's Thesis1-2.aux
-INPUT 2024-10-12 Master's Thesis1-2.aux
-INPUT 2024-10-12 Master's Thesis1-2.aux
 OUTPUT 2024-10-12 Master's Thesis1-2.aux
 INPUT G:\Install_Program\MikTex\tex\context\base\mkii\supp-pdf.mkii
 INPUT G:\Install_Program\MikTex\tex\context\base\mkii\supp-pdf.mkii

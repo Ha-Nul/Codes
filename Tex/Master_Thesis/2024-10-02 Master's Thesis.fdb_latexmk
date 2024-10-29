@@ -1,7 +1,13 @@
 # Fdb version 3
-["pdflatex"] 1730186128 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex" "2024-10-02 Master's Thesis.pdf" "2024-10-02 Master's Thesis" 1730186128
-  "2024-10-02 Master's Thesis.aux" 1730186128 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "2024-10-02 Master's Thesis.tex" 1730186124 48223 965977c764063d04d9892d364242b117 ""
+["bibtex 2024-10-02 Master's Thesis"] 1730211828 "2024-10-02 Master's Thesis.aux" "2024-10-02 Master's Thesis.bbl" "2024-10-02 Master's Thesis" 1730211832
+  "2024-10-02 Master's Thesis.aux" 1730211832 2915 f5a4feeeda4a991c59aacde1fe174671 "pdflatex"
+  (generated)
+  "2024-10-02 Master's Thesis.blg"
+  "2024-10-02 Master's Thesis.bbl"
+["pdflatex"] 1730211829 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-02 Master's Thesis.tex" "2024-10-02 Master's Thesis.pdf" "2024-10-02 Master's Thesis" 1730211832
+  "2024-10-02 Master's Thesis.aux" 1730211832 2915 f5a4feeeda4a991c59aacde1fe174671 "pdflatex"
+  "2024-10-02 Master's Thesis.bbl" 1730211829 0 d41d8cd98f00b204e9800998ecf8427e "bibtex 2024-10-02 Master's Thesis"
+  "2024-10-02 Master's Thesis.tex" 1730211825 47588 4d08687d825d3b22605828d40a2286c1 ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1636562477 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1636562478 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs7.tfm" 1636562479 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
@@ -87,14 +93,10 @@
   "G:/Install_Program/MikTex/tex/latex/tex-gyre/tgtermes.sty" 1254938640 2211 af9b7d12507105a58a3e8e926996b827 ""
   "G:/Install_Program/MikTex/tex/latex/tools/array.sty" 1622550326 12689 a1a7b2795918756dcb9c9cbfacc4d9c7 ""
   "G:/Install_Program/MikTex/tex/latex/xcolor/xcolor.sty" 1623005660 55589 34128738f682d033422ca125f82e5d62 ""
-  "MS_The_1.1" 1728537153 486 f739ea2e881a60e83b111b25e8a7a995 ""
-  "MS_The_1.mp" 0 -1 0 "pdflatex"
-  "MS_The_1.t1" 1728537153 136 248ac779cb683270428f83cc535102d2 ""
-  "MS_The_2.1" 1728537259 487 34cadbd7da2bd8da5f35e233caf19758 ""
-  "MS_The_2.mp" 0 -1 0 "pdflatex"
-  "MS_The_2.t1" 1728537259 136 62d5079e3a20316eafcb1f3aa8b150ce ""
   "TexFigure/Chi_with_Tmat.png" 1730185206 244012 5a66bd01219f856eb2b4dd883da05e22 ""
+  "TexFigure/Diagram_arrow.PNG" 1730211130 11192 bf4c4a24be8d03f12f760386f4cac505 ""
   "TexFigure/Dyson_eq.PNG" 1712270171 31030 eebab7b5fd5fe35addd62e966f76d648 ""
+  "TexFigure/Junction_RE.png" 1728881227 117376 8019f7f8a4830b3f3d5d09250128ce01 ""
   "TexFigure/NCA_self.PNG" 1730185388 243673 54b151be09e4018143335a32916ee973 ""
   "TexFigure/OCA_self.PNG" 1730185973 265956 cbff157b2703b126da4a91bc2dd7fe33 ""
   "TexFigure/TOA_se.png" 1730185426 324189 10b81d0cad3d1c04d1ba967f93b4f43c ""
@@ -102,11 +104,8 @@
   "TexFigure/Tmat_diagram.png" 1730185460 294882 1cd4f6896bedd4086ea26945c41382ac ""
   "TexFigure/circuit_supp_ashida.PNG" 1712306433 11396 493b8ee25973d5613e4938b265ef7322 ""
   "TexFigure/kps_INT_exp.PNG" 1713615658 18225 3d9a1bcc66f0065681836af464f859d0 ""
-  "TexFigure/kps_create_junction.png" 1712305978 82381 937f4213248ff103ba3885c9931d047d ""
-  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-02 Master's Thesis.tex" 1730186124 48223 965977c764063d04d9892d364242b117 ""
+  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-02 Master's Thesis.tex" 1730211825 47588 4d08687d825d3b22605828d40a2286c1 ""
   (generated)
+  "2024-10-02 Master's Thesis.log"
   "2024-10-02 Master's Thesis.aux"
   "2024-10-02 Master's Thesis.pdf"
-  "MS_The_1.mp"
-  "2024-10-02 Master's Thesis.log"
-  "MS_The_2.mp"

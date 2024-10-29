@@ -38,8 +38,8 @@
     showtabs=false,                  
     tabsize=2
 }
-\setcounter{page}{23}
-\setcounter{figure}{10}
+\setcounter{page}{28}
+\setcounter{figure}{13}
 \setcounter{table}{1}
 \setcounter{section}{3}
 \lstset{style=mystyle}
@@ -59,14 +59,28 @@
 \section{Result}
 \begin{spacing}{1.5}
 \subsection{Summary}
-  To investigate the physical changes occurring in the Josephson junction based on the results of the previous sections, 
+  To investigate the physical changes occurring in the Josephson junction based on the results of the previous sections,  
   we used two methods to analyze the calculation result. The first involved examining the changes in the order parameter, $\cos{\phi}$. 
-  As a second method, we calculate the correlation function between the excited and ground states, 
-  and express it using an approximation formula for conductivity based on fluctuation-dissipation theory. 
-  Through analyzing the method of the order parameter, we revealed that the system exhibited an insulating state as the temperature decreased. 
-  Secondly, the approximation formula showed the following results. To evaluate the accuracy of the calculated results, 
+  As a second method, we calculate the correlation function between the excited and ground states, and express it using an approximation formula for conductivity based on fluctuation-dissipation theory. 
+  To evaluate the accuracy of the calculated results, 
   we tested each section of the integration code by comparing it with the case without reservoir effects, 
   comparing it with higher-order approximation methods, and checking for convergence depending on the calculation conditions.
+
+  \subsubsection*{Phase transition}
+A phase transition refers to the phenomenon where the state of a system, initially possessing a certain property, 
+undergoes a change to a different property after passing a specific critical point. Various theories have been 
+proposed to describe this phenomenon, we investigated the change in the order parameter. 
+Order parameter is a variable that represents the degree of order of the system property, 
+generally expressed as a function of the physical quantities describing the system. 
+Theories predict that a phase transition occurs at a point where the order parameter, 
+calculated for the physical quantities of the system, approaches zero.
+For the investigation of phase transitions, two kinds of order parameters were adopted in this study. 
+To determine the current state of the system, the $\hat{\cos\phi}$ function, 
+which represents the phase difference of the Josephson current flowing on both sides of the Josephson junction, 
+was set as the order parameter. Second, we introduced a method to predict 
+the critical point by utilizing an approximation method for DC conductivity, 
+which describes the superconducting phenomenon based on the fluctuation-dissipation theorem.
+\pagebreak
 \subsection{Benchmark}
 \subsubsection*{Exact diagonalization in single mode}
 To compare with the result from exact diagonalization(ED), we set the condition when the bath has only a single mode. 
@@ -102,9 +116,11 @@ The results showed that the two cases were completely consistent.
   and the right figure shows the difference in the order parameter for consecutive $\beta$ values,
    in the intervals [8.33, 10], [10, 12.5], and [12.5, 16.6].}
 \end{figure}
+\pagebreak
 \subsection{Simulation condition}
 The control parameters are as follows: $\gamma$ represents the nonlinearity of the Josephson junction system, 
-$\alpha$ represents the interaction with the external environment. 
+$\alpha$ represents the interaction with the external environment.Regarding the previous study which has been reported 
+that the transition occurs at $\alpha = 1$, we set the range of parameters around $\alpha = 1$ and $\gamma = 1$ . 
 The factors influencing the accuracy of the approximation method are the number of integration iterations and the size of the $\tau$ grid. 
 We set the range of variables used in the simulation as Table 2 and Table 3.
 \begin{table}[htbp]
@@ -145,14 +161,13 @@ We were able to confirm that the results converge for the case of a tau grid siz
 \subsubsection*{Size dependence}
 Since the resistively shunted Josephson junction circuit corresponds to a model that the physical system has coupled to waveguide structure,
 there was a breakdown of the rotating wave approximation of the two-level system as the coupling strength between the RC resonator circuit 
-and the Josephson junction increases. The coupling strength used in this simulation is in the ~DSC range, 
-including the range from the rotating wave approximation is valid to impossible.
+and the Josephson junction increases.The test condition is $\gamma =2$ , $\alpha = 1.5$ with calculating correlation function. 
+From the benchmark result, adopting 2-level truncated condition is reliable since the difference between two size is ignorable.
 \begin{figure}[H]
   \centerline{\includegraphics[width=15cm]{TexFigure/Sizediff.png}}
   \caption{Comparision with $\chi_{sp}(\tau)$ size3 and size5. The size of $\tau$ grid is 700.}
 \end{figure}
 \pagebreak
-
 \subsection{Orderparmeter}
 We calculated the expectation value of the order parameter, $\cos\phi$ for various temperatures at $\alpha = 0.1$. 
 In Figure 16, The results showed that the Josephson junction exhibits superconducting behavior as the nonlinearity increases at all temperatures. 
@@ -166,12 +181,16 @@ This indicates that the system exhibits superconductivity, consistent with the o
   \caption{Result of the expectation of order parameter, $\cos\phi$.}
 \end{figure}
 \begin{figure}[htbp]
+  \centerline{\includegraphics[width=16cm]{TexFigure/Order_color.png}}
+  \caption{Result of the expectation of order parameter, $\cos\phi$.}
+\end{figure}
+\begin{figure}[H]
   \centerline{\includegraphics[width=17cm]{TexFigure/Matele_Ns3_alp0.png}}
   \centerline{\includegraphics[width=17cm]{TexFigure/Matele_Ns3_alp0_1.png}}
   \centerline{\includegraphics[width=17cm]{TexFigure/Matele_Ns3_alp1.png}}
   \caption{Change of matrix element of matrix multiplication result between $\cos\phi$ and density matrix.}
 \end{figure}
-\subsubsection*{Finite temperature criticality}
+\subsubsection*{Temperature dependent criticality}
 To confirm the criticality of the system's phase with respect to temperature, 
 we observed the change in the order parameter while varying the temperature. As the temperature decreases, 
 the rate of change of the order parameter shifts from a high slope to a low slope. 
@@ -191,6 +210,11 @@ It can be predicted that a temperature-dependent phase transition occurs at the 
 \end{figure}
 \pagebreak
 \subsection{$\chi_{sp}$}
+We utilize the method of calculating DC conductivity, which has formula :
+\begin{flalign}
+  \sigma_{DC} \approx \beta \chi_{sp}(\tau = \frac{\beta}{2})
+\end{flalign}
+
 Calculating the phase transition using the relationship between the correlation function and the DC conductivity, 
 we observed the following results: Varying the $\gamma$ value at a fixed $\alpha$ value, 
 conductivity tended to decrease as the interaction with the external environment increased. 
@@ -208,13 +232,27 @@ we visualized the results using a 2D color map. At high temperatures,
 we observed that the conductivity increased as the $\gamma$ and $\alpha$ values increased. 
 At low temperatures, the conductivity generally decreased as the influence of the external environment increased. 
 Yet the junction energy increased, conductivity tended to increase in stronger influence from the external environment.
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centerline{\includegraphics[width=16cm]{TexFigure/chi_color.png}}
-  \caption{Colored plot for DC conductivity approximation. Left figure is in $\beta=10$, Right is for $\beta=25$.}
+  \caption{Colored plot for DC conductivity approximation. The simulation was performed in NCA. Left figure is in the case of $\beta=10$, Right is for $\beta=25$.
+  The Josephson junction goes high conductivy as color goes deeper.}
 \end{figure}
-\end{spacing}
+\subsubsection*{$\chi_{sp}$ result from exceeded simulation range}
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=12cm]{TexFigure/output.png}}
+  \caption{OCA result from exceed range}
+\end{figure}
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=12cm]{TexFigure/NCA_crit-7.pdf}}
+  \centerline{\includegraphics[width=12cm]{TexFigure/OCA_crit-7.pdf}}
+  \caption{OCA result from exceed range}
+\end{figure}
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=16cm]{TexFigure/TOA_exceed.png}}
+  \caption{TOA result from exceed range}
+\end{figure}
 
 \pagebreak
 \newpage
-
+\end{spacing}
 \end{document}

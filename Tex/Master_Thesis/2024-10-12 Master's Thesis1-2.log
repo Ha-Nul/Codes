@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  29 OCT 2024 04:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  29 OCT 2024 23:32
 entering extended mode
-**"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-12 Master's Thesis1-2.tex"
-(e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-12 Master's Thesis1-2.tex
+**"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis1-2.tex"
+(e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis1-2.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-08-27> (G:\Install_Program\MikTex\tex/latex/base\article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
@@ -245,27 +245,28 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen184
 \Gm@dimlist=\toks25
  (G:\Install_Program\MikTex\tex/latex/geometry\geometry.cfg))
-LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 57.
+LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 58.
  (G:\Install_Program\MikTex\tex/latex/tex-gyre\ot1qtm.fd
 File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
-) (2024-10-12 Master's Thesis1-2.aux)
+)
+No file "2024-10-12 Master's Thesis1-2".aux.
 \openout1 = `"2024-10-12 Master's Thesis1-2.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
- (G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+(G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count287
 \scratchdimen=\dimen185
@@ -323,74 +324,74 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 67.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 68.
 (G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <TexFigure/Flowchart_brokengraph.png, id=1, 579.693pt x 528.228pt>
 File: TexFigure/Flowchart_brokengraph.png Graphic file (type png)
 <use TexFigure/Flowchart_brokengraph.png>
-Package pdftex.def Info: TexFigure/Flowchart_brokengraph.png  used on input line 69.
+Package pdftex.def Info: TexFigure/Flowchart_brokengraph.png  used on input line 70.
 (pdftex.def)             Requested size: 369.88582pt x 337.0492pt.
- [23
+ [22
 
 {C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./TexFigure/Flowchart_brokengraph.png>]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-12 Master's Thesis1-2.tex:83: Package inputenc Error: Unicode character τ (U+03C4)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis1-2.tex:84: Package inputenc Error: Unicode character τ (U+03C4)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.83 ...e length of the k-index to calculate  V(τ
+l.84 ...e length of the k-index to calculate  V(τ
                                                   ),  the integration is per...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-12 Master's Thesis1-2.tex:83: Package inputenc Error: Unicode character τ (U+03C4)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis1-2.tex:84: Package inputenc Error: Unicode character τ (U+03C4)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.83 ...value for $g_k$ and $\omega_k$ in the V(τ
+l.84 ...value for $g_k$ and $\omega_k$ in the V(τ
                                                   ) expression. Using the re...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-12 Master's Thesis1-2.tex:83: Package inputenc Error: Unicode character τ (U+03C4)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis1-2.tex:84: Package inputenc Error: Unicode character τ (U+03C4)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.83 ...esulting expression, the value for each τ
+l.84 ...esulting expression, the value for each τ
                                                    interval is stored in an ...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-12 Master's Thesis1-2.tex:83: Package inputenc Error: Unicode character τ (U+03C4)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis1-2.tex:84: Package inputenc Error: Unicode character τ (U+03C4)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.83 ...nterval is stored in an array of length τ
+l.84 ...nterval is stored in an array of length τ
                                                   .
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -398,7 +399,7 @@ You may provide a definition with
 <TexFigure/self_structure.png, id=12, 785.772pt x 242.433pt>
 File: TexFigure/self_structure.png Graphic file (type png)
 <use TexFigure/self_structure.png>
-Package pdftex.def Info: TexFigure/self_structure.png  used on input line 113.
+Package pdftex.def Info: TexFigure/self_structure.png  used on input line 114.
 (pdftex.def)             Requested size: 426.79134pt x 131.6776pt.
 (G:\Install_Program\MikTex\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
@@ -407,66 +408,66 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (G:\Install_Program\MikTex\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 118.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 119.
  (G:\Install_Program\MikTex\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [24]
-LaTeX Font Info:    Trying to load font information for OML+pcr on input line 119.
+) [23]
+LaTeX Font Info:    Trying to load font information for OML+pcr on input line 120.
  (G:\Install_Program\MikTex\tex/latex/psnfss\omlpcr.fd
 File: omlpcr.fd 
 )
 LaTeX Font Info:    Font shape `OML/pcr/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 119.
-LaTeX Font Info:    Trying to load font information for OMS+pcr on input line 120.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 120.
+LaTeX Font Info:    Trying to load font information for OMS+pcr on input line 121.
  (G:\Install_Program\MikTex\tex/latex/psnfss\omspcr.fd
 File: omspcr.fd 
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 120.
-LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 134.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 121.
+LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 135.
  (G:\Install_Program\MikTex\tex/latex/psnfss\ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [25 <./TexFigure/self_structure.png>]
+) [24 <./TexFigure/self_structure.png>]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-10-12 Master's Thesis1-2.tex:159: Package inputenc Error: Unicode character τ (U+03C4)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis1-2.tex:161: Package inputenc Error: Unicode character τ (U+03C4)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.159 ...gned to terminate the calculation of G(τ
+l.161 ...gned to terminate the calculation of G(τ
                                                   ) when the distance betwee...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[26] [27]
+[25] [26]
 <TexFigure/Tmat.png, id=34, 541.149pt x 511.803pt>
 File: TexFigure/Tmat.png Graphic file (type png)
 <use TexFigure/Tmat.png>
-Package pdftex.def Info: TexFigure/Tmat.png  used on input line 247.
+Package pdftex.def Info: TexFigure/Tmat.png  used on input line 252.
 (pdftex.def)             Requested size: 341.43306pt x 322.92958pt.
 <TexFigure/Tmat2.png, id=35, 300.468pt x 218.343pt>
 File: TexFigure/Tmat2.png Graphic file (type png)
 <use TexFigure/Tmat2.png>
-Package pdftex.def Info: TexFigure/Tmat2.png  used on input line 252.
+Package pdftex.def Info: TexFigure/Tmat2.png  used on input line 257.
 (pdftex.def)             Requested size: 256.0748pt x 186.09882pt.
 <TexFigure/Tmat3.png, id=36, 831.543pt x 508.08pt>
 File: TexFigure/Tmat3.png Graphic file (type png)
 <use TexFigure/Tmat3.png>
-Package pdftex.def Info: TexFigure/Tmat3.png  used on input line 257.
+Package pdftex.def Info: TexFigure/Tmat3.png  used on input line 262.
 (pdftex.def)             Requested size: 341.43306pt x 208.6165pt.
- [28] [29 <./TexFigure/Tmat.png> <./TexFigure/Tmat2.png>] [30 <./TexFigure/Tmat3.png>] (2024-10-12 Master's Thesis1-2.aux) ) 
+ [27] [28 <./TexFigure/Tmat.png> <./TexFigure/Tmat2.png>] [29 <./TexFigure/Tmat3.png>] (2024-10-12 Master's Thesis1-2.aux) ) 
 Here is how much of TeX's memory you used:
- 8174 strings out of 478927
- 117570 string characters out of 2861478
- 947894 words of memory out of 3000000
- 25899 multiletter control sequences out of 15000+600000
+ 8171 strings out of 478927
+ 117495 string characters out of 2861478
+ 947896 words of memory out of 3000000
+ 25898 multiletter control sequences out of 15000+600000
  432656 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,13n,81p,615b,1824s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,13n,81p,620b,1824s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/base/8r.enc}{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb><G:/Install_Program/MikTex/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on "2024-10-12 Master's Thesis1-2.pdf" (8 pages, 1205964 bytes).
+Output written on "2024-10-12 Master's Thesis1-2.pdf" (8 pages, 1206400 bytes).
 PDF statistics:
  107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

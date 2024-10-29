@@ -1,6 +1,6 @@
-PWD e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex
+PWD e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex\Master_Thesis
 INPUT C:\Users\128kbps\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex\2024-10-02 Master's Thesis.tex
+INPUT e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex\Master_Thesis\2024-10-02 Master's Thesis.tex
 OUTPUT 2024-10-02 Master's Thesis.log
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
@@ -446,6 +446,10 @@ INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
 INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
 INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
 INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT .\2024-10-02 Master's Thesis.bbl
+INPUT 2024-10-02 Master's Thesis.bbl
+INPUT .\2024-10-02 Master's Thesis.bbl
+INPUT 2024-10-02 Master's Thesis.bbl
 INPUT G:\Install_Program\MikTex\tex\latex\geometry\geometry.sty
 INPUT G:\Install_Program\MikTex\tex\latex\geometry\geometry.sty
 INPUT G:\Install_Program\MikTex\tex\latex\geometry\geometry.sty
@@ -479,9 +483,6 @@ INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ot1qtm.fd
 INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ot1qtm.fd
 INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ot1qtm.fd
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT .\2024-10-02 Master's Thesis.aux
-INPUT 2024-10-02 Master's Thesis.aux
-INPUT 2024-10-02 Master's Thesis.aux
 OUTPUT 2024-10-02 Master's Thesis.aux
 INPUT G:\Install_Program\MikTex\tex\context\base\mkii\supp-pdf.mkii
 INPUT G:\Install_Program\MikTex\tex\context\base\mkii\supp-pdf.mkii
@@ -504,18 +505,19 @@ INPUT G:\Install_Program\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT G:\Install_Program\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
+OUTPUT 2024-10-02 Master's Thesis.pdf
+INPUT C:\Users\128kbps\AppData\Local\MiKTeX\pdftex\config\pdftex.map
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
-INPUT .\TexFigure\kps_create_junction.png
-INPUT .\TexFigure\kps_create_junction.png
-INPUT TexFigure\kps_create_junction.png
-INPUT .\TexFigure\kps_create_junction.png
-OUTPUT 2024-10-02 Master's Thesis.pdf
-INPUT .\TexFigure\kps_create_junction.png
-INPUT .\TexFigure\kps_create_junction.png
-INPUT .\TexFigure\kps_create_junction.png
+INPUT .\TexFigure\Junction_RE.png
+INPUT .\TexFigure\Junction_RE.png
+INPUT TexFigure\Junction_RE.png
+INPUT .\TexFigure\Junction_RE.png
+INPUT .\TexFigure\Junction_RE.png
+INPUT .\TexFigure\Junction_RE.png
+INPUT .\TexFigure\Junction_RE.png
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT C:\Users\128kbps\AppData\Local\MiKTeX\pdftex\config\pdftex.map
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT .\TexFigure\kps_INT_exp.PNG
 INPUT .\TexFigure\kps_INT_exp.PNG
 INPUT TexFigure\kps_INT_exp.PNG
@@ -523,6 +525,7 @@ INPUT .\TexFigure\kps_INT_exp.PNG
 INPUT .\TexFigure\kps_INT_exp.PNG
 INPUT .\TexFigure\kps_INT_exp.PNG
 INPUT .\TexFigure\kps_INT_exp.PNG
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT G:\Install_Program\MikTex\tex\latex\jknappen\ursfs.fd
@@ -546,7 +549,6 @@ INPUT G:\Install_Program\MikTex\tex\latex\amsfonts\umsb.fd
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT .\TexFigure\circuit_supp_ashida.PNG
 INPUT .\TexFigure\circuit_supp_ashida.PNG
 INPUT TexFigure\circuit_supp_ashida.PNG
@@ -558,42 +560,13 @@ INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
-INPUT .\MS_The_1.mp
-INPUT MS_The_1.mp
-INPUT .\MS_The_1.mp
-OUTPUT MS_The_1.mp
-INPUT .\MS_The_1.1
-INPUT MS_The_1.1
-INPUT .\MS_The_1.1
-INPUT .\MS_The_1.1
-INPUT MS_The_1.1
-INPUT MS_The_1.1
-INPUT MS_The_1.1
-INPUT .\MS_The_1.t1
-INPUT MS_The_1.t1
-INPUT .\MS_The_1.t1
-INPUT MS_The_1.t1
-INPUT .\MS_The_1.mp
-INPUT MS_The_1.mp
-INPUT .\MS_The_1.mp
-INPUT .\MS_The_2.mp
-INPUT MS_The_2.mp
-INPUT .\MS_The_2.mp
-OUTPUT MS_The_2.mp
-INPUT .\MS_The_2.1
-INPUT MS_The_2.1
-INPUT .\MS_The_2.1
-INPUT .\MS_The_2.1
-INPUT MS_The_2.1
-INPUT MS_The_2.1
-INPUT MS_The_2.1
-INPUT .\MS_The_2.t1
-INPUT MS_The_2.t1
-INPUT .\MS_The_2.t1
-INPUT MS_The_2.t1
-INPUT .\MS_The_2.mp
-INPUT MS_The_2.mp
-INPUT .\MS_The_2.mp
+INPUT .\TexFigure\Diagram_arrow.PNG
+INPUT .\TexFigure\Diagram_arrow.PNG
+INPUT TexFigure\Diagram_arrow.PNG
+INPUT .\TexFigure\Diagram_arrow.PNG
+INPUT .\TexFigure\Diagram_arrow.PNG
+INPUT .\TexFigure\Diagram_arrow.PNG
+INPUT .\TexFigure\Diagram_arrow.PNG
 INPUT .\TexFigure\Dyson_eq.PNG
 INPUT .\TexFigure\Dyson_eq.PNG
 INPUT TexFigure\Dyson_eq.PNG

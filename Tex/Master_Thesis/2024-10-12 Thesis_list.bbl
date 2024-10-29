@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{Metaltheory}
+김덕주.
+\newblock {\em 금속전자계의 다체이론}.
+\newblock 민음사, 03 1986.
+
 \bibitem{PhysRevResearch.4.023194}
 Y.~Ashida, T.~Yokota, A.~m.~c. \ifmmode \dot{I}\else
   \.{I}\fi{}mamo\ifmmode~\breve{g}\else \u{g}\fi{}lu, and E.~Demler.
@@ -17,6 +22,12 @@ A.~O. Caldeira.
 \newblock {\em An Introduction to Macroscopic Quantum Phenomena and Quantum
   Dissipation}.
 \newblock Cambridge University Press, 2014.
+
+\bibitem{Cover2006}
+T.~M. Cover and J.~A. Thomas.
+\newblock {\em Elements of Information Theory 2nd Edition (Wiley Series in
+  Telecommunications and Signal Processing)}.
+\newblock Wiley-Interscience, July 2006.
 
 \bibitem{PhysRevB.108.184514}
 R.~Daviet and N.~Dupuis.
@@ -56,6 +67,17 @@ J.~P. Sethna.
 \newblock {\em {Statistical Mechanics: Entropy, Order Parameters, and
   Complexity}}.
 \newblock Oxford University Press, 01 2021.
+
+\bibitem{PhysRevA.109.033715}
+S.~Terradas-Brians\'o, L.~Mart\'{\i}n-Moreno, and D.~Zueco.
+\newblock Waveguide qed in the dipole gauge.
+\newblock {\em Phys. Rev. A}, 109:033715, Mar 2024.
+
+\bibitem{PhysRevB.54.R3756}
+N.~Trivedi, R.~T. Scalettar, and M.~Randeria.
+\newblock Superconductor-insulator transition in a disordered electronic
+  system.
+\newblock {\em Phys. Rev. B}, 54:R3756--R3759, Aug 1996.
 
 \bibitem{PhysRevB.74.155107}
 P.~Werner and A.~J. Millis.
