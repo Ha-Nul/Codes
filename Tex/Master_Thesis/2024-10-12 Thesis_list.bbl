@@ -1,0 +1,71 @@
+\begin{thebibliography}{10}
+
+\bibitem{PhysRevResearch.4.023194}
+Y.~Ashida, T.~Yokota, A.~m.~c. \ifmmode \dot{I}\else
+  \.{I}\fi{}mamo\ifmmode~\breve{g}\else \u{g}\fi{}lu, and E.~Demler.
+\newblock Nonperturbative waveguide quantum electrodynamics.
+\newblock {\em Phys. Rev. Res.}, 4:023194, Jun 2022.
+
+\bibitem{14cbdc2074c711dbbee902004c4f4f50}
+H.~Bruus and K.~Flensberg.
+\newblock {\em Many-body quantum field theory in condensed matter physics: an
+  introduction}.
+\newblock Oxford University Press, 2003.
+
+\bibitem{Caldeira_2014}
+A.~O. Caldeira.
+\newblock {\em An Introduction to Macroscopic Quantum Phenomena and Quantum
+  Dissipation}.
+\newblock Cambridge University Press, 2014.
+
+\bibitem{PhysRevB.108.184514}
+R.~Daviet and N.~Dupuis.
+\newblock Nature of the schmid transition in a resistively shunted josephson
+  junction.
+\newblock {\em Phys. Rev. B}, 108:184514, Nov 2023.
+
+\bibitem{PhysRevB.82.115115}
+M.~Eckstein and P.~Werner.
+\newblock Nonequilibrium dynamical mean-field calculations based on the
+  noncrossing approximation and its generalizations.
+\newblock {\em Phys. Rev. B}, 82:115115, Sep 2010.
+
+\bibitem{Kadarnoff}
+L.~Kadanoff.
+\newblock {\em Quantum statistical mechanics}.
+\newblock CRC Press, 1989.
+
+\bibitem{PhysRevLett.130.036901}
+A.~J. Kim, K.~Lenk, J.~Li, P.~Werner, and M.~Eckstein.
+\newblock Vertex-based diagrammatic treatment of light-matter-coupled systems.
+\newblock {\em Phys. Rev. Lett.}, 130:036901, Jan 2023.
+
+\bibitem{PhysRevB.106.085124}
+A.~J. Kim, J.~Li, M.~Eckstein, and P.~Werner.
+\newblock Pseudoparticle vertex solver for quantum impurity models.
+\newblock {\em Phys. Rev. B}, 106:085124, Aug 2022.
+
+\bibitem{PhysRevLett.129.087001}
+K.~Masuki, H.~Sudo, M.~Oshikawa, and Y.~Ashida.
+\newblock Absence versus presence of dissipative quantum phase transition in
+  josephson junctions.
+\newblock {\em Phys. Rev. Lett.}, 129:087001, Aug 2022.
+
+\bibitem{10.1093/oso/9780198865247.001.0001}
+J.~P. Sethna.
+\newblock {\em {Statistical Mechanics: Entropy, Order Parameters, and
+  Complexity}}.
+\newblock Oxford University Press, 01 2021.
+
+\bibitem{PhysRevB.74.155107}
+P.~Werner and A.~J. Millis.
+\newblock Hybridization expansion impurity solver: General formulation and
+  application to kondo lattice and two-orbital models.
+\newblock {\em Phys. Rev. B}, 74:155107, Oct 2006.
+
+\bibitem{Zee2010}
+A.~Zee.
+\newblock {\em Quantum field theory in a nutshell}.
+\newblock Princeton University Press, second edition edition, 2010.
+
+\end{thebibliography}
