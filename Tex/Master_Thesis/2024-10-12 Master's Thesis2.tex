@@ -214,7 +214,6 @@ We utilize the method of calculating DC conductivity, which has formula :
 \begin{flalign}
   \sigma_{DC} \approx \beta \chi_{sp}(\tau = \frac{\beta}{2})
 \end{flalign}
-
 Calculating the phase transition using the relationship between the correlation function and the DC conductivity, 
 we observed the following results: Varying the $\gamma$ value at a fixed $\alpha$ value, 
 conductivity tended to decrease as the interaction with the external environment increased. 
@@ -227,6 +226,7 @@ However, at low temperatures, we observed that the conductivity decreased as the
   \centerline{\includegraphics[width=16cm]{TexFigure/chi_alp_swp.png}}
   \caption{The crossing picture in $\chi_{sp}$ with $\gamma$ swapping and $\alpha$ swapping}
 \end{figure}
+\pagebreak
 To observe how the conductivity changes for all $\gamma$ and $\alpha$ value conditions at a fixed temperature, 
 we visualized the results using a 2D color map. At high temperatures, 
 we observed that the conductivity increased as the $\gamma$ and $\alpha$ values increased. 
@@ -237,21 +237,68 @@ Yet the junction energy increased, conductivity tended to increase in stronger i
   \caption{Colored plot for DC conductivity approximation. The simulation was performed in NCA. Left figure is in the case of $\beta=10$, Right is for $\beta=25$.
   The Josephson junction goes high conductivy as color goes deeper.}
 \end{figure}
+\pagebreak
 \subsubsection*{$\chi_{sp}$ result from exceeded simulation range}
-\begin{figure}[htbp]
+In the metal-insulator transition calculation using DC conductivity, 
+while plotting the temperature-dependent behavior of conductivity calculated with the approximation formula varying the influencing variables, 
+the point where the lines crossing corresponding to two consecutive temperatures intersect can be predicted as the phase transition point.
+Within the previous set simulation range, 
+the temperature-dependent conductivity approximation behavior was not clearly observed. 
+Therefore, as a first attempt, we tried calculations with a wider range of $\alpha$ values while maintaining the range of $\gamma$ values. 
+However, it should be noted that the size of the τ grid was reduced for faster calculation verification. 
+The range conditions used are shown in the table below.
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.2}  % 행 간격 조정
+  \begin{tabular}{@{}cccc@{}}
+  \toprule
+  \textbf{Variables} & \textbf{Min} & \textbf{Max}  & \textbf{Interval}\\ 
+  \midrule
+  $\gamma$ & 0 & 2 & 0.01 \\
+  $\alpha$ & 0 & 20 & 1 \\
+  $\beta$ & 3.3 & 25 &  \\
+  Temperature & 0.3 & 0.04 & 0.02 \\
+  \bottomrule
+  \end{tabular}
+  \caption{Exceeded condition used for $\chi_{sp}$ calculation.}
+  \end{table}
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.2}  % 행 간격 조정
+  \begin{tabular}{@{}ccc@{}}
+  \toprule
+  \textbf{Number} & \textbf{Interval} & \textbf{Gridsize}\\ 
+  \midrule
+  $\tau$ grid & [0,$\beta$] & 700 \\
+  k grid & [0,K = 30000] & 30000 \\
+  \bottomrule
+  \end{tabular}
+  \caption{Exceeded grid condition used for $\chi_{sp}$ calculation}
+  \end{table}
+When the calculation was performed by increasing the $\gamma$ value for a fixed $\alpha$ value, crossing points occurred according to temperature, 
+and it was confirmed that the points obtained within the temperature interval converged to a specific line as the $\alpha$ value increased. 
+Purple lines represent the results of OCA, and green lines represent the results of NCA. 
+Based on the result, we draw the expected locations of the critical points from the results calculated by the approximation method. 
+The change of $\gamma$ as a function of $\alpha$ was re-plotted using the conductivity intersection points above. 
+The color of the line corresponds to each different β value.
+Throughout the result, we confirmed that the reason why the prediction of the phase transition point through conductivity approximation was not possible 
+in the previous calculation range was that no intersection value appeared at $\alpha$ values less than 2 at low temperatures. 
+Also, we confirmed that the phase transition interval using DC conductivity decreased as the temperature decreased.
+\pagebreak
+\begin{figure}[H]
   \centerline{\includegraphics[width=12cm]{TexFigure/output.png}}
-  \caption{OCA result from exceed range}
+  \caption{Crossing points in the exceeded range. Each color represents the difference in the approximation method, 
+  with green representing NCA with a matrix size of 3,  and purple representing OCA for matrix sizes 3 and 5 respectively. 
+  It can be observed that the position of the line changes significantly for a matrix size of 3, i.e., a two-level energy system, 
+  in the region with large $\alpha$ values.}
 \end{figure}
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=12cm]{TexFigure/NCA_crit-7.pdf}}
   \centerline{\includegraphics[width=12cm]{TexFigure/OCA_crit-7.pdf}}
-  \caption{OCA result from exceed range}
+  \caption{Estimated line of the criticality of the system in gamma as the function of alpha. 
+  Each colored line corresponds to each temperature when the temperature range from 0.3 to 0.04 is divided into 0.02 intervals 
+  from top to bottom. In the case of NCA, no critical point was observed at temperatures below 0.08.}
 \end{figure}
-\begin{figure}[htbp]
-  \centerline{\includegraphics[width=16cm]{TexFigure/TOA_exceed.png}}
-  \caption{TOA result from exceed range}
-\end{figure}
-
 \pagebreak
 \newpage
 \end{spacing}
