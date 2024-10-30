@@ -38,9 +38,10 @@
     showtabs=false,                  
     tabsize=2
 }
-\setcounter{page}{31}
+\setcounter{page}{42}
 \setcounter{figure}{22}
 \setcounter{table}{3}
+\setcounter{section}{4}
 \lstset{style=mystyle}
 \numberwithin{equation}{section}
 \captionsetup{font=footnotesize}
@@ -57,7 +58,7 @@
  }
 \begin{document}
 
-\section*{6. Conclusion \& Future work}
+\section{Conclusion \& Future work}
 \begin{spacing}{1.5}
     \subsubsection*{Conclusion}
 In conclusion, we’ve simulated the RSJJ Hamiltonian using the diagrammatic approximation method to determine its criticality. 
@@ -111,8 +112,8 @@ Which is, in short way:
 Z[J]=Z[0]W[J]
 \end{flalign}
 A similar form to the above can be found in equations (2.40), (2.41), and (2.58) which are presented in the main text. 
- Here $W[J]=e^{\frac{1}{2}J_iA^{-1}_{ij}J_j}$ , $Z[0] = \big(\frac{(2\pi i)^N}{\text{det}A}\big)^{\frac{1}{2}}$ . 
-The sub indice $i,j$ means $i$th and $j$th element of $J(\phi)$.Here, note the indices refer to Minkowski space, thus encompassing not only spatial coordinates but also temporal indices.
+Here $W[J]=e^{\frac{1}{2}J_iA^{-1}_{ij}J_j}$ , $Z[0] = \big(\frac{(2\pi i)^N}{\text{det}A}\big)^{\frac{1}{2}}$ . 
+The sub indice $i,j$ means $i$th and $j$th element of $J(\phi)$. Note the indices refer to Minkowski space, thus encompassing not only spatial coordinates but also temporal indices.
 we can recognize that :
 \begin{flalign}
 \langle \phi^{2n} \rangle = \frac{\int [D\phi] \phi^{2n} e^{\frac{1}{2} \phi^i A_{ij} \phi^j + J\cdot \phi}}{Z[0]} = \frac{\Pi_{i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_j}\int[D\phi]e^{-\frac{1}{2}(J_{ij}A_{ij}J_{j})}}{Z[0]}= \Pi_{i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_j} \ln{Z[J]}
@@ -125,4 +126,40 @@ Z[J]=\int[D\phi]e^{\int d\phi [\frac{1}{2}\partial^2_\tau\phi - m^2\phi^2]+J\cdo
 Which can be calculated as the same procedure above, in a more complex structure.
 \end{spacing}
 \pagebreak
+\newpage
+\section{Wick's theorem}
+\begin{spacing}{1.5}
+As mentioned in Sec.2.2, Wick's theorem states that when there are an even number of pair creation and annihilation operators for a quantum state, the product of the expectation values of each pair is equal to the product of the total expectation value. 
+A well-known example of pair interaction is the Coulomb interaction which can be written in the form:
+\begin{flalign}
+H(\tau) =\frac{1}{2}\sum_{l,l',\kappa}v(\kappa)\big(\hat{a}^\dagger_l(\tau)\hat{a}^\dagger_{l'}(\tau)\hat{a}_{l'+\kappa}(\tau)\hat{a}_{l-\kappa}(\tau)\big)
+\end{flalign}
+Here indices $l,l'$ indicate the lattice point of each electron, and the term $v(\kappa)$ is the scalar value (or function) that represents the interaction effect. 
+Written in the form of the interaction operator introduced in the main text, it can be expanded in time as follows:
+\begin{flalign}
+\begin{split}
+\langle& U(\beta)\rangle_0 = 1-\frac{1}{2}\sum_{l,l',\kappa}v(\kappa)\int^\beta_0d\tau_1\langle\hat{a}^\dagger_l(\tau_1)\hat{a}_{l'}^\dagger(\tau_1)\hat{a}_{l'+\kappa}(\tau_1)\hat{a}_{l-\kappa}(\tau_1)\rangle_0 
+\\ & + \frac{1}{2(2!)}\sum_{\text{lower indices}}v(\kappa_1)v(\kappa_2)\int^\beta_0d\tau_1\int^\beta_0\tau_2
+\underbrace{\langle\mathcal{T}\hat{a}^\dagger_{l_1}(\tau_1)\hat{a}_{l'_1}^\dagger(\tau_1)\hat{a}_{l'_1+\kappa_1}(\tau_1)\hat{a}_{l_1-\kappa_1}(\tau_1)\hat{a}^\dagger_{l_2}(\tau_2)\hat{a}_{l'_2}^\dagger(\tau_2)\hat{a}_{l'_2+\kappa_2}(\tau_2)\hat{a}_{l_2-\kappa_2}(\tau_2)\rangle_0}
+_\text{The term that we want to split into a multiplication of pairs of operators}
+\end{split}
+\end{flalign}
+As mentioned in the equation, our interest lies in replacing the product of expectation values 
+of multiple operators with the product of expectation values of operators that belong to pairs. 
+The general form can be written as:
+\begin{flalign}
+\begin{split}
+W_n = \langle \mathcal{T}_\tau \tilde{b}_1\tilde{b}_2\tilde{b}_3\tilde{b}_4 \cdots \tilde{b}_{n-1}\tilde{b}_{n}\rangle_0 
+& = \langle \mathcal{T}_\tau \tilde{b}_1\tilde{b}_2\rangle_0 \langle \mathcal{T}_\tau \tilde{b}_3\tilde{b}_4 \rangle_0 \cdots \langle \mathcal{T}_\tau \tilde{b}_{n-1}\tilde{b}_n \rangle_0 \\
+&+ \cdots + \quad \langle \mathcal{T}_\tau \tilde{b}_n \tilde{b}_{n-1} \rangle_0 \langle \mathcal{T}_\tau \tilde{b}_{n-2} \tilde{b}_{n-3} \rangle_0 \cdots \langle \mathcal{T}_\tau \tilde{b}_2 \tilde{b}_1 \rangle_0 
+\\
+& = \sum_{P_i} P_i \langle \mathcal{T}_\tau \tilde{b}_{i_1}\tilde{b}_{i_2}\rangle_0 \langle \mathcal{T}_\tau \tilde{b}_{i_3}\tilde{b}_{i_4} \rangle_0 \cdots \langle \mathcal{T}_\tau \tilde{b}_{i_{n-1}}\tilde{b}_{i_n} \rangle_0
+\end{split}
+\end{flalign}
+Here, the subscripts represent time variables (e.g $\tilde{b}_1 = \tilde{b}(\tau_1)$), $P_i$ represents the number of all possible permutations, and 0 indicates that the expectation value has been calculated with respect to the local Hamiltonian of the system under consideration.
+Since the matching of the number of creation and annihilation operators is important, to represent total operators for an arbitrary order, 
+we have used the notation $\tilde{b}$ instead of $\quad\hat{}\quad$ or $\quad \dagger \quad $. In the case of fermions, the sign changes depending on the order 
+is crucial during permutation, the operators dealt with in the main text are all bosonic cases, 
+so we can neglect the sign problem.
+\end{spacing}
 \end{document}

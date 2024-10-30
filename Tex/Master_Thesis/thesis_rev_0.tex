@@ -309,7 +309,7 @@ In this case, the maximum dimension of $\hat{N}$  is $2n+1$ .
 The physical observable $\hat{\cos\phi}$ represents the phase coherence of the currents flowing at both ends of the Josephson junction. 
 If the junction exhibits superconducting properties, the value of $\hat{\cos\phi}$ will be greater than 0, 
 while it will be close to 0 if it exhibits insulating properties.
-The expectation of order parameter can be calculated in following formula:
+The expectation of $\hat{\cos\phi}$ can be calculated in following formula:
 \begin{flalign}
   \begin{split}
   \langle \cos\phi\rangle = \frac{\text{Tr}[\hat{\cos\phi}e^{\beta H}]}{\text{Tr}[e^{-\beta H}]}
@@ -484,20 +484,12 @@ In the imaginary time interval $[\tau,0]$ , full Green’s function in the expec
 G(\tau,0) = \frac{\text{Tr}[e^{-\beta H_0} U(\beta)\hat{a}^\dagger(\tau)\hat{a}]}{\text{Tr}[e^{-\beta H_0}U(\beta)]} = \frac{\langle U(\beta)\hat{a}^\dagger(\tau)\hat{a}\rangle_0}{\langle U(\beta)\rangle_0}
 \end{split}
 \end{flalign}
-The under index 0 of angled bracket indicates its expectation value was calculated in $H_{\text{loc}}$ frame. If the interaction hamiltonian is in the form of multiplication of pair of annihilation-creation operator $\hat{a}^\dagger$ and $\hat{a}$ , we can adjust Wick’s theorem to expand the each of the expectation value in denominator and numerator into a multiplication of Green’s functions in each time interval. For example, if 
-\begin{flalign}
-  \begin{split}
-H_{\text{int}} =V_{ijkl}\hat{a}^\dagger_i\hat{a}^\dagger_j\hat{a}_k\hat{a}_l
-\end{split}
-\end{flalign}
-Here the term $V_{ijkl}$ is the scalar value (or function) that represents the interaction effect. then 
-\begin{flalign}
-  \begin{split}
-\langle U(\beta)\rangle_0 \sim 1-\frac{1}{2}V_{ijkl}\int^\beta_0d\tau_1\langle\mathcal{T}\hat{a}^\dagger_i(\tau_1)\hat{a}_j^\dagger(\tau_1)\hat{a}_k(\tau_1)\hat{a}_l(\tau_1)\rangle + ... \\=1 - \frac{1}{2}\int^\beta_0\langle\mathcal{T}\hat{a}^\dagger_i(\tau_1)\hat{a}_j^\dagger(\tau_1)\rangle \langle\mathcal{T}\hat{a}_k(\tau_1)\hat{a}_l(\tau_1)\rangle + ...
-\end{split}
-\end{flalign}
-This kind of form of expansion represents the expectation value of the interaction operator in the multiplication of diagrams.
-A more detailed discussion will be treated in the Appendix.
+The under index 0 of angled bracket indicates its expectation value was calculated in $H_{\text{loc}}$ frame. 
+If the interaction hamiltonian is in the form of multiplication of pair of 
+annihilation-creation operator $\hat{a}^\dagger$ and $\hat{a}$ , 
+we can adjust Wick’s theorem to expand the each of the expectation value in 
+denominator and numerator into a multiplication of Green’s functions in each time interval.
+A brief discussion for Wick's theorem will be treated in the Appendix.
 \pagebreak
 \subsubsection*{Diagrammatic Hybridization expansion in strong coupling case}
 In this section, we will introduce the hybridization method based on the former discussion. 
@@ -647,15 +639,12 @@ T(\tau,\tau') = \big[P\mathcal{G}(\tau-\tau')P\mathcal{G}(\tau')P]\bar{\mathcal{
 \end{flalign}
 Which corresponding topological diagram is:
 \begin{figure}[hbtp]
-  \centerline{\includegraphics[width=5cm]{TexFigure/TOA_tmat.png}}
   \centerline{\includegraphics[width=12cm]{TexFigure/Tmat_diagram.png}}
   \centerline{\includegraphics[width=12cm]{TexFigure/Chi_with_Tmat.png}}
   \caption{Specific diagram for T matrix[4].}
 \end{figure}
 \end{spacing}
 \pagebreak
-
-
 \subsection{Applying to circuit hamiltonian model}
 \begin{spacing}{1.5}
 In our study, we consider that the total system turns out to be a thermal equilibrium state thus methodology using Matsubara’s method is available. To begin, we assume that each operator from RSJJ Hamiltonian mapped toward the general impurity model:

@@ -119,7 +119,7 @@ The results showed that the two cases were completely consistent.
 \pagebreak
 \subsection{Simulation condition}
 The control parameters are as follows: $\gamma$ represents the nonlinearity of the Josephson junction system, 
-$\alpha$ represents the interaction with the external environment.Regarding the previous study which has been reported 
+$\alpha$ represents the interaction with the external environment. Regarding the previous study which has been reported 
 that the transition occurs at $\alpha = 1$, we set the range of parameters around $\alpha = 1$ and $\gamma = 1$ . 
 The factors influencing the accuracy of the approximation method are the number of integration iterations and the size of the $\tau$ grid. 
 We set the range of variables used in the simulation as Table 2 and Table 3.
@@ -161,7 +161,7 @@ We were able to confirm that the results converge for the case of a tau grid siz
 \subsubsection*{Size dependence}
 Since the resistively shunted Josephson junction circuit corresponds to a model that the physical system has coupled to waveguide structure,
 there was a breakdown of the rotating wave approximation of the two-level system as the coupling strength between the RC resonator circuit 
-and the Josephson junction increases.The test condition is $\gamma =2$ , $\alpha = 1.5$ with calculating correlation function. 
+and the Josephson junction increases[15]. The test condition is $\gamma =2$ , $\alpha = 1.5$ with calculating correlation function. 
 From the benchmark result, adopting 2-level truncated condition is reliable since the difference between two size is ignorable.
 \begin{figure}[H]
   \centerline{\includegraphics[width=15cm]{TexFigure/Sizediff.png}}
@@ -170,7 +170,7 @@ From the benchmark result, adopting 2-level truncated condition is reliable sinc
 \pagebreak
 \subsection{Orderparmeter}
 We calculated the expectation value of the order parameter, $\cos\phi$ for various temperatures at $\alpha = 0.1$. 
-In Figure 16, The results showed that the Josephson junction exhibits superconducting behavior as the nonlinearity increases at all temperatures. 
+In Figure [Fig.~\ref{fig:Order1}], The results showed that the Josephson junction exhibits superconducting behavior as the nonlinearity increases at all temperatures. 
 Subsequently, we examined the diagonal elements of $\cos\phi \cdot e^{−βH_{loc}}$ for $\alpha=$ 0, 0.1, and 1. 
 In this case, the diagonal elements represent the system being in the ground state, the even-function form of the first excited state, 
 and the odd-function form of the first excited state, respectively. 
@@ -179,6 +179,7 @@ This indicates that the system exhibits superconductivity, consistent with the o
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=10cm]{TexFigure/Expec_alp_0.1 (1).png}}
   \caption{Result of the expectation of order parameter, $\cos\phi$.}
+  \label{fig:Order1}
 \end{figure}
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=16cm]{TexFigure/Order_color.png}}
@@ -261,7 +262,7 @@ The range conditions used are shown in the table below.
   Temperature & 0.3 & 0.04 & 0.02 \\
   \bottomrule
   \end{tabular}
-  \caption{Exceeded condition used for $\chi_{sp}$ calculation.}
+  \caption{Exceeded parameter condition used for $\chi_{sp}$ calculation.}
   \end{table}
 \begin{table}[htbp]
   \centering
@@ -282,7 +283,7 @@ and it was confirmed that the points obtained within the temperature interval co
 Purple lines represent the results of OCA, and green lines represent the results of NCA. 
 Based on the result, we draw the expected locations of the critical points from the results calculated by the approximation method. 
 The change of $\gamma$ as a function of $\alpha$ was re-plotted using the conductivity intersection points above. 
-The color of the line corresponds to each different β value.
+The color of the each line corresponds to different $\beta$ value.
 Throughout the result, we confirmed that the reason why the prediction of the phase transition point through conductivity approximation was not possible 
 in the previous calculation range was that no intersection value appeared at $\alpha$ values less than 2 at low temperatures. 
 Also, we confirmed that the phase transition interval using DC conductivity decreased as the temperature decreased.
