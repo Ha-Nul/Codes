@@ -29,7 +29,7 @@ T.~M. Cover and J.~A. Thomas.
   Telecommunications and Signal Processing)}.
 \newblock Wiley-Interscience, July 2006.
 
-\bibitem{PhysRevB.108.184514}
+\bibitem{"PhysRevB.108.184514"}
 R.~Daviet and N.~Dupuis.
 \newblock Nature of the schmid transition in a resistively shunted josephson
   junction.
@@ -40,6 +40,13 @@ M.~Eckstein and P.~Werner.
 \newblock Nonequilibrium dynamical mean-field calculations based on the
   noncrossing approximation and its generalizations.
 \newblock {\em Phys. Rev. B}, 82:115115, Sep 2010.
+
+\bibitem{18b3f90e95a04ec5810e80b36679aeca}
+N.~Goldenfeld.
+\newblock {\em Lectures On Phase Transitions And The Renormalization Group}.
+\newblock Frontiers in physics. Westview Press, 1992.
+\newblock Publisher Copyright: {\textcopyright} 1992 Taylor & Francis Group
+  LLC.
 
 \bibitem{Kadarnoff}
 L.~Kadanoff.
@@ -61,6 +68,11 @@ K.~Masuki, H.~Sudo, M.~Oshikawa, and Y.~Ashida.
 \newblock Absence versus presence of dissipative quantum phase transition in
   josephson junctions.
 \newblock {\em Phys. Rev. Lett.}, 129:087001, Aug 2022.
+
+\bibitem{Sachdev_2023}
+S.~Sachdev.
+\newblock {\em Quantum Phases of Matter}.
+\newblock Cambridge University Press, 2023.
 
 \bibitem{10.1093/oso/9780198865247.001.0001}
 J.~P. Sethna.

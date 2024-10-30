@@ -435,6 +435,17 @@ INPUT G:\Install_Program\MikTex\tex\latex\psnfss\helvet.sty
 INPUT G:\Install_Program\MikTex\tex\latex\psnfss\helvet.sty
 INPUT G:\Install_Program\MikTex\tex\latex\psnfss\helvet.sty
 INPUT G:\Install_Program\MikTex\tex\latex\graphics\keyval.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
 INPUT G:\Install_Program\MikTex\tex\latex\geometry\geometry.sty
 INPUT G:\Install_Program\MikTex\tex\latex\geometry\geometry.sty
 INPUT G:\Install_Program\MikTex\tex\latex\geometry\geometry.sty
@@ -519,8 +530,6 @@ INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 OUTPUT 2024-10-27 Master's Thesis_Appen.pdf
 INPUT C:\Users\128kbps\AppData\Local\MiKTeX\pdftex\config\pdftex.map
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT 2024-10-27 Master's Thesis_Appen.aux

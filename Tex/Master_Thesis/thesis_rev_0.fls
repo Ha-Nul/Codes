@@ -509,7 +509,6 @@ INPUT G:\Install_Program\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmri.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT .\TexFigure\Junction_RE.png
 INPUT .\TexFigure\Junction_RE.png
 INPUT TexFigure\Junction_RE.png
@@ -526,9 +525,9 @@ INPUT .\TexFigure\kps_INT_exp.PNG
 INPUT .\TexFigure\kps_INT_exp.PNG
 INPUT .\TexFigure\kps_INT_exp.PNG
 INPUT .\TexFigure\kps_INT_exp.PNG
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT C:\Users\128kbps\AppData\Local\MiKTeX\pdftex\config\pdftex.map
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT .\TexFigure\circuit_supp_ashida.PNG
 INPUT .\TexFigure\circuit_supp_ashida.PNG

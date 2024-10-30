@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  30 OCT 2024 14:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  30 OCT 2024 16:27
 entering extended mode
 **e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/thesis_rev_0.tex
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/thesis_rev_0.tex
@@ -337,61 +337,42 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-LaTeX Warning: Citation `"PhysRevB.108.184514"' on page 1 undefined on input line 64.
-
 <TexFigure/Junction_RE.png, id=1, 1003.75pt x 1003.75pt>
 File: TexFigure/Junction_RE.png Graphic file (type png)
 <use TexFigure/Junction_RE.png>
-Package pdftex.def Info: TexFigure/Junction_RE.png  used on input line 79.
+Package pdftex.def Info: TexFigure/Junction_RE.png  used on input line 81.
 (pdftex.def)             Requested size: 284.52756pt x 284.52481pt.
 <TexFigure/kps_INT_exp.PNG, id=3, 311.66437pt x 317.68687pt>
 File: TexFigure/kps_INT_exp.PNG Graphic file (type png)
 <use TexFigure/kps_INT_exp.PNG>
-Package pdftex.def Info: TexFigure/kps_INT_exp.PNG  used on input line 85.
+Package pdftex.def Info: TexFigure/kps_INT_exp.PNG  used on input line 87.
 (pdftex.def)             Requested size: 170.71652pt x 174.01572pt.
-
-LaTeX Warning: Citation `PhysRevLett.129.087001' on page 1 undefined on input line 86.
-
-
-LaTeX Warning: Citation `PhysRevLett.129.087001' on page 1 undefined on input line 86.
-
 [1
 
 {C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2 <./TexFigure/Junction_RE.png> <./TexFigure/kps_INT_exp.PNG>]
 <TexFigure/circuit_supp_ashida.PNG, id=16, 403.5075pt x 123.46124pt>
 File: TexFigure/circuit_supp_ashida.PNG Graphic file (type png)
 <use TexFigure/circuit_supp_ashida.PNG>
-Package pdftex.def Info: TexFigure/circuit_supp_ashida.PNG  used on input line 128.
+Package pdftex.def Info: TexFigure/circuit_supp_ashida.PNG  used on input line 130.
 (pdftex.def)             Requested size: 341.43306pt x 104.46968pt.
-
-
-LaTeX Warning: Citation `PhysRevLett.129.087001' on page 3 undefined on input line 129.
-
-
-LaTeX Warning: Citation `PhysRevLett.129.087001' on page 3 undefined on input line 129.
-
-
-LaTeX Warning: Citation `PhysRevLett.129.087001' on page 3 undefined on input line 132.
-
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 137.
-(G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 139.
+ (G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 137.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 139.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 137.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 139.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [3 <./TexFigure/circuit_supp_ashida.PNG>] [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 342--344
+Underfull \hbox (badness 10000) in paragraph at lines 340--342
 
  []
 
 [7]
-Overfull \hbox (13.41595pt too wide) detected at line 388
+Overfull \hbox (13.41595pt too wide) detected at line 386
 []
  []
 
@@ -399,74 +380,64 @@ Overfull \hbox (13.41595pt too wide) detected at line 388
 <TexFigure/Diagram_arrow.PNG, id=52, 1726.19907pt x 189.70876pt>
 File: TexFigure/Diagram_arrow.PNG Graphic file (type png)
 <use TexFigure/Diagram_arrow.PNG>
-Package pdftex.def Info: TexFigure/Diagram_arrow.PNG  used on input line 456.
+Package pdftex.def Info: TexFigure/Diagram_arrow.PNG  used on input line 453.
 (pdftex.def)             Requested size: 426.79134pt x 46.90312pt.
  [10 <./TexFigure/Diagram_arrow.PNG>] [11] [12] [13]
 <TexFigure/Dyson_eq.PNG, id=68, 1608.0075pt x 240.14719pt>
 File: TexFigure/Dyson_eq.PNG Graphic file (type png)
 <use TexFigure/Dyson_eq.PNG>
-Package pdftex.def Info: TexFigure/Dyson_eq.PNG  used on input line 610.
+Package pdftex.def Info: TexFigure/Dyson_eq.PNG  used on input line 607.
 (pdftex.def)             Requested size: 369.88582pt x 55.24pt.
 <TexFigure/NCA_self.PNG, id=69, 764.529pt x 411.501pt>
 File: TexFigure/NCA_self.PNG Graphic file (type png)
 <use TexFigure/NCA_self.PNG>
-Package pdftex.def Info: TexFigure/NCA_self.PNG  used on input line 621.
+Package pdftex.def Info: TexFigure/NCA_self.PNG  used on input line 618.
 (pdftex.def)             Requested size: 227.62204pt x 122.51569pt.
 <TexFigure/OCA_self.PNG, id=70, 1006.305pt x 449.169pt>
 File: TexFigure/OCA_self.PNG Graphic file (type png)
 <use TexFigure/OCA_self.PNG>
-Package pdftex.def Info: TexFigure/OCA_self.PNG  used on input line 622.
+Package pdftex.def Info: TexFigure/OCA_self.PNG  used on input line 619.
 (pdftex.def)             Requested size: 341.43306pt x 152.40016pt.
 <TexFigure/TOA_se.png, id=71, 927.246pt x 280.539pt>
 File: TexFigure/TOA_se.png Graphic file (type png)
 <use TexFigure/TOA_se.png>
-Package pdftex.def Info: TexFigure/TOA_se.png  used on input line 626.
+Package pdftex.def Info: TexFigure/TOA_se.png  used on input line 623.
 (pdftex.def)             Requested size: 341.43306pt x 103.30124pt.
 <TexFigure/TOA_tmat.png, id=72, 850.596pt x 449.169pt>
 File: TexFigure/TOA_tmat.png Graphic file (type png)
 <use TexFigure/TOA_tmat.png>
-Package pdftex.def Info: TexFigure/TOA_tmat.png  used on input line 627.
+Package pdftex.def Info: TexFigure/TOA_tmat.png  used on input line 624.
 (pdftex.def)             Requested size: 341.43306pt x 180.29495pt.
  [14 <./TexFigure/Dyson_eq.PNG>] [15 <./TexFigure/NCA_self.PNG> <./TexFigure/OCA_self.PNG> <./TexFigure/TOA_se.png> <./TexFigure/TOA_tmat.png>]
 File: TexFigure/TOA_tmat.png Graphic file (type png)
 <use TexFigure/TOA_tmat.png>
-Package pdftex.def Info: TexFigure/TOA_tmat.png  used on input line 653.
+Package pdftex.def Info: TexFigure/TOA_tmat.png  used on input line 650.
 (pdftex.def)             Requested size: 142.26378pt x 75.12404pt.
 <TexFigure/Tmat_diagram.png, id=84, 835.047pt x 280.539pt>
 File: TexFigure/Tmat_diagram.png Graphic file (type png)
 <use TexFigure/Tmat_diagram.png>
-Package pdftex.def Info: TexFigure/Tmat_diagram.png  used on input line 654.
+Package pdftex.def Info: TexFigure/Tmat_diagram.png  used on input line 651.
 (pdftex.def)             Requested size: 341.43306pt x 114.70496pt.
 <TexFigure/Chi_with_Tmat.png, id=85, 856.728pt x 104.682pt>
 File: TexFigure/Chi_with_Tmat.png Graphic file (type png)
 <use TexFigure/Chi_with_Tmat.png>
-Package pdftex.def Info: TexFigure/Chi_with_Tmat.png  used on input line 655.
+Package pdftex.def Info: TexFigure/Chi_with_Tmat.png  used on input line 652.
 (pdftex.def)             Requested size: 341.43306pt x 41.7187pt.
-
-
-LaTeX Warning: Citation `PhysRevB.106.085124' on page 16 undefined on input line 656.
-
-
-LaTeX Warning: Citation `PhysRevB.106.085124' on page 16 undefined on input line 656.
-
-[16 <./TexFigure/Tmat_diagram.png> <./TexFigure/Chi_with_Tmat.png>] [17] [18] [19] (thesis_rev_0.aux)
-
-LaTeX Warning: There were undefined references.
-
+ [16 <./TexFigure/Tmat_diagram.png> <./TexFigure/Chi_with_Tmat.png>] [17] [18] [19] (thesis_rev_0.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7680 strings out of 478927
- 113005 string characters out of 2861478
+ 7679 strings out of 478927
+ 112992 string characters out of 2861478
  446831 words of memory out of 3000000
- 25415 multiletter control sequences out of 15000+600000
- 442268 words of font info for 51 fonts, out of 8000000 for 9000
+ 25414 multiletter control sequences out of 15000+600000
+ 439449 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,24n,81p,1000b,466s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,24n,81p,1000b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmri.pfb>
-Output written on thesis_rev_0.pdf (19 pages, 1962038 bytes).
+Output written on thesis_rev_0.pdf (19 pages, 1961510 bytes).
 PDF statistics:
  168 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

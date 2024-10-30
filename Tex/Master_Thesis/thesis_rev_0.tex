@@ -56,18 +56,20 @@
 \section{Introduction}
 \begin{spacing}{1.5}
 The interaction between the quantum system and its environment is one of the active research topics in the condensed matter physics.
-Historically, the Kondo model successfully describes the resistivity minimum due to the magnetic impurity in the metallic environment [ref], and spin-boson model has been the basic theoretical platform for the light-matter-coupled system [ref].
-The Anderson impurity model also plays the central role in the dynamical mean-field theory as an auxiliary system for the self-consistent solutions [ref].
+Historically, the Kondo model successfully describes the resistivity minimum due to the magnetic impurity in the metallic environment [6], 
+and spin-boson model has been the basic theoretical platform for the light-matter-coupled system [11].
+The Anderson impurity model also plays the central role in the dynamical mean-field theory as an auxiliary system for the self-consistent solutions [7].
 
 One another famous example of the system-environment coupled systems is \textit{resistively shunted Josephson junction} (RSJJ).
 RSJJ is a circuit system consisting of a single JJ connected to an RC resonator which acts as a circuit resistance [Fig.~\ref{fig:RSJJ}]. 
-Several studies have reported that the RSJJ reveals a phase transition line that depends on the coupling strength between the Junction and the circuit resistance.\cite{"PhysRevB.108.184514"} 
-Such early predictions render RSJJ a prototypical model for the quantum phase transition, especially for the Schmid quantum dissipative transition [ref].
+Several studies have reported that the RSJJ reveals a phase transition line that depends on the coupling strength between the Junction and the circuit resistance[1,2,17] 
+Such early predictions render RSJJ a prototypical model for the quantum phase transition, especially for the Schmid quantum dissipative transition.
 Particularly in the latest study [Fig.~\ref{fig:reentrant}], novel reentrant behavior of quantum phase transition was predicted.
 
 On the other hand, it has been known that the quantum phase transition has genuine impacts on the \textit{finite-temperature} behavior of the system.
-Emanating from the quantum critical point at zero temperature like fan-shape form in the temperature-(nonthermal) parameter plane [Sachdev textbook], the various experimentally measurable response functions can show perculiar nature for wide range of temperatures.
-The strange metalicity in the heavy fermion system [ref] is a representative example of such paradigm of the quantum phase transition.
+Emanating from the quantum critical point at zero temperature like fan-shape form in the temperature-(nonthermal) parameter plane [19]
+, the various experimentally measurable response functions can show perculiar nature for wide range of temperatures.
+The strange metalicity in the heavy fermion system is a representative example of such paradigm of the quantum phase transition.
 
 However, the finite-temperature nature of the QPT in the RSJJ has not been throughly investigated.
 So, in this thesis, we study the finite-temperature nature of possible underlying QPT using the strong-coupling expansions.
@@ -83,7 +85,7 @@ The precise nature of this transition is to be addressed through the analysis of
 
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=6cm]{TexFigure/kps_INT_exp.PNG}}
-  \caption{Zero temperature phase diagram with reentrant phase transition\cite{PhysRevLett.129.087001}}
+  \caption{Zero temperature phase diagram with reentrant phase transition[2]}
   \label{fig:reentrant}
 \end{figure}
 
@@ -126,10 +128,10 @@ The precise nature of this transition is to be addressed through the analysis of
 \subsubsection*{Hamiltonian of resistivity shunted Josephson junction}
   \begin{figure}[htbp]
     \centerline{\includegraphics[width=12cm]{TexFigure/circuit_supp_ashida.PNG}}
-    \caption{ Picture of resistivity shunted Josephson junction connected with exterior transmission line.\cite{PhysRevLett.129.087001}}
+    \caption{ Picture of resistivity shunted Josephson junction connected with exterior transmission line.[18]}
   \end{figure} 
 We introduce the impurity model for the resistivity shunted Josephson junction (RSJJ) circuit . 
-Specific Hamiltonians and physical parameters are based on the ref\cite{PhysRevLett.129.087001}. 
+Specific Hamiltonians and physical parameters are based on the [2]. 
 The circuit is composed of a single Josephson junction connected to the transmission line, 
 which acts as the resistance of the total circuit system. 
 Each component of the circuit is mapped onto each composition of the total Hamiltonian. 
@@ -189,8 +191,6 @@ The detailed description of basic symbols is summarized in Table.~\ref{tab:H}.
   On the other hand, the competition between the Josephson coupling $E_J$ and the charge energy scale $E_C$ is controlled by $\gamma = \frac{E_J}{E_C}$ in the local part. 
   $\alpha$ and $\gamma$ will be our basic control parameters.
   We’ve set $E_C$ as an energy unit.
-
-
 \subsubsection*{$H_{\text{loc}}$ in Josephson phase basis}
 To adjust the expansion method to the RSJJ Hamiltonian model, We represent the local system Hamiltonian in matrix formulation using the basis of Josephson wave function. 
 We adopt the macroscopic point of view to observe the superconducting effect expected in our junction system. 
@@ -259,10 +259,8 @@ One can numerially diagonalize Eq.~\ref{eqn:Hloc}.
 And using the fact that the difference between the energy levels becomes larger as $m$ increases, we truncate the local Hilbert space for computationally managable subsets of low-lying states.
 
 %To study how system changes depends on coupling parameters and finite temperature conditions, we measure the total RSJJ Hamiltonian under local system basis engaged from diagonalization of the $H_{\text{loc even}}$ and $H_{\text{loc odd}}$ . 
-
 \subsubsection*{Matrix form of $\hat{N}$ in local eigen basis}
 %The charge operator $\hat{N}$ pursues polarization operator in our expansion model, endows coupling effect between local system and bath system. Exploiting local basis from previous procedure, We can write $\hat{N}$ in aspect of local system view. [bullshit\dots]
-
 \subsubsection*{3-level case}
 Now, we can span the charge operator in eigenvectors of $H_{\text{loc even}}$ and $H_{\text{loc odd}}$. In 2-level case, we can use total lowest three states as basis vector,
 \begin{flalign}
@@ -388,15 +386,14 @@ Therefore, when the entire $\cos{\phi}$ is expressed in matrix form, it takes th
     \end{flalign}
 \end{spacing}
 \pagebreak
-
-
 \subsection{Diagrammatic method}
 \subsubsection*{Field operator and Green's function}
 \begin{spacing}{1.5}
-	In this chapter, we will briefly summarize the theoretical framework of the Green’s function method, and pseudo-particle solvers, such as non-crossing approximation (NCA). 
-The detailed mathmatical derivation will treated on appendix.
-
-In quantum many-body theory, the physical system is depicted over the frame of the fermionic(bosonic) creation and annihilation operator, and $\hat{a}(\hat{a}^\dagger)$ as an annihilation(creation) operator, it satisfies the following commutation relations:
+In this chapter, we will briefly summarize the theoretical framework of the Green’s function method, 
+  and pseudo-particle solvers, such as non-crossing approximation (NCA). 
+In quantum many-body theory, the physical system is depicted over the frame of the fermionic(bosonic) 
+creation and annihilation operator, and $\hat{a}(\hat{a}^\dagger)$ as an annihilation(creation) operator, 
+it satisfies the following commutation relations:
 \begin{flalign}
   \begin{split}
 [\hat{a_i},\hat{a_j}] &= \{\hat{a_i},\hat{a_j}\} = 0 \\ 
@@ -504,7 +501,7 @@ A more detailed discussion will be treated in the Appendix.
 \pagebreak
 \subsubsection*{Diagrammatic Hybridization expansion in strong coupling case}
 In this section, we will introduce the hybridization method based on the former discussion. 
-The basic notation and mathematical structure follow the reference[].
+The basic notation and mathematical structure follow the reference[4,5].
 The Hamiltonian system can be divided into three parts as a general case of the time-dependent impurity model with a bosonic bath:
 \begin{flalign}
   \begin{split}
@@ -653,7 +650,7 @@ Which corresponding topological diagram is:
   \centerline{\includegraphics[width=5cm]{TexFigure/TOA_tmat.png}}
   \centerline{\includegraphics[width=12cm]{TexFigure/Tmat_diagram.png}}
   \centerline{\includegraphics[width=12cm]{TexFigure/Chi_with_Tmat.png}}
-  \caption{Specific diagram for T matrix\cite{PhysRevB.106.085124}}
+  \caption{Specific diagram for T matrix[4].}
 \end{figure}
 \end{spacing}
 \pagebreak

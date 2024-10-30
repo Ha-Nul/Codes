@@ -193,6 +193,9 @@ INPUT G:\Install_Program\MikTex\tex\latex\l3backend\l3backend-pdftex.def
 INPUT G:\Install_Program\MikTex\tex\latex\l3backend\l3backend-pdftex.def
 INPUT G:\Install_Program\MikTex\tex\latex\l3backend\l3backend-pdftex.def
 INPUT G:\Install_Program\MikTex\tex\latex\l3backend\l3backend-pdftex.def
+INPUT .\2024-10-12 Thesis_list.aux
+INPUT 2024-10-12 Thesis_list.aux
+INPUT 2024-10-12 Thesis_list.aux
 OUTPUT 2024-10-12 Thesis_list.aux
 INPUT G:\Install_Program\MikTex\tex\latex\nanumtype1\lucnanummj.fd
 INPUT G:\Install_Program\MikTex\tex\latex\nanumtype1\lucnanummj.fd
@@ -219,9 +222,15 @@ INPUT G:\Install_Program\MikTex\fonts\tfm\public\nanumtype1\nanummjmob8.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\nanumtype1\nanummjmbb.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\nanumtype1\nanummjmc7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\nanumtype1\nanummjmc0.tfm
+INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ts1qtm.fd
+INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ts1qtm.fd
+INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ts1qtm.fd
+INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ts1qtm.fd
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
 OUTPUT 2024-10-12 Thesis_list.pdf
 INPUT C:\Users\128kbps\AppData\Local\MiKTeX\pdftex\config\pdftex.map
 INPUT 2024-10-12 Thesis_list.aux
+INPUT G:\Install_Program\MikTex\fonts\enc\dvips\tex-gyre\q-ts1.enc
 INPUT G:\Install_Program\MikTex\fonts\enc\dvips\tex-gyre\q-rm.enc
 INPUT G:\Install_Program\MikTex\fonts\type1\public\nanumtype1\nanummjmac.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\nanumtype1\nanummjmac.pfb
