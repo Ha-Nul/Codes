@@ -231,7 +231,8 @@ upon $\mathcal{O}(n^n)$ This can be simply represented as follows:
 \end{flalign}
 If the part corresponding to $\hat{\mathcal{G}}*\hat{N}*\hat{\mathcal{G}}*\hat{\lambda}_1$ is pre-computed and stored in matrix form for later use in the calculation, the eight matrix multiplications are reduced to a single matrix multiplication.
 \begin{flalign}
-\hat{T}_{chi} =\hat{\mathcal{G}}_{i'}*\hat{N}*\hat{\mathcal{G}}_{j'}*\hat{\lambda}_1\\ \chi_{sp} = \text{Tr}( \hat{T}_{chi} * \hat{T}_{chi}')
+\hat{T}_{chi} =\hat{\mathcal{G}}_{i'}*\hat{N}*\hat{\mathcal{G}}_{j'}*\hat{\lambda}_1\\ 
+\chi_{sp} = V_{\text{index}}\text{Tr}( \hat{T}_{chi} * \hat{T}_{chi}')
 \end{flalign}
 \subsubsection*{$\chi_{sp}$ T-matrix $\hat{T}_{chi}$ : k=3 case}
 The code for the general formula to calculate  $\chi_{sp}$ before introducing the T-matrix is as follows:

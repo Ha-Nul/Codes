@@ -103,7 +103,7 @@ corresponding Lagrangian is :
 \mathcal{L} &=\frac{1}{2}\phi^TA\phi +\phi\cdot J \\ &=\frac{1}{2}(-\phi^T \partial_t^2\phi + \phi^T \nabla^2\phi - m^2\phi) + J\phi
   \end{split}
 \end{flalign}
-Here, $A$ is a form of diagonal matrix and $J$ corresponds to the potential of the target system we want to describe. Consider only time in 4-vector notation, and use the above notation, we can write partition function in following:
+Here, $A$ is a form of diagonal matrix and $J$ represents to the potential of the system we want to describe. Consider only time in 4-vector notation, and use the above notation, we can write partition function in following:
 \begin{flalign}
 Z[J]=\int[D\phi]e^{\int d\phi [\frac{1}{2}\partial^2_\tau\phi - m^2\phi^2]+J\cdot\phi}
 \end{flalign}
@@ -111,9 +111,9 @@ Which is, in short way:
 \begin{flalign}
 Z[J]=Z[0]W[J]
 \end{flalign}
-A similar form to the above can be found in equations (2.40), (2.41), and (2.58) which are presented in the main text. 
+A similar form to the above can be found in equations (2.40), (2.41) which are presented in the main text. 
 Here $W[J]=e^{\frac{1}{2}J_iA^{-1}_{ij}J_j}$ , $Z[0] = \big(\frac{(2\pi i)^N}{\text{det}A}\big)^{\frac{1}{2}}$ . 
-The sub indice $i,j$ means $i$th and $j$th element of $J(\phi)$. Note the indices refer to Minkowski space, thus encompassing not only spatial coordinates but also temporal indices.
+The sub indices $i,j$ means $i$th and $j$th element of $J(\phi)$. Note the indices refer to Minkowski space, thus encompassing not only spatial coordinates but also temporal indices.
 we can recognize that :
 \begin{flalign}
 \langle \phi^{2n} \rangle = \frac{\int [D\phi] \phi^{2n} e^{\frac{1}{2} \phi^i A_{ij} \phi^j + J\cdot \phi}}{Z[0]} = \frac{\Pi_{i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_j}\int[D\phi]e^{-\frac{1}{2}(J_{ij}A_{ij}J_{j})}}{Z[0]}= \Pi_{i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_i}\frac{ \mathcal{\delta}}{\mathcal{\delta}J_j} \ln{Z[J]}
