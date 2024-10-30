@@ -37,7 +37,7 @@
     showtabs=false,                  
     tabsize=2
 }
-\setcounter{page}{20}
+\setcounter{page}{21}
 \setcounter{figure}{8}
 \setcounter{table}{1}
 \setcounter{section}{2}
@@ -227,9 +227,9 @@ and then use the values from the matrix elements as needed during the self-energ
 In the case of OCA, a total of 8 matrix multiplications are required, where total calculation trial is
 upon $\mathcal{O}(n^n)$ This can be simply represented as follows:
 \begin{flalign}
-\chi_{sp} = V_{mn}\text{Tr}(\hat{\mathcal{G}}_{k-m-1}*\hat{N}*\hat{\mathcal{G}}_{m-i}*\hat{\lambda}_1*\hat{\mathcal{G}}_{i-n}*\hat{N}*\hat{\mathcal{G}}_{n}*\hat{\lambda}_1)
+\chi_{sp} = V_{m-n}\text{Tr}(\hat{\mathcal{G}}_{k-m-1}*\hat{N}*\hat{\mathcal{G}}_{m-i}*\hat{\lambda}_1*\hat{\mathcal{G}}_{i-n}*\hat{N}*\hat{\mathcal{G}}_{n}*\hat{\lambda}_1)
 \end{flalign}
-If the part corresponding to $\hat{N} * \hat{\mathcal{G}_i}*\hat{N}*\hat{\mathcal{G}_j}*\hat{\lambda}_1$ is pre-computed and stored in matrix form for later use in the calculation, the eight matrix multiplications are reduced to a single matrix multiplication.
+If the part corresponding to $\hat{\mathcal{G}}*\hat{N}*\hat{\mathcal{G}}*\hat{\lambda}_1$ is pre-computed and stored in matrix form for later use in the calculation, the eight matrix multiplications are reduced to a single matrix multiplication.
 \begin{flalign}
 \hat{T}_{chi} =\hat{\mathcal{G}}_{i'}*\hat{N}*\hat{\mathcal{G}}_{j'}*\hat{\lambda}_1\\ \chi_{sp} = \text{Tr}( \hat{T}_{chi} * \hat{T}_{chi}')
 \end{flalign}

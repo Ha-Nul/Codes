@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  30 OCT 2024 19:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  30 OCT 2024 21:53
 entering extended mode
 **e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/thesis_rev_0.tex
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/thesis_rev_0.tex
@@ -386,40 +386,41 @@ Package pdftex.def Info: TexFigure/Diagram_arrow.PNG  used on input line 453.
 <TexFigure/Dyson_eq.PNG, id=68, 1608.0075pt x 240.14719pt>
 File: TexFigure/Dyson_eq.PNG Graphic file (type png)
 <use TexFigure/Dyson_eq.PNG>
-Package pdftex.def Info: TexFigure/Dyson_eq.PNG  used on input line 596.
+Package pdftex.def Info: TexFigure/Dyson_eq.PNG  used on input line 590.
 (pdftex.def)             Requested size: 369.88582pt x 55.24pt.
 <TexFigure/NCA_self.PNG, id=69, 764.529pt x 411.501pt>
 File: TexFigure/NCA_self.PNG Graphic file (type png)
 <use TexFigure/NCA_self.PNG>
-Package pdftex.def Info: TexFigure/NCA_self.PNG  used on input line 607.
+Package pdftex.def Info: TexFigure/NCA_self.PNG  used on input line 602.
 (pdftex.def)             Requested size: 227.62204pt x 122.51569pt.
 <TexFigure/OCA_self.PNG, id=70, 1006.305pt x 449.169pt>
 File: TexFigure/OCA_self.PNG Graphic file (type png)
 <use TexFigure/OCA_self.PNG>
-Package pdftex.def Info: TexFigure/OCA_self.PNG  used on input line 608.
+Package pdftex.def Info: TexFigure/OCA_self.PNG  used on input line 603.
 (pdftex.def)             Requested size: 341.43306pt x 152.40016pt.
-<TexFigure/TOA_se.png, id=71, 927.246pt x 280.539pt>
+ [14 <./TexFigure/Dyson_eq.PNG>]
+<TexFigure/TOA_se.png, id=75, 927.246pt x 280.539pt>
 File: TexFigure/TOA_se.png Graphic file (type png)
 <use TexFigure/TOA_se.png>
-Package pdftex.def Info: TexFigure/TOA_se.png  used on input line 612.
+Package pdftex.def Info: TexFigure/TOA_se.png  used on input line 607.
 (pdftex.def)             Requested size: 341.43306pt x 103.30124pt.
-<TexFigure/TOA_tmat.png, id=72, 850.596pt x 449.169pt>
+<TexFigure/TOA_tmat.png, id=76, 850.596pt x 449.169pt>
 File: TexFigure/TOA_tmat.png Graphic file (type png)
 <use TexFigure/TOA_tmat.png>
-Package pdftex.def Info: TexFigure/TOA_tmat.png  used on input line 613.
+Package pdftex.def Info: TexFigure/TOA_tmat.png  used on input line 608.
 (pdftex.def)             Requested size: 341.43306pt x 180.29495pt.
- [14 <./TexFigure/Dyson_eq.PNG>] [15 <./TexFigure/NCA_self.PNG> <./TexFigure/OCA_self.PNG> <./TexFigure/TOA_se.png> <./TexFigure/TOA_tmat.png>]
+ [15 <./TexFigure/NCA_self.PNG> <./TexFigure/OCA_self.PNG> <./TexFigure/TOA_se.png> <./TexFigure/TOA_tmat.png>]
 <TexFigure/Tmat_diagram.png, id=84, 835.047pt x 280.539pt>
 File: TexFigure/Tmat_diagram.png Graphic file (type png)
 <use TexFigure/Tmat_diagram.png>
-Package pdftex.def Info: TexFigure/Tmat_diagram.png  used on input line 639.
+Package pdftex.def Info: TexFigure/Tmat_diagram.png  used on input line 634.
 (pdftex.def)             Requested size: 341.43306pt x 114.70496pt.
 <TexFigure/Chi_with_Tmat.png, id=85, 856.728pt x 104.682pt>
 File: TexFigure/Chi_with_Tmat.png Graphic file (type png)
 <use TexFigure/Chi_with_Tmat.png>
-Package pdftex.def Info: TexFigure/Chi_with_Tmat.png  used on input line 640.
+Package pdftex.def Info: TexFigure/Chi_with_Tmat.png  used on input line 635.
 (pdftex.def)             Requested size: 341.43306pt x 41.7187pt.
- [16 <./TexFigure/Tmat_diagram.png> <./TexFigure/Chi_with_Tmat.png>] [17] [18] [19] (thesis_rev_0.aux)
+ [16 <./TexFigure/Tmat_diagram.png> <./TexFigure/Chi_with_Tmat.png>] [17] [18] [19] [20] (thesis_rev_0.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -433,9 +434,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  71i,24n,81p,1000b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmri.pfb>
-Output written on thesis_rev_0.pdf (19 pages, 1960462 bytes).
+Output written on thesis_rev_0.pdf (20 pages, 1962116 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
+ 171 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

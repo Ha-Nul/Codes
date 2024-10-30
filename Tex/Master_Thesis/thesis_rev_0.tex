@@ -528,13 +528,7 @@ And in the given frame, the expectation value of observable $O$ can be measured 
 \langle T_\tau O(\tau)\rangle = \frac{\text{tr}[T_{\tau}e^{-S} O(\tau)]}{\text{tr[}T_{\tau}e^{-S}]}
 \end{split}
 \end{flalign}
-Which has a similiar form of the full Green’s function. Similiar with it’s diagrammatic expansion, the partition function can be expanded to 
-\begin{flalign}
-  \begin{split}
-Z=\sum^{\infty}_{n=0}Z^{(n)}
-\end{split}
-\end{flalign}
-With it’s full expression, 
+Which has a similiar form of the full Green’s function. The partition function can be expanded to it’s full expression, 
 \begin{flalign}
   \begin{split}
 Z=&\sum_{n=0}^\infty \frac{(-1)^n}{n!} \sum_{\pi \in S_{2n}}\int^\beta_0d\tau_1\int^{\tau_1}_0 d\tau_2 \cdots\int^{\tau_{2n-1}}_0 d\tau_{2n}\text{tr}\bigg[U(\beta-\tau_1)PU(\tau_1-\tau_2)P\cdots P U(\tau_{2n})\bigg] \\
@@ -603,6 +597,7 @@ This form of equation satisfies the integral-differential form, agrees with the 
 [-\partial_{\tau}-H_{\text{loc}}+\lambda]\mathcal{G}(\tau)-\int^\tau_0 d\tau_1\Sigma(\tau-\tau_1)\mathcal{G}(\tau_1) = 0 \quad, \quad(\tau>0)
 \end{split}
 \end{flalign}
+\pagebreak
 \begin{figure}[H]
   \centerline{\includegraphics[width=8cm]{TexFigure/NCA_self.PNG}}
   \centerline{\includegraphics[width=12cm]{TexFigure/OCA_self.PNG}}
@@ -617,8 +612,8 @@ This form of equation satisfies the integral-differential form, agrees with the 
 The Correlation function for green’s function is defined as follows:
 \begin{flalign}
   \begin{split}
-\chi_{sp}(\tau)=\frac{1}{Z}\text{Tr}[e^{-S}P(\tau)P(0)] \\
-=\text{Tr}[\mathcal{G}(\beta-\tau)P\mathcal{G}(\tau)P] + \text{Tr}[\tilde{T}(\beta,\tau)P]
+\chi_{sp}(\tau) &=\frac{1}{Z}\text{Tr}[e^{-S}P(\tau)P(0)] \\
+&=\text{Tr}[\mathcal{G}(\beta-\tau)P\mathcal{G}(\tau)P] + \text{Tr}[\tilde{T}(\beta,\tau)P]
   \end{split}
 \end{flalign}
 where $S$ is a action of system. The notation $\tilde{T}$ indicates:
@@ -666,7 +661,9 @@ g_k &\rightarrow V_{m,n}\\
 \hat{b}_k^\dagger (\hat{b}_k) &\rightarrow \hat{b}_n^\dagger (\hat{b}_n)
 \end{split}
 \end{flalign}
-Using the relations, we can calculate the system’s partition function as we dealt with in the eqn(2.44). 
+Using the relations, we can calculate the system’s partition function as we dealt with in the eqn(2.44).
+Notice that instead of the fermion operator $\hat{c}^\dagger (\hat{c})$, 
+the operator $\hat{N}$ is written in the vector space spanned through the eigenstates of the Josephson junction. 
 \subsubsection*{Calculation of bosonic action}
 To focus our attention on the local system where we are interested, we calculate the expectation value of partition function in the aspects of the bath, which eliminates the effects of the bath by evaluating the system dynamics in bath points of view:
 \begin{flalign}
@@ -763,6 +760,31 @@ In which we can rewrite as the form of:
 V_k(\tau)= e^{-\omega_k\tau} \frac{\cosh{\frac{\omega_k}{2}}}{\sinh{\frac{\omega_k}{2}}}
 \end{split}
 \end{flalign}
-
+\subsubsection*{Calculating correlation function}
+After calculating the action in the above section and calculating the remaining terms again for the Josephson junction, 
+we can obtain terms of the form of equation (2.45). This equation represents the Josephson junction we are focusing on. 
+Using the expansion form of (2.44) and (2.46), we obtain the Dyson equation for the Josephson junction, 
+as shown in equation (2.48).\\
+Through calculating the correlation function as in equation (2.50) using the obtained form, 
+we additionally introduced an operator $\lambda_1$ defined as follows:
+\begin{flalign}
+\begin{split}
+  \lambda_1 = 
+  \begin{pmatrix}
+    0 & 1 & 0 \\
+    1 & 0 & 1 \\
+    0 & 0 & 0
+  \end{pmatrix}
+\end{split}
+\end{flalign}
+This operator was introduced to investigate the degree of mixing between the ground state and the first excited state among the energy states of the junction. 
+By applying operator, the final expression for calculating the correlation function in the RSJJ Hamiltonian model can be written as follows:
+\begin{flalign}
+  \begin{split}
+    \chi_{sp}(\tau) &=\text{Tr}[\mathcal{G}(\beta-\tau)\lambda_1\mathcal{G}(\tau)\lambda_1] \\
+                    & + \int\int \text{Tr}[V(\tau_2-\tau_1)\mathcal{G}(\beta-\tau_1)\hat{N}\mathcal{G}(\tau_1-\tau_2)\lambda_1\mathcal{G}(\tau_2 - \tau)\hat{N}\mathcal{G}(\tau)\lambda_1]\\
+                    & + \cdots
+  \end{split}
+\end{flalign}
 \end{spacing}
 \end{document}

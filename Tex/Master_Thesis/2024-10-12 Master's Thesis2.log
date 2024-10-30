@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  30 OCT 2024 18:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  30 OCT 2024 21:54
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex
@@ -255,8 +255,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 58.
  (G:\Install_Program\MikTex\tex/latex/tex-gyre\ot1qtm.fd
 File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
-)
-No file "2024-10-12 Master's Thesis2".aux.
+) (2024-10-12 Master's Thesis2.aux)
 \openout1 = `"2024-10-12 Master's Thesis2.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
@@ -273,7 +272,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
-(G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
+ (G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count288
 \scratchdimen=\dimen185
@@ -343,7 +342,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [28
+) [29
 
 {C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
 <TexFigure/kps_singlebath.png, id=9, 1465.475pt x 803.0pt>
@@ -388,7 +387,7 @@ l.106 ...τ grid used for the calculation is 701.}
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[29 <./TexFigure/kps_singlebath.png> <./TexFigure/bench_single_two.png>]
+[30 <./TexFigure/kps_singlebath.png> <./TexFigure/bench_single_two.png>]
 
 e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:109: Package inputenc Error: Unicode character α (U+03B1)
 (inputenc)                not set up for use with LaTeX.
@@ -407,7 +406,7 @@ File: TexFigure/Dens_comp.png Graphic file (type png)
 <use TexFigure/Dens_comp.png>
 Package pdftex.def Info: TexFigure/Dens_comp.png  used on input line 113.
 (pdftex.def)             Requested size: 426.79134pt x 171.98988pt.
-[30 <./TexFigure/Multi_bench.png> <./TexFigure/Dens_comp.png>]
+[31 <./TexFigure/Multi_bench.png> <./TexFigure/Dens_comp.png>]
 <TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png, id=29, 570.2103pt x 469.0323pt>
 File: TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png Graphic file (type png)
 <use TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png>
@@ -418,9 +417,9 @@ File: TexFigure/Sizediff.png Graphic file (type png)
 <use TexFigure/Sizediff.png>
 Package pdftex.def Info: TexFigure/Sizediff.png  used on input line 167.
 (pdftex.def)             Requested size: 426.79134pt x 176.84085pt.
- [31 <./TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png>] [32 <./TexFigure/Sizediff.png>]
+ [32 <./TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png>] [33 <./TexFigure/Sizediff.png>]
 
-LaTeX Warning: Reference `fig:Order1' on page 33 undefined on input line 173.
+LaTeX Warning: Reference `fig:Order1' on page 34 undefined on input line 173.
 
 
 e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:174: Package inputenc Error: Unicode character − (U+2212)
@@ -453,11 +452,11 @@ File: TexFigure/Expec_alp_0.1 (1).png Graphic file (type png)
 <use TexFigure/Expec_alp_0.1 (1).png>
 Package pdftex.def Info: TexFigure/Expec_alp_0.1 (1).png  used on input line 180.
 (pdftex.def)             Requested size: 284.52756pt x 213.14534pt.
-<TexFigure/Order_color.png, id=40, 819.936pt x 284.481pt>
+<TexFigure/Order_color.png, id=40, 819.06pt x 284.481pt>
 File: TexFigure/Order_color.png Graphic file (type png)
 <use TexFigure/Order_color.png>
 Package pdftex.def Info: TexFigure/Order_color.png  used on input line 185.
-(pdftex.def)             Requested size: 455.24408pt x 157.95393pt.
+(pdftex.def)             Requested size: 455.24408pt x 158.12321pt.
 <TexFigure/Matele_Ns3_alp0.png, id=41, 5600.925pt x 1594.95876pt>
 File: TexFigure/Matele_Ns3_alp0.png Graphic file (type png)
 <use TexFigure/Matele_Ns3_alp0.png>
@@ -473,7 +472,7 @@ File: TexFigure/Matele_Ns3_alp1.png Graphic file (type png)
 <use TexFigure/Matele_Ns3_alp1.png>
 Package pdftex.def Info: TexFigure/Matele_Ns3_alp1.png  used on input line 192.
 (pdftex.def)             Requested size: 483.69684pt x 133.38988pt.
-[33 <./TexFigure/Expec_alp_0.1 (1).png> <./TexFigure/Order_color.png>]
+[34 <./TexFigure/Expec_alp_0.1 (1).png> <./TexFigure/Order_color.png>]
 <TexFigure/3dplot_Ns3_proj_n (2).png, id=52, 3256.165pt x 2607.7425pt>
 File: TexFigure/3dplot_Ns3_proj_n (2).png Graphic file (type png)
 <use TexFigure/3dplot_Ns3_proj_n (2).png>
@@ -494,7 +493,7 @@ File: TexFigure/swap_fig.png Graphic file (type png)
 <use TexFigure/swap_fig.png>
 Package pdftex.def Info: TexFigure/swap_fig.png  used on input line 210.
 (pdftex.def)             Requested size: 426.79134pt x 164.1211pt.
- [34 <./TexFigure/Matele_Ns3_alp0.png> <./TexFigure/Matele_Ns3_alp0_1.png> <./TexFigure/Matele_Ns3_alp1.png>] [35 <./TexFigure/3dplot_Ns3_proj_n (2).png> <./TexFigure/3dplot_COMP3_proj_n (2).png>] [36 <./TexFigure/3dplot_Ns3_proj_n (0).png> <./TexFigure/swap_fig.png>]
+ [35 <./TexFigure/Matele_Ns3_alp0.png> <./TexFigure/Matele_Ns3_alp0_1.png> <./TexFigure/Matele_Ns3_alp1.png>] [36 <./TexFigure/3dplot_Ns3_proj_n (2).png> <./TexFigure/3dplot_COMP3_proj_n (2).png>] [37 <./TexFigure/3dplot_Ns3_proj_n (0).png> <./TexFigure/swap_fig.png>]
 <TexFigure/chi_gam_swp.png, id=73, 794.313pt x 199.071pt>
 File: TexFigure/chi_gam_swp.png Graphic file (type png)
 <use TexFigure/chi_gam_swp.png>
@@ -505,13 +504,13 @@ File: TexFigure/chi_alp_swp.png Graphic file (type png)
 <use TexFigure/chi_alp_swp.png>
 Package pdftex.def Info: TexFigure/chi_alp_swp.png  used on input line 228.
 (pdftex.def)             Requested size: 455.24408pt x 114.5361pt.
- [37 <./TexFigure/chi_gam_swp.png> <./TexFigure/chi_alp_swp.png>]
-<TexFigure/chi_color.png, id=81, 987.033pt x 341.421pt>
+ [38 <./TexFigure/chi_gam_swp.png> <./TexFigure/chi_alp_swp.png>]
+<TexFigure/chi_color.png, id=81, 986.157pt x 341.421pt>
 File: TexFigure/chi_color.png Graphic file (type png)
 <use TexFigure/chi_color.png>
 Package pdftex.def Info: TexFigure/chi_color.png  used on input line 238.
-(pdftex.def)             Requested size: 455.24408pt x 157.47232pt.
- [38 <./TexFigure/chi_color.png>]
+(pdftex.def)             Requested size: 455.24408pt x 157.61299pt.
+ [39 <./TexFigure/chi_color.png>]
 
 e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:250: Package inputenc Error: Unicode character τ (U+03C4)
 (inputenc)                not set up for use with LaTeX.
@@ -530,7 +529,7 @@ File: TexFigure/output.png Graphic file (type png)
 <use TexFigure/output.png>
 Package pdftex.def Info: TexFigure/output.png  used on input line 292.
 (pdftex.def)             Requested size: 341.43306pt x 304.92331pt.
-[39]
+[40]
 <TexFigure/NCA_crit-7.pdf, id=90, 497.21759pt x 448.79669pt>
 File: TexFigure/NCA_crit-7.pdf Graphic file (type pdf)
 <use TexFigure/NCA_crit-7.pdf>
@@ -541,7 +540,7 @@ File: TexFigure/OCA_crit-7.pdf Graphic file (type pdf)
 <use TexFigure/OCA_crit-7.pdf>
 Package pdftex.def Info: TexFigure/OCA_crit-7.pdf  used on input line 300.
 (pdftex.def)             Requested size: 341.43306pt x 308.1977pt.
- [40 <./TexFigure/output.png>] [41 <./TexFigure/NCA_crit-7.pdf> <./TexFigure/OCA_crit-7.pdf>] (2024-10-12 Master's Thesis2.aux)
+ [41 <./TexFigure/output.png>] [42 <./TexFigure/NCA_crit-7.pdf> <./TexFigure/OCA_crit-7.pdf>] (2024-10-12 Master's Thesis2.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -550,15 +549,15 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 7763 strings out of 478927
- 115698 string characters out of 2861478
- 424722 words of memory out of 3000000
- 25487 multiletter control sequences out of 15000+600000
+ 7766 strings out of 478927
+ 115865 string characters out of 2861478
+ 424713 words of memory out of 3000000
+ 25488 multiletter control sequences out of 15000+600000
  430512 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,10n,81p,640b,450s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi6.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr6.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
-Output written on "2024-10-12 Master's Thesis2.pdf" (14 pages, 10426252 bytes).
+Output written on "2024-10-12 Master's Thesis2.pdf" (14 pages, 9444997 bytes).
 PDF statistics:
  163 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
