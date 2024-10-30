@@ -250,17 +250,21 @@ for (int i=0; i<k; i++)
 In the above equation, for the case of k=3, the number of calculation cases according to n, m, and i is as follows:
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=12cm]{TexFigure/Tmat.png}}
-  \caption{Possible calculation cases in k=3}
+  \caption{Considering the case of K=3, where the total indices to be calculated are $[0, 1, 2]$ 
+  -in the code, K matches the number of grids in $\tau$ grid, the total possible calculation order is as shown on the right. 
+  For example, in the first line, the calculation proceeds in the order of $\mathcal{G}[2]\hat{N}\mathcal{G}[0]\lambda_1\mathcal{G}[0]\hat{N}\mathcal{G}[0]\lambda_1$. 
+  When examining the listed order on the right, we can see that the order of repeated numbers is listed, 
+  which is the same as the number of cases where two numbers are selected and arranged from $[0, 1, 2]$.}
 \end{figure}
 Here, we can see that the total number of calculation cases can be represented by selecting and arranging two numbers from the three numbers 2, 1, and 0. To achieve this, we can introduce the following matrix:
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=9cm]{TexFigure/Tmat2.png}}
-  \caption{The Structure of correlation-matrix}
+  \caption{Therefore, a matrix to store the calculation cases corresponding to the number of ways to choose two numbers from [0, 1, 2] is created as follows.}
 \end{figure}
 For example, if we want to represent all the possible cases as shown above, using the matrix above and calculating as below, we obtain all possible calculation cases.
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=12cm]{TexFigure/Tmat3.png}}
-  \caption{Calculation using correlation-matrix}
+  \caption{With the introduction of the above matrix, the overall calculation cases can be expressed in all forms through matrix multiplication.}
 \end{figure}
 
 \pagebreak
