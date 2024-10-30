@@ -489,7 +489,7 @@ If the interaction hamiltonian is in the form of multiplication of pair of
 annihilation-creation operator $\hat{a}^\dagger$ and $\hat{a}$ , 
 we can adjust Wick’s theorem to expand the each of the expectation value in 
 denominator and numerator into a multiplication of Green’s functions in each time interval.
-A brief discussion for Wick's theorem will be treated in the Appendix.
+A brief discussion for Wick's theorem will be introduced in the Appendix.
 \pagebreak
 \subsubsection*{Diagrammatic Hybridization expansion in strong coupling case}
 In this section, we will introduce the hybridization method based on the former discussion. 
@@ -507,15 +507,15 @@ H(t) = H_{loc}(t) + \underbrace{\sum_n \epsilon_n \hat{b}^\dagger_n}_\text{bath}
 \end{split}
 \end{flalign}
 The operator $\hat{b} (\hat{b}^\dagger)$  indicates bosonic annihilation(creation) operator, $\hat{c}(\hat{c}^\dagger)$ is fermionic annihilation(creation) operator. 
-What we need to focus on is that applying Wick’s theorem isn’t available due to the interaction term, 
-which does not pair the same field operator. Based on this structure, the hybridization expansion method was constructed. 
+Based on this structure, the expansion method was constructed. 
 Continue, from the Hamiltonian, the action of the full system can be written into :
 \begin{flalign}
   \begin{split}
 S = \int^\beta_0 d\tau H_{\text{loc}}(\tau) + \int^\beta_0 d\tau d\tau' P(\tau)\mathcal{W}(\tau-\tau')P(\tau')
 \end{split}
 \end{flalign}
-Here, $H_{\text{loc}}$is the Hamiltonian of the local system, indicating the impurity that we want to focus on. The terms $P$ and $\mathcal{W}$ correspond with the Hermitian operator and the interaction term can be assumed as $\mathcal{W}$ in the previous section.  As we treat the interaction Hamiltonian in the previous section, the term $\mathcal{W}$ includes the scalar factor to represent the effect of the bosonic bath. 
+Here, $H_{\text{loc}}$is the Hamiltonian of the local system, indicating the impurity that we want to focus on. The terms $P$ and $\mathcal{W}$ correspond with the Hermitian operator and the interaction term.
+While considering the interaction process, the term $\mathcal{W}$ includes the scalar factor to represent the effect of the bosonic bath. 
 With similar procedure with the diagram expansion, We can calculate the expectation value of observable using the partition function $Z$,
 \begin{flalign}
   \begin{split}
@@ -541,16 +541,13 @@ Z=&\sum_{n=0}^\infty \frac{(-1)^n}{n!} \sum_{\pi \in S_{2n}}\int^\beta_0d\tau_1\
 &\times\mathcal{W}(\tau_{\pi(1)}-\tau_{\pi(2)})\cdots\mathcal{W}(\tau_{\pi(2n-1)}-\tau_{\pi(2n)})
 \end{split}
 \end{flalign}
-Here, $\pi(m)$  refers that there are permutations and $S_{2n}$ is a set of available permutations for time ordering. The main Idea of the expansion is, that we only consider the certain “partial set” of full permutation, which corresponds with the non-crossing or crossing connected diagrams. Define the new $\bar{\mathcal{W}}$ function, 
+Here, $\pi(m)$  refers that there are permutations and $S_{2n}$ is a set of available permutations for time ordering. 
+The main Idea of the expansion is, that we only consider the certain “partial set” of full permutation,
+ which corresponds with the non-crossing or crossing connected diagrams. 
+ By redefining the $\bar{\mathcal{W}}$ function, we can satisfy specific permutation conditions.
 \begin{flalign}
   \begin{split}
 \bar{\mathcal{W}} = (\mathcal{W}(\tau) + \mathcal{W}(-\tau))
-\end{split}
-\end{flalign}
-And consider the permutation which only restricted on the case of ,
-\begin{flalign}
-  \begin{split}
-\pi(2j-1) < \pi(2j)
 \end{split}
 \end{flalign}
 We can consider the normalization of the partition function using the chemical potential $\lambda$ in a grand canonical ensemble. With the normalization and the above two rules, we can construct the new formula about the expansion of the partition function, which can be rewritten as :
@@ -588,7 +585,7 @@ Adopting the self-energy in normalized Partition function, we can gain the equat
 &+ \int^{\beta}_0d\tau_1\int^{\tau_1}_0d\tau_2\int^{\tau_2}_0d\tau_3\int^{\tau_3}_0d\tau_4 \mathcal{G}_{i}(\beta-\tau_1)\Sigma(\tau_1-\tau_2)\mathcal{G}_{i}(\tau_2-\tau_3)\Sigma(\tau_3-\tau_4)\mathcal{G}_{i} + ...
 \end{split}
 \end{flalign}
-This form of Dyson equation can be represented into diagram structure. If we define full $\mathcal{G}$ as :
+This result takes the form of Dyson's equation in quantum mechanics, which can be represented in the diagram structure. If we define full $\mathcal{G}$ as :
 \begin{flalign}
   \begin{split}
 \mathcal{G} = \langle\psi_a(\tau)\psi_b^\dagger(\tau')\rangle = \text{Tr}[e^{\beta H}\psi_a(\tau)\psi_b^\dagger(\tau')]
@@ -731,7 +728,7 @@ Before applying Wick’s theorem to a given equation, notice that there are natu
 \end{flalign}
 Which is full bosonic term turn out to sum of multiplication of single bosonic Green’s function.
 It is known that when the ensemble Hamiltonian, aimed at observing a certain physical quantity, takes the form of a harmonic oscillator, 
-it can be expressed as $\hat{a}^\dagger(\tau) = e^{E\tau} , \hat{a}(\tau) = e^{-E\tau}\hat{a}$  where $E$ is a eigenvalue of Hamiltonian. 
+it can be expressed as $\hat{a}^\dagger(\tau) = e^{E\tau} , \hat{a}(\tau) = e^{-E\tau}\hat{a}$  where $E$ is a eigenvalue of Hamiltonian.[7] 
 Using this formula, each single Green’s function can be calculated as:
 \begin{flalign}
   \begin{split}
