@@ -88,40 +88,8 @@ The precise nature of this transition is to be addressed through the analysis of
   \caption{Zero temperature phase diagram with reentrant phase transition[2]}
   \label{fig:reentrant}
 \end{figure}
-
-
-%\subsection{Previous study}
-% Based on previous research, we’ll investigate this structure in a finite-temperature scheme. We construct the RSJJ Hamiltonian as a pseudo particle impurity model, which is described by the action of system $S$ separated into two parts: for local system $S_{loc}$ and for interaction $S_{int}$, 
-%\begin{flalign}
-%  \begin{split}
-%S = S_{loc} + S_{int}  
-%\end{split}
-%\end{flalign}
-
-%which is hard to achieve in an experimental approach.
-
-%using Matsubara Green’s function. 
-%
-%In our model, $S_{loc}$ will be correspond to the dynamics of Josephson junction, and $S_{int}$ will represents the interaction of Josephson junction and the RC resonator.
-
-%The study of the correlation between the particle-like systems in a many-body framework can predict a wide range of novel phenomena in condensed matter physics, especially in the aspects of phase transition. 
-%This perspective is crucial for the recent advances in quantum technologies such as quantum simulators implemented through optical lattice, superconducting circuits, and quantum materials (e.g., quantum dots).
-%
-%The Phase transition between metal and insulator is defined as a rapid transition of conductivity. In the metallic phase, inside the material structure, there are free electrons exist and make available to electric current flows throughout the material, in the insulating phase the electrons are bonded tightly with atoms which hinders the flow of electric current.Several theories have been developed to describe this phase transition phenomenon. In the Mott transition, the change of conductivity is explained through the Coulomb interactions between the electrons. While the density of the electrons inside the material becomes saturated, the interaction effect leads to repulsion between the particles which impedes current flow. Alternatively, In Andersen's transition model, the transition between the two phases is explained from more microscopic points of view by using the concept of disorder and impurities.
-
-%\pagebreak
-%\subsection{Summary}
-%In our study, we investigate the finite-temperature behavior of the quantum phase transition reported in the RSJJ within the framework of the quantum impurity model. 
-%We establish a quantum mechanical framework based on the state vector of the macroscopic Josephson junction model. 
-%As a first step, we introduce the impurity solving method (Non-crossing approximation, One-crossing approximation, TOA) in thermally stable state with Matsubara formalism , then evaluate the evolution of correlation of energy change ratio.
-
-%\pagebreak
-%\subsection{Previous work}
-%\subsection{Our approach}
 \end{spacing}
-
 \pagebreak
-
 \section{Theoretical method}
 \begin{spacing}{1.5}
 \subsection{Circuit model}
@@ -138,7 +106,7 @@ Each component of the circuit is mapped onto each composition of the total Hamil
 The given circuit Hamiltonian form is represented as follows : 
 \begin{flalign}
   \begin{split}
-	  H_{\text{sys}} = (E_c\hat{N^2}-E_J\cos{\phi}) -\hat{N}\sum_{0<k\leq K}\hbar g_k(\hat{b}_k^\dagger + \hat{b}_k) + I \otimes \sum_{0<k\leq K}\hbar\omega_k\hat{b_k}^\dagger\hat{b_k}~,
+	  H_{\text{sys}} = (E_c\hat{N^2}-E_J\cos{\phi}) \otimes I -\hat{N} \otimes \sum_{0<k\leq K}\hbar g_k(\hat{b}_k^\dagger + \hat{b}_k) + I \otimes \sum_{0<k\leq K}\hbar\omega_k\hat{b_k}^\dagger\hat{b_k}~,
 	  \label{eqn:H_RSJJ}
 \end{split}
 \end{flalign}
@@ -491,9 +459,7 @@ we can adjust Wick’s theorem to expand the each of the expectation value in
 denominator and numerator into a multiplication of Green’s functions in each time interval.
 A brief discussion for Wick's theorem will be introduced in the Appendix.
 \pagebreak
-\subsubsection*{Diagrammatic Hybridization expansion in strong coupling case}
-In this section, we will introduce the hybridization method based on the former discussion. 
-The basic notation and mathematical structure follow the reference[4,5].
+\subsubsection*{Diagrammatic expansion in strong coupling case}
 The Hamiltonian system can be divided into three parts as a general case of the time-dependent impurity model with a bosonic bath:
 \begin{flalign}
   \begin{split}
@@ -522,63 +488,6 @@ With similar procedure with the diagram expansion, We can calculate the expectat
 Z=\text{tr}\bigg[T_{\tau}e^{-S}\bigg]
 \end{split}
 \end{flalign}
-And in the given frame, the expectation value of observable $O$ can be measured as 
-\begin{flalign}
-  \begin{split}
-\langle T_\tau O(\tau)\rangle = \frac{\text{tr}[T_{\tau}e^{-S} O(\tau)]}{\text{tr[}T_{\tau}e^{-S}]}
-\end{split}
-\end{flalign}
-Which has a similiar form of the full Green’s function. The partition function can be expanded to it’s full expression, 
-\begin{flalign}
-  \begin{split}
-Z=&\sum_{n=0}^\infty \frac{(-1)^n}{n!} \sum_{\pi \in S_{2n}}\int^\beta_0d\tau_1\int^{\tau_1}_0 d\tau_2 \cdots\int^{\tau_{2n-1}}_0 d\tau_{2n}\text{tr}\bigg[U(\beta-\tau_1)PU(\tau_1-\tau_2)P\cdots P U(\tau_{2n})\bigg] \\
-&\times\mathcal{W}(\tau_{\pi(1)}-\tau_{\pi(2)})\cdots\mathcal{W}(\tau_{\pi(2n-1)}-\tau_{\pi(2n)})
-\end{split}
-\end{flalign}
-Here, $\pi(m)$  refers that there are permutations and $S_{2n}$ is a set of available permutations for time ordering. 
-The main Idea of the expansion is, that we only consider the certain “partial set” of full permutation,
- which corresponds with the non-crossing or crossing connected diagrams. 
- By redefining the $\bar{\mathcal{W}}$ function, we can satisfy specific permutation conditions.
-\begin{flalign}
-  \begin{split}
-\bar{\mathcal{W}} = (\mathcal{W}(\tau) + \mathcal{W}(-\tau))
-\end{split}
-\end{flalign}
-We can consider the normalization of the partition function using the chemical potential $\lambda$ in a grand canonical ensemble. With the normalization and the above two rules, we can construct the new formula about the expansion of the partition function, which can be rewritten as :
-\begin{flalign}
-  \begin{split}
-\mathcal{G}(\tau) = \sum^{\infty}_{n=0} \mathcal{G}^{(n)}(\tau) = e^{\tau \lambda}Z
-\end{split}
-\end{flalign}
-which is : 
-\begin{flalign}
-  \begin{split}
-\mathcal{G}^{(0)}(\tau) &= \mathcal{G}_{0}(\tau) \\ \mathcal{G}^{(1)} (\tau) &= \int^\beta_0 d\tau_1 \int^{\tau_1}_0 d\tau_2 \bigg[  \mathcal{G}_{i}(\beta-\tau) P \mathcal{G}_{i}(\tau_1 - \tau_2) P\mathcal{G}_{i}(\tau_2)\bigg] \bar{\mathcal{W}}(\tau_1 - \tau_2)\\
-\mathcal{G}^{(2)} (\tau) &= \int^\beta_0 d\tau_1 \int^{\tau_1}_0 d\tau_2 \int^{\tau_2}_0 d\tau_3 \int^{\tau_3}_0 d\tau_4 \bigg[  \mathcal{G}_{i}(\beta-\tau) P \mathcal{G}_{i}(\tau_1 - \tau_2)P \mathcal{G}_{i}(\tau_2 - \tau_3)P \mathcal{G}_{i}(\tau_3 - \tau_4) P\mathcal{G}_{i}(\tau_4)\bigg ]\\ &\times \bigg(\bar{\mathcal{W}}(\tau_1 - \tau_2) \bar{\mathcal{W}}(\tau_3 - \tau_4) +\bar{\mathcal{W}}(\tau_1 - \tau_4) \bar{\mathcal{W}}(\tau_2 - \tau_3) +\bar{\mathcal{W}}(\tau_1 - \tau_3) \bar{\mathcal{W}}(\tau_2 - \tau_4) \bigg)
-\end{split}
-\end{flalign}
-The term $\mathcal{G}_i(\tau)$  is a matrix correspond with $U(\tau)$. We'll define the function as a hybridization function, or, interaction function as the same word. 
-During the calculation and the diagrams earned from the previous procedure, 
-We can collect the irreducible diagrams that cannot be separated into a number of single propagators. 
-These diagrams are defined self-energy, described as follows : 
-\begin{flalign}
-  \begin{split}
-\Sigma(\tau) = \sum_{n=1}^{\infty}\Sigma^{(n)}(\tau)
-\end{split}
-\end{flalign}
-and,
-\begin{flalign}
-  \begin{split}
-\Sigma^{(1)}(\tau) &= \bigg[P\mathcal{G}_{i}(\tau)P\bigg]\bar{\mathcal{W}}(\tau) \\ \Sigma^{(2)}(\tau) &= \int^\beta_0d\tau_1\int^{\tau_1}_0d\tau_2 \bigg[P\mathcal{G}_{i}(\tau-\tau_1)P\mathcal{G}_{i}(\tau_1-\tau_2)P\mathcal{G}_{i}(\tau_2)P\bigg](\bar{\mathcal{W}(\tau)}\bar{\mathcal{W}}(\tau_1-\tau_2) + \bar{\mathcal{W}}(\tau-\tau_2)\bar{\mathcal{W}}(\tau_1))
-\end{split}
-\end{flalign}
-Adopting the self-energy in normalized Partition function, we can gain the equation :
-\begin{flalign}
-  \begin{split}
-\mathcal{G} =& \mathcal{G}_{0}(\tau) + \int^\beta_0d\tau_1\int^{\tau_1}_0d\tau_2\mathcal{G}_{i}(\beta-\tau_1)\Sigma(\tau_1-\tau_2)\mathcal{G}^{(2)}(\tau_2) \\ 
-&+ \int^{\beta}_0d\tau_1\int^{\tau_1}_0d\tau_2\int^{\tau_2}_0d\tau_3\int^{\tau_3}_0d\tau_4 \mathcal{G}_{i}(\beta-\tau_1)\Sigma(\tau_1-\tau_2)\mathcal{G}_{i}(\tau_2-\tau_3)\Sigma(\tau_3-\tau_4)\mathcal{G}_{i} + ...
-\end{split}
-\end{flalign}
 This result takes the form of Dyson's equation in quantum mechanics, which can be represented in the diagram structure. If we define full $\mathcal{G}$ as :
 \begin{flalign}
   \begin{split}
@@ -590,55 +499,32 @@ Then the diagram of the Dyson equation turns out to Figure.4.
   \centerline{\includegraphics[width=13cm]{TexFigure/Dyson_eq.PNG}}
   \caption{Diagram for Dyson equation with self energy}
 \end{figure}
-While representing the self-energy in extended diagrammatic formation, we can collect the diagrams with some featured topological structures. For instance, if we consider only the first-order self-energy expansion, the result coincides with the well-known Non-crossing approximation method.
-This form of equation satisfies the integral-differential form, agrees with the equation of motion of in the quantum mechanical aspect.
+This form of equation satisfies the integral-differential form, agrees with the equation of motion of in the quantum mechanical 
+aspect.
 \begin{flalign}
   \begin{split}
 [-\partial_{\tau}-H_{\text{loc}}+\lambda]\mathcal{G}(\tau)-\int^\tau_0 d\tau_1\Sigma(\tau-\tau_1)\mathcal{G}(\tau_1) = 0 \quad, \quad(\tau>0)
 \end{split}
 \end{flalign}
-\pagebreak
-\begin{figure}[H]
-  \centerline{\includegraphics[width=8cm]{TexFigure/NCA_self.PNG}}
-  \centerline{\includegraphics[width=12cm]{TexFigure/OCA_self.PNG}}
-  \caption{Self-energy diagram for order of expansion}
-\end{figure}
-\begin{figure}[H]
-  \centerline{\includegraphics[width=12cm]{TexFigure/TOA_se.png}}
-  \centerline{\includegraphics[width=12cm]{TexFigure/TOA_tmat.png}}
-  \caption{Self-energy diagram for Five order expansion (TOA). The structure of T matrix was adopted.}
-\end{figure}
 \subsubsection*{Evaluation of correlation function}
 The Correlation function for green’s function is defined as follows:
 \begin{flalign}
   \begin{split}
 \chi_{sp}(\tau) &=\frac{1}{Z}\text{Tr}[e^{-S}P(\tau)P(0)] \\
-&=\text{Tr}[\mathcal{G}(\beta-\tau)P\mathcal{G}(\tau)P] + \text{Tr}[\tilde{T}(\beta,\tau)P]
   \end{split}
 \end{flalign}
-where $S$ is a action of system. The notation $\tilde{T}$ indicates:
-\begin{flalign}
-  \begin{split}
-\tilde{T}(n,m) = \Delta\tau^2 \sum^n_{l=m}\bar{\mathcal{W}}^{(n-m)}_{l-m}\sum^m_{r=0}\bar{\mathcal{W}}^{(m)}_r\big[\mathcal{G}(n-l)T(l-r,m-r)\mathcal{G}(r)]
-\end{split}
-\end{flalign}
-The indices of equations are related to how time has been ordered during the calculation.
-There were new topological structure T has been applied. In the lowest expansion order, its structure is:
-\begin{flalign}
-  \begin{split}
-T(\tau,\tau') = \big[P\mathcal{G}(\tau-\tau')P\mathcal{G}(\tau')P]\bar{\mathcal{W}}(\tau)
-\end{split}
-\end{flalign}
-Which corresponding topological diagram is:
+where $S$ is a action of system. Corresponding topological diagram is:
 \begin{figure}[hbtp]
   \centerline{\includegraphics[width=12cm]{TexFigure/Tmat_diagram.png}}
   \centerline{\includegraphics[width=12cm]{TexFigure/Chi_with_Tmat.png}}
   \caption{Specific diagram for T matrix[4].}
 \end{figure}
-\end{spacing}
-\pagebreak
+
+\newpage
 \subsection{Applying to circuit hamiltonian model}
 \begin{spacing}{1.5}
+  In this section, we will introduce how we adjust the expansion method to our circuit model. The basic notation
+  and mathematical structure follow the reference[4,5].
 In our study, we consider that the total system turns out to be a thermal equilibrium state thus methodology using Matsubara’s method is available. To begin, we assume that each operator from RSJJ Hamiltonian mapped toward the general impurity model:
 \begin{table}[htbp]
   \centering
@@ -760,19 +646,56 @@ In which we can rewrite as the form of:
 V_k(\tau)= e^{-\omega_k\tau} \frac{\cosh{\frac{\omega_k}{2}}}{\sinh{\frac{\omega_k}{2}}}
 \end{split}
 \end{flalign}
+\subsubsection*{Calculation of Propagator}
+Now, after calculating the bosonic action, we can calculate the structure of propagator. 
+To begin, the result of equation (2.44) after caculating $\bar{\mathcal{W}}$ turns out to :
+\begin{flalign}
+\begin{split}
+Z = Z_{\text{bath}}\text{Tr}_\text{JJ}\big[\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{\text{loc}}(\tau)} \langle \mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{\text{bath}}(\tau)} \sum_lZ_l\rangle_{\text{b}}\big] 
+\end{split}
+\end{flalign}
+Where $Z_l$  is :
+\begin{flalign}
+\begin{split}
+Z_l = \sum_{\mathcal{P}\in S}\sum_{k_1 \cdots k_l} \int  ^\beta_0 d\tau_1 \cdots \int^\beta_0 d\tau_{k_l}\int^\beta_0 d\tau'_1 \cdots \int^\beta_0d\tau'_{k_l} \bar{\mathcal{W}}\hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\hat{N}(\tau_{k_2})\hat{N}(\tau'_{k_2})\cdots \hat{N}(\tau_{k_l})\hat{N}(\tau'_{k_l})
+\end{split}
+\end{flalign}
+Here $\mathcal{P}$ indicates the possible permutation which $\mathcal{P} \in S$  
+for $\{S| \text{All possible permutation satisfying condition}\}$.
+The trace for Josephson junction turns out to :
+\begin{flalign}
+  \begin{split}
+\text{Tr}_{JJ}\bigg[\sum_l \sum_{\mathcal{P}\in S}\sum_{k_1 \cdots k_l} \int^\beta_0 d\tau_{k_1} \cdots \int^\beta_0 d\tau'_{k_l} \bar{\mathcal{W}}_k \cdot \mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)}\hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\cdots\hat{N}(\tau_{k_l})\hat{N}(\tau'_{k_l})\bigg]
+  \end{split}
+\end{flalign}
+Based upon above form, we can define self-energy the above formula in the different $l$ values.
+\begin{flalign}
+\begin{split}
+l = 1 \quad, \quad \text{Tr}_{JJ}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} \bar{\mathcal{W}} \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})}\bigg] \\
+U(\beta-\tau_{k_1})\cdot \underbrace{\bar{\mathcal{W}}\cdot\hat{N}U(\tau_{k_1}-\tau'_{k_1})\hat{N}U(\tau'_{k_1})}_{=\Sigma^{(1)}}
+\end{split}
+\end{flalign}
+\begin{flalign}
+\begin{split}
+l = 2 \quad, \quad \text{Tr}_{JJ}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} \int^\beta_0 d\tau_{k_2} \int^\beta_0 d\tau'_{k_2}\bar{\mathcal{W}} \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\hat{N}(\tau_{k_2})\hat{N}(\tau'_{k_2})}\bigg] \\
+U(\beta-\tau_{k_1})\cdot \underbrace{\bar{\mathcal{W}}\cdot\hat{N}U(\tau_{k_1}-\tau'_{k_1})\hat{N}U(\tau'_{k_1}-\tau_{k_2})\hat{N}U(\tau_{k_2}-\tau'_{k_2})\hat{N}}_{=\Sigma^{(2)}}U(\tau'_{k_2})
+\end{split}
+\end{flalign}
+For instance, if we consider only the first-order self-energy expansion, 
+the result coincides with the well-known Non-crossing approximation method. Here, the ordering of the time index dominated through pre-decided $\bar{\mathcal{W}}$. 
+In the order $l = 1$, the structure of the diagram corresponds with a Non-crossing approximation. 
+And the case $l = 2$, it corresponds with a One-crossing approximation. Getting more diagrams corresponding with a higher-order expansion such as TOA, 
+can be achievable by increasing the maximum value of the $l$ index.
 \subsubsection*{Calculating correlation function}
 After calculating the action in the above section and calculating the remaining terms again for the Josephson junction, 
-we can obtain terms of the form of equation (2.45). This equation represents the Josephson junction we are focusing on. 
-Using the expansion form of (2.44) and (2.46), we obtain the Dyson equation for the Josephson junction, 
-as shown in equation (2.48).\\
-Through calculating the correlation function as in equation (2.50) using the obtained form, 
-we additionally introduced an operator $\lambda_1$ defined as follows:
+we can obtain terms of the form of equation (2.60). Through calculating the correlation function as in equation (2.50) using the obtained form, we additionally intro
+duced an operator λ1 defined as follows:
 \begin{flalign}
 \begin{split}
   \lambda_1 = 
   \begin{pmatrix}
     0 & 1 & 0 \\
-    1 & 0 & 1 \\
+    1 & 0 & 0 \\
     0 & 0 & 0
   \end{pmatrix}
 \end{split}
@@ -786,5 +709,18 @@ By applying operator, the final expression for calculating the correlation funct
                     & + \cdots
   \end{split}
 \end{flalign}
+\pagebreak
+\begin{figure}[H]
+  \centerline{\includegraphics[width=8cm]{TexFigure/NCA_self.PNG}}
+  \centerline{\includegraphics[width=12cm]{TexFigure/OCA_self.PNG}}
+  \caption{Self-energy diagram for order of expansion}
+\end{figure}
+\begin{figure}[H]
+  \centerline{\includegraphics[width=12cm]{TexFigure/TOA_se.png}}
+  \centerline{\includegraphics[width=12cm]{TexFigure/TOA_tmat.png}}
+  \caption{Self-energy diagram for Five order expansion (TOA). The structure of T matrix was adopted.}
+\end{figure}
+\end{spacing}
+\pagebreak
 \end{spacing}
 \end{document}
