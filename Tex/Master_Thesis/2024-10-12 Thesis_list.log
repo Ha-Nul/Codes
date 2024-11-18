@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  30 OCT 2024 16:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  15 NOV 2024 00:18
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Thesis_list.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Thesis_list.tex
@@ -127,7 +127,8 @@ File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
 File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count195
 \l__pdf_internal_box=\box50
-) (2024-10-12 Thesis_list.aux)
+)
+No file "2024-10-12 Thesis_list".aux.
 \openout1 = `"2024-10-12 Thesis_list.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -146,7 +147,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for LUC/nanummj/m/n on input line 13.
 LaTeX Font Info:    Trying to load font information for LUC+nanummj on input line 13.
- (G:\Install_Program\MikTex\tex/latex/nanumtype1\lucnanummj.fd
+(G:\Install_Program\MikTex\tex/latex/nanumtype1\lucnanummj.fd
 File: lucnanummj.fd 2013/02/12 v0.1 Nanum Myeongjo font definitions
 )
 LaTeX Font Info:    ... okay on input line 13.
@@ -210,15 +211,15 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 1900 strings out of 478927
- 30792 string characters out of 2861478
- 339771 words of memory out of 3000000
- 19747 multiletter control sequences out of 15000+600000
+ 1902 strings out of 478927
+ 30726 string characters out of 2861478
+ 342780 words of memory out of 3000000
+ 19751 multiletter control sequences out of 15000+600000
  419616 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,5n,66p,286b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-ts1.enc}{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmac.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmae.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmae.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb2.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb3.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmb8.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmbb.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc0.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc1.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc7.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc7.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc8.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmc8.pfb><G:/Install_Program/MikTex/fonts/type1/public/nanumtype1/nanummjmcc.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmri.pfb>
-Output written on "2024-10-12 Thesis_list.pdf" (1 page, 668740 bytes).
+Output written on "2024-10-12 Thesis_list.pdf" (1 page, 670108 bytes).
 PDF statistics:
  96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

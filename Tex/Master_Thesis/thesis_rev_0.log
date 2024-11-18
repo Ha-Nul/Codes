@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  11 NOV 2024 09:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  14 NOV 2024 09:58
 entering extended mode
 **e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/thesis_rev_0.tex
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/thesis_rev_0.tex
@@ -352,44 +352,45 @@ Package pdftex.def Info: TexFigure/kps_INT_exp.PNG  used on input line 87.
 [1
 
 {C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2 <./TexFigure/Junction_RE.png> <./TexFigure/kps_INT_exp.PNG>]
-<TexFigure/circuit_supp_ashida.PNG, id=16, 403.5075pt x 123.46124pt>
-File: TexFigure/circuit_supp_ashida.PNG Graphic file (type png)
-<use TexFigure/circuit_supp_ashida.PNG>
-Package pdftex.def Info: TexFigure/circuit_supp_ashida.PNG  used on input line 98.
-(pdftex.def)             Requested size: 341.43306pt x 104.46968pt.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 107.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 98.
  (G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 107.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 107.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+) [3]
+<TexFigure/circuit_supp_ashida.PNG, id=29, 403.5075pt x 123.46124pt>
+File: TexFigure/circuit_supp_ashida.PNG Graphic file (type png)
+<use TexFigure/circuit_supp_ashida.PNG>
+Package pdftex.def Info: TexFigure/circuit_supp_ashida.PNG  used on input line 137.
+(pdftex.def)             Requested size: 341.43306pt x 104.46968pt.
 
-LaTeX Warning: Reference `eqn:H_RSJJ' on page 3 undefined on input line 115.
+
+LaTeX Warning: Reference `eqn:H_RSJJ' on page 4 undefined on input line 154.
 
 
-LaTeX Warning: Reference `tab:H' on page 3 undefined on input line 127.
+LaTeX Warning: Reference `tab:H' on page 4 undefined on input line 166.
 
-[3 <./TexFigure/circuit_supp_ashida.PNG>] [4]
+[4 <./TexFigure/circuit_supp_ashida.PNG>] [5]
 
-LaTeX Warning: Reference `eqn:Hloc' on page 5 undefined on input line 226.
+LaTeX Warning: Reference `eqn:Hloc' on page 6 undefined on input line 265.
 
-[5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 308--310
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 347--349
 
  []
 
-[7]
-Overfull \hbox (13.41595pt too wide) detected at line 354
+[8]
+Overfull \hbox (13.41595pt too wide) detected at line 393
 []
  []
 
-[8] [9]
+[9]
 <TexFigure/Diagram_arrow.PNG, id=52, 1726.19907pt x 189.70876pt>
 File: TexFigure/Diagram_arrow.PNG Graphic file (type png)
 <use TexFigure/Diagram_arrow.PNG>
@@ -413,7 +414,7 @@ File: TexFigure/Chi_with_Tmat.png Graphic file (type png)
 Package pdftex.def Info: TexFigure/Chi_with_Tmat.png  used on input line 519.
 (pdftex.def)             Requested size: 341.43306pt x 41.7187pt.
  [13 <./TexFigure/Tmat_diagram.png> <./TexFigure/Chi_with_Tmat.png>] [14] [15] [16]
-Overfull \hbox (21.06882pt too wide) detected at line 683
+Overfull \hbox (21.12227pt too wide) detected at line 683
 []
  []
 
@@ -463,13 +464,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  7680 strings out of 478927
  112997 string characters out of 2861478
- 446735 words of memory out of 3000000
+ 444735 words of memory out of 3000000
  25415 multiletter control sequences out of 15000+600000
  439449 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,24n,81p,447b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,24n,81p,434b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmri.pfb>
-Output written on thesis_rev_0.pdf (19 pages, 1959009 bytes).
+Output written on thesis_rev_0.pdf (19 pages, 1958990 bytes).
 PDF statistics:
  168 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

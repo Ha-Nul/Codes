@@ -92,6 +92,45 @@ The precise nature of this transition is to be addressed through the analysis of
 \pagebreak
 \section{Theoretical method}
 \begin{spacing}{1.5}
+\subsubsection*{Field operator and Green's function}
+In this chapter, we will briefly summarize the theoretical framework of the Green’s function method, Circuit model, and expansion method. 
+In quantum many-body theory, the physical system is depicted over the frame of the fermionic(bosonic) 
+creation and annihilation operator, and $\hat{a}(\hat{a}^\dagger)$ as an annihilation(creation) operator, 
+it satisfies the following commutation relations:
+\begin{flalign}
+  \begin{split}
+[\hat{a_i},\hat{a_j}] &= \{\hat{a_i},\hat{a_j}\} = 0 \\ 
+[\hat{a_i}^\dagger,\hat{a_j}^\dagger] &= \{\hat{a_i}^\dagger,\hat{a_j}^\dagger\}=0\\ 
+[\hat{a_i},\hat{a_j}^\dagger] = \{\hat{a_i},\hat{a_j}^\dagger\} &= \delta_{ij} = \begin{cases} 1 \quad (i=j)\\  0 \quad (i \neq j)\quad \end{cases}
+\end{split}
+\end{flalign}
+Where the square bracket informs the bosonic case, and its RHS indicates the fermionic case. In the following discussion, we will drop out the lower indices of the field operator, assuming it can indicate any arbitrary quantum states.
+If we consider the Hamiltonian system can be split into two parts: for the local system and for interaction, we can write the total Hamiltonian $H$:
+\begin{flalign}
+  \begin{split}
+H = H_0 + H_{\text{int}}
+\end{split}
+\end{flalign}
+Here, $H_0$ is the local(Free) Hamiltonian, $H_{\text{int}}$  is the Hamiltonian for interaction (external potential). To express the dynamics of a given operator, we depict the time dependency of the operator in the interaction picture :
+\begin{flalign}
+  \begin{split}
+\hat{a}(t) = e^{iH_0t}\hat{a}e^{-iH_0t} \\ \hat{a}^\dagger(t) =  e^{-iH_0t}\hat{a}^\dagger e^{iH_0t} 
+\end{split}
+\end{flalign}
+With the above time dependency, we can define the Green’s function as follows :
+\begin{flalign}
+  \begin{split}
+G_0(t,t') = \frac{i}{\hbar}\langle \mathcal{T}\hat{a}^\dagger(t)\hat{a}(t')\rangle = \begin{cases} \frac{i}{\hbar}\langle \hat{a}^\dagger(t)\hat{a}(t')\rangle  \quad (t>t')\\  \pm\frac{i}{\hbar}\langle \hat{a}(t')\hat{a}^\dagger(t)\rangle \quad (t<t')\quad \end{cases}
+\end{split}
+\end{flalign}
+Here, the symbol $\mathcal{T}$ is the time ordering operator. One of the features of Green’s function is that it satisfies the given equation of motion :
+\begin{flalign}
+  \begin{split}
+[i \partial_t-H] &G(t,t')=\delta(t-t') \\
+[i \partial_t-H_0]G_0(t,t')&=[i \partial_t-H+H']G_0(t,t')=\delta(t-t')
+\end{split}
+\end{flalign}
+\pagebreak
 \subsection{Circuit model}
 \subsubsection*{Hamiltonian of resistivity shunted Josephson junction}
   \begin{figure}[htbp]
@@ -280,7 +319,7 @@ while it will be close to 0 if it exhibits insulating properties.
 The expectation of $\hat{\cos\phi}$ can be calculated in following formula:
 \begin{flalign}
   \begin{split}
-  \langle \cos\phi\rangle = \frac{\text{Tr}[\hat{\cos\phi}e^{\beta H}]}{\text{Tr}[e^{-\beta H}]}
+  \langle \cos\phi\rangle = \frac{\text{Tr}[\hat{\cos\phi}e^{-\beta H}]}{\text{Tr}[e^{-\beta H}]}
 \end{split}
 \end{flalign}
 \subsubsection*{3-level case}
@@ -355,46 +394,7 @@ Therefore, when the entire $\cos{\phi}$ is expressed in matrix form, it takes th
 \end{spacing}
 \pagebreak
 \subsection{Diagrammatic method}
-\subsubsection*{Field operator and Green's function}
 \begin{spacing}{1.5}
-In this chapter, we will briefly summarize the theoretical framework of the Green’s function method, 
-  and pseudo-particle solvers, such as non-crossing approximation (NCA). 
-In quantum many-body theory, the physical system is depicted over the frame of the fermionic(bosonic) 
-creation and annihilation operator, and $\hat{a}(\hat{a}^\dagger)$ as an annihilation(creation) operator, 
-it satisfies the following commutation relations:
-\begin{flalign}
-  \begin{split}
-[\hat{a_i},\hat{a_j}] &= \{\hat{a_i},\hat{a_j}\} = 0 \\ 
-[\hat{a_i}^\dagger,\hat{a_j}^\dagger] &= \{\hat{a_i}^\dagger,\hat{a_j}^\dagger\}=0\\ 
-[\hat{a_i},\hat{a_j}^\dagger] = \{\hat{a_i},\hat{a_j}^\dagger\} &= \delta_{ij} = \begin{cases} 1 \quad (i=j)\\  0 \quad (i \neq j)\quad \end{cases}
-\end{split}
-\end{flalign}
-Where the square bracket informs the bosonic case, and its RHS indicates the fermionic case. In the following discussion, we will drop out the lower indices of the field operator, assuming it can indicate any arbitrary quantum states.
-If we consider the Hamiltonian system can be split into two parts: for the local system and for interaction, we can write the total Hamiltonian $H$:
-\begin{flalign}
-  \begin{split}
-H = H_0 + H_{\text{int}}
-\end{split}
-\end{flalign}
-Here, $H_0$ is the local(Free) Hamiltonian, $H_{\text{int}}$  is the Hamiltonian for interaction (external potential). To express the dynamics of a given operator, we depict the time dependency of the operator in the interaction picture :
-\begin{flalign}
-  \begin{split}
-\hat{a}(t) = e^{iH_0t}\hat{a}e^{-iH_0t} \\ \hat{a}^\dagger(t) =  e^{-iH_0t}\hat{a}^\dagger e^{iH_0t} 
-\end{split}
-\end{flalign}
-With the above time dependency, we can define the Green’s function as follows :
-\begin{flalign}
-  \begin{split}
-G_0(t,t') = \frac{i}{\hbar}\langle \mathcal{T}\hat{a}^\dagger(t)\hat{a}(t')\rangle = \begin{cases} \frac{i}{\hbar}\langle \hat{a}^\dagger(t)\hat{a}(t')\rangle  \quad (t>t')\\  \pm\frac{i}{\hbar}\langle \hat{a}(t')\hat{a}^\dagger(t)\rangle \quad (t<t')\quad \end{cases}
-\end{split}
-\end{flalign}
-Here, the symbol $\mathcal{T}$ is the time ordering operator. One of the features of Green’s function is that it satisfies the given equation of motion :
-\begin{flalign}
-  \begin{split}
-[i \partial_t-H] &G(t,t')=\delta(t-t') \\
-[i \partial_t-H_0]G_0(t,t')&=[i \partial_t-H+H']G_0(t,t')=\delta(t-t')
-\end{split}
-\end{flalign}
 \subsubsection*{Diagrammatic expansion of Green’s function}
 In the statistical framework, it is easy to calculate Green’s function in the imaginary time $\tau$ due to the wick rotation of the time axis, which mapped time-dependent system progression into thermal equilibrium problems with temperature dependency.
 \begin{flalign}
@@ -491,7 +491,7 @@ Z=\text{tr}\bigg[T_{\tau}e^{-S}\bigg]
 This result takes the form of Dyson's equation in quantum mechanics, which can be represented in the diagram structure. If we define full $\mathcal{G}$ as :
 \begin{flalign}
   \begin{split}
-\mathcal{G} = \langle\psi_a(\tau)\psi_b^\dagger(\tau')\rangle = \text{Tr}[e^{\beta H}\psi_a(\tau)\psi_b^\dagger(\tau')]
+\mathcal{G} = \langle\psi_a(\tau)\psi_b^\dagger(\tau')\rangle = \frac{\text{Tr}[e^{-\beta H}\psi_a(\tau)\psi_b^\dagger(\tau')]}{\text{Tr}[e^{-\beta H}]}
 \end{split}
 \end{flalign}
 Then the diagram of the Dyson equation turns out to Figure.4.
@@ -628,13 +628,13 @@ By multiplying the corresponding coupling parameter $g_k^2$ in mode $k$ , the fu
 \times g^2_{k_l}\big(e^{\omega_{k_l}(\tau_l-\tau'_l)}(\theta(\tau_l-\tau'_l)n_\text{B}(\omega_{k_l})+\theta(\tau'_l-\tau_l)[1+n_\text{B}(\omega_{k_l}]))\big)
 \end{split}
 \end{flalign}
-In the general approach, the term that corresponds to $\mathcal{W}$  from pseudo-particle solver can be expressed as follows:
+In the general approach, the term that corresponds to bosonic action from pseudo-particle solver can be expressed as follows:
 \begin{flalign}
   \begin{split}
 \mathcal{W}(\tau)=\begin{cases}  \sum_k |g_k|^2 e^{\omega_k \tau}n_{\text{B}}(\omega_k) \qquad (\tau>0) \\ \sum_k |g_k|^2 e^{\omega_k \tau}[1+n_{\text{B}}](\omega_k) \quad (\tau<0) \end{cases}
   \end{split}
 \end{flalign}
-And instead of notation $\mathcal{\bar{W}}$, we use $V_k(\tau)$  to representing simultaneously for retarded and advanced cases, 
+We use notation $V_k(\tau)$  to representing simultaneously for retarded and advanced cases, 
 \begin{flalign}
   \begin{split}
 V_k(\tau) = e^{-\omega_k\tau}\theta(-\tau)n_B(\omega_k \beta)  + e^{-\omega_k\tau}\theta(\tau)(1+n_B(\omega_k \beta))
@@ -665,20 +665,20 @@ for $\{S| \text{All possible permutation satisfying condition}\}$.
 The trace for Josephson junction turns out to :
 \begin{flalign}
   \begin{split}
-\text{Tr}_{JJ}\bigg[\sum_l \sum_{\mathcal{P}\in S}\sum_{k_1 \cdots k_l} \int^\beta_0 d\tau_{k_1} \cdots \int^\beta_0 d\tau'_{k_l} \bar{\mathcal{W}}_k \cdot \mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)}\hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\cdots\hat{N}(\tau_{k_l})\hat{N}(\tau'_{k_l})\bigg]
+\text{Tr}_{JJ}\bigg[\sum_l \sum_{\mathcal{P}\in S}\sum_{k_1 \cdots k_l} \int^\beta_0 d\tau_{k_1} \cdots \int^\beta_0 d\tau'_{k_l} V_k \cdot \mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)}\hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\cdots\hat{N}(\tau_{k_l})\hat{N}(\tau'_{k_l})\bigg]
   \end{split}
 \end{flalign}
 Based upon above form, we can define self-energy the above formula in the different $l$ values.
 \begin{flalign}
 \begin{split}
-l = 1 \quad, \quad \text{Tr}_{JJ}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} \bar{\mathcal{W}} \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})}\bigg] \\
-U(\beta-\tau_{k_1})\cdot \underbrace{\bar{\mathcal{W}}\cdot\hat{N}U(\tau_{k_1}-\tau'_{k_1})\hat{N}U(\tau'_{k_1})}_{=\Sigma^{(1)}}
+l = 1 \quad, \quad \text{Tr}_{JJ}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} V_k \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})}\bigg] \\
+\mathcal{G}(\beta-\tau_{k_1})\cdot \underbrace{V_k\cdot\hat{N}\mathcal{G}(\tau_{k_1}-\tau'_{k_1})\hat{N}}_{=\Sigma^{(1)}}\mathcal{G}(\tau'_{k_1})
 \end{split}
 \end{flalign}
 \begin{flalign}
 \begin{split}
-l = 2 \quad, \quad \text{Tr}_{JJ}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} \int^\beta_0 d\tau_{k_2} \int^\beta_0 d\tau'_{k_2}\bar{\mathcal{W}} \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\hat{N}(\tau_{k_2})\hat{N}(\tau'_{k_2})}\bigg] \\
-U(\beta-\tau_{k_1})\cdot \underbrace{\bar{\mathcal{W}}\cdot\hat{N}U(\tau_{k_1}-\tau'_{k_1})\hat{N}U(\tau'_{k_1}-\tau_{k_2})\hat{N}U(\tau_{k_2}-\tau'_{k_2})\hat{N}}_{=\Sigma^{(2)}}U(\tau'_{k_2})
+l = 2 \quad, \quad \text{Tr}_{JJ}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} \int^\beta_0 d\tau_{k_2} \int^\beta_0 d\tau'_{k_2} V_k \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\hat{N}(\tau_{k_2})\hat{N}(\tau'_{k_2})}\bigg] \\
+\mathcal{G}(\beta-\tau_{k_1})\cdot \underbrace{V_k \cdot\hat{N}\mathcal{G}(\tau_{k_1}-\tau'_{k_1})\hat{N}\mathcal{G}(\tau'_{k_1}-\tau_{k_2})\hat{N}\mathcal{G}(\tau_{k_2}-\tau'_{k_2})\hat{N}}_{=\Sigma^{(2)}}\mathcal{G}(\tau'_{k_2})
 \end{split}
 \end{flalign}
 For instance, if we consider only the first-order self-energy expansion, 

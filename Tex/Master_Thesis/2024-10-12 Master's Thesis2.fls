@@ -506,6 +506,7 @@ INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT G:\Install_Program\MikTex\tex\latex\jknappen\ursfs.fd
@@ -529,7 +530,6 @@ INPUT G:\Install_Program\MikTex\tex\latex\amsfonts\umsb.fd
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
 INPUT .\TexFigure\kps_singlebath.png
 INPUT .\TexFigure\kps_singlebath.png
 INPUT TexFigure\kps_singlebath.png

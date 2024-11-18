@@ -69,6 +69,19 @@ K.~Masuki, H.~Sudo, M.~Oshikawa, and Y.~Ashida.
   josephson junctions.
 \newblock {\em Phys. Rev. Lett.}, 129:087001, Aug 2022.
 
+\bibitem{PhysRevX.10.021003}
+A.~Murani, N.~Bourlet, H.~le~Sueur, F.~Portier, C.~Altimiras, D.~Esteve,
+  H.~Grabert, J.~Stockburger, J.~Ankerhold, and P.~Joyez.
+\newblock Absence of a dissipative quantum phase transition in josephson
+  junctions.
+\newblock {\em Phys. Rev. X}, 10:021003, Apr 2020.
+
+\bibitem{PhysRevLett.69.2001}
+M.~Randeria, N.~Trivedi, A.~Moreo, and R.~T. Scalettar.
+\newblock Pairing and spin gap in the normal state of short coherence length
+  superconductors.
+\newblock {\em Phys. Rev. Lett.}, 69:2001--2004, Sep 1992.
+
 \bibitem{Sachdev_2023}
 S.~Sachdev.
 \newblock {\em Quantum Phases of Matter}.
@@ -80,6 +93,11 @@ J.~P. Sethna.
   Complexity}}.
 \newblock Oxford University Press, 01 2021.
 
+\bibitem{RevModPhys.69.315}
+S.~L. Sondhi, S.~M. Girvin, J.~P. Carini, and D.~Shahar.
+\newblock Continuous quantum phase transitions.
+\newblock {\em Rev. Mod. Phys.}, 69:315--333, Jan 1997.
+
 \bibitem{PhysRevA.109.033715}
 S.~Terradas-Brians\'o, L.~Mart\'{\i}n-Moreno, and D.~Zueco.
 \newblock Waveguide qed in the dipole gauge.
@@ -90,6 +108,18 @@ N.~Trivedi, R.~T. Scalettar, and M.~Randeria.
 \newblock Superconductor-insulator transition in a disordered electronic
   system.
 \newblock {\em Phys. Rev. B}, 54:R3756--R3759, Aug 1996.
+
+\bibitem{Vojta20032069}
+M.~Vojta.
+\newblock Quantum phase transitions.
+\newblock {\em Reports on Progress in Physics}, 66(12):2069 – 2110, 2003.
+\newblock Cited by: 546.
+
+\bibitem{Wang_2024}
+Z.~Wang, Y.~Liu, C.~Ji, and J.~Wang.
+\newblock Quantum phase transitions in two-dimensional superconductors: a
+  review on recent experimental progress.
+\newblock {\em Reports on Progress in Physics}, 87(1):014502, dec 2023.
 
 \bibitem{PhysRevB.74.155107}
 P.~Werner and A.~J. Millis.

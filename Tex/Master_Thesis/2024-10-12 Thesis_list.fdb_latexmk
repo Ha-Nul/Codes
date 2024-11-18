@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex 2024-10-12 Thesis_list"] 0 "2024-10-12 Thesis_list.aux" "2024-10-12 Thesis_list.bbl" "2024-10-12 Thesis_list" 0
-  "2024-10-12 Thesis_list.aux" 0 -1 0 "pdflatex"
+["bibtex 2024-10-12 Thesis_list"] 1731597535 "2024-10-12 Thesis_list.aux" "2024-10-12 Thesis_list.bbl" "2024-10-12 Thesis_list" 1731597536
+  "2024-10-12 Thesis_list.aux" 1731597285 804 e58d28657572ef53577dc77333433bce "pdflatex"
   "G:/Install_Program/MikTex/bibtex/bst/bibtex/abbrv.bst" 1291864736 20329 b5fed53e10044d0f8112183785c759b1 ""
-  "Master_Thesis.bib" 1730272878 9755 0ccab81242eda98de28d99bd5c9f0873 ""
+  "Master_Thesis.bib" 1731597534 14372 3d4116a02617726fdb600a963d1a56ef ""
   (generated)
-  "2024-10-12 Thesis_list.blg"
   "2024-10-12 Thesis_list.bbl"
-["pdflatex"] 1730272884 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Thesis_list.tex" "2024-10-12 Thesis_list.pdf" "2024-10-12 Thesis_list" 1730272884
-  "2024-10-12 Thesis_list.aux" 1730272884 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "2024-10-12 Thesis_list.bbl" 1730272883 3711 0b93249cb8176070e309e5631673499a "bibtex 2024-10-12 Thesis_list"
-  "2024-10-12 Thesis_list.tex" 1730208993 296 e36045896790f9ecde543eaa641c46b2 ""
+  "2024-10-12 Thesis_list.blg"
+["pdflatex"] 1731597536 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Thesis_list.tex" "2024-10-12 Thesis_list.pdf" "2024-10-12 Thesis_list" 1731597536
+  "2024-10-12 Thesis_list.aux" 1731597536 837 4877fbce4e8f029edd3e7acd3dac280e "pdflatex"
+  "2024-10-12 Thesis_list.bbl" 1731597535 4890 f1978b63619b8d755e6f41ed045dc21e "bibtex 2024-10-12 Thesis_list"
+  "2024-10-12 Thesis_list.tex" 1731597282 296 e36045896790f9ecde543eaa641c46b2 ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1631711725 9706441 1ba0b62526dbb03e76eb2b56d7479493 ""
-  "C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1729490800 215734 f6bb124686783979118e0e715becc1b7 ""
+  "C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1730522957 228208 701dd51cb792a856eb8b3f496fcd100d ""
   "G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc" 1525740614 2409 c64dab22331c83731e970f6020b4448b ""
   "G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1525740614 3124 3813fd4c981d99822890a2861b0d274c ""
   "G:/Install_Program/MikTex/fonts/tfm/public/nanumtype1/nanummjmae.tfm" 1362357394 1252 8a3ed5f3f1621f7431b8ccd200a2b40e ""
@@ -70,8 +70,8 @@
   "G:/Install_Program/MikTex/tex/latex/tex-gyre/tgtermes.sty" 1254938640 2211 af9b7d12507105a58a3e8e926996b827 ""
   "G:/Install_Program/MikTex/tex/latex/tex-gyre/ts1qtm.fd" 1254938640 1160 de7b1cf70edab73c9f1704df2a9fdbbd ""
   "G:/Install_Program/MikTex/tex/plain/kotex-plain/kotexutf-core.tex" 1444722538 21208 e360f57835b2ac285fa5dae58aee69f2 ""
-  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Thesis_list.tex" 1730208993 296 e36045896790f9ecde543eaa641c46b2 ""
+  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Thesis_list.tex" 1731597282 296 e36045896790f9ecde543eaa641c46b2 ""
   (generated)
-  "2024-10-12 Thesis_list.pdf"
   "2024-10-12 Thesis_list.aux"
   "2024-10-12 Thesis_list.log"
+  "2024-10-12 Thesis_list.pdf"

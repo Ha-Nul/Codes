@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  11 NOV 2024 09:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  11 NOV 2024 09:49
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex
@@ -331,56 +331,56 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 63.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 64.
 (G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <TexFigure/kps_singlebath.png, id=1, 1465.475pt x 803.0pt>
 File: TexFigure/kps_singlebath.png Graphic file (type png)
 <use TexFigure/kps_singlebath.png>
-Package pdftex.def Info: TexFigure/kps_singlebath.png  used on input line 73.
+Package pdftex.def Info: TexFigure/kps_singlebath.png  used on input line 66.
 (pdftex.def)             Requested size: 199.16928pt x 109.12323pt.
 <TexFigure/bench_single_two.png, id=3, 1606.0pt x 531.9875pt>
 File: TexFigure/bench_single_two.png Graphic file (type png)
 <use TexFigure/bench_single_two.png>
-Package pdftex.def Info: TexFigure/bench_single_two.png  used on input line 77.
+Package pdftex.def Info: TexFigure/bench_single_two.png  used on input line 70.
 (pdftex.def)             Requested size: 426.79134pt x 141.37376pt.
 <TexFigure/Multi_bench.png, id=4, 768.471pt x 284.481pt>
 File: TexFigure/Multi_bench.png Graphic file (type png)
 <use TexFigure/Multi_bench.png>
-Package pdftex.def Info: TexFigure/Multi_bench.png  used on input line 86.
+Package pdftex.def Info: TexFigure/Multi_bench.png  used on input line 79.
 (pdftex.def)             Requested size: 426.79134pt x 157.993pt.
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:90: Package inputenc Error: Unicode character τ (U+03C4)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:83: Package inputenc Error: Unicode character τ (U+03C4)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.90 ... τ grid used for the calculation is 701.}
+l.83 ... τ grid used for the calculation is 701.}
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:90: Package inputenc Error: Unicode character τ (U+03C4)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:83: Package inputenc Error: Unicode character τ (U+03C4)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.90 ... τ grid used for the calculation is 701.}
+l.83 ... τ grid used for the calculation is 701.}
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 
@@ -389,121 +389,121 @@ You may provide a definition with
 
 {C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./TexFigure/kps_singlebath.png> <./TexFigure/bench_single_two.png>]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:93: Package inputenc Error: Unicode character α (U+03B1)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:86: Package inputenc Error: Unicode character α (U+03B1)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.93 ...g approximation methods for the case of α
+l.86 ...g approximation methods for the case of α
                                                   =0
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-<TexFigure/Dens_comp.png, id=20, 706.494pt x 284.7pt>
+<TexFigure/Dens_comp.png, id=21, 706.494pt x 284.7pt>
 File: TexFigure/Dens_comp.png Graphic file (type png)
 <use TexFigure/Dens_comp.png>
-Package pdftex.def Info: TexFigure/Dens_comp.png  used on input line 97.
+Package pdftex.def Info: TexFigure/Dens_comp.png  used on input line 90.
 (pdftex.def)             Requested size: 426.79134pt x 171.98988pt.
 [30 <./TexFigure/Multi_bench.png> <./TexFigure/Dens_comp.png>]
-<TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png, id=26, 570.2103pt x 469.0323pt>
+<TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png, id=27, 570.2103pt x 469.0323pt>
 File: TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png Graphic file (type png)
 <use TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png>
-Package pdftex.def Info: TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png  used on input line 142.
+Package pdftex.def Info: TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png  used on input line 135.
 (pdftex.def)             Requested size: 284.52756pt x 234.04321pt.
-<TexFigure/Sizediff.png, id=27, 686.565pt x 284.481pt>
+<TexFigure/Sizediff.png, id=28, 686.565pt x 284.481pt>
 File: TexFigure/Sizediff.png Graphic file (type png)
 <use TexFigure/Sizediff.png>
-Package pdftex.def Info: TexFigure/Sizediff.png  used on input line 151.
+Package pdftex.def Info: TexFigure/Sizediff.png  used on input line 144.
 (pdftex.def)             Requested size: 426.79134pt x 176.84085pt.
  [31 <./TexFigure/Diff_Ns3_g_b_35.71_41.67_n_15_tauchange (1)-1.png>] [32 <./TexFigure/Sizediff.png>]
-<TexFigure/Expec_alp_0.1.png, id=36, 2505.36pt x 1877.0125pt>
+<TexFigure/Expec_alp_0.1.png, id=37, 2505.36pt x 1877.0125pt>
 File: TexFigure/Expec_alp_0.1.png Graphic file (type png)
 <use TexFigure/Expec_alp_0.1.png>
-Package pdftex.def Info: TexFigure/Expec_alp_0.1.png  used on input line 166.
+Package pdftex.def Info: TexFigure/Expec_alp_0.1.png  used on input line 159.
 (pdftex.def)             Requested size: 284.52756pt x 213.14534pt.
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:168: Package inputenc Error: Unicode character ≈ (U+2248)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:161: Package inputenc Error: Unicode character ≈ (U+2248)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.168 ...ure in the range of $\gamma$ ≈[0,1.5].}
+l.161 ...ure in the range of $\gamma$ ≈[0,1.5].}
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:168: Package inputenc Error: Unicode character ≈ (U+2248)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:161: Package inputenc Error: Unicode character ≈ (U+2248)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.168 ...ure in the range of $\gamma$ ≈[0,1.5].}
+l.161 ...ure in the range of $\gamma$ ≈[0,1.5].}
                                                   
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-<TexFigure/Order_color.png, id=37, 819.06pt x 284.481pt>
+<TexFigure/Order_color.png, id=38, 819.06pt x 284.481pt>
 File: TexFigure/Order_color.png Graphic file (type png)
 <use TexFigure/Order_color.png>
-Package pdftex.def Info: TexFigure/Order_color.png  used on input line 172.
+Package pdftex.def Info: TexFigure/Order_color.png  used on input line 165.
 (pdftex.def)             Requested size: 455.24408pt x 158.12321pt.
-<TexFigure/Matele_Ns3_alp0.png, id=38, 5600.925pt x 1594.95876pt>
+<TexFigure/Matele_Ns3_alp0.png, id=39, 5600.925pt x 1594.95876pt>
 File: TexFigure/Matele_Ns3_alp0.png Graphic file (type png)
 <use TexFigure/Matele_Ns3_alp0.png>
-Package pdftex.def Info: TexFigure/Matele_Ns3_alp0.png  used on input line 177.
+Package pdftex.def Info: TexFigure/Matele_Ns3_alp0.png  used on input line 170.
 (pdftex.def)             Requested size: 483.69684pt x 137.72353pt.
-<TexFigure/Matele_Ns3_alp0_1.png, id=39, 5600.925pt x 1544.77126pt>
+<TexFigure/Matele_Ns3_alp0_1.png, id=40, 5600.925pt x 1544.77126pt>
 File: TexFigure/Matele_Ns3_alp0_1.png Graphic file (type png)
 <use TexFigure/Matele_Ns3_alp0_1.png>
-Package pdftex.def Info: TexFigure/Matele_Ns3_alp0_1.png  used on input line 178.
+Package pdftex.def Info: TexFigure/Matele_Ns3_alp0_1.png  used on input line 171.
 (pdftex.def)             Requested size: 483.69684pt x 133.38988pt.
-<TexFigure/Matele_Ns3_alp1.png, id=40, 5600.925pt x 1544.77126pt>
+<TexFigure/Matele_Ns3_alp1.png, id=41, 5600.925pt x 1544.77126pt>
 File: TexFigure/Matele_Ns3_alp1.png Graphic file (type png)
 <use TexFigure/Matele_Ns3_alp1.png>
-Package pdftex.def Info: TexFigure/Matele_Ns3_alp1.png  used on input line 179.
+Package pdftex.def Info: TexFigure/Matele_Ns3_alp1.png  used on input line 172.
 (pdftex.def)             Requested size: 483.69684pt x 133.38988pt.
 [33 <./TexFigure/Expec_alp_0.1.png> <./TexFigure/Order_color.png>] [34 <./TexFigure/Matele_Ns3_alp0.png> <./TexFigure/Matele_Ns3_alp0_1.png> <./TexFigure/Matele_Ns3_alp1.png>]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:203: Package inputenc Error: Unicode character − (U+2212)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:196: Package inputenc Error: Unicode character − (U+2212)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.203 ...n results were plotted on the $\alpha −
+l.196 ...n results were plotted on the $\alpha −
                                                    \gamma$ plane, following ...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:205: Package inputenc Error: Unicode character − (U+2212)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:198: Package inputenc Error: Unicode character − (U+2212)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.205 ...ent - Crossover points on the $\alpha −
+l.198 ...ent - Crossover points on the $\alpha −
                                                   \gamma$ plane for each con...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-<TexFigure/Simplefig.png, id=53, 570.933pt x 498.663pt>
+<TexFigure/Simplefig.png, id=54, 570.933pt x 498.663pt>
 File: TexFigure/Simplefig.png Graphic file (type png)
 <use TexFigure/Simplefig.png>
-Package pdftex.def Info: TexFigure/Simplefig.png  used on input line 208.
+Package pdftex.def Info: TexFigure/Simplefig.png  used on input line 201.
 (pdftex.def)             Requested size: 227.62204pt x 198.80728pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--210
+Underfull \hbox (badness 10000) in paragraph at lines 195--203
 
  []
 
@@ -511,128 +511,128 @@ Underfull \hbox (badness 10000) in paragraph at lines 202--210
 <TexFigure/3dplot_Ns3_proj_n-1.png, id=64, 3256.165pt x 2607.7425pt>
 File: TexFigure/3dplot_Ns3_proj_n-1.png Graphic file (type png)
 <use TexFigure/3dplot_Ns3_proj_n-1.png>
-Package pdftex.def Info: TexFigure/3dplot_Ns3_proj_n-1.png  used on input line 214.
+Package pdftex.def Info: TexFigure/3dplot_Ns3_proj_n-1.png  used on input line 207.
 (pdftex.def)             Requested size: 341.43306pt x 273.40324pt.
 <TexFigure/3dplot_COMP3_proj_n-1.png, id=65, 781.60005pt x 626.21954pt>
 File: TexFigure/3dplot_COMP3_proj_n-1.png Graphic file (type png)
 <use TexFigure/3dplot_COMP3_proj_n-1.png>
-Package pdftex.def Info: TexFigure/3dplot_COMP3_proj_n-1.png  used on input line 215.
+Package pdftex.def Info: TexFigure/3dplot_COMP3_proj_n-1.png  used on input line 208.
 (pdftex.def)             Requested size: 341.43306pt x 273.54994pt.
 <TexFigure/3dplot_Ns3_proj_20-1.png, id=66, 713.3049pt x 713.3049pt>
 File: TexFigure/3dplot_Ns3_proj_20-1.png Graphic file (type png)
 <use TexFigure/3dplot_Ns3_proj_20-1.png>
-Package pdftex.def Info: TexFigure/3dplot_Ns3_proj_20-1.png  used on input line 224.
+Package pdftex.def Info: TexFigure/3dplot_Ns3_proj_20-1.png  used on input line 217.
 (pdftex.def)             Requested size: 483.69684pt x 483.70216pt.
  [36 <./TexFigure/3dplot_Ns3_proj_n-1.png> <./TexFigure/3dplot_COMP3_proj_n-1.png>] [37 <./TexFigure/3dplot_Ns3_proj_20-1.png>]
 <TexFigure/swap_fig.png, id=76, 804.606pt x 290.613pt>
 File: TexFigure/swap_fig.png Graphic file (type png)
 <use TexFigure/swap_fig.png>
-Package pdftex.def Info: TexFigure/swap_fig.png  used on input line 231.
+Package pdftex.def Info: TexFigure/swap_fig.png  used on input line 224.
 (pdftex.def)             Requested size: 483.69684pt x 174.70615pt.
 <TexFigure/Diff_gam_1-1.png, id=77, 2674.99374pt x 1877.0125pt>
 File: TexFigure/Diff_gam_1-1.png Graphic file (type png)
 <use TexFigure/Diff_gam_1-1.png>
-Package pdftex.def Info: TexFigure/Diff_gam_1-1.png  used on input line 237.
+Package pdftex.def Info: TexFigure/Diff_gam_1-1.png  used on input line 230.
 (pdftex.def)             Requested size: 341.43306pt x 239.58086pt.
  [38 <./TexFigure/swap_fig.png> <./TexFigure/Diff_gam_1-1.png>]
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:248: Package inputenc Error: Unicode character ∣ (U+2223)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:241: Package inputenc Error: Unicode character ∣ (U+2223)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.248   \indent 2. the value of $\hat{\cos\phi}∣
+l.241   \indent 2. the value of $\hat{\cos\phi}∣
                                                   _{T_i}−\hat{\cos\phi}∣...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:248: Package inputenc Error: Unicode character − (U+2212)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:241: Package inputenc Error: Unicode character − (U+2212)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.248 ... the value of $\hat{\cos\phi}∣_{T_i}−
+l.241 ... the value of $\hat{\cos\phi}∣_{T_i}−
                                                   \hat{\cos\phi}∣_T_{i+1}$...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:248: Package inputenc Error: Unicode character ∣ (U+2223)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:241: Package inputenc Error: Unicode character ∣ (U+2223)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.248 ...at{\cos\phi}∣_{T_i}−\hat{\cos\phi}∣
+l.241 ...at{\cos\phi}∣_{T_i}−\hat{\cos\phi}∣
                                                   _T_{i+1}$ is always negative,
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:248: Double subscript.
-l.248 ...\cos\phi}∣_{T_i}−\hat{\cos\phi}∣_T_
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis2.tex:241: Double subscript.
+l.241 ...\cos\phi}∣_{T_i}−\hat{\cos\phi}∣_T_
                                                   {i+1}$ is always negative,
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 <TexFigure/smallalp.png, id=83, 570.933pt x 498.663pt>
 File: TexFigure/smallalp.png Graphic file (type png)
 <use TexFigure/smallalp.png>
-Package pdftex.def Info: TexFigure/smallalp.png  used on input line 270.
+Package pdftex.def Info: TexFigure/smallalp.png  used on input line 263.
 (pdftex.def)             Requested size: 227.62204pt x 198.80728pt.
 [39 <./TexFigure/smallalp.png>]
 <TexFigure/litlalp_1.png, id=88, 977.835pt x 256.011pt>
 File: TexFigure/litlalp_1.png Graphic file (type png)
 <use TexFigure/litlalp_1.png>
-Package pdftex.def Info: TexFigure/litlalp_1.png  used on input line 278.
+Package pdftex.def Info: TexFigure/litlalp_1.png  used on input line 271.
 (pdftex.def)             Requested size: 483.69684pt x 126.63794pt.
 <TexFigure/Diff_Os3_b_10_12.5_n.png, id=89, 3227.05624pt x 2531.4575pt>
 File: TexFigure/Diff_Os3_b_10_12.5_n.png Graphic file (type png)
 <use TexFigure/Diff_Os3_b_10_12.5_n.png>
-Package pdftex.def Info: TexFigure/Diff_Os3_b_10_12.5_n.png  used on input line 285.
+Package pdftex.def Info: TexFigure/Diff_Os3_b_10_12.5_n.png  used on input line 278.
 (pdftex.def)             Requested size: 199.16928pt x 156.2071pt.
 <TexFigure/Expecregi.png, id=90, 570.933pt x 498.663pt>
 File: TexFigure/Expecregi.png Graphic file (type png)
 <use TexFigure/Expecregi.png>
-Package pdftex.def Info: TexFigure/Expecregi.png  used on input line 289.
+Package pdftex.def Info: TexFigure/Expecregi.png  used on input line 282.
 (pdftex.def)             Requested size: 199.16928pt x 173.95638pt.
  [40 <./TexFigure/litlalp_1.png> <./TexFigure/Diff_Os3_b_10_12.5_n.png> <./TexFigure/Expecregi.png>]
 <TexFigure/chi_gam_swp.png, id=97, 794.313pt x 199.071pt>
 File: TexFigure/chi_gam_swp.png Graphic file (type png)
 <use TexFigure/chi_gam_swp.png>
-Package pdftex.def Info: TexFigure/chi_gam_swp.png  used on input line 313.
+Package pdftex.def Info: TexFigure/chi_gam_swp.png  used on input line 306.
 (pdftex.def)             Requested size: 455.24408pt x 114.09737pt.
 <TexFigure/chi_alp_swp.png, id=98, 792.123pt x 199.29pt>
 File: TexFigure/chi_alp_swp.png Graphic file (type png)
 <use TexFigure/chi_alp_swp.png>
-Package pdftex.def Info: TexFigure/chi_alp_swp.png  used on input line 314.
+Package pdftex.def Info: TexFigure/chi_alp_swp.png  used on input line 307.
 (pdftex.def)             Requested size: 455.24408pt x 114.5361pt.
  [41 <./TexFigure/chi_gam_swp.png> <./TexFigure/chi_alp_swp.png>]
 <TexFigure/chi_color.png, id=106, 986.157pt x 341.421pt>
 File: TexFigure/chi_color.png Graphic file (type png)
 <use TexFigure/chi_color.png>
-Package pdftex.def Info: TexFigure/chi_color.png  used on input line 324.
+Package pdftex.def Info: TexFigure/chi_color.png  used on input line 317.
 (pdftex.def)             Requested size: 455.24408pt x 157.61299pt.
  [42 <./TexFigure/chi_color.png>]
 <TexFigure/output.png, id=111, 500.1084pt x 446.6286pt>
 File: TexFigure/output.png Graphic file (type png)
 <use TexFigure/output.png>
-Package pdftex.def Info: TexFigure/output.png  used on input line 378.
+Package pdftex.def Info: TexFigure/output.png  used on input line 371.
 (pdftex.def)             Requested size: 341.43306pt x 304.92331pt.
  [43]
 <TexFigure/NCA_crit-7.pdf, id=115, 497.21759pt x 448.79669pt>
 File: TexFigure/NCA_crit-7.pdf Graphic file (type pdf)
 <use TexFigure/NCA_crit-7.pdf>
-Package pdftex.def Info: TexFigure/NCA_crit-7.pdf  used on input line 385.
+Package pdftex.def Info: TexFigure/NCA_crit-7.pdf  used on input line 378.
 (pdftex.def)             Requested size: 341.43306pt x 308.1977pt.
 <TexFigure/OCA_crit-7.pdf, id=116, 497.21759pt x 448.79669pt>
 File: TexFigure/OCA_crit-7.pdf Graphic file (type pdf)
 <use TexFigure/OCA_crit-7.pdf>
-Package pdftex.def Info: TexFigure/OCA_crit-7.pdf  used on input line 386.
+Package pdftex.def Info: TexFigure/OCA_crit-7.pdf  used on input line 379.
 (pdftex.def)             Requested size: 341.43306pt x 308.1977pt.
  [44 <./TexFigure/output.png>] [45 <./TexFigure/NCA_crit-7.pdf> <./TexFigure/OCA_crit-7.pdf>] (2024-10-12 Master's Thesis2.aux)
 
@@ -648,7 +648,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  71i,22n,81p,777b,450s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi6.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr6.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
-Output written on "2024-10-12 Master's Thesis2.pdf" (17 pages, 10677711 bytes).
+Output written on "2024-10-12 Master's Thesis2.pdf" (17 pages, 10677657 bytes).
 PDF statistics:
  199 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

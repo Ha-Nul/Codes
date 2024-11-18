@@ -58,17 +58,10 @@
 \begin{document}
 \section{Result}
 \begin{spacing}{1.5}
-\subsection{Summary}
-  To investigate the physical changes occurring in the Josephson junction based on the results of the previous sections,  
-  we used two methods to analyze the calculation result. The first involved examining the changes in the order parameter, $\cos{\phi}$. 
-  As a second method, we calculate the correlation function between the excited and ground states, and express it using an approximation formula for phase based on fluctuation-dissipation theory. 
-  To evaluate the accuracy of the calculated results, 
-  we tested each section of the integration code by comparing it with the case without reservoir effects, 
-  comparing it with higher-order approximation methods, and checking for convergence depending on the calculation conditions.
 \subsection{Benchmark}
 \subsubsection*{Exact diagonalization in single mode}
 To compare with the result from exact diagonalization(ED), we set the condition when the bath has only a single mode. 
-The result shows approximation method could be reliable in high temperatures ($\beta = 1$).
+The result shows approximation method could be reliable in high temperatures ($\beta = 1$). Throughout the result analysis, we use $k_b$ as unit value 1.
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=7cm]{TexFigure/kps_singlebath.png}}
   \caption{Brief circuit scheme for single bath condition. The crossing symbol  refers to the insulated junction of Josephson junction.}
