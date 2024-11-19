@@ -17,7 +17,7 @@ private:
 
     MatrixXd Matrix_Odd(int n, double r)
     {
-        MatrixXd BASE_MAT=MatrixXd::Zero(n,n);
+        MatrixXd BASE_MAT = MatrixXd::Zero(n, n);
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++)
@@ -39,7 +39,7 @@ private:
 
     MatrixXd Matrix_Even(int n, double r)
     {
-        MatrixXd BASE_MAT=MatrixXd::Zero(n,n);
+        MatrixXd BASE_MAT = MatrixXd::Zero(n, n);
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++)
@@ -62,10 +62,10 @@ private:
         return BASE_MAT;
     }
 
-    
+
 public:
 
-    MD_OC(double beta,int grid);
+    MD_OC(double beta, int grid);
     ~MD_OC();
 
     vector<double> linspace(const double& min, const double& max, int n)
@@ -86,7 +86,7 @@ public:
         result.insert(result.begin() + iterator, max);
         return result;
     }
-    
+
     double Limit;
     void SetLimit(double value);
     void Setgrid();
@@ -128,7 +128,10 @@ public:
 
     int M;
     int t;
-    
+    //int siz;
+    //int sys;
+    //double g_ma;
+
     double Delta_t;
 
     double pi = dlib::pi;
@@ -138,12 +141,12 @@ public:
     MatrixXd Eigenvector_Even();
     MatrixXd Eigenvalue_Even();
     MatrixXd Eigenvector_Odd();
-    MatrixXd Eigenvalue_Odd();        
-    
-    
+    MatrixXd Eigenvalue_Odd();
+
+
     void Hamiltonian_N(MatrixXd even, MatrixXd odd);
     void Hamiltonian_loc(MatrixXd a, MatrixXd b);
-    
+
     void CAL_COUP_INT_with_g_arr(double alp, double cutoff);
     void Tilde_g_calculation_function(double alpha, double k_cutoff);
 
@@ -151,7 +154,7 @@ public:
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     vector<double> coup_Arr;
     vector<double> omega_Arr;
     vector<double> INT_Arr;
@@ -161,6 +164,8 @@ public:
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
+    void Ordercal(MatrixXd even, MatrixXd odd);
+    MatrixXd Order_param;
     MatrixXd H_loc;
 
     vector<double> Chi_Arr;
@@ -188,14 +193,14 @@ public:
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 
-    double temp_minpoint(vector<MatrixXd> &arr);
-    vector<double> temp_itemin(vector<MatrixXd> &arr, double minpo,int size);
+    double temp_minpoint(vector<MatrixXd>& arr);
+    vector<double> temp_itemin(vector<MatrixXd>& arr, double minpo, int size);
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 
-    void NCA_Chi_sp(vector<MatrixXd> &ITER);
-    void OCA_store(vector<MatrixXd> &ITER);
-    void OCA_Chi_sp(vector<MatrixXd> &ITER);
+    void NCA_Chi_sp(vector<MatrixXd>& ITER);
+    void OCA_store(vector<MatrixXd>& ITER);
+    void OCA_Chi_sp(vector<MatrixXd>& ITER);
     vector<double> Chi_sp_Function(vector<MatrixXd> Iter);
 };
 
