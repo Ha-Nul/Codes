@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1731059236 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex" "2024-10-27 Master's Thesis_Appen.pdf" "2024-10-27 Master's Thesis_Appen" 1731059237
-  "2024-10-27 Master's Thesis_Appen.aux" 1731059237 508 9b76335ca996aeb2da7cfa67332c6e67 "pdflatex"
-  "2024-10-27 Master's Thesis_Appen.tex" 1731059234 10990 2c26e19429784ce223ae7f9dec1f0678 ""
+["pdflatex"] 1733897760 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex" "2024-10-27 Master's Thesis_Appen.pdf" "2024-10-27 Master's Thesis_Appen" 1733897760
+  "2024-10-27 Master's Thesis_Appen.aux" 1733897760 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "2024-10-27 Master's Thesis_Appen.tex" 1733897749 15880 9133c15a89828c062c07cd75eae75281 ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1636562477 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1636562478 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs7.tfm" 1636562479 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
@@ -28,6 +28,8 @@
   "G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1247596666 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1247596670 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
+  "G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
+  "G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1247596673 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb" 1254938640 131776 4be3e220f990dc716f91bb7965c09237 ""
   "G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb" 1254938640 133302 c4942f65edfb6dde8dac434e6a2388b0 ""
   "G:/Install_Program/MikTex/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -83,8 +85,9 @@
   "G:/Install_Program/MikTex/tex/latex/tex-gyre/tgtermes.sty" 1254938640 2211 af9b7d12507105a58a3e8e926996b827 ""
   "G:/Install_Program/MikTex/tex/latex/tools/array.sty" 1622550326 12689 a1a7b2795918756dcb9c9cbfacc4d9c7 ""
   "G:/Install_Program/MikTex/tex/latex/xcolor/xcolor.sty" 1623005660 55589 34128738f682d033422ca125f82e5d62 ""
-  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex" 1731059234 10990 2c26e19429784ce223ae7f9dec1f0678 ""
+  "TexFigure/LCcircuit.png" 1732842731 79511 36250bd99ff83dd41a8e19faafacb47d ""
+  "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex" 1733897749 15880 9133c15a89828c062c07cd75eae75281 ""
   (generated)
-  "2024-10-27 Master's Thesis_Appen.log"
   "2024-10-27 Master's Thesis_Appen.aux"
   "2024-10-27 Master's Thesis_Appen.pdf"
+  "2024-10-27 Master's Thesis_Appen.log"

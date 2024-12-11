@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  11 DEC 2024 15:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  29 NOV 2024 10:58
 entering extended mode
-**"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex"
-(e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex
+**"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-11-29 LCcircuit.tex"
+(e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-11-29 LCcircuit.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-08-27> (G:\Install_Program\MikTex\tex/latex/base\article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
@@ -234,7 +234,9 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box57
 \@float@everytoks=\toks26
 \@floatcapt=\box58
-) (G:\Install_Program\MikTex\tex/latex/geometry\geometry.sty
+)
+\bibdata{Master_Thesis}
+(2024-11-29 LCcircuit.bbl) (G:\Install_Program\MikTex\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (G:\Install_Program\MikTex\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
@@ -252,26 +254,26 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen184
 \Gm@dimlist=\toks27
  (G:\Install_Program\MikTex\tex/latex/geometry\geometry.cfg))
-LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 59.
+LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 55.
  (G:\Install_Program\MikTex\tex/latex/tex-gyre\ot1qtm.fd
 File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
-) (2024-10-27 Master's Thesis_Appen.aux)
-\openout1 = `"2024-10-27 Master's Thesis_Appen.aux"'.
+) (2024-11-29 LCcircuit.aux)
+\openout1 = `"2024-11-29 LCcircuit.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
  (G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count288
@@ -331,6 +333,11 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+<TexFigure/LCcircuit.png, id=1, 423.546pt x 441.723pt>
+File: TexFigure/LCcircuit.png Graphic file (type png)
+<use TexFigure/LCcircuit.png>
+Package pdftex.def Info: TexFigure/LCcircuit.png  used on input line 63.
+(pdftex.def)             Requested size: 142.26378pt x 148.37073pt.
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 68.
 (G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -342,76 +349,21 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+) [1
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:83: Package inputenc Error: Unicode character α (U+03B1)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 ...can modify the range conditions for the α
-                                                   and γ valuåes and proce...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:83: Package inputenc Error: Unicode character γ (U+03B3)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 ...ify the range conditions for the α and γ
-                                                   valuåes and proceed with...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:83: Package inputenc Error: Unicode character γ (U+03B3)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 .... By performing calculations for higher γ
-                                                   values, we can get more a...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-[43
-
-{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-<TexFigure/LCcircuit.png, id=9, 423.546pt x 441.723pt>
-File: TexFigure/LCcircuit.png Graphic file (type png)
-<use TexFigure/LCcircuit.png>
-Package pdftex.def Info: TexFigure/LCcircuit.png  used on input line 95.
-(pdftex.def)             Requested size: 142.26378pt x 148.37073pt.
- [44 <./TexFigure/LCcircuit.png>] [45] [46] [47]
-Overfull \hbox (45.1948pt too wide) detected at line 234
-[]
- []
-
-[48] (2024-10-27 Master's Thesis_Appen.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./TexFigure/LCcircuit.png>] [2] (2024-11-29 LCcircuit.aux) ) 
 Here is how much of TeX's memory you used:
- 7595 strings out of 478927
- 111068 string characters out of 2861478
- 432745 words of memory out of 3000000
- 25345 multiletter control sequences out of 15000+600000
- 431019 words of font info for 47 fonts, out of 8000000 for 9000
+ 7593 strings out of 478927
+ 111034 string characters out of 2861478
+ 426779 words of memory out of 3000000
+ 25340 multiletter control sequences out of 15000+600000
+ 416912 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,22n,81p,578b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
-{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
-Output written on "2024-10-27 Master's Thesis_Appen.pdf" (6 pages, 294822 bytes).
+ 71i,20n,81p,412b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
+{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
+Output written on "2024-11-29 LCcircuit.pdf" (2 pages, 236585 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

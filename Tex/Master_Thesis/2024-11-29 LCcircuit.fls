@@ -1,7 +1,7 @@
 PWD e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex\Master_Thesis
 INPUT C:\Users\128kbps\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex\Master_Thesis\2024-10-27 Master's Thesis_Appen.tex
-OUTPUT 2024-10-27 Master's Thesis_Appen.log
+INPUT e:\Cabinet_Main\Cabinet_Documents\Git\Codes\Tex\Master_Thesis\2024-11-29 LCcircuit.tex
+OUTPUT 2024-11-29 LCcircuit.log
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
 INPUT G:\Install_Program\MikTex\tex\latex\base\article.cls
@@ -446,6 +446,10 @@ INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
 INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
 INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
 INPUT G:\Install_Program\MikTex\tex\latex\float\float.sty
+INPUT .\2024-11-29 LCcircuit.bbl
+INPUT 2024-11-29 LCcircuit.bbl
+INPUT .\2024-11-29 LCcircuit.bbl
+INPUT 2024-11-29 LCcircuit.bbl
 INPUT G:\Install_Program\MikTex\tex\latex\geometry\geometry.sty
 INPUT G:\Install_Program\MikTex\tex\latex\geometry\geometry.sty
 INPUT G:\Install_Program\MikTex\tex\latex\geometry\geometry.sty
@@ -479,10 +483,10 @@ INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ot1qtm.fd
 INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ot1qtm.fd
 INPUT G:\Install_Program\MikTex\tex\latex\tex-gyre\ot1qtm.fd
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT .\2024-10-27 Master's Thesis_Appen.aux
-INPUT 2024-10-27 Master's Thesis_Appen.aux
-INPUT 2024-10-27 Master's Thesis_Appen.aux
-OUTPUT 2024-10-27 Master's Thesis_Appen.aux
+INPUT .\2024-11-29 LCcircuit.aux
+INPUT 2024-11-29 LCcircuit.aux
+INPUT 2024-11-29 LCcircuit.aux
+OUTPUT 2024-11-29 LCcircuit.aux
 INPUT G:\Install_Program\MikTex\tex\context\base\mkii\supp-pdf.mkii
 INPUT G:\Install_Program\MikTex\tex\context\base\mkii\supp-pdf.mkii
 INPUT G:\Install_Program\MikTex\tex\context\base\mkii\supp-pdf.mkii
@@ -504,7 +508,15 @@ INPUT G:\Install_Program\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT G:\Install_Program\MikTex\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
+INPUT .\TexFigure\LCcircuit.png
+INPUT .\TexFigure\LCcircuit.png
+INPUT TexFigure\LCcircuit.png
+INPUT .\TexFigure\LCcircuit.png
+OUTPUT 2024-11-29 LCcircuit.pdf
+INPUT .\TexFigure\LCcircuit.png
+INPUT .\TexFigure\LCcircuit.png
+INPUT .\TexFigure\LCcircuit.png
+INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT G:\Install_Program\MikTex\tex\latex\jknappen\ursfs.fd
@@ -528,26 +540,11 @@ INPUT G:\Install_Program\MikTex\tex\latex\amsfonts\umsb.fd
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT G:\Install_Program\MikTex\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-OUTPUT 2024-10-27 Master's Thesis_Appen.pdf
 INPUT C:\Users\128kbps\AppData\Local\MiKTeX\pdftex\config\pdftex.map
-INPUT .\TexFigure\LCcircuit.png
-INPUT .\TexFigure\LCcircuit.png
-INPUT TexFigure\LCcircuit.png
-INPUT .\TexFigure\LCcircuit.png
-INPUT .\TexFigure\LCcircuit.png
-INPUT .\TexFigure\LCcircuit.png
-INPUT .\TexFigure\LCcircuit.png
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmb.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT G:\Install_Program\MikTex\fonts\tfm\public\tex-gyre\rm-qtmr.tfm
-INPUT 2024-10-27 Master's Thesis_Appen.aux
+INPUT 2024-11-29 LCcircuit.aux
 INPUT G:\Install_Program\MikTex\fonts\enc\dvips\tex-gyre\q-rm.enc
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmex10.pfb
-INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cmextra\cmex7.pfb
-INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cmextra\cmex7.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmmi5.pfb
@@ -556,14 +553,10 @@ INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmmi7.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmmi7.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmr10.pfb
-INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmr5.pfb
-INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmr5.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmsy5.pfb
-INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmsy5.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT G:\Install_Program\MikTex\fonts\type1\public\amsfonts\symbols\msbm10.pfb

@@ -60,36 +60,124 @@
 
 \section{Conclusion \& Future work}
 \begin{spacing}{1.5}
-    \subsubsection*{Conclusion}
+\subsubsection*{Conclusion}
 In conclusion, we’ve simulated the RSJJ Hamiltonian using the diagrammatic approximation method to determine its criticality. 
 To consider the temperature dependency of the RSJJ system, we developed our idea in Matsubara formalism in steady-state conditions 
-and calculated the partition function for consecutive temperatures. Chapter 2, we dealt with the representation methodology of field theory 
-and how it expanded into a many-body problem, with topological structure. A detailed description of the simulation model is in sec 2.1. We showed how the RSJJ Hamiltonian model 
+and calculated the partition function for consecutive temperatures. Chapter 2 deals with the representation methodology of field theory 
+and how it expanded into a many-body problem with topological structure. A detailed description of the simulation model is in sec 2.1. We showed how the RSJJ Hamiltonian model 
 is described in a macroscopic state of view. Operator $\hat{N}$ was used for conveying the bosonic interaction effect to the target system, 
-detailed matrix form was derived in subsections.Sec 2.2 to Sec 2.3, 
-the basic method for solving many-body Hamiltonian was introduced. More specifically, 
-we calculate the partition function for the thermal equilibrium state that propagated in imaginary time. 
-We describe the mapping procedure of our RSJJ model in the present pseudo-particle solver method in Sec 2.3.  
- In Chapter 3, the program code for implementing the simulation in a computational environment 
+and a detailed matrix form was derived in subsections. Sec 2.2 to Sec 2.3 introduced 
+the basic method for solving many-body Hamiltonian. Specifically, 
+we calculate the partition function for the thermal equilibrium state propagating in imaginary time. 
+We describe the mapping procedure of our RSJJ model in the present pseudo-particle solver method in Sec 2.3.  
+  In Chapter 3, the program code for implementing the simulation in a computational environment 
 was analyzed. We evaluate the accuracy of our simulation approach and validate the approximate result at the beginning of Chapter 4, 
-that calculated values converged toward the result from Exact diagonalization and higher order expansion method. 
-Detailed procedure was explained in Sec 4.2 and Sec 4.3. As a result of the simulation, 
-there were criticality existed in the order parameter calculated in discrete temperature intervals 
-which can be deduced that the system feature goes on an insulating phase when temperature decreases, 
-whence in the previous study phase transition occurs in fixed interaction parameter. 
+which is that calculated values converged toward the result from Exact diagonalization and higher order expansion method. 
+The detailed procedure is explained in Sec 4.2 and Sec 4.3. As a result of the simulation, 
+criticality existed in the order parameter calculated in discrete temperature intervals, which can be deduced that the system feature goes on an insulating phase when temperature decreases, 
+Whence in the previous study phase, a transition occurred in the fixed interaction parameter. 
 We assumed this different phenomenon was revealed due to the finite temperature condition of our study. 
-We also evaluated approximation result which calculated from correlation function and found that it indicates different trends through temperature.
-Yet it was hard to decide the exact critical point of our simulation progress, there should be more research to get concrete results for examination. 
+We also evaluated the approximation result, which was calculated from the correlation function, and found that it indicates different trends through temperature.
+Yet it was hard to decide the exact critical point of our simulation progress, so more research should be done to get concrete results for examination. 
 \subsubsection*{Future work}
-In the simulation aspect, we could set another range of simulation range for each temperature, 
-$\alpha$, $\gamma$ condition to exceed the present parameter range and expect unobserved results 
-due to the broad range of physical conditions. After we determine the concrete regime of system features, 
-we could observe our system in a Non-equilibrium state following real-time contour to expand the pseudo-particle paradigm 
-into many-body particle regions with more complex Josephson quantum circuit structures connected in geometrical order.
+First, as the most straightforward task, we can modify the range conditions for the α and γ valuåes and proceed with the calculations. By performing calculations for higher γ values, we can get more accurate data for the expected changes in criticality predicted by the order parameter.
+The second task is to introduce higher-order approximation calculation methods. We have a calculation code capable of performing TOA, and using this code to perform calculations within the same parameter range is expected to yield more accurate results. However, it should be considered that this case requires significant time to proceed with the calculations.
+Third, considering to extend the current framework to the Keldysh contour. The formalism employed in this study, the Matsubara formalism, transforms the time-dependent energy changes into temperature-dependent changes for the calculation. This formalism is vulnerable to considering the effects of non-equilibrium phenomena such as dissipation. We anticipate that more accurate calculations will be feasible under real-time analysis, incorporating non-equilibrium phenomena.
 \end{spacing}
 \pagebreak
 \newpage
 \appendix
+\section{LC circuit}
+\begin{spacing}{1.5}
+From the circuit in Figure 3, we can establish the circuit equation for the Josephson junction:
+First, assume the following closed LC circuit:
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=5cm]{TexFigure/LCcircuit.png}}
+  \caption{LC circuit in closed loop}
+  \label{fig:reentrant}
+\end{figure}
+
+The flux $\Phi$ flowing through the inductor and the amount of charge accumulated in the capacitor $Q$
+can be written as the following relationship:
+\begin{flalign}
+\begin{split}
+\Phi(t) = \int^t_{-\infty}V(\tau)d\tau \quad,\quad Q = \int I(t) dt\\ \frac{d Q}{dt} = I(t) \quad, \quad \Phi(t) = LI(t)
+\end{split}
+\end{flalign}
+Here, $V(\tau)$ is the voltage across the inductor, and $I(t)$ is the current flowing in the closed circuit.
+The following equations hold for the closed loop according to Kirchhoff's current law and voltage law:
+\begin{flalign}
+\begin{split}
+\dot{Q}_C + \dot{Q}_L = 0 \\ \dot{\Phi}_C - \dot{\Phi}_L = 0
+\end{split}
+\end{flalign}
+Using this, we can establish the following circuit equation:
+\begin{flalign}
+\begin{split}
+C\ddot{\Phi} + \frac{\Phi}{L} = 0 &\Leftrightarrow \ddot{\Phi}=-\omega_0^2\Phi \\ &\omega_0 = \frac{1}{\sqrt{LC}}
+\end{split}
+\end{flalign}
+The Flux of the circuit can mapped into the position variable in classical mechanics.
+In this case, the circuit equation can be treated the same as the equation of motion of a harmonic oscillator. 
+From this, we can calculate the Lagrangian of the circuit using the energy equations of each circuit element.
+\begin{flalign}
+\begin{split}
+\mathcal{L}(\Phi,\dot{\Phi}) &=  \mathcal{E}_C-\mathcal{E}_J \\ &=\frac{1}{2}C\dot{\Phi}^2 - \frac{\Phi^2}{2L}
+\end{split}
+\end{flalign}
+We introduce canonical variables that satisfy the following commutation relations:
+\begin{flalign}
+\begin{split}
+\frac{\partial \mathcal{L}}{\partial{\dot{\Phi}}} = Q
+\end{split}
+\end{flalign}
+The transformed Hamiltonian form using the Legendre transformation ( $H = \dot{\Phi} Q-\mathcal{L}$ ) is same as the circuit equation derived by using Kirchhoff's law.
+\subsection{Josephson junction}
+
+A Josephson junction consists of two conductors separated by a thin insulator(S-I-S structure), 
+where the insulator acts as a potential barrier.
+Two factors determine the energy of a Josephson junction: 
+the energy derived from Cooper pairs tunneling through the potential barrier, analogous to the inductor 
+energy in an LC circuit, and the effective capacitance due to the S-I-S structure of the junction.
+The effective inductance is determined by the critical current $I_c$ and flux $\Phi = \int_0^t V(t) dt$, 
+the potential difference $V$ across the junction, 
+and the energy $E_J$ of the Cooper pairs that have crossed the potential barrier of the junction. 
+This can be expressed as the following equation: 
+\begin{flalign}
+\begin{split}
+\begin{cases} I = I_c \sin \Phi \\ \frac{\partial \Phi}{\partial t} = \frac{2e}{\hbar} V \end{cases}
+\end{split}
+\end{flalign}
+Combining the two equations, we obtain the following relation for Cooper pairs:
+\begin{flalign}
+\begin{split}
+\frac{\partial I}{\partial t} = \frac{\partial I}{\partial \Phi}\frac{\partial \Phi}{\partial t} = I_cV\frac{2e}{\hbar} \cos{\Phi} \\ \mathcal{L}_{J_J} = E_J\cos\frac{2e}{\hbar}\Phi
+\end{split}
+\end{flalign}
+And the energy of the junction due to the effective capacitance is written as follows:
+\begin{flalign}
+\begin{split}
+\mathcal{L}_{J_c} =\frac{C_J}{2}\dot{\Phi}^2
+\end{split}
+\end{flalign}
+From this, the Lagrangian of the entire Josephson junction can be written as follows:
+\begin{flalign}
+\begin{split}
+\mathcal{L}_J = \mathcal{L}_{J_c} + \mathcal{L}_{J_J} \\ = \frac{C_J}{2}\dot{\Phi}^2 + E_J\cos\frac{2e}{\hbar}\Phi
+\end{split}
+\end{flalign}
+Performing Legendre transformation same as the case of LC oscillator, the Hamiltonian of the Josephson junction can be rewritten as follows:
+\begin{flalign}
+\begin{split}
+H_{JJ} = \frac{{Q_J}^2}{2C_J} - E_J \cos\frac{2e}{\hbar}\Phi
+\end{split}
+\end{flalign}
+This is equivalent to the Hamiltonian of a simple pendulum suspended in a gravitational field. 
+$\cos\Phi$ term makes the Josephson junction behave like a nonlinear harmonic oscillator, 
+where the Josephson energy $E_J$ controls the degree of nonlinearity.
+\end{spacing}
+\pagebreak
+\newpage
 \section{Brief statement for field theory}
 \begin{spacing}{1.5}
 In the main text, we calculated the partition function using the action $S$. Here, we provide a brief explanation of this approach.
@@ -125,9 +213,6 @@ Z[J]=\int[D\phi]e^{\int d\phi [\frac{1}{2}\partial^2_\tau\phi - m^2\phi^2]+J\cdo
 \end{flalign}
 Which can be calculated as the same procedure above, in a more complex structure.
 \end{spacing}
-\pagebreak
-\newpage
-\section{Quantization of field operator and Coherent state}
 \pagebreak
 \newpage
 \section{Wick's theorem}
