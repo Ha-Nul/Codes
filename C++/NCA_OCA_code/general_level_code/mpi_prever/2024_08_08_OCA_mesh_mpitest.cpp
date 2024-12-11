@@ -16,17 +16,15 @@ int sys = 0;
 /////////////////////////////////////////////////////////////
 
 MD_OC::MD_OC(double beta, int grid)
-     : tau_grid(linspace(0,beta,grid)) , t(grid-1)
+    : tau_grid(linspace(0, beta, grid)), t(grid - 1)
 {
-    mode_grid = linspace(1,30000,30000);
+    mode_grid = linspace(1, 30000, 30000);
 
     Delta_t = tau_grid[1] - tau_grid[0];
 
     M = mode_grid.size();
     t = tau_grid.size();
-    H_N = MatrixXd::Zero(3,3);
-    H_loc = MatrixXd::Zero(3,3);
-    
+
     coup_Arr.resize(M);
     omega_Arr.resize(M);
     INT_Arr.resize(t);
@@ -37,6 +35,7 @@ MD_OC::~MD_OC()
 {
     //blank;
 }
+
 
 
 //////////////////////////////////////////////////////////////
@@ -214,6 +213,159 @@ void MD_OC::Hamiltonian_loc(MatrixXd a, MatrixXd b)
     }
 }
 
+
+void MD_OC::Ordercal(MatrixXd even, MatrixXd odd)
+{
+    Order_param = MatrixXd::Zero(siz, siz);
+
+    cout << "**EVENMAT**" << endl;
+    cout << even << endl;
+
+    //** constructing even matrix
+    MatrixXd eve_0 = even;//MatrixXd::Zero(sys,sys);
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
+    {
+        if (i == 0) {
+            eve_0(i, j) = (1 / sqrt(2)) * even(i, j);
+        }
+        else {
+            eve_0(i, j) = even(i, j);
+        }
+    }
+
+    //Even OffDiagonal construct
+    MatrixXd eve_1 = MatrixXd::Zero(sys + 1, sys + 1);
+    MatrixXd eve_2 = MatrixXd::Zero(sys + 1, sys + 1);
+
+    for (int i = 0; i < sys + 1; i++) for (int j = 0; j < sys + 1; j++)
+    {
+        if (i > 0 && j < sys) {
+            if (i > 1) {
+                eve_1(i, j) = 0.5 * eve_0(i - 1, j);
+            }
+            else {
+                eve_1(i, j) = eve_0(i - 1, j);
+            }
+        }
+        if (j < sys && i < sys) {
+            eve_2(i, j) = eve_0(i, j);
+        }
+    }
+    //Activate to change the direction of groundstate eigenvector
+    for (int i = 0; i < sys + 1; i++) {
+        eve_1(i, 0) = -eve_1(i, 0);
+        eve_2(i, 0) = -eve_2(i, 0);
+    }
+
+
+    MatrixXd eve_off = eve_1.transpose() * eve_2;
+    //cout << "EVEOFF" << endl;
+    //cout << eve_off << endl;
+
+    //cout << "\t" << "<Mateven 1>" << endl;
+    //cout << eve_1.transpose() << endl;
+    /*
+    for (int i = 0; i < sys+1; i++) for (int j = 0; j< sys+1; j++)
+    {
+        if (j<sys && i<sys)
+        {
+            eve_2(i,j) = eve_0(i,j);
+        }
+    }
+    */
+    //cout << "\t" << "<Mateven 2>" << endl;
+    //cout << eve_2 << endl;
+    MatrixXd eve_ele = MatrixXd::Zero(sys, sys);
+
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
+    {
+        if ((i != j) && (i % 2 == 0) && (j % 2 == 0)) {
+            eve_ele(i, j) = eve_off(i / 2, j / 2) + eve_off(j / 2, i / 2);
+            //eve_ele(j,i) = eve_off(i/2,j/2) + eve_off(j/2,i/2);
+        }
+
+        if ((i == j) && (i % 2 == 0) && (j % 2 == 0)) {
+            eve_ele(i, j) = 2 * eve_off(i / 2, j / 2);
+            //eve_ele(j,i) = eve_off(i/2,j/2) + eve_off(j/2,i/2);
+        }
+    }
+
+    //cout << "*****EVEELE*****" << endl;
+    //cout << eve_ele << endl;
+    ///////////// even matrix construction complete ///////////////
+
+    //constructing odd matrix
+
+    cout << "**ODD Eigen matrix**" << endl;
+    cout << odd << endl;
+    //odd matrix calculation structure design
+    MatrixXd odd_ele1 = MatrixXd::Zero(sys, sys);
+    MatrixXd odd_ele2 = MatrixXd::Zero(sys, sys);
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
+    {
+        if (i != 0) {
+            odd_ele1(i, j) = odd(i - 1, j);
+        }
+    }
+
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
+    {
+        if (i != 0) {
+            odd_ele1(i, j) = odd(i - 1, j);
+        }
+    }
+
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
+    {
+        if (i != (sys - 1)) {
+            odd_ele2(i, j) = odd(i, j);
+        }
+    }
+    //calculation
+    MatrixXd odd_ele = MatrixXd::Zero(sys, sys);
+    for (int i = 0; i < sys; i++) for (int j = 0; j < sys; j++)
+    {
+        if ((i == j) && (i % 2 == 1) && (j % 2 == 1)) {
+            odd_ele(i, j) = (odd_ele1.transpose() * odd)(i / 2, j / 2);
+        }
+        else if ((i < j) && (i % 2 == 1) && (j % 2 == 1)) {
+            odd_ele(i, j) = 0.5 * (odd_ele1.transpose() * odd + odd_ele2.transpose() * odd_ele1)(i, j);
+            odd_ele(j, i) = odd_ele(i, j);
+        }
+    }
+
+    /*
+    cout << "ODD_element 1 is : " << endl;
+    cout << odd_ele1 << endl;
+
+    cout << "\n";
+
+    cout << "ODD_element 2 is : " << endl;
+    cout << odd_ele2 << endl;
+    */
+
+    cout << "Structure check" << endl;
+    cout << odd_ele << endl;
+    ///////////// odd matrix construction complete ///////////////
+
+    for (int i = 0; i < siz; i++) for (int j = 0; j < siz; j++)
+    {
+        if (i % 2 == 0 && j % 2 == 0)
+        {
+            Order_param(i, j) = eve_ele(i, j);
+        }
+
+        else if (i % 2 != 0 && j != 0)
+        {
+            Order_param(i, j) = odd_ele(i, j);
+        }
+
+    }
+
+    cout << "Order : \n" << Order_param << endl;
+
+}
+
 ///////////////////////////////////////////////////////////////////////
 
 void MD_OC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
@@ -222,7 +374,7 @@ void MD_OC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
     Interact_V(k_cutoff);
     Hamiltonian_N(Eigenvector_Even(), Eigenvector_Odd());
     Hamiltonian_loc(Eigenvalue_Even(),Eigenvalue_Odd());
-
+    Ordercal(Eigenvector_Even(), Eigenvector_Odd());
 
     //cout << "$ H_N value : \n " << H_N << endl;
     //cout << "$ H_loc value : \n " << H_loc << endl;
@@ -512,7 +664,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-
+/*
 void MD_OC::NCA_Chi_sp(vector<MatrixXd>& iter)
 {
     Chi_Arr.resize(t);
@@ -568,11 +720,71 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 
     return Chi_Arr;
 }
+*/
 ////////////////////////////////////////////////////////////////////////////////////
+
+void MD_OC::NCA_Chi_sp(vector<MatrixXd>& iter)
+{
+    Chi_Arr.resize(t);
+    MatrixXd GELL = MatrixXd::Zero(siz, siz);
+    GELL(0, 1) = 1;
+    GELL(1, 0) = 1;
+
+    for (int i = 0; i < t; i++)
+    {
+        Chi_Arr[i] = (iter[t - i - 1] * Order_param * iter[i] * Order_param).trace();
+    }
+}
+
+void MD_OC::OCA_store(vector<MatrixXd>& iter)
+{
+    MatrixXd GELL = MatrixXd::Zero(siz, siz);
+    GELL(0, 1) = 1;
+    GELL(1, 0) = 1;
+
+    Chi_st.resize(t);
+    for (int n = 0; n < t; n++)
+    {
+        Chi_st[n].resize(n + 1);
+        for (int m = 0; m <= n; m++)
+        {
+            Chi_st[n][m] = iter[n - m] * H_N * iter[m] * Order_param;
+            //cout << "pair (n,m) is : " <<  "(" << n << "," << m << ")" << "corresponds with" << "(" << n-m << "," << m << ")" << endl;
+        }
+    }
+}
+
+
+void MD_OC::OCA_Chi_sp(vector<MatrixXd>& iter)
+{
+    for (int i = 0; i < t; i++)
+    {
+        MatrixXd Stmp = MatrixXd::Zero(siz, siz);
+
+        for (int n = 0; n <= i; n++) for (int m = i; m < t; m++)
+        {
+            Stmp += INT_Arr[m - n] * (Chi_st[t - i - 1][m - i] * Chi_st[i][n]);
+            //cout << "pair ("<<n<<","<<m<<") is : " << "(" << k-i-1 << "," << m-i << ")"<< " with " << "(" << i << "," << n << ")" << endl;
+        }
+        Chi_Arr[i] += pow(Delta_t, 2) * Stmp.trace();
+    }
+}
+
+vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
+{
+    NCA_Chi_sp(ITE);
+    OCA_store(ITE);
+    OCA_Chi_sp(ITE);
+
+    return Chi_Arr;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+
 
 int main(int argc, char *argv[])
 {
-    double beta = 3;
+    double beta = 8.33;
     int grid = 401;
 
     MD_OC MD(beta,grid);
