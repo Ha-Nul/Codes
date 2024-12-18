@@ -59,11 +59,10 @@
 \section{Numerical calculation for integro-differential equation}
 
 \begin{spacing}{1.5}
-The integro-differential equation central to the analysis of our model was solved numerically using C++ code.  This section outlines the key computational techniques employed within the code.
-
+The integro-differential equation central to the analysis of our model was solved numerically using C++ code.  This section outlines the key computational techniques employed within the code.
 \subsection{Structure of C++ code}
 The structure of the C++ code designed to solve the integro-differential equation is outlined below. 
-The C++ code for solving the integro-differential equation is structured as follows: the functions performing the calculations are declared beforehand within a header file (.hpp) using a class, and then defined within a source file (.cpp).
+The C++ code for solving the integro-differential equation is structured as follows: the functions performing the calculations are declared beforehand within a header file (.hpp) using a class and then defined within a source file (.cpp).
 Appropriate numerical methods were adopted for each computational step.
 $\\$
 \begin{figure}[htbp]
@@ -72,7 +71,7 @@ $\\$
 \end{figure}
 
 \subsection{Hybridzation function - Simpson’s Rule}
-The hybridization function, calculated as a scalar rather than a matrix, was evaluated by considering the form of the retarded Matsubara Green's function. To compute the value of $g_k$, a parameter that determines the coupling between the RC circuit and the Josephson junction, Simpson's rule of integration was employed. The formula for calculating $g_k$ for the application of this integration method is given below:
+The hybridization function, calculated as a scalar rather than a matrix, was evaluated by considering the form of the retarded Matsubara Green's function. Simpson's rule of integration was employed to compute the value of $g_k$, a parameter that determines the coupling between the RC circuit and the Josephson junction. The formula for calculating $g_k$ for the application of this integration method is given below:
 \begin{flalign}
 g_k =\sqrt{\frac{2W}{\alpha}\bigg(\frac{W}{1+(\nu x)^2}\bigg)} \qquad, \quad (x=\frac{k}{W})
 \end{flalign}
@@ -81,15 +80,12 @@ The integration method using Simpson’s method follows:
 \int f(x) dx = \frac{b-a}{3n} \bigg[f(x_0) + \sum_{i=odd} 4f(x_i) + 2\sum_{i=\text{even}}f(x_i)+f(x_0) + f(x_f)\bigg]
 \end{flalign}
 Here, we calculate the initial value using the case of $V(\tau,k=0)$. 
-The part where the Simpson's rule is implemented in the code is as follows. After generating a vector array suitable for the length of the k-index to calculate  V(τ),  the integration is performed only for the k-value for $g_k$ and $\omega_k$ in the V(τ) expression. Using the resulting expression, the value for each τ interval is stored in an array of length τ.
-
+The part where Simpson's rule is implemented in the code is as follows. After generating a vector array suitable for the length of the k-index to calculate  V(τ),  the integration is performed only for the k-value for $g_k$ and $\omega_k$ in the V(τ) expression. Using the resulting expression, the value for each τ interval is stored in an array of length τ.
 \subsection{Trapezoidal method}
-The trapezoidal method was employed for the calculation of the self-energy and the propagator. This section provides a brief overview of the implementation for calculating the propagator. The numerical integration formula using the trapezoidal method is as follows: 
-
+The trapezoidal method was employed to calculate the self-energy and the propagator. This section provides a brief overview of the implementation for calculating the propagator. The numerical integration formula using the trapezoidal method is as follows: 
 \begin{flalign}
 \int_{a}^{b} f(x) \, dx \approx \frac{\Delta x}{2} \left[ f(x_0) + 2f(x_1) + 2f(x_2) + \dots + 2f(x_{n-1}) + f(x_n) \right]
 \end{flalign}
-
 To correspond to the actual numerical integration program code, the formula can be rewritten in the form of an infinite series as follows:
 \begin{flalign}
 \int_{a}^{b} f(x) \, dx \approx \Delta x \left[ \frac{1}{2}f(x_0) + \sum_{j=1}^{n-1} f(x_j) +  \frac{1}{2}f(x_n) \right]
@@ -151,15 +147,13 @@ vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& 
 }
 \end{lstlisting}
 \subsection{Iteration truncation - Relative entropy}
-
-Our targeting integro-differential equation has a recursive structure, which means that a single calculation is not enough to get a complete result. The obtained array of $G(\tau)$ in the previous iteration is to be used as an initial condition for multiple iterative calculations until the result converges sufficiently. To truncate the iteration of calculations in flexibility, the concept of relative entropy was introduced into the code. The formula for calculating relative entropy is as follows:
+Our targeting integro-differential equation has a recursive structure, meaning that a single calculation is insufficient to get a complete result. The obtained array of $G(\tau)$ in the previous iteration will be used as an initial condition for multiple iterative calculations until the result converges sufficiently. The concept of relative entropy was introduced into the code to truncate the iteration of calculations in flexibility. The formula for calculating relative entropy is as follows:
 \begin{equation*}
 D(p||q) = \sum_{x\in\mathcal{X}}p(x)\ln\frac{p(x)}{q(x)}
 \end{equation*}
 The notations $p(x)$ and $q(x)$ represent two different probability distributions.
-In the case of $\mathcal{G}(\tau = \beta)$ in the interval $[0,\beta]$, The Green's function is represented by the same formula as the partition function of a thermal equilibrium state in the grand canonical ensemble. In this case, the partition function plays the same role as the density operator, which represents the mixed state of the system being investigated from a quantum mechanical perspective.
+In the case of $\mathcal{G}(\tau = \beta)$ in the interval $[0,\beta]$, The Green's function is represented by the same formula as the partition function of a thermal equilibrium state in the grand canonical ensemble. In this case, the partition function plays the same role as the density operator, representing the system's mixed state being investigated from a quantum mechanical perspective.
 This allows us to calculate the probability distribution in the final stage. The code was designed to terminate the calculation of G(τ) when the distance between the probability distributions obtained at each calculation step becomes sufficiently small, indicating that the result has converged.
-
 \begin{lstlisting}[language=C++, caption=Iteration truncation code]
 // Function that returns the value of \mathcal{G}(\tau=\beta)
 vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, int size)
@@ -219,7 +213,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 }
 \end{lstlisting}
 \subsection{Implementation of Correlation function}
-The T-matrix was first introduced in the process of representing the OCA self-energy formula in diagrammatic form. 
+The T-matrix was first introduced to represent the OCA self-energy formula in diagrammatic form. 
 Implementing this in a computational setting leads to a reduction in the calculation time of the approximation method. 
 Based upon this idea, we construct the matrix structure $\hat{T}_{chi}$ to pre-calculate the product of the propagator and the N matrix, store it in matrix form, 
 and then use the values from the matrix elements as needed during the self-energy calculation.

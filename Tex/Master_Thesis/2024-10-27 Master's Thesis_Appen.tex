@@ -133,7 +133,6 @@ We introduce canonical variables that satisfy the following commutation relation
 \end{flalign}
 The transformed Hamiltonian form using the Legendre transformation ( $H = \dot{\Phi} Q-\mathcal{L}$ ) is same as the circuit equation derived by using Kirchhoff's law.
 \subsection{Josephson junction}
-
 A Josephson junction consists of two conductors separated by a thin insulator(S-I-S structure), 
 where the insulator acts as a potential barrier.
 Two factors determine the energy of a Josephson junction: 
@@ -175,6 +174,59 @@ H_{JJ} = \frac{{Q_J}^2}{2C_J} - E_J \cos\frac{2e}{\hbar}\Phi
 This is equivalent to the Hamiltonian of a simple pendulum suspended in a gravitational field. 
 $\cos\Phi$ term makes the Josephson junction behave like a nonlinear harmonic oscillator, 
 where the Josephson energy $E_J$ controls the degree of nonlinearity.
+\subsection{Circuit Hamiltonian}
+By using the potential energy (voltage) applied to the circuit, the Lagrangian of the entire circuit can be expressed as follows. [Footnote]
+\begin{flalign}
+\begin{split}
+\mathcal{L} = \frac{C_J}{2}\dot{\Phi}^2 + E_J\cos{\frac{2e}{\hbar}} + \frac{C_C}{2}(\dot{\Phi}_1 - \dot{\Phi})^2 + \sum_{i=2}^N \frac{cx}{2} \dot{\Phi}_i^2 -\sum_{i=2}^N\frac{(\Phi_i - \Phi_{i-1})^2}{2lx}
+\end{split}
+\end{flalign}
+To transform the Lagrangian into the Hamiltonian form, we define the variable  $Q_i = \frac{\partial \mathcal{L}}{\partial \dot{\Phi}_i}$ for the LC circuit, along with the previously defined canonical conjugate variables. This can be interpreted as the charge accumulated on the capacitor connected to the i-th node.
+Considering the variable with respect to which the differentiation is performed, the total Lagrangian can be divided into the following two parts.
+\begin{flalign}
+  \begin{split}
+\mathcal{L} = \mathcal{L}_{loc} + \mathcal{L}_{LC}
+\end{split}
+\end{flalign}
+By applying appropriate Legendre transformations to each Lagrangian, the following form of the Hamiltonian is obtained.
+\begin{flalign}
+  \begin{split}
+\hat{H} = \frac{(Q+Q_1)^2}{C_J} + \frac{Q^2_1}{2C_C}-E_J\cos(\frac{2e}{\hbar}\Phi) + \sum_{i=2}\frac{(\hat{\Phi}_i-\hat{\Phi}_{i-1})^2}{2lx} + \sum_{i=2}\frac{\hat{Q}_i^2}{2cx}
+\end{split}
+\end{flalign}
+\subsubsection*{Transimission line composed by LC circuit}
+The Lagrangian for a waveguide structure using an LC circuit consisting of inductors and capacitors corresponds to the following part.
+\begin{flalign}
+  \begin{split}
+\mathcal{L}_{LC} = \sum_{i=2} \frac{cx}{2}\dot{\Phi}^2 - \sum_{i=2}\frac{(\Phi_i-\Phi_{i-1})^2}{2lx}
+\end{split}
+\end{flalign}
+This originates from the form of energy stored in the capacitor due to the potential difference across it and the energy stored in the inductance per unit length of the inductance. By rewriting the Lagrangian into the Hamiltonian using the canonical variables for the LC circuit, the following equation can be obtained.
+\begin{flalign}
+  \begin{split}
+H_{LC} = \sum_{i=2}\frac{(\hat{\Phi}_i-\hat{\Phi}_{i-1})^2}{2lx} + \sum_{i=2}\frac{\hat{Q}_i^2}{2cx}
+\end{split}
+\end{flalign}
+\subsubsection*{Local system}
+The Lagrangian for the capacitor connecting the Josephson junction and the LC oscillator can be written as follows.
+\begin{flalign}
+  \begin{split}
+\mathcal{L}_{loc}=\frac{C_J}{2}\dot{\Phi}^2 + E_J\cos{\frac{2e}{\hbar}} + \frac{C_C}{2}(\dot{\Phi}_1 - \dot{\Phi})^2
+\end{split}
+\end{flalign}
+The Legendre transformation for a multivariable function can be written as follows.
+\begin{flalign}
+  \begin{split}
+Q = \frac{\partial \mathcal{L}_{C_C}}{\partial \dot{\Phi}} = C_J \dot{\Phi}+ C_C(\dot{\Phi}-\dot{\Phi}_1) \quad , \quad \dot{\Phi} = \frac{Q}{C_J} - \frac{C_C}{C_J}(\dot{\Phi}-\dot{\Phi}_1) \\
+Q_1 = \frac{\partial \mathcal{L}_{C_C}}{\partial \dot{\Phi}_1} = \frac{C_C}{2}(2\dot{\Phi}_1-2\dot{\Phi}) \\
+\end{split}
+\end{flalign}
+Using this, rewriting the Lagrangian into the Hamiltonian yields the following:
+\begin{flalign}
+  \begin{split}
+H_{loc} = \frac{(Q+Q_1)^2}{C_J} + \frac{Q^2_1}{2C_C}-E_J\cos(\frac{2e}{\hbar}\Phi)
+\end{split}
+\end{flalign}
 \end{spacing}
 \pagebreak
 \newpage
