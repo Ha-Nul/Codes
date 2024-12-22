@@ -1,4 +1,6 @@
-\documentclass{article}[12pt]
+\documentclass{article}
+\usepackage{scrextend}
+\changefontsizes[10pt]{8pt}
 \usepackage{physics}
 \usepackage{setspace}
 \usepackage{amsmath}
@@ -14,12 +16,13 @@
 \usepackage{xcolor}
 \usepackage{helvet}
 \usepackage{float}
+\usepackage[twoside]{geometry}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \definecolor{lightgray}{rgb}{0.95,0.95,0.95}
-\bibliography{Master_Thesis}
+
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{lightgray},   
     commentstyle=\color{codegreen},
@@ -38,20 +41,20 @@
     showtabs=false,                  
     tabsize=2
 }
+\geometry{
+    paper=b5paper,
+    inner=2.4cm,  % 안쪽 여백 (제본쪽 여백)
+    outer=2cm,  % 바깥쪽 여백
+    top=2cm,      % 위쪽 여백
+    bottom=2cm,   % 아래쪽 여백
+    bindingoffset=0.8cm  % 제본을 위한 추가 여백
+}
 \numberwithin{equation}{section}
 \lstset{style=mystyle}
 \captionsetup{font=footnotesize}
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
-\usepackage{geometry}
-\geometry{
- a4paper,
- left=25.4mm,
- right=25.4mm,
- top=30mm,
- bottom=25.4mm
- }
 \begin{document}
 \section{Introduction}
 \begin{spacing}{1.5}
@@ -92,7 +95,7 @@ The precise nature of this transition is to be addressed through the analysis of
 \pagebreak
 \section{Theoretical method}
 \begin{spacing}{1.5}
-\subsubsection*{Field operator and Green's function}
+\subsection{Field operator and Green's function}
 This chapter will briefly summarize the theoretical framework of Green’s function, circuit, and expansion methods. 
 In quantum many-body theory, the physical system is depicted over the frame of the fermionic (bosonic) 
 creation and annihilation operator, and $\hat{a} (\hat{a}^\dagger)$ as an annihilation (creation) operator, 
@@ -415,7 +418,7 @@ Therefore, when the entire $\cos{\phi}$ is expressed in matrix form, it takes th
 Single Green’s function corresponding with one specific imaginary time interval can be represented diagrammatic, 
 which is the basic formulation of the diagrammatic method. We can draw a line from $\tau'$ to $\tau$,
 \begin{figure}[htbp]
-  \centerline{\includegraphics[width=15cm]{TexFigure/Diagram_arrow.PNG}}
+  \centerline{\includegraphics[width=11cm]{TexFigure/Diagram_arrow.PNG}}
   \caption{Diagram of single Green's function. The direction of arrow corresponds with the direction of time flow.}
 \end{figure}
 \\
@@ -708,13 +711,13 @@ By applying the operator, the final expression for calculating the correlation f
 \end{flalign}
 \pagebreak
 \begin{figure}[H]
-  \centerline{\includegraphics[width=8cm]{TexFigure/NCA_self.PNG}}
-  \centerline{\includegraphics[width=12cm]{TexFigure/OCA_self.PNG}}
+  \centerline{\includegraphics[width=7cm]{TexFigure/NCA_self.PNG}}
+  \centerline{\includegraphics[width=11cm]{TexFigure/OCA_self.PNG}}
   \caption{Self-energy diagram for order of expansion}
 \end{figure}
 \begin{figure}[H]
-  \centerline{\includegraphics[width=12cm]{TexFigure/TOA_se.png}}
-  \centerline{\includegraphics[width=12cm]{TexFigure/TOA_tmat.png}}
+  \centerline{\includegraphics[width=11cm]{TexFigure/TOA_se.png}}
+  \centerline{\includegraphics[width=11cm]{TexFigure/TOA_tmat.png}}
   \caption{Self-energy diagram for Five order expansion (TOA). The structure of T matrix was adopted.}
 \end{figure}
 \end{spacing}

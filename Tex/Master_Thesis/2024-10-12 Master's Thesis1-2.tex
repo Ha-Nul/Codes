@@ -1,4 +1,6 @@
-\documentclass{article}[12pt]
+\documentclass{article}
+\usepackage{scrextend}
+\changefontsizes[10pt]{8pt}
 \usepackage{physics}
 \usepackage{setspace}
 \usepackage{amsmath}
@@ -13,6 +15,8 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{helvet}
+\usepackage{float}
+\usepackage[twoside]{geometry}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -37,24 +41,23 @@
     showtabs=false,                  
     tabsize=2
 }
-\setcounter{page}{21}
-\setcounter{figure}{8}
-\setcounter{table}{1}
+\setcounter{page}{29}
+\setcounter{figure}{13}
+\setcounter{table}{2}
 \setcounter{section}{2}
-\numberwithin{equation}{section}
 \lstset{style=mystyle}
 \captionsetup{font=footnotesize}
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
-\usepackage{geometry}
 \geometry{
- a4paper,
- left=25.4mm,
- right=25.4mm,
- top=30mm,
- bottom=25.4mm
- }
+    paper=b5paper,
+    inner=2.4cm,  % 안쪽 여백 (제본쪽 여백)
+    outer=2cm,  % 바깥쪽 여백
+    top=2cm,      % 위쪽 여백
+    bottom=2cm,   % 아래쪽 여백
+    bindingoffset=0.8cm  % 제본을 위한 추가 여백
+}
 \begin{document}
 \section{Numerical calculation for integro-differential equation}
 
@@ -69,7 +72,7 @@ $\\$
   \centerline{\includegraphics[width=13cm]{TexFigure/Flowchart_brokengraph.png}}
   \caption{The flowchart of Program structure}
 \end{figure}
-
+\pagebreak
 \subsection{Hybridzation function - Simpson’s Rule}
 The hybridization function, calculated as a scalar rather than a matrix, was evaluated by considering the form of the retarded Matsubara Green's function. Simpson's rule of integration was employed to compute the value of $g_k$, a parameter that determines the coupling between the RC circuit and the Josephson junction. The formula for calculating $g_k$ for the application of this integration method is given below:
 \begin{flalign}
@@ -81,6 +84,7 @@ The integration method using Simpson’s method follows:
 \end{flalign}
 Here, we calculate the initial value using the case of $V(\tau,k=0)$. 
 The part where Simpson's rule is implemented in the code is as follows. After generating a vector array suitable for the length of the k-index to calculate  V(τ),  the integration is performed only for the k-value for $g_k$ and $\omega_k$ in the V(τ) expression. Using the resulting expression, the value for each τ interval is stored in an array of length τ.
+\pagebreak
 \subsection{Trapezoidal method}
 The trapezoidal method was employed to calculate the self-energy and the propagator. This section provides a brief overview of the implementation for calculating the propagator. The numerical integration formula using the trapezoidal method is as follows: 
 \begin{flalign}
@@ -110,7 +114,7 @@ This process is visually represented in the diagram below, where:
   \centerline{\includegraphics[width=15cm]{TexFigure/self_structure.png}}
   \caption{Image depicting the procedure of Trapezoidal process}
 \end{figure}
-
+\pagebreak
 This is implemented in the code as follows:
 \begin{lstlisting}[language=C++, caption=Trapezoidal calculation code]
 vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& loc)
@@ -146,6 +150,7 @@ vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& 
     return P_arr;
 }
 \end{lstlisting}
+\pagebreak
 \subsection{Iteration truncation - Relative entropy}
 Our targeting integro-differential equation has a recursive structure, meaning that a single calculation is insufficient to get a complete result. The obtained array of $G(\tau)$ in the previous iteration will be used as an initial condition for multiple iterative calculations until the result converges sufficiently. The concept of relative entropy was introduced into the code to truncate the iteration of calculations in flexibility. The formula for calculating relative entropy is as follows:
 \begin{equation*}
@@ -212,6 +217,7 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
     return //(Calculation result);
 }
 \end{lstlisting}
+\pagebreak
 \subsection{Implementation of Correlation function}
 The T-matrix was first introduced to represent the OCA self-energy formula in diagrammatic form. 
 Implementing this in a computational setting leads to a reduction in the calculation time of the approximation method. 
@@ -242,22 +248,23 @@ for (int i=0; i<k; i++)
       OCA_chi_array0[i] = pow(Delta_t,2)*Stmp.trace();
 }
 \end{lstlisting}
-In the above equation, for the case of k=3, the number of calculation cases according to n, m, and i is as follows:
-\begin{figure}[htbp]
-  \centerline{\includegraphics[width=12cm]{TexFigure/Tmat.png}}
-  \caption{Considering the case of K=3, where the total indices to be calculated are $[0, 1, 2]$ 
-  -in the code, K matches the number of grids in $\tau$ grid, the total possible calculation order is as shown on the right. 
+If we want to represent all the possible cases as shown above, using the matrix above and calculating as below, we obtain all possible calculation cases.
+
+\begin{figure}[p]
+  \centerline{\includegraphics[width=12cm]{TexFigure/3_Tmat.png}}
+  \caption{Considering the case of K=3, where the total indices to be calculated are $[0, 1, 2]$ in the code, K matches the number of grids in $\tau$ grid, the total possible calculation order is as shown on the right. 
   For example, in the first line, the calculation proceeds in the order of $\mathcal{G}[2]\hat{N}\mathcal{G}[0]\lambda_1\mathcal{G}[0]\hat{N}\mathcal{G}[0]\lambda_1$. 
   When examining the listed order on the right, we can see that the order of repeated numbers is listed, 
-  which is the same as the number of cases where two numbers are selected and arranged from $[0, 1, 2]$.}
+  which is the same as the number of cases where two numbers are selected and arranged from $[0, 1, 2]$.
+  Here, we can see that the total number of calculation cases can be represented by selecting and arranging two numbers from the three numbers 2, 1, and 0. To achieve this, we can introduce the following matrix:
+}
 \end{figure}
-Here, we can see that the total number of calculation cases can be represented by selecting and arranging two numbers from the three numbers 2, 1, and 0. To achieve this, we can introduce the following matrix:
-\begin{figure}[htbp]
+\pagebreak
+\begin{figure}[H]
   \centerline{\includegraphics[width=9cm]{TexFigure/Tmat2.png}}
   \caption{Therefore, a matrix to store the calculation cases corresponding to the number of ways to choose two numbers from [0, 1, 2] is created as follows.}
 \end{figure}
-For example, if we want to represent all the possible cases as shown above, using the matrix above and calculating as below, we obtain all possible calculation cases.
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centerline{\includegraphics[width=12cm]{TexFigure/Tmat3.png}}
   \caption{With the introduction of the above matrix, the overall calculation cases can be expressed in all forms through matrix multiplication.}
 \end{figure}

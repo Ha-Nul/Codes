@@ -1,4 +1,6 @@
-\documentclass{article}[12pt]
+\documentclass{article}
+\usepackage{scrextend}
+\changefontsizes[10pt]{8pt}
 \usepackage{physics}
 \usepackage{setspace}
 \usepackage{amsmath}
@@ -14,6 +16,7 @@
 \usepackage{xcolor}
 \usepackage{helvet}
 \usepackage{float}
+\usepackage[twoside]{geometry}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -38,6 +41,14 @@
     showtabs=false,                  
     tabsize=2
 }
+\geometry{
+    paper=b5paper,
+    inner=2.4cm,  % 안쪽 여백 (제본쪽 여백)
+    outer=2cm,  % 바깥쪽 여백
+    top=2cm,      % 위쪽 여백
+    bottom=2cm,   % 아래쪽 여백
+    bindingoffset=0.8cm  % 제본을 위한 추가 여백
+}
 \setcounter{page}{43}
 \setcounter{figure}{22}
 \setcounter{table}{3}
@@ -48,14 +59,6 @@
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
-\usepackage{geometry}
-\geometry{
- a4paper,
- left=25.4mm,
- right=25.4mm,
- top=30mm,
- bottom=25.4mm
- }
 \begin{document}
 
 \section{Conclusion \& Future work}
@@ -87,51 +90,9 @@ Third, considering to extend the current framework to the Keldysh contour. The f
 \pagebreak
 \newpage
 \appendix
-\section{LC circuit}
+\section{Circuit Hamiltonian}
 \begin{spacing}{1.5}
-From the circuit in Figure 3, we can establish the circuit equation for the Josephson junction:
-First, assume the following closed LC circuit:
-\begin{figure}[htbp]
-  \centerline{\includegraphics[width=5cm]{TexFigure/LCcircuit.png}}
-  \caption{LC circuit in closed loop}
-  \label{fig:reentrant}
-\end{figure}
-
-The flux $\Phi$ flowing through the inductor and the amount of charge accumulated in the capacitor $Q$
-can be written as the following relationship:
-\begin{flalign}
-\begin{split}
-\Phi(t) = \int^t_{-\infty}V(\tau)d\tau \quad,\quad Q = \int I(t) dt\\ \frac{d Q}{dt} = I(t) \quad, \quad \Phi(t) = LI(t)
-\end{split}
-\end{flalign}
-Here, $V(\tau)$ is the voltage across the inductor, and $I(t)$ is the current flowing in the closed circuit.
-The following equations hold for the closed loop according to Kirchhoff's current law and voltage law:
-\begin{flalign}
-\begin{split}
-\dot{Q}_C + \dot{Q}_L = 0 \\ \dot{\Phi}_C - \dot{\Phi}_L = 0
-\end{split}
-\end{flalign}
-Using this, we can establish the following circuit equation:
-\begin{flalign}
-\begin{split}
-C\ddot{\Phi} + \frac{\Phi}{L} = 0 &\Leftrightarrow \ddot{\Phi}=-\omega_0^2\Phi \\ &\omega_0 = \frac{1}{\sqrt{LC}}
-\end{split}
-\end{flalign}
-The Flux of the circuit can mapped into the position variable in classical mechanics.
-In this case, the circuit equation can be treated the same as the equation of motion of a harmonic oscillator. 
-From this, we can calculate the Lagrangian of the circuit using the energy equations of each circuit element.
-\begin{flalign}
-\begin{split}
-\mathcal{L}(\Phi,\dot{\Phi}) &=  \mathcal{E}_C-\mathcal{E}_J \\ &=\frac{1}{2}C\dot{\Phi}^2 - \frac{\Phi^2}{2L}
-\end{split}
-\end{flalign}
-We introduce canonical variables that satisfy the following commutation relations:
-\begin{flalign}
-\begin{split}
-\frac{\partial \mathcal{L}}{\partial{\dot{\Phi}}} = Q
-\end{split}
-\end{flalign}
-The transformed Hamiltonian form using the Legendre transformation ( $H = \dot{\Phi} Q-\mathcal{L}$ ) is same as the circuit equation derived by using Kirchhoff's law.
+From the circuit in Figure 3, we can establish the circuit equation for the Josephson junction.
 \subsection{Josephson junction}
 A Josephson junction consists of two conductors separated by a thin insulator(S-I-S structure), 
 where the insulator acts as a potential barrier.
@@ -174,8 +135,8 @@ H_{JJ} = \frac{{Q_J}^2}{2C_J} - E_J \cos\frac{2e}{\hbar}\Phi
 This is equivalent to the Hamiltonian of a simple pendulum suspended in a gravitational field. 
 $\cos\Phi$ term makes the Josephson junction behave like a nonlinear harmonic oscillator, 
 where the Josephson energy $E_J$ controls the degree of nonlinearity.
-\subsection{Circuit Hamiltonian}
-By using the potential energy (voltage) applied to the circuit, the Lagrangian of the entire circuit can be expressed as follows. [Footnote]
+\subsection{Full Hamiltonian}
+By using the potential energy (voltage) applied to the circuit, the Lagrangian of the entire circuit can be expressed as follows.[12]
 \begin{flalign}
 \begin{split}
 \mathcal{L} = \frac{C_J}{2}\dot{\Phi}^2 + E_J\cos{\frac{2e}{\hbar}} + \frac{C_C}{2}(\dot{\Phi}_1 - \dot{\Phi})^2 + \sum_{i=2}^N \frac{cx}{2} \dot{\Phi}_i^2 -\sum_{i=2}^N\frac{(\Phi_i - \Phi_{i-1})^2}{2lx}
@@ -208,7 +169,7 @@ H_{LC} = \sum_{i=2}\frac{(\hat{\Phi}_i-\hat{\Phi}_{i-1})^2}{2lx} + \sum_{i=2}\fr
 \end{split}
 \end{flalign}
 \subsubsection*{Local system}
-The Lagrangian for the capacitor connecting the Josephson junction and the LC oscillator can be written as follows.
+The Lagrangian for the capacitor connecti ng the Josephson junction and the LC oscillator can be written as follows.
 \begin{flalign}
   \begin{split}
 \mathcal{L}_{loc}=\frac{C_J}{2}\dot{\Phi}^2 + E_J\cos{\frac{2e}{\hbar}} + \frac{C_C}{2}(\dot{\Phi}_1 - \dot{\Phi})^2
@@ -217,8 +178,8 @@ The Lagrangian for the capacitor connecting the Josephson junction and the LC os
 The Legendre transformation for a multivariable function can be written as follows.
 \begin{flalign}
   \begin{split}
-Q = \frac{\partial \mathcal{L}_{C_C}}{\partial \dot{\Phi}} = C_J \dot{\Phi}+ C_C(\dot{\Phi}-\dot{\Phi}_1) \quad , \quad \dot{\Phi} = \frac{Q}{C_J} - \frac{C_C}{C_J}(\dot{\Phi}-\dot{\Phi}_1) \\
-Q_1 = \frac{\partial \mathcal{L}_{C_C}}{\partial \dot{\Phi}_1} = \frac{C_C}{2}(2\dot{\Phi}_1-2\dot{\Phi}) \\
+Q &= \frac{\partial \mathcal{L}_{C_C}}{\partial \dot{\Phi}} = C_J \dot{\Phi}+ C_C(\dot{\Phi}-\dot{\Phi}_1) \quad , \quad \dot{\Phi} = \frac{Q}{C_J} - \frac{C_C}{C_J}(\dot{\Phi}-\dot{\Phi}_1) \\
+Q_1 &= \frac{\partial \mathcal{L}_{C_C}}{\partial \dot{\Phi}_1} = \frac{C_C}{2}(2\dot{\Phi}_1-2\dot{\Phi}) \\
 \end{split}
 \end{flalign}
 Using this, rewriting the Lagrangian into the Hamiltonian yields the following:
@@ -227,6 +188,34 @@ Using this, rewriting the Lagrangian into the Hamiltonian yields the following:
 H_{loc} = \frac{(Q+Q_1)^2}{C_J} + \frac{Q^2_1}{2C_C}-E_J\cos(\frac{2e}{\hbar}\Phi)
 \end{split}
 \end{flalign}
+\subsubsection*{Quantization example - 1st node consideration}
+For the case where it is the first node (i=1), when considering the variables, Hamiltonian can be written as follows.
+\begin{flalign}
+  \begin{split}
+\hat{H}_1 &= \frac{(Q+Q_1)^2}{C_J} + \frac{Q^2_1}{2C_C}-E_J\cos(\frac{2e}{\hbar}\Phi) + \frac{\hat{\Phi}}{2lx} \\ 
+&= \frac{1}{2}\begin{pmatrix}  \hat{P} & \hat{P}_1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & \sqrt{\frac{C}{C_p}}\end{pmatrix}^{-1}\begin{pmatrix} \frac{1}{C_J} & \frac{1}{C_J} \\ \frac{1}{C_J} & \frac{1}{C_P}\end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & \sqrt{\frac{C}{C_p}}\end{pmatrix}\begin{pmatrix} \hat{P} \\ \hat{P}_1\end{pmatrix} + \\
+&\frac{1}{2lx}\begin{pmatrix} \hat{\Psi} & \hat{\Psi}_1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & \sqrt{\frac{C}{C_p}}\end{pmatrix}\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & \sqrt{\frac{C}{C_p}}\end{pmatrix}\begin{pmatrix} \hat{\Psi} \\ \hat{\Psi}_1 \end{pmatrix} -E_J\cos(\frac{2e}{\hbar}\Phi)
+\end{split}
+\end{flalign}
+Here, C is a constant. If we expand and write the above Hamiltonian, it can be written as below.
+\begin{flalign}
+  \begin{split}
+\hat{H}_1 = \frac{1}{2}\bigg(\frac{\hat{P}^2}{C_J} + \frac{2}{C_J}\sqrt{\frac{C_P}{C}}\big(\hat{P}\hat{P}_1\big) + \frac{\hat{P}_1}{C}\bigg) + \frac{1}{2lx}\frac{C}{C_P}\hat{\Psi}^2 - E_J\cos{\frac{2e}{\hbar}\hat{\Psi}}
+\end{split}
+\end{flalign}
+The operators  $\hat{P}_1 , \hat{\Psi}_1$ can be rewritten as bosonic opeators using the following relation.
+\begin{flalign}
+  \begin{split}
+\hat{P}_1 = -\sqrt{\frac{\hbar C \omega}{2}} (\hat{b}_1^\dagger + \hat{b}_1) \\ \hat{\Psi}_1 = i\sqrt{\frac{\hbar}{2C\omega}}(\hat{b}^\dagger - \hat{b})
+\end{split}
+\end{flalign}
+Here, $\omega = \frac{1}{lxC_p}$. Using the above equation to rewrite the Hamiltonian, it can be rewritten into the following form:
+\begin{flalign}
+  \begin{split}
+\hat{H}_1 \approx \frac{\hat{P}}{2C_J} - E_J\cos(\frac{2e}{\hbar}\hat{\Psi}) - g\hat{P}(\hat{b}^\dagger_1 +\hat{b}_1) + \hbar\omega\hat{b}^\dagger_1\hat{b}_1
+\end{split}
+\end{flalign}
+Here, $g = \frac{1}{C_J}\sqrt{\frac{\hbar}{2lx}}$. This can be inferred the capacitor in the structure of the LC oscillator is not considered in the example circuit.
 \end{spacing}
 \pagebreak
 \newpage
@@ -280,7 +269,7 @@ Written in the form of the interaction operator introduced in the main text, it 
 \begin{split}
 \langle& U(\beta)\rangle_0 = 1-\frac{1}{2}\sum_{l,l',\kappa}v(\kappa)\int^\beta_0d\tau_1\langle\hat{a}^\dagger_l(\tau_1)\hat{a}_{l'}^\dagger(\tau_1)\hat{a}_{l'+\kappa}(\tau_1)\hat{a}_{l-\kappa}(\tau_1)\rangle_0 
 \\ & + \frac{1}{2(2!)}\sum_{\text{lower indices}}v(\kappa_1)v(\kappa_2)\int^\beta_0d\tau_1\int^\beta_0\tau_2
-\underbrace{\langle\mathcal{T}\hat{a}^\dagger_{l_1}(\tau_1)\hat{a}_{l'_1}^\dagger(\tau_1)\hat{a}_{l'_1+\kappa_1}(\tau_1)\hat{a}_{l_1-\kappa_1}(\tau_1)\hat{a}^\dagger_{l_2}(\tau_2)\hat{a}_{l'_2}^\dagger(\tau_2)\hat{a}_{l'_2+\kappa_2}(\tau_2)\hat{a}_{l_2-\kappa_2}(\tau_2)\rangle_0}
+\\ &\underbrace{\langle\mathcal{T}\hat{a}^\dagger_{l_1}(\tau_1)\hat{a}_{l'_1}^\dagger(\tau_1)\hat{a}_{l'_1+\kappa_1}(\tau_1)\hat{a}_{l_1-\kappa_1}(\tau_1)\hat{a}^\dagger_{l_2}(\tau_2)\hat{a}_{l'_2}^\dagger(\tau_2)\hat{a}_{l'_2+\kappa_2}(\tau_2)\hat{a}_{l_2-\kappa_2}(\tau_2)\rangle_0}
 _\text{The term that we want to split into a multiplication of pairs of operators}
 \end{split}
 \end{flalign}
