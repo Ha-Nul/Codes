@@ -1,6 +1,4 @@
-\documentclass{article}
-\usepackage{scrextend}
-\changefontsizes[10pt]{8pt}
+\documentclass{article}[12pt]
 \usepackage{physics}
 \usepackage{setspace}
 \usepackage{amsmath}
@@ -15,8 +13,6 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{helvet}
-\usepackage{float}
-\usepackage[twoside]{geometry}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -41,23 +37,24 @@
     showtabs=false,                  
     tabsize=2
 }
-\setcounter{page}{29}
-\setcounter{figure}{13}
+\setcounter{page}{19}
+\setcounter{figure}{8}
 \setcounter{table}{2}
 \setcounter{section}{2}
+\numberwithin{equation}{section}
 \lstset{style=mystyle}
 \captionsetup{font=footnotesize}
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
+\usepackage{geometry}
 \geometry{
-    paper=b5paper,
-    inner=2.4cm,  % 안쪽 여백 (제본쪽 여백)
-    outer=2cm,  % 바깥쪽 여백
-    top=2cm,      % 위쪽 여백
-    bottom=2cm,   % 아래쪽 여백
-    bindingoffset=0.8cm  % 제본을 위한 추가 여백
-}
+ a4paper,
+ left=25.4mm,
+ right=25.4mm,
+ top=30mm,
+ bottom=25.4mm
+ }
 \begin{document}
 \section{Numerical calculation for integro-differential equation}
 
@@ -158,7 +155,7 @@ D(p||q) = \sum_{x\in\mathcal{X}}p(x)\ln\frac{p(x)}{q(x)}
 \end{equation*}
 The notations $p(x)$ and $q(x)$ represent two different probability distributions.
 In the case of $\mathcal{G}(\tau = \beta)$ in the interval $[0,\beta]$, The Green's function is represented by the same formula as the partition function of a thermal equilibrium state in the grand canonical ensemble. In this case, the partition function plays the same role as the density operator, representing the system's mixed state being investigated from a quantum mechanical perspective.
-This allows us to calculate the probability distribution in the final stage. The code was designed to terminate the calculation of G(τ) when the distance between the probability distributions obtained at each calculation step becomes sufficiently small, indicating that the result has converged.
+This allows us to calculate the probability distribution in the final stage. The code was designed to terminate the calculation of G($\tau$) when the distance between the probability distributions obtained at each calculation step becomes sufficiently small, indicating that the result has converged.
 \begin{lstlisting}[language=C++, caption=Iteration truncation code]
 // Function that returns the value of \mathcal{G}(\tau=\beta)
 vector<double> MD_OC::temp_itemin(vector<MatrixXd> &arrr, double minpo, int size)
@@ -251,7 +248,7 @@ for (int i=0; i<k; i++)
 If we want to represent all the possible cases as shown above, using the matrix above and calculating as below, we obtain all possible calculation cases.
 
 \begin{figure}[p]
-  \centerline{\includegraphics[width=12cm]{TexFigure/3_Tmat.png}}
+  \centerline{\includegraphics[width=14cm]{TexFigure/3_Tmat.png}}
   \caption{Considering the case of K=3, where the total indices to be calculated are $[0, 1, 2]$ in the code, K matches the number of grids in $\tau$ grid, the total possible calculation order is as shown on the right. 
   For example, in the first line, the calculation proceeds in the order of $\mathcal{G}[2]\hat{N}\mathcal{G}[0]\lambda_1\mathcal{G}[0]\hat{N}\mathcal{G}[0]\lambda_1$. 
   When examining the listed order on the right, we can see that the order of repeated numbers is listed, 
@@ -261,11 +258,11 @@ If we want to represent all the possible cases as shown above, using the matrix 
 \end{figure}
 \pagebreak
 \begin{figure}[H]
-  \centerline{\includegraphics[width=9cm]{TexFigure/Tmat2.png}}
+  \centerline{\includegraphics[width=12cm]{TexFigure/Tmat2.png}}
   \caption{Therefore, a matrix to store the calculation cases corresponding to the number of ways to choose two numbers from [0, 1, 2] is created as follows.}
 \end{figure}
 \begin{figure}[H]
-  \centerline{\includegraphics[width=12cm]{TexFigure/Tmat3.png}}
+  \centerline{\includegraphics[width=14cm]{TexFigure/Tmat3.png}}
   \caption{With the introduction of the above matrix, the overall calculation cases can be expressed in all forms through matrix multiplication.}
 \end{figure}
 

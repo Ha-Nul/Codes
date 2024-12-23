@@ -1,6 +1,4 @@
-\documentclass{article}
-\usepackage{scrextend}
-\changefontsizes[10pt]{8pt}
+\documentclass{article}[12pt]
 \usepackage{physics}
 \usepackage{setspace}
 \usepackage{amsmath}
@@ -16,7 +14,6 @@
 \usepackage{xcolor}
 \usepackage{helvet}
 \usepackage{float}
-\usepackage[twoside]{geometry}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -41,17 +38,9 @@
     showtabs=false,                  
     tabsize=2
 }
-\geometry{
-    paper=b5paper,
-    inner=2.4cm,  % 안쪽 여백 (제본쪽 여백)
-    outer=2cm,  % 바깥쪽 여백
-    top=2cm,      % 위쪽 여백
-    bottom=2cm,   % 아래쪽 여백
-    bindingoffset=0.8cm  % 제본을 위한 추가 여백
-}
-\setcounter{page}{43}
-\setcounter{figure}{22}
-\setcounter{table}{3}
+\setcounter{page}{45}
+\setcounter{figure}{34}
+\setcounter{table}{7}
 \setcounter{section}{4}
 \lstset{style=mystyle}
 \numberwithin{equation}{section}
@@ -59,6 +48,14 @@
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=25.4mm,
+ right=25.4mm,
+ top=30mm,
+ bottom=25.4mm
+ }
 \begin{document}
 
 \section{Conclusion \& Future work}

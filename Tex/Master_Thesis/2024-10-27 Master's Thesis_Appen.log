@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  22 DEC 2024 01:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  23 DEC 2024 12:44
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex
@@ -19,25 +19,7 @@ File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (G:\Install_Program\MikTex\tex/latex/koma-script\scrextend.sty
-Package: scrextend 2024/10/24 v3.43 KOMA-Script package (extend other classes with features of KOMA-Script classes)
- (G:\Install_Program\MikTex\tex/latex/koma-script\scrkbase.sty
-Package: scrkbase 2024/10/24 v3.43 KOMA-Script package (KOMA-Script-dependent basics and keyval usage)
- (G:\Install_Program\MikTex\tex/latex/koma-script\scrbase.sty
-Package: scrbase 2024/10/24 v3.43 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
- (G:\Install_Program\MikTex\tex/latex/koma-script\scrlfile.sty
-Package: scrlfile 2024/10/24 v3.43 KOMA-Script package (file load hooks)
- (G:\Install_Program\MikTex\tex/latex/koma-script\scrlfile-hook-3.34.sty
-Package: scrlfile-hook-3.34 2024/10/24 v3.43 KOMA-Script package (using LaTeX hooks)
- (G:\Install_Program\MikTex\tex/latex/koma-script\scrlogo.sty
-Package: scrlogo 2024/10/24 v3.43 KOMA-Script package (logo)
-))) (G:\Install_Program\MikTex\tex/latex/graphics\keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks16
-)
-Applying: [2021/05/01] Usage of raw or classic option list on input line 254.
-Already applied: [0000/00/00] Usage of raw or classic option list on input line 370.
-))) (G:\Install_Program\MikTex\tex/latex/physics\physics.sty
+) (G:\Install_Program\MikTex\tex/latex/physics\physics.sty
 Package: physics 
  (G:\Install_Program\MikTex\tex/latex/l3packages/xparse\xparse.sty (G:\Install_Program\MikTex\tex/latex/l3kernel\expl3.sty
 Package: expl3 2021-08-27 L3 programming layer (loader) 
@@ -56,7 +38,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01 AMS text
  (G:\Install_Program\MikTex\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks17
+\@emptytoks=\toks16
 \ex@=\dimen139
 )) (G:\Install_Program\MikTex\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -84,21 +66,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \dotsspace@=\muskip16
 \c@parentequation=\count198
 \dspbrk@lvl=\count199
-\tag@help=\toks18
+\tag@help=\toks17
 \row@=\count266
 \column@=\count267
 \maxfields@=\count268
-\andhelp@=\toks19
+\andhelp@=\toks18
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
 \tagshift@=\dimen144
 \tagwidth@=\dimen145
 \totwidth@=\dimen146
 \lineht@=\dimen147
-\@envbody=\toks20
+\@envbody=\toks19
 \multlinegap=\skip50
 \multlinetaggap=\skip51
-\mathdisplay@stack=\toks21
+\mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 )) (G:\Install_Program\MikTex\tex/latex/setspace\setspace.sty
@@ -131,7 +113,7 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \@outfmf=\write3
-\fmfbuf@=\toks22
+\fmfbuf@=\toks21
 \c@fmfgraph=\count269
 ) (G:\Install_Program\MikTex\tex/generic/iftex\ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
@@ -153,7 +135,10 @@ Package pdftexcmds Info: \pdfdraftmode found.
 Package: tgtermes 2009/09/27 v1.2 TeX Gyre Termes as default roman family
  (G:\Install_Program\MikTex\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
- (G:\Install_Program\MikTex\tex/generic/kvsetkeys\kvsetkeys.sty
+ (G:\Install_Program\MikTex\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+) (G:\Install_Program\MikTex\tex/generic/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ))) (G:\Install_Program\MikTex\tex/latex/graphics\graphicx.sty
 Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
@@ -203,22 +188,19 @@ Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count274
 \c@continuedfloat=\count275
-Package caption Info: scrextend package is loaded.
-\caption@addmargin@hsize=\dimen173
-\caption@addmargin@linewidth=\dimen174
 ) (G:\Install_Program\MikTex\tex/latex/listings\listings.sty
 \lst@mode=\count276
 \lst@gtempboxa=\box55
 \lst@token=\toks24
 \lst@length=\count277
-\lst@currlwidth=\dimen175
+\lst@currlwidth=\dimen173
 \lst@column=\count278
 \lst@pos=\count279
-\lst@lostspace=\dimen176
-\lst@width=\dimen177
+\lst@lostspace=\dimen174
+\lst@width=\dimen175
 \lst@newlines=\count280
 \lst@lineno=\count281
-\lst@maxwidth=\dimen178
+\lst@maxwidth=\dimen176
  (G:\Install_Program\MikTex\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count282
@@ -260,46 +242,46 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@cnth=\count285
 \Gm@cntv=\count286
 \c@Gm@tempcnt=\count287
-\Gm@bindingoffset=\dimen179
-\Gm@wd@mp=\dimen180
-\Gm@odd@mp=\dimen181
-\Gm@even@mp=\dimen182
-\Gm@layoutwidth=\dimen183
-\Gm@layoutheight=\dimen184
-\Gm@layouthoffset=\dimen185
-\Gm@layoutvoffset=\dimen186
+\Gm@bindingoffset=\dimen177
+\Gm@wd@mp=\dimen178
+\Gm@odd@mp=\dimen179
+\Gm@even@mp=\dimen180
+\Gm@layoutwidth=\dimen181
+\Gm@layoutheight=\dimen182
+\Gm@layouthoffset=\dimen183
+\Gm@layoutvoffset=\dimen184
 \Gm@dimlist=\toks27
  (G:\Install_Program\MikTex\tex/latex/geometry\geometry.cfg))
-LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 62.
+LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 59.
  (G:\Install_Program\MikTex\tex/latex/tex-gyre\ot1qtm.fd
 File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
 ) (2024-10-27 Master's Thesis_Appen.aux)
 \openout1 = `"2024-10-27 Master's Thesis_Appen.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
  (G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count288
-\scratchdimen=\dimen187
+\scratchdimen=\dimen185
 \scratchbox=\box59
 \nofMPsegments=\count289
 \nofMParguments=\count290
 \everyMPshowfont=\toks28
 \MPscratchCnt=\count291
-\MPscratchDim=\dimen188
+\MPscratchDim=\dimen186
 \MPnumerator=\count292
 \makeMPintoPDFobject=\count293
 \everyMPtoPDFconversion=\toks29
@@ -319,20 +301,19 @@ Package caption Info: End \AtBeginDocument code.
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: b5paper
+* paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* bindingoffset: 22.76228pt
-* modes: twoside 
-* h-part:(L,W,R)=(68.28644pt, 352.81427pt, 56.9055pt)
-* v-part:(T,H,B)=(56.9055pt, 597.50789pt, 56.9055pt)
-* \paperwidth=500.7685pt
-* \paperheight=711.3189pt
-* \textwidth=352.81427pt
-* \textheight=597.50789pt
-* \oddsidemargin=18.77873pt
-* \evensidemargin=-15.36449pt
-* \topmargin=-52.36449pt
+* modes: 
+* h-part:(L,W,R)=(72.26997pt, 452.96793pt, 72.26997pt)
+* v-part:(T,H,B)=(85.35826pt, 687.41861pt, 72.26997pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.96793pt
+* \textheight=687.41861pt
+* \oddsidemargin=-0.00002pt
+* \evensidemargin=-0.00002pt
+* \topmargin=-23.91173pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -340,80 +321,80 @@ Package caption Info: End \AtBeginDocument code.
 * \marginparwidth=65.0pt
 * \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=7.5pt plus 3.33298pt minus 1.66702pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 71.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 68.
 (G:\Install_Program\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:86: Package inputenc Error: Unicode character α (U+03B1)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:83: Package inputenc Error: Unicode character α (U+03B1)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.86 ...can modify the range conditions for the α
+l.83 ...can modify the range conditions for the α
                                                    and γ valuåes and proce...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:86: Package inputenc Error: Unicode character γ (U+03B3)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:83: Package inputenc Error: Unicode character γ (U+03B3)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.86 ...ify the range conditions for the α and γ
+l.83 ...ify the range conditions for the α and γ
                                                    valuåes and proceed with...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:86: Package inputenc Error: Unicode character γ (U+03B3)
+e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:83: Package inputenc Error: Unicode character γ (U+03B3)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.86 .... By performing calculations for higher γ
+l.83 .... By performing calculations for higher γ
                                                    values, we can get more a...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[43
+[45
 
-{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [44] [45] [46] [47] [48] (2024-10-27 Master's Thesis_Appen.aux) ) 
+{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [46] [47] [48] [49] [50] (2024-10-27 Master's Thesis_Appen.aux) ) 
 Here is how much of TeX's memory you used:
- 8417 strings out of 478927
- 126369 string characters out of 2861478
- 487643 words of memory out of 3000000
- 26144 multiletter control sequences out of 15000+600000
- 430240 words of font info for 53 fonts, out of 8000000 for 9000
+ 7578 strings out of 478927
+ 110734 string characters out of 2861478
+ 443745 words of memory out of 3000000
+ 25331 multiletter control sequences out of 15000+600000
+ 428196 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,22n,108p,578b,301s stack positions out of 5000i,500n,10000p,200000b,80000s
-{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi6.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr6.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy6.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
-Output written on "2024-10-27 Master's Thesis_Appen.pdf" (6 pages, 215370 bytes).
+ 71i,22n,81p,578b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
+{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
+Output written on "2024-10-27 Master's Thesis_Appen.pdf" (6 pages, 217663 bytes).
 PDF statistics:
  97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

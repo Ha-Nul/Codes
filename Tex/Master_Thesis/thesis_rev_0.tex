@@ -1,6 +1,4 @@
-\documentclass{article}
-\usepackage{scrextend}
-\changefontsizes[10pt]{8pt}
+\documentclass{article}[12pt]
 \usepackage{physics}
 \usepackage{setspace}
 \usepackage{amsmath}
@@ -16,13 +14,12 @@
 \usepackage{xcolor}
 \usepackage{helvet}
 \usepackage{float}
-\usepackage[twoside]{geometry}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \definecolor{lightgray}{rgb}{0.95,0.95,0.95}
-
+\bibliography{Master_Thesis}
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{lightgray},   
     commentstyle=\color{codegreen},
@@ -41,20 +38,20 @@
     showtabs=false,                  
     tabsize=2
 }
-\geometry{
-    paper=b5paper,
-    inner=2.4cm,  % 안쪽 여백 (제본쪽 여백)
-    outer=2cm,  % 바깥쪽 여백
-    top=2cm,      % 위쪽 여백
-    bottom=2cm,   % 아래쪽 여백
-    bindingoffset=0.8cm  % 제본을 위한 추가 여백
-}
 \numberwithin{equation}{section}
 \lstset{style=mystyle}
 \captionsetup{font=footnotesize}
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=25.4mm,
+ right=25.4mm,
+ top=30mm,
+ bottom=25.4mm
+ }
 \begin{document}
 \section{Introduction}
 \begin{spacing}{1.5}
@@ -64,10 +61,10 @@ and spin-boson model has been the basic theoretical platform for the light-matte
 The Anderson impurity model also plays the central role in the dynamical mean-field theory as an auxiliary system for the self-consistent solutions [7].
 
 One another famous example of the system-environment coupled systems is \textit{resistively shunted Josephson junction} (RSJJ).
-RSJJ is a circuit system consisting of a single JJ connected to an RC resonator which acts as a circuit resistance [Fig.~\ref{fig:RSJJ}]. 
+RSJJ is a circuit system consisting of a single JJ connected to an RC resonator which acts as a circuit resistance [Fig.3]. 
 Several studies have reported that the RSJJ reveals a phase transition line that depends on the coupling strength between the Junction and the circuit resistance[1,2,17] 
 Such early predictions render RSJJ a prototypical model for the quantum phase transition, especially for the Schmid quantum dissipative transition.
-Particularly in the latest study [Fig.~\ref{fig:reentrant}], novel reentrant behavior of quantum phase transition was predicted.
+Particularly in the latest study [Fig.2], novel reentrant behavior of quantum phase transition was predicted.
 
 On the other hand, it has been known that the quantum phase transition has genuine impacts on the \textit{finite-temperature} behavior of the system.
 Emanating from the quantum critical point at zero temperature like fan-shape form in the temperature-(nonthermal) parameter plane [19]
@@ -262,7 +259,7 @@ H_{\text{loc odd}} &= \begin{pmatrix}
 	\label{eqn:Hloc}
 \end{align}
 
-One can numerially diagonalize Eq.~\ref{eqn:Hloc}.
+One can numerially diagonalize $H_{loc}$.
 Because the difference between the energy levels becomes more significant as $m$ increases, we truncate the local Hilbert space for computationally manageable subsets of low-lying states.
 
 %To study how system changes depends on coupling parameters and finite temperature conditions, we measure the total RSJJ Hamiltonian under local system basis engaged from diagonalization of the $H_{\text{loc even}}$ and $H_{\text{loc odd}}$ . 
@@ -526,17 +523,17 @@ where $S$ is an action of the system. The corresponding topological diagram is:
   This section will introduce how we adjust the expansion method to our circuit model. The basic notation
   and mathematical structure follows the reference[4,5].
  In our study, we consider that the total system is a thermal equilibrium state; thus, a methodology using Matsubara’s method is available. To begin, we assume that each operator from RSJJ Hamiltonian mapped toward the general impurity model:
- \begin{table}[htbp]
+\begin{table}[htbp]
   \centering
-  \renewcommand{\arraystretch}{1.2}
+  \renewcommand{\arraystretch}{1.2}  % 행 간격 조정
   \begin{tabular}{@{}ccc@{}}
-  \toprule
-  \textbf{Hamiltonian} &\textbf{RSJJ} & \textbf{Impurity} \\ 
-  \midrule
-  $H_{\text{bath}}$ &   $\sum_k \hbar\omega_k\hat{b}_k^\dagger\hat{b}_k$ & $\sum_n\epsilon_n\hat{b}_n^\dagger\hat{b}_n$ \\
-  $H_\text{int}$ & $\sum_k g_k \hat{N}(\hat{b}^\dagger_k + \hat{b_k})$ & $\sum_{m,n} [V_{m,n}(t) c_m^\dagger b_n + \text{H.c.}]$ 
-\end{tabular}
-\caption{Comparison with term from Circuit hamiltonian and impurity solver}
+    \toprule
+    \textbf{Hamiltonian} &\textbf{RSJJ} & \textbf{Impurity} \\ 
+    \midrule
+    $H_{\text{bath}}$ &   $\sum_k \hbar\omega_k\hat{b}_k^\dagger\hat{b}_k$ & $\sum_n\epsilon_n\hat{b}_n^\dagger\hat{b}_n$ \\
+    $H_\text{int}$ & $\sum_k g_k \hat{N}(\hat{b}^\dagger_k + \hat{b_k})$ & $\sum_{m,n} [V_{m,n}(t) c_m^\dagger b_n + \text{H.c.}]$ 
+  \end{tabular}
+  \caption{Comparison with term from Circuit hamiltonian and impurity solver}
 \end{table}
 More specifically, each parameter has corresponding relations,
 \begin{flalign}
@@ -551,18 +548,18 @@ Using the relations, we can calculate the system’s partition function as we de
 Notice that instead of the fermion operator $\hat{c}^\dagger (\hat{c})$, 
 the operator $\hat{N}$ is written in the vector space spanned through the eigenstates of the Josephson junction. 
 \subsubsection*{Calculation of bosonic action}
-To focus our attention on the local system where we are interested, we calculate the expectation value of partition function in the aspects of the bath, which eliminates the effects of the bath by evaluating the system dynamics from bath points of view:
+To focus our attention on the local system where we are interested, we calculate the expectation value of partition function in the aspects of the bath, which seperates the effects of the bath by evaluating the system dynamics from bath points of view:
 \begin{flalign}
   \begin{split}
 Z &= Z_{\text{bath}}\text{Tr}_{JJ}\bigg[\frac{\text{Tr}[e^{-\beta H_\text{bath}}U_{sys}(\tau)]}{\text{Tr}[e^{-\beta H_\text{bath}}]}\bigg] \\ 
 &= Z_\text{bath}\text{Tr}_{\text{JJ}}[\langle \mathcal{T}_\tau e^{-\int^\beta_0 H_\text{loc}(\tau) + H_\text{bath} + H_\text{int}}\rangle_\text{b}]
 \end{split}
 \end{flalign}
-Here the term $\text{JJ}$ means tracing out the effect of local system, in our case, Josephson junction system, and term is tracing out the effect of bosonic effect, which is $\bra{n_b}\mathcal{O}\ket{n_b}$, $n_b$ is number operator for bosonic field operator, $\mathcal{O}$ is physical quantity to calculate.
+Here the term $\text{JJ}$ means tracing out the effect of local system, in our case, Josephson junction system, and term is tracing out the effect of bosonic effect, which is $\bra{\text{n}_b}\mathcal{O}\ket{\text{n}_b}$, $n_b$ is number operator for bosonic field operator, $\mathcal{O}$ is physical quantity to calculate.
 To expand the interaction term, we can rewrite the equation into :
 \begin{flalign}
   \begin{split}
-Z=Z_{\text{bath}}\text{Tr}_{JJ}[\langle \mathcal{T}_\tau e^{-\int^\beta_0 H_\text{loc}(\tau) + H_\text{bath}}\sum_l Z_l\rangle_\text{b}]
+Z=Z_{\text{bath}}\text{Tr}_{\text{JJ}}[\langle \mathcal{T}_\tau e^{-\int^\beta_0 H_\text{loc}(\tau) + H_\text{bath}}\sum_l Z_l\rangle_\text{b}]
 \end{split}
 \end{flalign}
 Here, $l$ corresponds with the number of the highest order of perturbative expansion. The derivation of Term $Z_k$ begins from
@@ -571,7 +568,7 @@ Here, $l$ corresponds with the number of the highest order of perturbative expan
  \mathcal{T}_\tau e^{-\int^\beta_0 H_{\text{int}}(\tau)} \approx 1 -\int^{\beta}_0 H_{\text{int}}(\tau) d\tau +\frac{1}{2} \int^\beta_0 H_{\text{int}}(\tau_1)H_{\text{int}}(\tau_2)d\tau_1 d\tau_2 + \cdots
 \end{split}
 \end{flalign}
-And 
+Following the reference[4], we can rewrite the formula into:
 \begin{flalign}
   \begin{split}
 Z_l =&\sum_{k_1 \cdots k_l}\sum_{k'_1 \cdots k'_l} g_{k_1}g_{k'_1}g_{k_2}g_{k'_2} \cdots g_{k_l}g_{k'_l} \int^\beta_0 d\tau_1 \int^\beta_{\tau_1}d\tau_2 \cdots\int^\beta_{\tau_{{l-1}}}d\tau_{l} \int^\beta_0 d\tau_1 \int^\beta_{\tau'_1}d\tau'_2 \cdots\int^\beta_{\tau'_{{l-1}}}d\tau'_{l} 
@@ -579,9 +576,11 @@ Z_l =&\sum_{k_1 \cdots k_l}\sum_{k'_1 \cdots k'_l} g_{k_1}g_{k'_1}g_{k_2}g_{k'_2
 \end{split}
 \end{flalign}
 Here, the lower index $k_i$ indicates the oscillation mode of the ith harmonic oscillator from the bath, represented by a pair of bosonic creation and annihilation operators. The number $\frac{1}{k_l !}$ was eliminated due to considering all permutations during ordering time.
-Notice that, \textit{1.} $k_i =k'_j$ \textit{ for all }(i,j)  , 
-\textit{2. } $\hat{N}$ \textit{ and  } $\hat{b}_k^\dagger(\hat{b_k})$\textit{  are defined on different vector space , thus   }
-$[\hat{N},\hat{b}^\dagger (\hat{b})] = 0$ , we can adjust $Z_l$ as follows:
+Using L(V) as a notation for linear operator space for vector space V, we should consider that, \\
+\indent 1. $k_i =k'_j$ \textit{ for all }(i,j) \\
+\indent 2. $\hat{N} = \{ \hat{N} \in L(\text{V}_{\text{JJ}}) \mid \text{V}_{\text{JJ}} \text{  is span of} \{\ket{\psi}_{JJ}\}\}$\\
+\indent $\quad \hat{b}_k^\dagger(\hat{b_k}) = \{ \hat{b}_k^\dagger(\hat{b_k}) \in L(\text{V}_{\text{bath}}) \mid \text{V}_{\text{bath}} \text{  is span of LC resonoator bosonic basis}\}$ (Appendix A.) \\
+Thus $\quad [\hat{N},\hat{b}^\dagger (\hat{b})] = 0$. We can adjust $Z_l$ as follows:
 \begin{flalign}
   \begin{split}
 Z_l = &\sum_{k_1 \cdots k_l} (g_{k_1}g_{k_2} \cdots g_{k_l})^2\int^\beta_0 d\tau_1 \int^\beta_{\tau_1}d\tau_2 \cdots\int^\beta_{\tau_{k_{l-1}}}d\tau_{k_l} \int^\beta_0 d\tau_1 \int^\beta_{\tau'_1}d\tau'_2 \cdots\int^\beta_{\tau'_{k_{l-1}}}d\tau_{k_l} \\ 
@@ -601,7 +600,7 @@ To calculate the effect of bath, the form of the equation turns out:
 \end{split}
 \end{flalign}
 Here, each bosonic term contains a calculation of form $\langle \hat{b}^\dagger_{k_1}(\tau_1)\hat{b}_{k_1}(\tau'_1)\hat{b}^\dagger_{k_2}(\tau_2)\hat{b}_{k_2}(\tau'_2)\cdots\hat{b}^\dagger_{k_l}(\tau_l)\hat{b}_{k_l}(\tau'_l)\rangle_\text{b}$, where Wick’s theorem is available. 
-Before applying Wick’s theorem to a given equation, notice that there are natural restrictions due to the independence of harmonic oscillators in the bath, which do not interact with each other, leading to only one available property for contraction,
+Before applying Wick’s theorem to a given equation, notice that harmonic oscillators in the bath do not interact with each other, leading to only one available property for contraction,
 \begin{flalign}
   \begin{split}
 \langle \hat{b}^\dagger_{k_1}(\tau_1)\hat{b}_{k_1}(\tau'_1)\hat{b}^\dagger_{k_2}(\tau_2)\hat{b}_{k_2}(\tau'_2)&\cdots\hat{b}^\dagger_{k_l}(\tau_l)\hat{b}_{k_l} (\tau'_l)\rangle_\text{b} \\
@@ -616,7 +615,7 @@ Using this formula, each single Green’s function can be calculated as:
 \begin{flalign}
   \begin{split}
 \langle e^{-\omega_k \tau}\hat{b}^\dagger_k e^{-\omega_k \tau'}\hat{b}_k\rangle_\text{b} &= \langle e^{\omega_p (\tau-\tau')}\hat{b}^\dagger_k\hat{b}_k\rangle_\text{b} = e^{\omega_k \tau}n_\text{B}(\omega_k) \qquad (\tau>\tau') \\
-\langle e^{-\omega_k \tau}\hat{b}_k e^{-\omega_k \tau'}\hat{b}^\dagger_k\rangle_\text{b} = \langle e^{\omega_p (\tau-\tau')}\hat{b}_k\hat{b}^\dagger_k\rangle_\text{b} &= \langle e^{\omega_p (\tau-\tau')}(1+\hat{b}_k^\dagger\hat{b}_k\rangle_\text{b} = e^{\omega_k (\tau-\tau')}(1+n_\text{B}(\omega_k)) \qquad (\tau<\tau')
+\langle e^{-\omega_k \tau}\hat{b}_k e^{-\omega_k \tau'}\hat{b}^\dagger_k\rangle_\text{b} = \langle e^{\omega_p (\tau-\tau')}\hat{b}_k\hat{b}^\dagger_k\rangle_\text{b} &= \langle e^{\omega_p (\tau-\tau')}(1+\hat{b}_k^\dagger\hat{b}_k)\rangle_\text{b} = e^{\omega_k (\tau-\tau')}(1+n_\text{B}(\omega_k)) \qquad (\tau<\tau')
   \end{split}
 \end{flalign}
 By multiplying the corresponding coupling parameter $g_k^2$ in mode $k$ , the full equation becomes :
@@ -625,13 +624,13 @@ By multiplying the corresponding coupling parameter $g_k^2$ in mode $k$ , the fu
 \langle \mathcal{T}_\tau e^{-\int^\beta_0  H_\text{bath}} Z_l\rangle_\text{b} =g^2_{k_1}\big(e^{\omega_{k_1}(\tau_1-\tau'_1)}(\theta(\tau_1-\tau'_1)n_\text{B}(\omega_{k_1})+\theta(\tau'_1-\tau_1)[1+n_\text{B}(\omega_{k_1})])\big) \\
 \times g^2_{k_2}\big(e^{\omega_{k_2}(\tau_2-\tau'_2)}(\theta(\tau_2-\tau'_2)n_\text{B}(\omega_{k_2})+\theta(\tau'_2-\tau_2)[1+n_\text{B}(\omega_{k_2})])\big)\\
 \vdots\\
-\times g^2_{k_l}\big(e^{\omega_{k_l}(\tau_l-\tau'_l)}(\theta(\tau_l-\tau'_l)n_\text{B}(\omega_{k_l})+\theta(\tau'_l-\tau_l)[1+n_\text{B}(\omega_{k_l}]))\big)
+\times g^2_{k_l}\big(e^{\omega_{k_l}(\tau_l-\tau'_l)}(\theta(\tau_l-\tau'_l)n_\text{B}(\omega_{k_l})+\theta(\tau'_l-\tau_l)[1+n_\text{B}(\omega_{k_l})])\big)
 \end{split}
 \end{flalign}
 In the general approach, the term that corresponds to bosonic action from a pseudo-particle solver can be expressed as follows:
 \begin{flalign}
   \begin{split}
-\mathcal{W}(\tau)=\begin{cases}  \sum_k |g_k|^2 e^{\omega_k \tau}n_{\text{B}}(\omega_k) \qquad (\tau>0) \\ \sum_k |g_k|^2 e^{\omega_k \tau}[1+n_{\text{B}}](\omega_k) \quad (\tau<0) \end{cases}
+\mathcal{W}(\tau)=\begin{cases}  \sum_k |g_k|^2 e^{\omega_k \tau}n_{\text{B}}(\omega_k) \qquad (\tau>0) \\ \sum_k |g_k|^2 e^{\omega_k \tau}(1+n_{\text{B}})(\omega_k) \quad (\tau<0) \end{cases}
   \end{split}
 \end{flalign}
 We use notation $V_k(\tau)$  to representing simultaneously for retarded and advanced cases, 
@@ -648,7 +647,7 @@ V_k(\tau)= e^{-\omega_k\tau} \frac{\cosh{\frac{\omega_k}{2}}}{\sinh{\frac{\omega
 \end{flalign}
 \subsubsection*{Calculation of Propagator}
 Now, after calculating the bosonic action, we can calculate the structure of the propagator. 
-To begin, the result of equation (2.44) after calculating $\bar{\mathcal{W}}$ turns out to:
+To begin, the result of equation (2.44) after calculating $V_k(\tau)$ turns out to:
 \begin{flalign}
 \begin{split}
 Z = Z_{\text{bath}}\text{Tr}_\text{JJ}\big[\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{\text{loc}}(\tau)} \langle \mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{\text{bath}}(\tau)} \sum_lZ_l\rangle_{\text{b}}\big] 
@@ -657,11 +656,11 @@ Z = Z_{\text{bath}}\text{Tr}_\text{JJ}\big[\mathcal{T}_\tau e^{-\int^\beta_0 d\t
 Where $Z_l$  is :
 \begin{flalign}
 \begin{split}
-Z_l = \sum_{\mathcal{P}\in S}\sum_{k_1 \cdots k_l} \int  ^\beta_0 d\tau_1 \cdots \int^\beta_0 d\tau_{k_l}\int^\beta_0 d\tau'_1 \cdots \int^\beta_0d\tau'_{k_l} \bar{\mathcal{W}}\hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\hat{N}(\tau_{k_2})\hat{N}(\tau'_{k_2})\cdots \hat{N}(\tau_{k_l})\hat{N}(\tau'_{k_l})
+Z_l = \sum_{\mathcal{P}\in S}\sum_{k_1 \cdots k_l} \int  ^\beta_0 d\tau_1 \cdots \int^\beta_0 d\tau_{k_l}\int^\beta_0 d\tau'_1 \cdots \int^\beta_0d\tau'_{k_l} V_k\cdot\hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\hat{N}(\tau_{k_2})\hat{N}(\tau'_{k_2})\cdots \hat{N}(\tau_{k_l})\hat{N}(\tau'_{k_l})
 \end{split}
 \end{flalign}
 Here $\mathcal{P}$ indicates the possible permutation which $\mathcal{P} \in S$  
-for $\{S| \text{All possible permutation satisfying condition}\}$.
+for $\{S \mid \text{All possible permutation satisfying condition}\}$.
 The trace for Josephson junction turns out to be:
 \begin{flalign}
   \begin{split}
@@ -682,7 +681,7 @@ l = 2 \quad, \quad \text{Tr}_{JJ}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mod
 \end{split}
 \end{flalign}
 For instance, if we consider only the first-order self-energy expansion, 
-the result coincides with the well-known Non-crossing approximation method. Here, the ordering of the time index dominated through pre-decided $\bar{\mathcal{W}}$. 
+the result coincides with the well-known Non-crossing approximation method. Here, the ordering of the time index dominated through pre-decided $V_k$ for arbitrary $\tau_i$. 
 In the order $l = 1$, the diagram structure corresponds with a Non-crossing approximation. 
 The case $l = 2$ corresponds with a One-crossing approximation. Getting more diagrams corresponding with a higher-order expansion, such as TOA, 
 can be achievable by increasing the maximum value of the $l$ index.

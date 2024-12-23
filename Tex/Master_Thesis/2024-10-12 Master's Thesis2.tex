@@ -1,6 +1,4 @@
-\documentclass{article}
-\usepackage{scrextend}
-\changefontsizes[10pt]{8pt}
+\documentclass{article}[12pt]
 \usepackage{physics}
 \usepackage{setspace}
 \usepackage{amsmath}
@@ -16,7 +14,6 @@
 \usepackage{xcolor}
 \usepackage{helvet}
 \usepackage{float}
-\usepackage[twoside]{geometry}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -41,7 +38,7 @@
     showtabs=false,                  
     tabsize=2
 }
-\setcounter{page}{29}
+\setcounter{page}{28}
 \setcounter{figure}{13}
 \setcounter{table}{2}
 \setcounter{section}{3}
@@ -50,14 +47,14 @@
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
+\usepackage{geometry}
 \geometry{
-    paper=b5paper,
-    inner=2.4cm,  % 안쪽 여백 (제본쪽 여백)
-    outer=2cm,  % 바깥쪽 여백
-    top=2cm,      % 위쪽 여백
-    bottom=2cm,   % 아래쪽 여백
-    bindingoffset=0.8cm  % 제본을 위한 추가 여백
-}
+ a4paper,
+ left=25.4mm,
+ right=25.4mm,
+ top=30mm,
+ bottom=25.4mm
+ }
 \begin{document}
 \section{Result}
 \begin{spacing}{1.3}
@@ -70,7 +67,7 @@ The result shows that the approximation method could be reliable in high tempera
   \caption{Brief circuit scheme for single bath condition. The crossing symbol  refers to the junction structure.}
 \end{figure}
 \begin{figure}[htbp]
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_1_01_Single.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_1_01_Single.png}}
   \caption{Result for single bath benchmark. In the left figure, the overall condition for g (coupling strength between system and bath) is 1. The right figure shows the result in the OCA approaches to the exact results.}
 \end{figure}\pagebreak
 \subsubsection*{Benchmark: Multi-mode case}
@@ -78,7 +75,7 @@ To investigate the convergence of the diagrammatic approximation method in a gen
 we calculated the order parameter and the correlation function using the NCA, OCA, and TOA. 
 The results showed no significant difference between the OCA and TOA calculations, confirming that the OCA is a sufficiently convergent method.
 \begin{figure}[H]
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_1_02_Multi.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_1_02_Multi.png}}
   \caption{Results of the order parameter and correlation function calculated under each approximation method. 
   The overall parameter conditions are $\alpha$=1, $\gamma$=1, with the left figure showing the result in a temperature interval between 0.08 and 0.1; the right figure is for the temperature condition of 0.08. It can be observed that the calculation results of OCA and TOA are converged. 
   The size of the $\tau$ grid used for the calculation is 701.}
@@ -88,7 +85,7 @@ To check for the integration code, we compared the order parameter calculated us
 with the order parameter calculated using the state density matrix of the Josephson junction system. 
 The results showed that the two cases were entirely consistent.
 \begin{figure}[H]
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_1_03_zero.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_1_03_zero.png}}
   \caption{In the case of $\alpha = 0$, order parameter calculation using the approximation method should be consistent with using $H_{loc}$.
   The comparison confirmed that the two cases show consistency. The left figure shows the calculation of the order parameter, 
   and the right figure shows the difference in the order parameter for consecutive $\beta$ values
@@ -123,7 +120,7 @@ there was a breakdown of the rotating wave approximation of the two-level system
 and the Josephson junction increases[15]. The test condition is $\gamma =2$, $\alpha = 1.5$ with calculating correlation function. 
 The benchmark result shows that adopting a 2-level truncated condition is reliable since the difference between the two sizes is ignorable.
 \begin{figure}[H]
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_2_02_sizediff.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_2_02_sizediff.png}}
   \caption{Comparision with $\chi_{sp}(\tau)$ size3 and size5. The size of the $\tau$ grid used for the calculation is 701.}
 \end{figure}
 \subsection{Orderparmeter evaluation}
@@ -156,23 +153,23 @@ result from the expectation value of the order parameter.
 \pagebreak
 \begin{figure}[H]
   \vfill
-  \centerline{\includegraphics[width=7.5cm]{TexFigure/4/4_3_01_Expec_alp_0.1.png}}
+  \centerline{\includegraphics[width=8cm]{TexFigure/4/4_3_01_Expec_alp_0.1.png}}
   \caption{Calculation of the expectation value of the order parameter for the case of $\alpha$=0.1.}
   \label{fig:Order1}
   \vfill
 \end{figure}
 \begin{figure}[H]
   \vfill
-  \centerline{\includegraphics[width=7.5cm]{TexFigure/4/4_3_02_Temp.png}}
+  \centerline{\includegraphics[width=8cm]{TexFigure/4/4_3_02_Temp.png}}
   \caption{Colored plot for the expectation value of order parameter. The simulation was performed in NCA. The temperature condition is T = 0.08
   The difference in phase on each side of the junction decreases as the color goes deeper, corresponds to superconductivity.}
   \vfill
 \end{figure}
 \pagebreak
 \begin{figure}[htbp]
-  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_3_03_Matele_Ns3_alp0.png}}
-  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_3_04_Matele_Ns3_alp0_1.png}}
-  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_3_05_Matele_Ns3_alp1.png}}
+  \centerline{\includegraphics[width=15cm]{TexFigure/4/4_3_03_Matele_Ns3_alp0.png}}
+  \centerline{\includegraphics[width=15cm]{TexFigure/4/4_3_04_Matele_Ns3_alp0_1.png}}
+  \centerline{\includegraphics[width=15cm]{TexFigure/4/4_3_05_Matele_Ns3_alp1.png}}
   \caption{Plotted results of the diagonal elements of the product of the $\hat{\cos\phi}$ operator and the  
   $e^{H_{loc}}$ operator for different $\alpha$ values. From top to bottom, the results are for $\alpha$ 
   values of 0, 0.01, and 0.1, respectively. The first diagonal element is proportional to the probability of 
@@ -207,8 +204,8 @@ When the simulation results were plotted on the $\alpha − \gamma$ plane, follo
 \pagebreak
 \newpage
 \begin{figure}[H]
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_3_08_3dplot_Ns3_proj_n-1.png}}
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_3_09_3dplot_COMP3_proj_n-1.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_3_08_3dplot_Ns3_proj_n-1.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_3_09_3dplot_COMP3_proj_n-1.png}}
   \caption{The points indicate where the sign change of the order parameter $\nu$ with temperature difference. Since differential was calculated in numerical method, noting that temperature is the lower value of the two discrete values 
   (e.g., T = 0.12 represents the line connecting the points where the $\nu$ values 
   difference for the two temperatures [0.1, 0.12] becomes 0). The upper plot shows the results calculated using NCA, 
@@ -216,16 +213,16 @@ When the simulation results were plotted on the $\alpha − \gamma$ plane, follo
    \label{2Dplot}
 \end{figure}
 \begin{figure}[H]
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_3_10_3dplot_Ns3_proj_20-1.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_3_10_3dplot_Ns3_proj_20-1.png}}
   \caption{3-Dimension plotting of NCA result, with $T$ axis}%\ref{2Dplot}%,  with $\beta$ axis}
 \end{figure}
 \pagebreak
 \begin{figure}[H]
   \vfill
   \centering
-  \centerline{\includegraphics[width=8cm]{TexFigure/4/4_3_11_0.pdf}}
-  \centerline{\includegraphics[width=8cm]{TexFigure/4/4_3_11_1.pdf}}
-  \centerline{\includegraphics[width=8cm]{TexFigure/4/4_3_11_2.pdf}}
+  \centerline{\includegraphics[width=9cm]{TexFigure/4/4_3_11_0.pdf}}
+  \centerline{\includegraphics[width=9cm]{TexFigure/4/4_3_11_1.pdf}}
+  \centerline{\includegraphics[width=9cm]{TexFigure/4/4_3_11_2.pdf}}
   \caption{Crossover tendency in a 2D plane corresponding to each pair of parameters. From upper, $\nu - \alpha$ plane over fixed $\gamma$ value, $\nu - \gamma$ over fixed $T$, $\nu-\alpha$ plane over fixed Temperature, respectively.}
   \vfill
 \end{figure}
@@ -265,20 +262,20 @@ to insulator is presumed within a small $\alpha$ interval.
 \pagebreak
 \begin{figure}[H]
   \vfill
-  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_3_13_litlalp_1.png}}
+  \centerline{\includegraphics[width=15cm]{TexFigure/4/4_3_13_litlalp_1.png}}
   \caption{Crossover tendency calculated on NCA for fixed Temperature with varying $\gamma$ value in small $\alpha$ range. From the left, T = [0.14, 0.12], T = [0.12, 0.1], and T = [0.1, 0.08]. As the temperature decreases, the crossover behavior of $\frac{\partial \nu}{\partial T}$ 
   at large $\gamma$ values also decreases. This implies that at low temperatures, the crossover will not occur when the nonlinearity of the junction increases.}
   \vfill
 \end{figure}
 \begin{figure}[H]
-  \centerline{\includegraphics[width=7cm]{TexFigure/4/4_3_14_Diff_Os3_b_10_12.5_n.png}}
+  \centerline{\includegraphics[width=9cm]{TexFigure/4/4_3_14_Diff_Os3_b_10_12.5_n.png}}
   \caption{Crossover tendency calculated on OCA. The temperature condition is T = [0.1,0.08].}
 \vfill
 \end{figure}
 \pagebreak
 \begin{figure}[H]
   \vfill
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_3_15_Expecregi.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_3_15_Expecregi.png}}
   \caption{Expected phase transition diagram. Expected crossover behavior is represented as a dotted line. 
    We can deduce as the temperature decreases, the insulator behavior becomes wider. }
   \vfill
@@ -300,8 +297,8 @@ When we fixed the $\gamma$ value and varied the $\alpha$ value, it increased in 
 decreased in low temperature as the $\alpha$ value increased.
 
 \begin{figure}[H]
-  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_4_01_chi_gam_swp.png}}
-  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_4_02_chi_alp_swp.png}}
+  \centerline{\includegraphics[width=15cm]{TexFigure/4/4_4_01_chi_gam_swp.png}}
+  \centerline{\includegraphics[width=15cm]{TexFigure/4/4_4_02_chi_alp_swp.png}}
   \caption{The crossing picture in $\chi_{sp}$ with $\gamma$ swapping and $\alpha$ swapping}
 \end{figure}
 \pagebreak
@@ -364,19 +361,16 @@ Also, we confirmed that the crossover interval using approximation decreased as 
 \pagebreak
 \begin{figure}[H]
   \vfill
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_4_04_crossing.png}}
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/4_4_05_templine.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_4_04_crossing.png}}
+  \centerline{\includegraphics[width=13cm]{TexFigure/4/4_4_05_templine.pdf}}
   \caption{Crossover lines in extended $\alpha$ range. The below of the line is presumed to indicate that the system tends to insulate and the upper of the line is superconducting. The area of insulation decreases with temperature decreases.}
 \vfill
 \end{figure}
 \pagebreak
 \newpage
 \begin{figure}[H]
-  \centerline{\includegraphics[width=12cm]{TexFigure/4/output.png}}
-  \caption{Crossing points in the exceeded range. Each color represents the difference in the approximation method, 
-  with green representing NCA with a matrix size of 3  and purple representing OCA for matrix sizes 3 and 5, respectively. 
-  It can be observed that the position of the line changes significantly for a matrix size of 3, i.e., a two-level energy system, 
-  in the region with large $\alpha$ values.}
+  \centerline{\includegraphics[width=9cm]{TexFigure/4/4_4_05_oc_colormap.png}}
+  \caption{Colored plot for the $\chi_{sp}(\tau)$ in fixed Temperature T =0.08. The simulation was performed in OCA with truncated matrix size 5. Deeper color corresponds to a superconducting feature. Contradicts with the result from the order parameter calculation, the system presumed in superconductivity in low $\gamma$, with an extended $\alpha$ regime.}
  \end{figure}
 \end{spacing}
 \end{document}
