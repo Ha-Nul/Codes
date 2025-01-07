@@ -41,9 +41,10 @@
 \setcounter{page}{28}
 \setcounter{figure}{13}
 \setcounter{table}{2}
-\setcounter{section}{3}
+\setcounter{section}{4}
 \lstset{style=mystyle}
 \captionsetup{font=footnotesize}
+\numberwithin{equation}{section}
 \newcommand{\RN}[1]{%s
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
@@ -57,11 +58,11 @@
  }
 \begin{document}
 \section{Result}
-\begin{spacing}{1.3}
+\begin{spacing}{1.5}
 \subsection{Benchmark Setup and Simulation Environment}
 \subsubsection*{Benchmark: Exact diagonalization in single mode}
-To compare with the result from exact diagonalization (ED), we set the condition when the bath has only a single mode. 
-The result shows that the approximation method could be reliable in high temperatures ($\beta = 1$). Throughout the result analysis, we use $k_b$ as unit value 1.
+To compare with the result from exact diagonalization (ED), we set the condition that the bath has only a single mode. 
+The result shows that the approximation method could be reliable in high temperatures ($\beta = 1$). We've used $k_b$ as unit value 1 throughout the result analysis.
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=7cm]{TexFigure/4/4_1_00_Singlebath.png}}
   \caption{Brief circuit scheme for single bath condition. The crossing symbol  refers to the junction structure.}
@@ -69,11 +70,11 @@ The result shows that the approximation method could be reliable in high tempera
 \begin{figure}[htbp]
   \centerline{\includegraphics[width=13cm]{TexFigure/4/4_1_01_Single.png}}
   \caption{Result for single bath benchmark. In the left figure, the overall condition for g (coupling strength between system and bath) is 1. The right figure shows the result in the OCA approaches to the exact results.}
-\end{figure}\pagebreak
+\end{figure}
+\pagebreak
 \subsubsection*{Benchmark: Multi-mode case}
-To investigate the convergence of the diagrammatic approximation method in a general bosonic reservoir condition, 
-we calculated the order parameter and the correlation function using the NCA, OCA, and TOA. 
-The results showed no significant difference between the OCA and TOA calculations, confirming that the OCA is a sufficiently convergent method.
+To investigate the convergence of the diagrammatic approximation method in a general bosonic reservoir condition, we compared the results of each calculation from NCA, OCA, and TOA. 
+The results confirm that the OCA is a sufficiently convergent method.
 \begin{figure}[H]
   \centerline{\includegraphics[width=13cm]{TexFigure/4/4_1_02_Multi.png}}
   \caption{Results of the order parameter and correlation function calculated under each approximation method. 
@@ -81,8 +82,7 @@ The results showed no significant difference between the OCA and TOA calculation
   The size of the $\tau$ grid used for the calculation is 701.}
  \end{figure}
 \subsubsection*{Benchmark: $\alpha$ = 0 condition}
-To check for the integration code, we compared the order parameter calculated using approximation methods for the case of α=0 
-with the order parameter calculated using the state density matrix of the Josephson junction system. 
+To check for the code, we compared the expectation value calculated on approximation methods and the result from the density matrix of the Josephson junction system, for the case of $\alpha=0$. 
 The results showed that the two cases were entirely consistent.
 \begin{figure}[H]
   \centerline{\includegraphics[width=13cm]{TexFigure/4/4_1_03_zero.png}}
@@ -93,10 +93,10 @@ The results showed that the two cases were entirely consistent.
  \end{figure}
 \pagebreak
 \subsubsection*{Simulation condition: Saturation test}
-The factors influencing the accuracy of the approximation method are the number of integration iterations and the size of the τ grid.
-We investigated the convergence behavior of the calculation results for changing the order parameter. 
+The factors influencing the accuracy of the approximation method are the number of integration iterations and the size of the $\tau$ grid.
+We investigated the convergence behavior of the calculation results depending on the size of the grid.
 We confirmed that the results converge for the case of a tau grid size of 1800 to 2000. 
-\begin{table}[htbp]
+\begin{table}
   \centering
   \renewcommand{\arraystretch}{1.2}  % 행 간격 조정
   \begin{tabular}{@{}ccc@{}}
@@ -116,8 +116,8 @@ We confirmed that the results converge for the case of a tau grid size of 1800 t
 \pagebreak
 \subsubsection*{Simulation condition: Size dependence}
 Since the resistively shunted Josephson junction circuit corresponds to a model that the physical system has coupled to the waveguide structure,
-there was a breakdown of the rotating wave approximation of the two-level system as the coupling strength between the RC resonator circuit 
-and the Josephson junction increases[15]. The test condition is $\gamma =2$, $\alpha = 1.5$ with calculating correlation function. 
+there was a breakdown of the rotating wave approximation of the two-level system as the coupling strength increases[15]. 
+The test condition is $\gamma =2$, $\alpha = 1.5$ with calculating correlation function. 
 The benchmark result shows that adopting a 2-level truncated condition is reliable since the difference between the two sizes is ignorable.
 \begin{figure}[H]
   \centerline{\includegraphics[width=13cm]{TexFigure/4/4_2_02_sizediff.png}}
@@ -161,7 +161,7 @@ result from the expectation value of the order parameter.
 \begin{figure}[H]
   \vfill
   \centerline{\includegraphics[width=8cm]{TexFigure/4/4_3_02_Temp.png}}
-  \caption{Colored plot for the expectation value of order parameter. The simulation was performed in NCA. The temperature condition is T = 0.08
+  \caption{Colored plot for the expectation value of order parameter. The simulation was performed in NCA. The temperature condition is $T = 0.08$.
   The difference in phase on each side of the junction decreases as the color goes deeper, corresponds to superconductivity.}
   \vfill
 \end{figure}
@@ -186,14 +186,16 @@ a new order parameter $\nu(T,\alpha,\gamma)$ was introduced, its change concerni
 \frac{\partial \nu}{\partial T} \approx \frac{ \langle\hat{\cos \phi}\rangle|_{T_i} - \langle\hat{\cos \phi}\rangle|_{T_{i+1}}}{\Delta T} \quad , \quad \Delta T = |T_{i}-T_{i+1}|
 \end{split}
 \end{flalign}
-Following the equation above, we observed the changes in the order parameter while varying the temperature. As the temperature decreases, the tangent of the order parameter changes from a high to a low slope. This allows us to predict the temperature-dependent behavior of the system under investigation. The prediction of the system's phase change according to $\frac{\partial \nu}{\partial T}$ is follows:
+Here, $T_{i+1}$ is a lower temperature, and $T_i$ is a higher temperature.
+Following the equation above, we observed the changes in the order parameter while varying the temperature. 
+The prediction of the system's phase change according to $\frac{\partial \nu}{\partial T}$ is follows:
 \begin{flalign}
 \begin{split}
 \begin{cases}\frac{\partial \nu}{\partial T} > 0 \quad : \quad \text{Insulating} \\ \frac{\partial \nu}{\partial T} < 0 \quad : \quad \text{Superconducting}\\
 \frac{\partial \nu}{\partial T} =0 \quad : \quad \text{crossover point}\end{cases}
 \end{split}
 \end{flalign}
-When the simulation results were plotted on the $\alpha − \gamma$ plane, following three features were observed :\\
+When the simulation results were plotted on the $\alpha - \gamma$ plane, following three features were observed :\\
 \indent 1. $\alpha$=0 (no interaction with the external reservoir), the system exhibits superconducting properties.\\
 \indent 2. Crossover points on the $\alpha - \gamma$ plane for each consecutive temperature range, the left side of the crossover line predicted as insulating properties and superconducting properties for the right side.\\
 \indent 3. As the temperature decreases, the range exhibiting insulating properties widens for a given $\alpha$ interval.\\
@@ -233,7 +235,7 @@ In the calculation of $\hat{\cos\phi}$ at the value from $\alpha$ = 0 to near a 
 the system change shows a discontinuous behavior from superconductor to insulator. 
 We can deduce two features:  \\
   \indent 1. when $\alpha=0$ there is no sign change in the order parameter,  \\
-  \indent 2. The value of $\hat{\cos\phi}_{T_i}−\hat{\cos\phi}_{T_{i+1}}$ is always negative in $\alpha$ = 0, 
+  \indent 2. The value of $\hat{\cos\phi}_{T_i} - \hat{\cos\phi}_{T_{i+1}}$ is always negative in $\alpha$ = 0, 
  suggesting that the system exhibits superconductivity. \\
  This contradicts the previous discussion that the left side of the crossover line should represent the insulator state. 
 To investigate how the junction's phase change varies when the external environment's influence is small, 
@@ -313,7 +315,7 @@ Yet the junction energy increased, and the phase tended to increase in more deci
   The Josephson junction has high conductivity as the color goes deeper.}
  \end{figure}
 \pagebreak
-\subsubsection*{Exceeded $\alpha$ range}
+\subsubsection*{$\alpha$ in excess range}
 In the crossover calculation using the approximation method using the correlation function, 
 plotting the temperature-dependent behavior calculated with the approximation formula varying the influencing variables, 
 the point where the lines corresponding to two consecutive temperatures intersect can be predicted as the crossover point.
@@ -334,7 +336,7 @@ The range conditions used are shown in the table below.
   Temperature & 0.3 & 0.04 & 0.02 \\
   \bottomrule
   \end{tabular}
-  \caption{Exceeded parameter condition used for $\chi_{sp}$ calculation.}
+  \caption{Wider range for $\chi_{sp}$ calculations}
   \end{table}
 \begin{table}[htbp]
   \centering

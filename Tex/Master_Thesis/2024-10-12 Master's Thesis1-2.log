@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  23 DEC 2024 15:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  24 DEC 2024 15:34
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis1-2.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-12 Master's Thesis1-2.tex
@@ -461,11 +461,11 @@ l.264 \begin{figure}[H]
                        
 Option `H' ignored and `p' used.
 
-<TexFigure/Tmat3.png, id=50, 619.332pt x 487.713pt>
+<TexFigure/Tmat3.png, id=50, 2838.605pt x 2235.35126pt>
 File: TexFigure/Tmat3.png Graphic file (type png)
 <use TexFigure/Tmat3.png>
 Package pdftex.def Info: TexFigure/Tmat3.png  used on input line 265.
-(pdftex.def)             Requested size: 398.33858pt x 313.69061pt.
+(pdftex.def)             Requested size: 398.33858pt x 313.66333pt.
 [27 <./TexFigure/Tmat2.png> <./TexFigure/Tmat3.png>] (2024-10-12 Master's Thesis1-2.aux) ) 
 Here is how much of TeX's memory you used:
  8191 strings out of 478927
@@ -476,7 +476,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  71i,13n,81p,1030b,1717s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/base/8r.enc}{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr6.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb><G:/Install_Program/MikTex/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on "2024-10-12 Master's Thesis1-2.pdf" (9 pages, 1736447 bytes).
+Output written on "2024-10-12 Master's Thesis1-2.pdf" (9 pages, 1646895 bytes).
 PDF statistics:
  120 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

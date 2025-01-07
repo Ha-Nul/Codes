@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  23 DEC 2024 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  30 DEC 2024 13:26
 entering extended mode
 **e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/thesis_rev_0.tex
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/thesis_rev_0.tex
@@ -257,8 +257,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 LaTeX Font Info:    Trying to load font information for OT1+qtm on input line 55.
  (G:\Install_Program\MikTex\tex/latex/tex-gyre\ot1qtm.fd
 File: ot1qtm.fd 2009/09/25 v1.2 font definition file for OT1/qtm
-)
-No file thesis_rev_0.aux.
+) (thesis_rev_0.aux)
 \openout1 = `thesis_rev_0.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
@@ -275,7 +274,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
 LaTeX Font Info:    ... okay on input line 55.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
 LaTeX Font Info:    ... okay on input line 55.
-(G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
+ (G:\Install_Program\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count288
 \scratchdimen=\dimen185
@@ -359,99 +358,92 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
  (G:\Install_Program\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [3]
-<TexFigure/circuit_supp_ashida.PNG, id=27, 403.5075pt x 123.46124pt>
-File: TexFigure/circuit_supp_ashida.PNG Graphic file (type png)
-<use TexFigure/circuit_supp_ashida.PNG>
-Package pdftex.def Info: TexFigure/circuit_supp_ashida.PNG  used on input line 137.
-(pdftex.def)             Requested size: 341.43306pt x 104.46968pt.
- [4 <./TexFigure/circuit_supp_ashida.PNG>] [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 344--346
-
- []
-
-[8]
-Overfull \hbox (13.41595pt too wide) detected at line 390
-[]
- []
-
-[9]
-<TexFigure/Diagram_arrow.PNG, id=52, 1726.19907pt x 189.70876pt>
+<TexFigure/Diagram_arrow.PNG, id=27, 1726.19907pt x 189.70876pt>
 File: TexFigure/Diagram_arrow.PNG Graphic file (type png)
 <use TexFigure/Diagram_arrow.PNG>
-Package pdftex.def Info: TexFigure/Diagram_arrow.PNG  used on input line 418.
+Package pdftex.def Info: TexFigure/Diagram_arrow.PNG  used on input line 159.
 (pdftex.def)             Requested size: 312.9803pt x 34.39503pt.
- [10 <./TexFigure/Diagram_arrow.PNG>]
-<TexFigure/Dyson_eq.PNG, id=58, 1608.0075pt x 240.14719pt>
+ [4 <./TexFigure/Diagram_arrow.PNG>]
+<TexFigure/Dyson_eq.PNG, id=35, 1608.0075pt x 240.14719pt>
 File: TexFigure/Dyson_eq.PNG Graphic file (type png)
 <use TexFigure/Dyson_eq.PNG>
-Package pdftex.def Info: TexFigure/Dyson_eq.PNG  used on input line 496.
+Package pdftex.def Info: TexFigure/Dyson_eq.PNG  used on input line 236.
 (pdftex.def)             Requested size: 369.88582pt x 55.24pt.
- [11 <./TexFigure/Dyson_eq.PNG>]
-<TexFigure/Tmat_diagram.png, id=63, 835.047pt x 280.539pt>
+ [5 <./TexFigure/Dyson_eq.PNG>]
+<TexFigure/Tmat_diagram.png, id=40, 835.047pt x 280.539pt>
 File: TexFigure/Tmat_diagram.png Graphic file (type png)
 <use TexFigure/Tmat_diagram.png>
-Package pdftex.def Info: TexFigure/Tmat_diagram.png  used on input line 515.
+Package pdftex.def Info: TexFigure/Tmat_diagram.png  used on input line 255.
 (pdftex.def)             Requested size: 341.43306pt x 114.70496pt.
-<TexFigure/Chi_with_Tmat.png, id=64, 856.728pt x 104.682pt>
+<TexFigure/Chi_with_Tmat.png, id=41, 856.728pt x 104.682pt>
 File: TexFigure/Chi_with_Tmat.png Graphic file (type png)
 <use TexFigure/Chi_with_Tmat.png>
-Package pdftex.def Info: TexFigure/Chi_with_Tmat.png  used on input line 516.
+Package pdftex.def Info: TexFigure/Chi_with_Tmat.png  used on input line 256.
 (pdftex.def)             Requested size: 341.43306pt x 41.7187pt.
- [12 <./TexFigure/Tmat_diagram.png> <./TexFigure/Chi_with_Tmat.png>] [13] [14] [15]
-Overfull \hbox (21.12227pt too wide) detected at line 682
+ [6 <./TexFigure/Tmat_diagram.png> <./TexFigure/Chi_with_Tmat.png>]
+<TexFigure/circuit_supp_ashida.PNG, id=47, 403.5075pt x 123.46124pt>
+File: TexFigure/circuit_supp_ashida.PNG Graphic file (type png)
+<use TexFigure/circuit_supp_ashida.PNG>
+Package pdftex.def Info: TexFigure/circuit_supp_ashida.PNG  used on input line 265.
+(pdftex.def)             Requested size: 341.43306pt x 104.46968pt.
+ [7 <./TexFigure/circuit_supp_ashida.PNG>] [8] [9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 457--459
+
+ []
+
+[11]
+Overfull \hbox (13.41595pt too wide) detected at line 503
 []
  []
 
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 563--570
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/thesis_rev_0.tex:691: Package inputenc Error: Unicode character λ (U+03BB)
-(inputenc)                not set up for use with LaTeX.
+ []
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.691 duced an operator λ
-                          1 defined as follows:
-You may provide a definition with
-\DeclareUnicodeCharacter 
+
+Underfull \hbox (badness 10000) in paragraph at lines 563--570
+
+ []
+
+[14] [15]
+Overfull \hbox (16.39882pt too wide) detected at line 668
+[]
+ []
 
 [16]
 <TexFigure/NCA_self.PNG, id=83, 764.529pt x 411.501pt>
 File: TexFigure/NCA_self.PNG Graphic file (type png)
 <use TexFigure/NCA_self.PNG>
-Package pdftex.def Info: TexFigure/NCA_self.PNG  used on input line 713.
+Package pdftex.def Info: TexFigure/NCA_self.PNG  used on input line 699.
 (pdftex.def)             Requested size: 199.16928pt x 107.20122pt.
 <TexFigure/OCA_self.PNG, id=84, 1006.305pt x 449.169pt>
 File: TexFigure/OCA_self.PNG Graphic file (type png)
 <use TexFigure/OCA_self.PNG>
-Package pdftex.def Info: TexFigure/OCA_self.PNG  used on input line 714.
+Package pdftex.def Info: TexFigure/OCA_self.PNG  used on input line 700.
 (pdftex.def)             Requested size: 312.9803pt x 139.70015pt.
  [17]
 <TexFigure/TOA_se.png, id=88, 927.246pt x 280.539pt>
 File: TexFigure/TOA_se.png Graphic file (type png)
 <use TexFigure/TOA_se.png>
-Package pdftex.def Info: TexFigure/TOA_se.png  used on input line 718.
+Package pdftex.def Info: TexFigure/TOA_se.png  used on input line 704.
 (pdftex.def)             Requested size: 312.9803pt x 94.6928pt.
 <TexFigure/TOA_tmat.png, id=89, 850.596pt x 449.169pt>
 File: TexFigure/TOA_tmat.png Graphic file (type png)
 <use TexFigure/TOA_tmat.png>
-Package pdftex.def Info: TexFigure/TOA_tmat.png  used on input line 719.
+Package pdftex.def Info: TexFigure/TOA_tmat.png  used on input line 705.
 (pdftex.def)             Requested size: 312.9803pt x 165.27151pt.
- [18 <./TexFigure/NCA_self.PNG> <./TexFigure/OCA_self.PNG> <./TexFigure/TOA_se.png> <./TexFigure/TOA_tmat.png>] (thesis_rev_0.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ [18 <./TexFigure/NCA_self.PNG> <./TexFigure/OCA_self.PNG> <./TexFigure/TOA_se.png> <./TexFigure/TOA_tmat.png>] (thesis_rev_0.aux) ) 
 Here is how much of TeX's memory you used:
- 7676 strings out of 478927
- 112884 string characters out of 2861478
- 444744 words of memory out of 3000000
+ 7678 strings out of 478927
+ 112982 string characters out of 2861478
+ 444774 words of memory out of 3000000
  25413 multiletter control sequences out of 15000+600000
  439449 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,24n,81p,434b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,24n,81p,501b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
 {G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmri.pfb>
-Output written on thesis_rev_0.pdf (18 pages, 1955636 bytes).
+Output written on thesis_rev_0.pdf (18 pages, 1955197 bytes).
 PDF statistics:
  164 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

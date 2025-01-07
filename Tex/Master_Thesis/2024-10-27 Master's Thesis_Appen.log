@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  23 DEC 2024 12:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.15)  24 DEC 2024 15:34
 entering extended mode
 **"e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex"
 (e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex
@@ -344,32 +344,6 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:83: Package inputenc Error: Unicode character α (U+03B1)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 ...can modify the range conditions for the α
-                                                   and γ valuåes and proce...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:83: Package inputenc Error: Unicode character γ (U+03B3)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 ...ify the range conditions for the α and γ
-                                                   valuåes and proceed with...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
 e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/Master_Thesis/2024-10-27 Master's Thesis_Appen.tex:83: Package inputenc Error: Unicode character γ (U+03B3)
 (inputenc)                not set up for use with LaTeX.
 
@@ -382,21 +356,21 @@ l.83 .... By performing calculations for higher γ
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[45
+[46
 
-{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [46] [47] [48] [49] [50] (2024-10-27 Master's Thesis_Appen.aux) ) 
+{C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [47] [48] [49] (2024-10-27 Master's Thesis_Appen.aux) ) 
 Here is how much of TeX's memory you used:
- 7578 strings out of 478927
- 110734 string characters out of 2861478
+ 7574 strings out of 478927
+ 110695 string characters out of 2861478
  443745 words of memory out of 3000000
- 25331 multiletter control sequences out of 15000+600000
- 428196 words of font info for 46 fonts, out of 8000000 for 9000
+ 25327 multiletter control sequences out of 15000+600000
+ 422550 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,22n,81p,578b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
-{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
-Output written on "2024-10-27 Master's Thesis_Appen.pdf" (6 pages, 217663 bytes).
+ 71i,21n,81p,578b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
+{G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc}<G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><G:/Install_Program/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmb.pfb><G:/Install_Program/MikTex/fonts/type1/public/tex-gyre/qtmr.pfb>
+Output written on "2024-10-27 Master's Thesis_Appen.pdf" (4 pages, 170822 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
+ 76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

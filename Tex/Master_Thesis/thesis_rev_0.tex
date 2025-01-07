@@ -90,12 +90,12 @@ The precise nature of this transition is to be addressed through the analysis of
 \end{figure}
 \end{spacing}
 \pagebreak
-\section{Theoretical method}
+\section{Methodology}
 \begin{spacing}{1.5}
 \subsection{Field operator and Green's function}
-This chapter will briefly summarize the theoretical framework of Green’s function, circuit, and expansion methods. 
+This chapter will briefly summarize the theoretical framework in condensed matter physics. 
 In quantum many-body theory, the physical system is depicted over the frame of the fermionic (bosonic) 
-creation and annihilation operator, and $\hat{a} (\hat{a}^\dagger)$ as an annihilation (creation) operator, 
+creation and annihilation operator, and $\hat{a}$ $(\hat{a}^\dagger)$ as an annihilation (creation) operator, 
 it satisfies the following commutation relations:
 \begin{flalign}
   \begin{split}
@@ -105,7 +105,7 @@ it satisfies the following commutation relations:
 \end{split}
 \end{flalign}
 The symbol $\delta_{ij}$ is the Kronecker-delta function. In the following discussion, we will drop the lower indices of the field operator, 
-assuming it can indicate any arbitrary quantum state. If we consider that the Hamiltonian system can be split into two parts, for the local system and the interaction, we can write the total Hamiltonian $H$:
+assuming it can indicate any arbitrary quantum state. Considering that the Hamiltonian system can be split into two parts, for the local system and the interaction, we can write the total Hamiltonian $H$:
 \begin{flalign}
   \begin{split}
 H = H_0 + H_{\text{int}}
@@ -131,6 +131,134 @@ Here, the symbol $\mathcal{T}$ is the time ordering operator. One of the feature
 \end{split}
 \end{flalign}
 \pagebreak
+\subsection{Diagrammatic method}
+\begin{spacing}{1.5}
+\subsubsection*{Diagrammatic expansion of Green’s function}
+%In the statistical framework, it is easy to calculate Green’s function in the imaginary time $\tau$ due to the wick rotation of the time axis, which mapped time-dependent system progression into thermal equilibrium problems with temperature dependency.
+%\begin{flalign}
+%  \begin{split}
+%\frac{it}{\hbar}=\tau = \beta = \frac{1}{k_BT}
+%\end{split}
+%\end{flalign}
+%We will use $\hbar=1$ in the overall discussion. In this new frame, Green’s function can be rewritten :
+%\begin{flalign}
+%  \begin{split}
+%G_0(\tau,\tau') = \langle\mathcal{T}\hat{a}^\dagger(\tau)\hat{a}(\tau)\rangle\begin{cases} \langle \hat{a}^\dagger(\tau)\hat{a}(\tau')\rangle  \quad (\tau>\tau')\\  \pm \langle \hat{a}(\tau')\hat{a}^\dagger(\tau)\rangle \quad (\tau<\tau')\quad \end{cases}
+%\end{split}
+%\end{flalign}
+%There is a particular relationship between real-time Green’s function and imaginary time(temperature dependence) Green’s function, which is :
+%\begin{flalign}
+%  \begin{split}
+%G(t,t')\vert_{t=0} = \pm e^{\beta H} G(t,t')\vert_{t=i\beta}
+%\end{split}
+%\end{flalign}
+%These temperature dependence Green’s function is often called as Matsubara Green’s function. 
+Single Green’s function corresponding with one specific imaginary time interval can be represented diagrammatic, 
+which is the basic formulation of the diagrammatic method.
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=11cm]{TexFigure/Diagram_arrow.PNG}}
+  \caption{Diagram of single Green's function. The direction of arrow corresponds with the direction of time flow.}
+\end{figure}
+\\
+In equilibrium statistical mechanics, the expectation value of the physical observable is characterized by the partition function that satisfies the given restricted energy condition in phase space. Based on these concepts, on the grand canonical ensemble, the statistical structure of counting Green’s function becomes :  
+\begin{flalign}
+  \begin{split}
+G_0(\tau,\tau') = \frac{\text{Tr}[e^{-\beta H_0} \hat{a}^\dagger(\tau)\hat{a}(\tau')]}{\text{Tr}[e^{-\beta H_0}]} =\frac{\text{Tr}[e^{-\beta H_0} e^{iH_0 \tau} \hat{a}^\dagger e^{-H_0 (\tau-\tau')}\hat{a}e^{-iH_0 \tau'}]}{\text{Tr}[e^{-\beta H_0}]}
+\end{split}
+\end{flalign}
+This is the basic form of Green’s function in imaginary time corresponding to the diagram structure. Similar case with the creation and annihilation operator, the time dependency of external potential term Hamiltonian: 
+\begin{flalign}
+  \begin{split}
+H'(\tau) = e^{H_0\tau}He^{-H_0\tau}
+\end{split}
+\end{flalign}
+If we consider the effect of interaction, we can adopt full Green’s function includes the interaction operator $U(\tau)$,
+\begin{flalign}
+  \begin{split}
+G(\tau,\tau') = \frac{\text{Tr}[e^{-\beta H_0} U(\beta)\hat{a}^\dagger(\tau)\hat{a}(\tau')]}{\text{Tr}[e^{-\beta H_0}U(\beta)]} =\frac{\text{Tr}[e^{-\beta H} U(\tau) \hat{a}^\dagger U(\tau'-\tau)\hat{a}U(\tau')]}{\text{Tr}[e^{-\beta H}]} 
+\end{split}
+\end{flalign}
+Where the interaction operator is: 
+\begin{flalign}
+  \begin{split}
+U(\tau) = \mathcal{T}e^{-\int^\tau_0 d\tau' H_{\text{int}}(\tau')}
+\end{split}
+\end{flalign}
+In the imaginary time interval $[\tau,0]$, full Green’s function in the expectation form can be represented, 
+\begin{flalign}
+  \begin{split}
+G(\tau,0) = \frac{\text{Tr}[e^{-\beta H_0} U(\beta)\hat{a}^\dagger(\tau)\hat{a}]}{\text{Tr}[e^{-\beta H_0}U(\beta)]} = \frac{\langle U(\beta)\hat{a}^\dagger(\tau)\hat{a}\rangle_0}{\langle U(\beta)\rangle_0}
+\end{split}
+\end{flalign}
+The under index 0 of the angled bracket indicates its expectation value was calculated in $H_{\text{loc}}$ frame. 
+If the interaction Hamiltonian is in the form of the multiplication of a pair of 
+annihilation-creation operator $\hat{a}^\dagger$ and $\hat{a}$ , 
+we can adjust Wick's theorem to expand each of the expectation values in 
+denominator and numerator into a multiplication of Green's functions in each time interval.
+\pagebreak
+\subsubsection*{Diagrammatic expansion in strong coupling case}
+The Hamiltonian system can be divided into three parts as a general case of the time-dependent impurity model with a bosonic bath:
+\begin{flalign}
+  \begin{split}
+    H_{sys} = H_{loc}+H_{int}+H_{bath}
+  \end{split}
+\end{flalign}
+In the second quantized form, This can be rewritten:
+\begin{flalign}
+  \begin{split}
+H(t) = H_{loc}(t) + \underbrace{\sum_n \epsilon_n \hat{b}^\dagger_n}_\text{bath} \hat{b}_n + \underbrace{\sum_{m,n} [V_{m,n}(t) c_m^\dagger b_n + \text{H.c.}]}_\text{interaction}
+\end{split}
+\end{flalign}
+The operator $\hat{b} (\hat{b}^\dagger)$ indicates bosonic annihilation(creation) operator, $\hat{c}(\hat{c}^\dagger)$ is fermionic annihilation(creation) operator. 
+Based on this structure, the expansion method was constructed. 
+Continue, from the Hamiltonian, the action of the entire system can be written into :
+\begin{flalign}
+  \begin{split}
+S = \int^\beta_0 d\tau H_{\text{loc}}(\tau) + \int^\beta_0 d\tau d\tau' P(\tau)\mathcal{W}(\tau-\tau')P(\tau')
+\end{split}
+\end{flalign}
+Here, $H_{\text{loc}}$is the Hamiltonian of the local system, indicating the impurity we want to focus on. The terms $P$ and $\mathcal{W}$ correspond with the Hermitian operator and the interaction term.
+While considering the interaction process, the term $\mathcal{W}$ includes the scalar factor to represent the effect of the bosonic bath. 
+With a similar procedure to the diagram expansion, We can calculate the expectation value of the observable using the partition function $Z$,
+\begin{flalign}
+  \begin{split}
+Z=\text{tr}\bigg[T_{\tau}e^{-S}\bigg]
+\end{split}
+\end{flalign}
+This result takes the form of Dyson's equation in quantum mechanics, which can be represented in the diagram structure. If we define full $\mathcal{G}$ as :
+\begin{flalign}
+  \begin{split}
+\mathcal{G} = \langle\psi_a(\tau)\psi_b^\dagger(\tau')\rangle = \frac{\text{Tr}[e^{-\beta H}\psi_a(\tau)\psi_b^\dagger(\tau')]}{\text{Tr}[e^{-\beta H}]}
+\end{split}
+\end{flalign}
+Then the diagram of the Dyson equation is shown in Figure 4.
+\begin{figure}[H]
+  \centerline{\includegraphics[width=13cm]{TexFigure/Dyson_eq.PNG}}
+  \caption{Diagram for Dyson equation with self energy}
+\end{figure}
+This form of equation satisfies the integral-differential form agrees with the equation of motion in the quantum mechanical 
+aspect.
+\begin{flalign}
+  \begin{split}
+[-\partial_{\tau}-H_{\text{loc}}+\lambda]\mathcal{G}(\tau)-\int^\tau_0 d\tau_1\Sigma(\tau-\tau_1)\mathcal{G}(\tau_1) = 0 \quad, \quad(\tau>0)
+\end{split}
+\end{flalign}
+\subsubsection*{Evaluation of correlation function}
+The correlation function for Green’s function is defined as follows:
+\begin{flalign}
+  \begin{split}
+\chi_{sp}(\tau) &=\frac{1}{Z}\text{Tr}[e^{-S}P(\tau)P(0)] \\
+  \end{split}
+\end{flalign}
+Where $S$ is an action of the system. The corresponding topological diagram is:
+\begin{figure}[hbtp]
+  \centerline{\includegraphics[width=12cm]{TexFigure/Tmat_diagram.png}}
+  \centerline{\includegraphics[width=12cm]{TexFigure/Chi_with_Tmat.png}}
+  \caption{Specific diagram for T matrix[4].}
+\end{figure}
+\pagebreak
+\newpage
+\section{Model \& Application}
 \subsection{Circuit model}
 \subsubsection*{Hamiltonian of resistivity shunted Josephson junction}
   \begin{figure}[htbp]
@@ -148,14 +276,14 @@ Here, the symbol $\mathcal{T}$ is the time ordering operator. One of the feature
 	  H_{\text{sys}} = (E_c\hat{N^2}-E_J\cos{\phi})-\hat{N} \sum_{0<k\leq K}\hbar g_k(\hat{b}_k^\dagger + \hat{b}_k) + \sum_{0<k\leq K}\hbar\omega_k\hat{b_k}^\dagger\hat{b_k}~,
 \end{split}
 \end{flalign}
-where $\hat{N}=i\partial/\partial\phi$ is the charge operator, $\hat{b}_k$ ($\hat{b}^\dagger_k$) is the bosonic annihilation (creation) operator of $k$-th mode, coupled to the charge of JJ of coupling energy scale $\hbar g_k$
+Where $\hat{N}=i\partial/\partial\phi$ is the charge operator, $\hat{b}_k$ ($\hat{b}^\dagger_k$) is the bosonic annihilation (creation) operator of $k$-th mode, coupled to the charge of JJ of coupling energy scale $\hbar g_k$
 Equation (2.6) can be divided into three parts:
 \begin{flalign}
   \begin{split}
 	  H_{\text{sys}} = H_{\text{loc}}+H_{\text{int}}+H_{\text{bath}}~,
 \end{split}
 \end{flalign}
-each of which represents the local JJ, the bath bosons, and coupling between them;
+Each of which represents the local JJ, the bath bosons, and coupling between them;
 \begin{flalign}
   \begin{split}
 H_{\text{loc}} &=E_C\hat{N}^2 - E_J \cos{\phi} \\ H_{\text{bath}} &= \sum_{0<k\leq K} \hbar \omega_k \hat{b}^\dagger_k \hat{b}_k \\ H_{\text{int}} &= -\hat{N}\sum_{0<k\leq K} \hbar g_k (\hat{b}^\dagger_k + \hat{b}_k)
@@ -185,30 +313,27 @@ The detailed description of basic symbols is summarized in Table 1.%~\ref{tab:H}
   \caption{Basic symbols used for describing Hamiltonian.}
   %\label{tab:H}
   \end{table}
-
-  Both in the local JJ and the bosonic bath, degrees of freedom satisfy the fundamental commutation relation: the phase of JJ and its conjugate charge operator in the local Hamiltonian and annihilation and creation operators for the bath Hamiltonian.  \begin{align}
+Both in the local JJ and the bosonic bath, degrees of freedom satisfy the fundamental commutation relation: 
+  \begin{align}
 	  [\hat{\phi},\hat{N}]&=i\hbar~,\nonumber\\
 	  [\hat{b}_k,\hat{b}^\dagger_{k'}]&=\delta_{kk'}~.
 	  %\label{<+label+>}
   \end{align}
-  The coupling between the JJ and the $k$-th mode boson is denoted by $g_k$, and $\alpha =\frac{R_Q}{R}$ controls the global coupling strength for all bosonic modes.
-  On the other hand, the competition between the Josephson coupling $E_J$ and the charge energy scale $E_C$ is controlled by $\gamma = \frac{E_J}{E_C}$ in the local part. 
-  $\alpha$ and $\gamma$ will be our basic control parameters.
-  We’ve set $E_C$ as an energy unit.
+Here coupling between the JJ and the $k$-th mode boson is denoted by $g_k$. The parameter $\alpha =\frac{R_Q}{R}$ controls the global coupling strength between the JJ and bath for all bosonic modes, $\gamma = \frac{E_J}{E_C}$ controls the nonlinearity of the JJ in the local part. These parameters, $\alpha$ and $\gamma$ will be our basic control parameters. Here, We’ve set $E_C$ as an energy unit.
 \subsubsection*{$H_{\text{loc}}$ in Josephson phase basis}
 To adjust the expansion method to the RSJJ Hamiltonian model, We represent the local system Hamiltonian in matrix formulation using the basis of the Josephson wave function. 
 We adopt the macroscopic point of view to observe the superconducting effect expected in our junction system. 
 The free-particle wavefunction in the $2\pi$-periodic JJ phase ($\phi$) space can be written in the exponential form: 
 \begin{flalign}
   \begin{split}
-	  \ket{\psi_{JJ}} = \sum_{-\infty}^{\infty} c_m\frac{e^{im\phi}}{\sqrt{2\pi}}~,
+	  \ket{\psi_{\text{JJ}}} = \sum_{-\infty}^{\infty} c_m\frac{e^{im\phi}}{\sqrt{2\pi}}~,
 \end{split}
 \end{flalign}
-where, $e^{im\phi}/\sqrt{2\pi}$ constitutes the complete basis with wavenumber $m$.
+Where, $e^{im\phi}/\sqrt{2\pi}$ constitutes the complete basis with wavenumber $m$.
 In trigonometric form,
 \begin{flalign}
   \begin{split}
-	  \ket{\psi_{JJ}}=\frac{a_0}{\sqrt{2\pi}} + \frac{1}{\sqrt{\pi}}\sum_{m=1}^\infty (a_m\cos{m\phi} +b_m\sin{m\phi})~.
+	  \ket{\psi_{\text{JJ}}}=\frac{a_0}{\sqrt{2\pi}} + \frac{1}{\sqrt{\pi}}\sum_{m=1}^\infty (a_m\cos{m\phi} +b_m\sin{m\phi})~.
 \end{split}
 \end{flalign}
 Since the local Hamiltonian doesn't mix the even and odd sectors, one can safely write down the even and odd eigenvectors separately:
@@ -217,25 +342,16 @@ Since the local Hamiltonian doesn't mix the even and odd sectors, one can safely
 	\ket{\text{odd}_k} = \sum_{m=1}\frac{b_m^{(k)}}{\sqrt{\pi}}\sin{m\phi}~.
 	\label{<+label+>}
 \end{align}
-Here, $k$ is the eigenstate index.
-%Here, $k$ is the eigenstate index, that is, the energy state of the even function basis split by external perturbation in the k-th excited state. In the same way, the eigenvector written in the form of an odd function is as follows: 
-
-%And its matrix form is : 
-%\begin{flalign}
-%  \begin{split}
-%\ket{\text{even}_k}=\begin{pmatrix} \alpha_0 \\ \alpha_1\\ \vdots \\\alpha_m\end{pmatrix}\quad, \quad \ket{\text{odd}_k}=\begin{pmatrix} \beta_1 \\ \beta_2\\ \vdots \\\beta_m\end{pmatrix}
-%\end{split}
-%\end{flalign}
-Considering the differential form of local system Hamiltonian in the trigonometric basis, 
+Here, $k$ is the eigenstate index. Considering the differential form of local system Hamiltonian in the trigonometric basis, 
 \begin{flalign}
   \begin{split}
 H_{\text{loc}} = -\frac{\partial^2}{\partial \phi^2} - \gamma\cos{\phi}
 \end{split}
 \end{flalign}
-the Hamiltonian can be written as follows.
+the Hamiltonian can be written as follows, one can numerially diagonalize $H_{loc}$.
 %\begin{flalign}
 %  \begin{split}
-%&H_{\text{loc}}\ket{\psi_{JJ}} = H_{\text{loc}}(\ket{\text{even}_k}+\ket{\text{odd}_k}) \\ \text{ } 
+%&H_{\text{loc}}\ket{\psi_{\text{JJ}}} = H_{\text{loc}}(\ket{\text{even}_k}+\ket{\text{odd}_k}) \\ \text{ } 
 %\\ &\bigg(-\frac{\partial^2}{\partial \phi^2} - \gamma\cos{\phi}\bigg)\bigg(\sum_{m=0}^\infty a_m\cos{m\phi} +\sum_{n=1}^\infty b_n\sin{n\phi}\bigg) 
 %\\&= -\sum_{m=0}^\infty (m^2a_m\cos{m\phi}+\gamma\cos{\phi}\cos{m\phi})-\sum_{n=1}^\infty (n^2b_n\sin{n\phi}+\gamma\cos{\phi}\sin{n\phi})
 %\end{split}
@@ -258,10 +374,7 @@ H_{\text{loc odd}} &= \begin{pmatrix}
 \qquad (m = 1,2, \dots)~.
 	\label{eqn:Hloc}
 \end{align}
-
-One can numerially diagonalize $H_{loc}$.
 Because the difference between the energy levels becomes more significant as $m$ increases, we truncate the local Hilbert space for computationally manageable subsets of low-lying states.
-
 %To study how system changes depends on coupling parameters and finite temperature conditions, we measure the total RSJJ Hamiltonian under local system basis engaged from diagonalization of the $H_{\text{loc even}}$ and $H_{\text{loc odd}}$ . 
 \subsubsection*{Matrix form of $\hat{N}$ in local eigen basis}
 %The charge operator $\hat{N}$ pursues polarization operator in our expansion model, endows coupling effect between local system and bath system. Exploiting local basis from previous procedure, We can write $\hat{N}$ in aspect of local system view. [bullshit\dots]
@@ -291,7 +404,7 @@ Here, we note the upper indices with a round brace to indicate the energy excita
 \end{flalign}
 \subsubsection*{Multilevel case}
 For the higher-level case, one can easily generalize the matrix expression of $\hat{N}$~.
-Now, based on the above discussion, the extended form of charge operator in higher dimension is :
+Now, based on the above discussion, the extended form of charge operator in higher dimension is:
 \begin{flalign}
   \begin{split}
 \hat{N} &= \begin{pmatrix}
@@ -344,7 +457,7 @@ When obtaining eigenvectors for the 3-level truncated 3*3 $H_{\text{loc}}$ matri
 \end{flalign}
 $\\$
 \subsubsection*{Multilevel case}
-When including more than three levels, expressing the order parameter in matrix form for the Hamiltonian $H_{\text{loc}}$ involves the following steps.
+When including more than three levels, expressing the order parameter in matrix form for the Hamiltonian $H_{\text{loc}}$ involves the following steps:
 First, the calculation of the even function form of the order parameter $\cos \phi$ is as follows:
 \begin{flalign}
   \begin{split}
@@ -375,8 +488,8 @@ Similar to the case of even state eigenvector, the inner product result is:
         \end{array}
         \right.
 \end{split}
-      \end{flalign}
-Therefore, when the entire $\cos{\phi}$ is expressed in matrix form, it takes the following form:
+\end{flalign}
+Therefore, the entire $\cos{\phi}$ expressed in following matrix form:
 \begin{flalign}
   \begin{split}
     \hat{\cos{\phi}} = \begin{pmatrix}
@@ -390,140 +503,13 @@ Therefore, when the entire $\cos{\phi}$ is expressed in matrix form, it takes th
     \end{flalign}
 \end{spacing}
 \pagebreak
-\subsection{Diagrammatic method}
-\begin{spacing}{1.5}
-\subsubsection*{Diagrammatic expansion of Green’s function}
-%In the statistical framework, it is easy to calculate Green’s function in the imaginary time $\tau$ due to the wick rotation of the time axis, which mapped time-dependent system progression into thermal equilibrium problems with temperature dependency.
-%\begin{flalign}
-%  \begin{split}
-%\frac{it}{\hbar}=\tau = \beta = \frac{1}{k_BT}
-%\end{split}
-%\end{flalign}
-%We will use $\hbar=1$ in the overall discussion. In this new frame, Green’s function can be rewritten :
-%\begin{flalign}
-%  \begin{split}
-%G_0(\tau,\tau') = \langle\mathcal{T}\hat{a}^\dagger(\tau)\hat{a}(\tau)\rangle\begin{cases} \langle \hat{a}^\dagger(\tau)\hat{a}(\tau')\rangle  \quad (\tau>\tau')\\  \pm \langle \hat{a}(\tau')\hat{a}^\dagger(\tau)\rangle \quad (\tau<\tau')\quad \end{cases}
-%\end{split}
-%\end{flalign}
-%There is a particular relationship between real-time Green’s function and imaginary time(temperature dependence) Green’s function, which is :
-%\begin{flalign}
-%  \begin{split}
-%G(t,t')\vert_{t=0} = \pm e^{\beta H} G(t,t')\vert_{t=i\beta}
-%\end{split}
-%\end{flalign}
-%These temperature dependence Green’s function is often called as Matsubara Green’s function. 
-Single Green’s function corresponding with one specific imaginary time interval can be represented diagrammatic, 
-which is the basic formulation of the diagrammatic method. We can draw a line from $\tau'$ to $\tau$,
-\begin{figure}[htbp]
-  \centerline{\includegraphics[width=11cm]{TexFigure/Diagram_arrow.PNG}}
-  \caption{Diagram of single Green's function. The direction of arrow corresponds with the direction of time flow.}
-\end{figure}
-\\
-In equilibrium statistical mechanics, the expectation value of the physical observable is characterized by the partition function that satisfies the given restricted energy condition in phase space. Based on these concepts, on the grand canonical ensemble, the statistical structure of counting Green’s function becomes :  
-\begin{flalign}
-  \begin{split}
-G_0(\tau,\tau') = \frac{\text{Tr}[e^{-\beta H_0} \hat{a}^\dagger(\tau)\hat{a}(\tau')]}{\text{Tr}[e^{-\beta H_0}]} =\frac{\text{Tr}[e^{-\beta H_0} e^{iH_0 \tau} \hat{a}^\dagger e^{-H_0 (\tau-\tau')}\hat{a}e^{-iH_0 \tau'}]}{\text{Tr}[e^{-\beta H_0}]}
-\end{split}
-\end{flalign}
-This is the basic form of Green’s function in imaginary time corresponding to the diagram structure. Similar case with the creation and annihilation operator, the time dependency of external potential term Hamiltonian: 
-\begin{flalign}
-  \begin{split}
-H'(\tau) = e^{H_0\tau}He^{-H_0\tau}
-\end{split}
-\end{flalign}
-If we consider the effect of interaction, we can adopt full Green’s function includes the interaction operator $U(\tau)$,
-\begin{flalign}
-  \begin{split}
-G(\tau,\tau') = \frac{\text{Tr}[e^{-\beta H_0} U(\beta)\hat{a}^\dagger(\tau)\hat{a}(\tau')]}{\text{Tr}[e^{-\beta H_0}U(\beta)]} =\frac{\text{Tr}[e^{-\beta H} U(\tau) \hat{a}^\dagger U(\tau'-\tau)\hat{a}U(\tau')]}{\text{Tr}[e^{-\beta H}]} 
-\end{split}
-\end{flalign}
-Where the interaction operator is: 
-\begin{flalign}
-  \begin{split}
-U(\tau) = \mathcal{T}e^{-\int^\tau_0 d\tau' H_{\text{int}}(\tau')}
-\end{split}
-\end{flalign}
-In the imaginary time interval $[\tau,0]$, full Green’s function in the expectation form can be represented, 
-\begin{flalign}
-  \begin{split}
-G(\tau,0) = \frac{\text{Tr}[e^{-\beta H_0} U(\beta)\hat{a}^\dagger(\tau)\hat{a}]}{\text{Tr}[e^{-\beta H_0}U(\beta)]} = \frac{\langle U(\beta)\hat{a}^\dagger(\tau)\hat{a}\rangle_0}{\langle U(\beta)\rangle_0}
-\end{split}
-\end{flalign}
-The under index 0 of the angled bracket indicates its expectation value was calculated in $H_{\text{loc}}$ frame. 
-If the interaction Hamiltonian is in the form of the multiplication of a pair of 
-annihilation-creation operator $\hat{a}^\dagger$ and $\hat{a}$ , 
-we can adjust Wick's theorem to expand each of the expectation values in 
-denominator and numerator into a multiplication of Green's functions in each time interval.
-A brief discussion of Wick's theorem will be introduced in the Appendix.
-\pagebreak
-\subsubsection*{Diagrammatic expansion in strong coupling case}
-The Hamiltonian system can be divided into three parts as a general case of the time-dependent impurity model with a bosonic bath:
-\begin{flalign}
-  \begin{split}
-    H_{sys} = H_{loc}+H_{int}+H_{bath}
-  \end{split}
-\end{flalign}
-In the second quantized form, This can be rewritten:
-\begin{flalign}
-  \begin{split}
-H(t) = H_{loc}(t) + \underbrace{\sum_n \epsilon_n \hat{b}^\dagger_n}_\text{bath} \hat{b}_n + \underbrace{\sum_{m,n} [V_{m,n}(t) c_m^\dagger b_n + \text{H.c.}]}_\text{interaction}
-\end{split}
-\end{flalign}
-The operator $\hat{b} (\hat{b}^\dagger)$ indicates bosonic annihilation(creation) operator, $\hat{c}(\hat{c}^\dagger)$ is fermionic annihilation(creation) operator. 
-Based on this structure, the expansion method was constructed. 
-Continue, from the Hamiltonian, the action of the entire system can be written into :
-\begin{flalign}
-  \begin{split}
-S = \int^\beta_0 d\tau H_{\text{loc}}(\tau) + \int^\beta_0 d\tau d\tau' P(\tau)\mathcal{W}(\tau-\tau')P(\tau')
-\end{split}
-\end{flalign}
-Here, $H_{\text{loc}}$is the Hamiltonian of the local system, indicating the impurity we want to focus on. The terms $P$ and $\mathcal{W}$ correspond with the Hermitian operator and the interaction term.
-While considering the interaction process, the term $\mathcal{W}$ includes the scalar factor to represent the effect of the bosonic bath. 
-With a similar procedure to the diagram expansion, We can calculate the expectation value of the observable using the partition function $Z$,
-\begin{flalign}
-  \begin{split}
-Z=\text{tr}\bigg[T_{\tau}e^{-S}\bigg]
-\end{split}
-\end{flalign}
-This result takes the form of Dyson's equation in quantum mechanics, which can be represented in the diagram structure. If we define full $\mathcal{G}$ as :
-\begin{flalign}
-  \begin{split}
-\mathcal{G} = \langle\psi_a(\tau)\psi_b^\dagger(\tau')\rangle = \frac{\text{Tr}[e^{-\beta H}\psi_a(\tau)\psi_b^\dagger(\tau')]}{\text{Tr}[e^{-\beta H}]}
-\end{split}
-\end{flalign}
-Then the diagram of the Dyson equation is shown in Figure 4.
-\begin{figure}[H]
-  \centerline{\includegraphics[width=13cm]{TexFigure/Dyson_eq.PNG}}
-  \caption{Diagram for Dyson equation with self energy}
-\end{figure}
-This form of equation satisfies the integral-differential form agrees with the equation of motion in the quantum mechanical 
-aspect.
-\begin{flalign}
-  \begin{split}
-[-\partial_{\tau}-H_{\text{loc}}+\lambda]\mathcal{G}(\tau)-\int^\tau_0 d\tau_1\Sigma(\tau-\tau_1)\mathcal{G}(\tau_1) = 0 \quad, \quad(\tau>0)
-\end{split}
-\end{flalign}
-\subsubsection*{Evaluation of correlation function}
-The Correlation function for green’s function is defined as follows:
-\begin{flalign}
-  \begin{split}
-\chi_{sp}(\tau) &=\frac{1}{Z}\text{Tr}[e^{-S}P(\tau)P(0)] \\
-  \end{split}
-\end{flalign}
-where $S$ is an action of the system. The corresponding topological diagram is:
-\begin{figure}[hbtp]
-  \centerline{\includegraphics[width=12cm]{TexFigure/Tmat_diagram.png}}
-  \centerline{\includegraphics[width=12cm]{TexFigure/Chi_with_Tmat.png}}
-  \caption{Specific diagram for T matrix[4].}
-\end{figure}
-
 \newpage
-\subsection{Applying to circuit hamiltonian model}
+\subsection{Diagrammatic method in the circuit hamiltonian model}
 \begin{spacing}{1.5}
   This section will introduce how we adjust the expansion method to our circuit model. The basic notation
-  and mathematical structure follows the reference[4,5].
- In our study, we consider that the total system is a thermal equilibrium state; thus, a methodology using Matsubara’s method is available. To begin, we assume that each operator from RSJJ Hamiltonian mapped toward the general impurity model:
-\begin{table}[htbp]
+  and mathematical structure follows the reference[5,6].
+  In our study, we follow the total system evaluated under the equilibrium statistical physics framework: Matsubara's method is available. To begin, we assume that each operator from RSJJ Hamiltonian mapped toward the general impurity model:
+  \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.2}  % 행 간격 조정
   \begin{tabular}{@{}ccc@{}}
@@ -544,19 +530,19 @@ g_k &\rightarrow V_{m,n}\\
 \hat{b}_k^\dagger (\hat{b}_k) &\rightarrow \hat{b}_n^\dagger (\hat{b}_n)
 \end{split}
 \end{flalign}
-Using the relations, we can calculate the system’s partition function as we dealt with in the eqn(2.44).
+Using the relations, we can calculate the system’s partition function as we dealt with in the eqn (3.3).
 Notice that instead of the fermion operator $\hat{c}^\dagger (\hat{c})$, 
 the operator $\hat{N}$ is written in the vector space spanned through the eigenstates of the Josephson junction. 
 \subsubsection*{Calculation of bosonic action}
-To focus our attention on the local system where we are interested, we calculate the expectation value of partition function in the aspects of the bath, which seperates the effects of the bath by evaluating the system dynamics from bath points of view:
+To focus our attention on the local system where we are interested, we calculate the expectation value of partition function in the aspects of the bath, which seperates the effects of the bath from total system evolution:
 \begin{flalign}
   \begin{split}
-Z &= Z_{\text{bath}}\text{Tr}_{JJ}\bigg[\frac{\text{Tr}[e^{-\beta H_\text{bath}}U_{sys}(\tau)]}{\text{Tr}[e^{-\beta H_\text{bath}}]}\bigg] \\ 
+Z &= Z_{\text{bath}}\text{Tr}_{\text{JJ}}\bigg[\frac{\text{Tr}[e^{-\beta H_\text{bath}}U_{sys}(\tau)]}{\text{Tr}[e^{-\beta H_\text{bath}}]}\bigg] \\ 
 &= Z_\text{bath}\text{Tr}_{\text{JJ}}[\langle \mathcal{T}_\tau e^{-\int^\beta_0 H_\text{loc}(\tau) + H_\text{bath} + H_\text{int}}\rangle_\text{b}]
 \end{split}
 \end{flalign}
 Here the term $\text{JJ}$ means tracing out the effect of local system, in our case, Josephson junction system, and term is tracing out the effect of bosonic effect, which is $\bra{\text{n}_b}\mathcal{O}\ket{\text{n}_b}$, $n_b$ is number operator for bosonic field operator, $\mathcal{O}$ is physical quantity to calculate.
-To expand the interaction term, we can rewrite the equation into :
+To expand the interaction term, we can rewrite the equation into:
 \begin{flalign}
   \begin{split}
 Z=Z_{\text{bath}}\text{Tr}_{\text{JJ}}[\langle \mathcal{T}_\tau e^{-\int^\beta_0 H_\text{loc}(\tau) + H_\text{bath}}\sum_l Z_l\rangle_\text{b}]
@@ -568,7 +554,7 @@ Here, $l$ corresponds with the number of the highest order of perturbative expan
  \mathcal{T}_\tau e^{-\int^\beta_0 H_{\text{int}}(\tau)} \approx 1 -\int^{\beta}_0 H_{\text{int}}(\tau) d\tau +\frac{1}{2} \int^\beta_0 H_{\text{int}}(\tau_1)H_{\text{int}}(\tau_2)d\tau_1 d\tau_2 + \cdots
 \end{split}
 \end{flalign}
-Following the reference[4], we can rewrite the formula into:
+Following the reference[6], we can rewrite the formula into:
 \begin{flalign}
   \begin{split}
 Z_l =&\sum_{k_1 \cdots k_l}\sum_{k'_1 \cdots k'_l} g_{k_1}g_{k'_1}g_{k_2}g_{k'_2} \cdots g_{k_l}g_{k'_l} \int^\beta_0 d\tau_1 \int^\beta_{\tau_1}d\tau_2 \cdots\int^\beta_{\tau_{{l-1}}}d\tau_{l} \int^\beta_0 d\tau_1 \int^\beta_{\tau'_1}d\tau'_2 \cdots\int^\beta_{\tau'_{{l-1}}}d\tau'_{l} 
@@ -576,11 +562,11 @@ Z_l =&\sum_{k_1 \cdots k_l}\sum_{k'_1 \cdots k'_l} g_{k_1}g_{k'_1}g_{k_2}g_{k'_2
 \end{split}
 \end{flalign}
 Here, the lower index $k_i$ indicates the oscillation mode of the ith harmonic oscillator from the bath, represented by a pair of bosonic creation and annihilation operators. The number $\frac{1}{k_l !}$ was eliminated due to considering all permutations during ordering time.
-Using L(V) as a notation for linear operator space for vector space V, we should consider that, \\
-\indent 1. $k_i =k'_j$ \textit{ for all }(i,j) \\
-\indent 2. $\hat{N} = \{ \hat{N} \in L(\text{V}_{\text{JJ}}) \mid \text{V}_{\text{JJ}} \text{  is span of} \{\ket{\psi}_{JJ}\}\}$\\
-\indent $\quad \hat{b}_k^\dagger(\hat{b_k}) = \{ \hat{b}_k^\dagger(\hat{b_k}) \in L(\text{V}_{\text{bath}}) \mid \text{V}_{\text{bath}} \text{  is span of LC resonoator bosonic basis}\}$ (Appendix A.) \\
-Thus $\quad [\hat{N},\hat{b}^\dagger (\hat{b})] = 0$. We can adjust $Z_l$ as follows:
+Using $L(V)$ as a notation for linear operator space for vector space $V$, we should consider that, \\ \\
+\indent 1. $k_i =k'_j$ for all \textit{i , j} \\
+\indent 2. $\hat{N} = \{ \hat{N} \in L(V_{\text{JJ}}) \mid V_{\text{JJ}} \text{  is span of} \{\ket{\psi}_{\text{JJ}}\}\}$\\
+\indent $\quad \hat{b}_k^\dagger(\hat{b_k}) = \{ \hat{b}_k^\dagger(\hat{b_k}) \in L(V_{\text{bath}}) \mid V_{\text{bath}} \text{  is span of LC resonator bosonic basis}\}$ (Appendix A.) \\ \\
+Thus $[\hat{N},\hat{b}^\dagger (\hat{b})] = 0$. We can adjust $Z_l$ as follows:
 \begin{flalign}
   \begin{split}
 Z_l = &\sum_{k_1 \cdots k_l} (g_{k_1}g_{k_2} \cdots g_{k_l})^2\int^\beta_0 d\tau_1 \int^\beta_{\tau_1}d\tau_2 \cdots\int^\beta_{\tau_{k_{l-1}}}d\tau_{k_l} \int^\beta_0 d\tau_1 \int^\beta_{\tau'_1}d\tau'_2 \cdots\int^\beta_{\tau'_{k_{l-1}}}d\tau_{k_l} \\ 
@@ -600,7 +586,7 @@ To calculate the effect of bath, the form of the equation turns out:
 \end{split}
 \end{flalign}
 Here, each bosonic term contains a calculation of form $\langle \hat{b}^\dagger_{k_1}(\tau_1)\hat{b}_{k_1}(\tau'_1)\hat{b}^\dagger_{k_2}(\tau_2)\hat{b}_{k_2}(\tau'_2)\cdots\hat{b}^\dagger_{k_l}(\tau_l)\hat{b}_{k_l}(\tau'_l)\rangle_\text{b}$, where Wick’s theorem is available. 
-Before applying Wick’s theorem to a given equation, notice that harmonic oscillators in the bath do not interact with each other, leading to only one available property for contraction,
+Before applying Wick’s theorem to a given equation, notice that harmonic oscillators in the bath do not interact with each other, leading to only one available property for contraction:
 \begin{flalign}
   \begin{split}
 \langle \hat{b}^\dagger_{k_1}(\tau_1)\hat{b}_{k_1}(\tau'_1)\hat{b}^\dagger_{k_2}(\tau_2)\hat{b}_{k_2}(\tau'_2)&\cdots\hat{b}^\dagger_{k_l}(\tau_l)\hat{b}_{k_l} (\tau'_l)\rangle_\text{b} \\
@@ -608,9 +594,9 @@ Before applying Wick’s theorem to a given equation, notice that harmonic oscil
  \\ & +\langle \hat{b}_{k_1}(\tau'_1)\hat{b}^\dagger_{k_1}(\tau_1)\rangle_\text{b} \langle\hat{b}_{k_2}(\tau'_2)\hat{b}^\dagger_{k_2}(\tau_2)\rangle_\text{b}\cdots\langle\hat{b}_{k_l}(\tau'_l)\hat{b}^\dagger_{k_l} (\tau_l)\rangle_\text{b}
 \end{split}
 \end{flalign}
-which is a full bosonic term that turns out to be the sum of the multiplication of a single bosonic Green’s function.
-It is known that when the ensemble Hamiltonian, aimed at observing a certain physical quantity, takes the form of a harmonic oscillator, 
-it can be expressed as $\hat{a}^\dagger(\tau) = e^{E\tau} , \hat{a}(\tau) = e^{-E\tau}\hat{a}$ where $E$ is a eigenvalue of Hamiltonian.[7] 
+Which is a full bosonic term that turns out to be the sum of the multiplication of a single bosonic Green’s function.
+It is known that when the Hamiltonian takes the form of a harmonic oscillator, 
+it's corresponding time evolutionary operator can be expressed as $\hat{a}^\dagger(\tau) = e^{E\tau} , \hat{a}(\tau) = e^{-E\tau}\hat{a}$ where $E$ is a eigenvalue of Hamiltonian.[7] 
 Using this formula, each single Green’s function can be calculated as:
 \begin{flalign}
   \begin{split}
@@ -646,14 +632,14 @@ V_k(\tau)= e^{-\omega_k\tau} \frac{\cosh{\frac{\omega_k}{2}}}{\sinh{\frac{\omega
 \end{split}
 \end{flalign}
 \subsubsection*{Calculation of Propagator}
-Now, after calculating the bosonic action, we can calculate the structure of the propagator. 
-To begin, the result of equation (2.44) after calculating $V_k(\tau)$ turns out to:
+After calculating the bosonic action, we can calculate the structure of the propagator. 
+To begin, the result of equation (3.25) after calculating $V_k(\tau)$ turns out to:
 \begin{flalign}
 \begin{split}
 Z = Z_{\text{bath}}\text{Tr}_\text{JJ}\big[\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{\text{loc}}(\tau)} \langle \mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{\text{bath}}(\tau)} \sum_lZ_l\rangle_{\text{b}}\big] 
 \end{split}
 \end{flalign}
-Where $Z_l$  is :
+Where $Z_l$  is:
 \begin{flalign}
 \begin{split}
 Z_l = \sum_{\mathcal{P}\in S}\sum_{k_1 \cdots k_l} \int  ^\beta_0 d\tau_1 \cdots \int^\beta_0 d\tau_{k_l}\int^\beta_0 d\tau'_1 \cdots \int^\beta_0d\tau'_{k_l} V_k\cdot\hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\hat{N}(\tau_{k_2})\hat{N}(\tau'_{k_2})\cdots \hat{N}(\tau_{k_l})\hat{N}(\tau'_{k_l})
@@ -664,19 +650,19 @@ for $\{S \mid \text{All possible permutation satisfying condition}\}$.
 The trace for Josephson junction turns out to be:
 \begin{flalign}
   \begin{split}
-\text{Tr}_{JJ}\bigg[\sum_l \sum_{\mathcal{P}\in S}\sum_{k_1 \cdots k_l} \int^\beta_0 d\tau_{k_1} \cdots \int^\beta_0 d\tau'_{k_l} V_k \cdot \mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)}\hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\cdots\hat{N}(\tau_{k_l})\hat{N}(\tau'_{k_l})\bigg]
+\text{Tr}_{\text{JJ}}\bigg[\sum_l \sum_{\mathcal{P}\in S}\sum_{k_1 \cdots k_l} \int^\beta_0 d\tau_{k_1} \cdots \int^\beta_0 d\tau'_{k_l} V_k \cdot \mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)}\hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\cdots\hat{N}(\tau_{k_l})\hat{N}(\tau'_{k_l})\bigg]
   \end{split}
 \end{flalign}
 Based on the above form, we can define self-energy in the above formula using the different $l$ values.
 \begin{flalign}
 \begin{split}
-l = 1 \quad, \quad \text{Tr}_{JJ}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} V_k \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})}\bigg] \\
+l = 1 \quad, \quad \text{Tr}_{\text{JJ}}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} V_k \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})}\bigg] \\
 \mathcal{G}(\beta-\tau_{k_1})\cdot \underbrace{V_k\cdot\hat{N}\mathcal{G}(\tau_{k_1}-\tau'_{k_1})\hat{N}}_{=\Sigma^{(1)}}\mathcal{G}(\tau'_{k_1})
 \end{split}
 \end{flalign}
 \begin{flalign}
 \begin{split}
-l = 2 \quad, \quad \text{Tr}_{JJ}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} \int^\beta_0 d\tau_{k_2} \int^\beta_0 d\tau'_{k_2} V_k \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\hat{N}(\tau_{k_2})\hat{N}(\tau'_{k_2})}\bigg] \\
+l = 2 \quad, \quad \text{Tr}_{\text{JJ}}\bigg[\sum_{\mathcal{P} \in S} \sum_{\text{(mode)}} \int^\beta_0 d\tau_{k_1} \int^\beta_0 d\tau'_{k_1} \int^\beta_0 d\tau_{k_2} \int^\beta_0 d\tau'_{k_2} V_k \cdot \underbrace{\mathcal{T}_\tau e^{-\int^\beta_0 d\tau H_{loc}(\tau)} \hat{N}(\tau_{k_1})\hat{N}(\tau'_{k_1})\hat{N}(\tau_{k_2})\hat{N}(\tau'_{k_2})}\bigg] \\
 \mathcal{G}(\beta-\tau_{k_1})\cdot \underbrace{V_k \cdot\hat{N}\mathcal{G}(\tau_{k_1}-\tau'_{k_1})\hat{N}\mathcal{G}(\tau'_{k_1}-\tau_{k_2})\hat{N}\mathcal{G}(\tau_{k_2}-\tau'_{k_2})\hat{N}}_{=\Sigma^{(2)}}\mathcal{G}(\tau'_{k_2})
 \end{split}
 \end{flalign}
@@ -687,8 +673,8 @@ The case $l = 2$ corresponds with a One-crossing approximation. Getting more dia
 can be achievable by increasing the maximum value of the $l$ index.
 \subsubsection*{Calculating correlation function}
 After calculating the action in the above section and the remaining terms again for the Josephson junction, 
-we can obtain terms of the form of equation (2.60). Through calculating the correlation function as in equation (2.50) using the obtained form, we additionally intro
-duced an operator λ1 defined as follows:
+we can obtain terms of the form of equation (2.15). Through calculating the correlation function as in equation (2.17) using the obtained form, 
+we additionally introduced an operator $\lambda_1$ defined as follows:
 \begin{flalign}
 \begin{split}
   \lambda_1 = 

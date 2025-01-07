@@ -40,7 +40,7 @@
 \setcounter{page}{19}
 \setcounter{figure}{8}
 \setcounter{table}{2}
-\setcounter{section}{2}
+\setcounter{section}{3}
 \numberwithin{equation}{section}
 \lstset{style=mystyle}
 \captionsetup{font=footnotesize}
@@ -229,7 +229,7 @@ upon $\mathcal{O}(n^n)$ This can be simply represented as follows:
 If the part corresponding to $\hat{\mathcal{G}}*\hat{N}*\hat{\mathcal{G}}*\hat{\lambda}_1$ is pre-computed and stored in matrix form for later use in the calculation, the eight matrix multiplications are reduced to a single matrix multiplication.
 \begin{flalign}
 \hat{T}_{chi} =\hat{\mathcal{G}}_{i'}*\hat{N}*\hat{\mathcal{G}}_{j'}*\hat{\lambda}_1\\ 
-\chi_{sp} = V_{\text{index}}\text{Tr}( \hat{T}_{chi} * \hat{T}_{chi}')
+\chi_{sp} = V_{(\text{index})}\text{Tr}( \hat{T}_{chi} * \hat{T}_{chi}')
 \end{flalign}
 \subsubsection*{$\chi_{sp}$ T-matrix $\hat{T}_{chi}$ : k=3 case}
 The code for the general formula to calculate  $\chi_{sp}$ before introducing the T-matrix is as follows:
@@ -263,7 +263,7 @@ If we want to represent all the possible cases as shown above, using the matrix 
 \end{figure}
 \begin{figure}[H]
   \centerline{\includegraphics[width=14cm]{TexFigure/Tmat3.png}}
-  \caption{With the introduction of the above matrix, the overall calculation cases can be expressed in all forms through matrix multiplication.}
+  \caption{By introducing a matrix like the above, we can obtain results corresponding to all possible computational cases. Note that this calculation method is valid because it only considers the diagonal elements in the final matrix multiplication (Trace operation). This calculation method is not valid when considering the off-diagonal elements.}
 \end{figure}
 
 \pagebreak
