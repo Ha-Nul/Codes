@@ -150,7 +150,7 @@ public:
     void CAL_COUP_INT_with_g_arr(double alp, double cutoff);
     void Tilde_g_calculation_function(double alpha, double k_cutoff);
 
-    void Dataoutput();
+    void Dataoutput(double gamma, double alpha);
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
