@@ -13,7 +13,7 @@ using namespace Eigen;
 
 ///////////////////////////////////////////////////////////////////////
 
-double g_ma;s
+double g_ma;
 double alpha;
 int sys;
 
@@ -135,9 +135,6 @@ void MD_OC::CAL_COUP_INT_with_g_arr(double alpha, double k_cutoff)
 {
     Tilde_g_calculation_function(alpha,k_cutoff);
     Interact_V(k_cutoff);
-
-    cout << "$ H_N value : \n " << H_N << endl;
-    cout << "$ H_loc value : \n " << H_loc << endl;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -172,8 +169,8 @@ void MD_OC::Dataoutput(double g_ma, double alpha)
 
 int main()
 {
-    double beta = 0;
-    int grid = 0;
+    double beta = 10;
+    int grid = 101;
 
     MD_OC OC(beta,grid);
 
@@ -189,8 +186,6 @@ int main()
 
     istringstream iss(input);
     iss >> g_ma >> alpha;
-
-    cout << " ** H_loc, INT_Arr, H_N sending process activates";
     cout << " Value of g_ma : " << g_ma << ", alpha : " << alpha << endl;
 
     OC.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);

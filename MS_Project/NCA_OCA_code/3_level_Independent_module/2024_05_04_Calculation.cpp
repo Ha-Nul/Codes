@@ -9,11 +9,9 @@
 using namespace std;
 using namespace Eigen;
 
-MD_OC MD;
-
-MD_OC::MD_OC()
+MD_OC::MD_OC(double beta, int grid)
+    : tau_grid(linspace(0, beta, grid)), t(grid - 1)
 {
-    tau_grid = linspace(0, 1, 101);
     Delta_t = tau_grid[1] - tau_grid[0];
     t = tau_grid.size();
 }
@@ -29,7 +27,7 @@ void MD_OC::readVfunc()
     INT_Arr.resize(t);
 
     ifstream readFile;
-    readFile.open("./INT_Arr.dat");
+    readFile.open("/home/way_ern/Programs/Github/run/LOW_exe/20250120/INT_Arr_g1_a1.dat");
 
     if (readFile.is_open())
     {
@@ -50,8 +48,8 @@ void MD_OC::readVfunc()
 
 }
 
-MatrixXd Make_N_Matrix(int lineNumber){
-    ifstream file("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_N_gam_0to1.txt");
+MatrixXd MD_OC::Make_N_Matrix(int lineNumber){
+    ifstream file("/home/way_ern/Programs/Github/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_N_gam_0to1.txt");
     string line;
     MatrixXd Nmatrix = MatrixXd::Zero(3,3);
     int index = 1;
@@ -82,8 +80,8 @@ MatrixXd Make_N_Matrix(int lineNumber){
     return Nmatrix;
 }
 
-MatrixXd Make_Loc_Matrix(int lineNumber){
-    ifstream file("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_H_loc_gam_0to1.txt");
+MatrixXd MD_OC::Make_Loc_Matrix(int lineNumber){
+    ifstream file("/home/way_ern/Programs/Github/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_H_loc_gam_0to1.txt");
     string line;
     MatrixXd Locmatrix = MatrixXd::Zero(3,3);
     int i = 0;
@@ -117,6 +115,9 @@ void MD_OC::data_store(int lineNumber){
     readVfunc();
     H_loc = Make_Loc_Matrix(lineNumber);
     H_N = Make_N_Matrix(lineNumber);
+
+    cout << "This is H_loc matrix: " << H_loc << endl;
+    cout << "This is a N matrix: " << H_N << endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -409,11 +410,14 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 
 int main()
 {
-    MD_OC MD;
+    double beta = 10;
+    int grid = 101;
+
+    MD_OC MD(beta,grid);
 
     MD.data_store(2);
-=
-    vector<MatrixXd> ITER = MD.Iteration(3);
+
+    vector<MatrixXd> ITER = MD.Iteration(25);
     vector<double> a = MD.Chi_sp_Function(ITER);
 
     std::ofstream outputFile;
