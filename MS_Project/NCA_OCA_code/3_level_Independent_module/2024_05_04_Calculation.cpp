@@ -24,7 +24,6 @@ MD_OC::~MD_OC()
 }
 ////////////////////////////////////////////////////////////////////////////////
 
-
 void MD_OC::readVfunc()
 {
     INT_Arr.resize(t);
@@ -51,24 +50,74 @@ void MD_OC::readVfunc()
 
 }
 
-void MD_OC::readHN(ifstream& ifstr) {
-    H_N.resize(3, 3);
+MatrixXd Make_N_Matrix(int lineNumber){
+    ifstream file("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_N_gam_0to1.txt");
+    string line;
+    MatrixXd Nmatrix = MatrixXd::Zero(3,3);
+    int index = 1;
 
-    for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) {
-        ifstr >> H_N(i, j);
+    if (file.is_open()){
+        for (int i = 1; i <= lineNumber; ++i){
+            getline(file,line);
+            if (i == lineNumber){
+                break; // string 자료형으로 받아왔으므로 line[0], line[1] 등에는 공백이나 문자의 형태의 데이터가 저장되어 있음
+            }
+        }
     }
-};
+    file.close();
 
-void MD_OC::readHloc(ifstream& ifstr) {
-    H_loc.resize(3, 3);
+    vector<double> elements;
+    istringstream iss(line);
+    double value;
 
-    for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) {
-        ifstr >> H_loc(i, j);
+    while (iss >> value) {
+        elements.push_back(value);
     }
-};
 
+    for (int i = 0 ; i < 3; i++) for (int j = 0 ; j < 3 ; j++){
+        Nmatrix(i,j) = elements[index];
+        index += 1;
+    }
 
-////////////////////////////////////////////////////////////////////////////////
+    return Nmatrix;
+}
+
+MatrixXd Make_Loc_Matrix(int lineNumber){
+    ifstream file("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_H_loc_gam_0to1.txt");
+    string line;
+    MatrixXd Locmatrix = MatrixXd::Zero(3,3);
+    int i = 0;
+
+    if (file.is_open()){
+        for (int i = 1; i <= lineNumber; ++i){
+            getline(file,line);
+            if (i == lineNumber){
+                break; // string 자료형으로 받아왔으므로 line[0], line[1] 등에는 공백이나 문자의 형태의 데이터가 저장되어 있음
+            }
+        }
+    }
+    file.close();
+
+    vector<double> elements;
+    istringstream iss(line);
+    double value;
+
+    while (iss >> value) {
+        elements.push_back(value);
+    }
+
+    Locmatrix(0,0) = elements[1];
+    Locmatrix(1,1) = elements[2];
+    Locmatrix(2,2) = elements[3];
+
+    return Locmatrix;
+}
+
+void MD_OC::data_store(int lineNumber){
+    readVfunc();
+    H_loc = Make_Loc_Matrix(lineNumber);
+    H_N = Make_N_Matrix(lineNumber);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -362,21 +411,8 @@ int main()
 {
     MD_OC MD;
 
-    ifstream H_l("./H_loc.dat");
-    ifstream H_n("./H_N.dat");
-
-    MD.readHloc(H_l);
-    MD.readHN(H_n);
-    MD.readVfunc();
-
-    cout << MD.H_N << endl;
-    cout << MD.H_loc << endl;
-
-    for (int i = 0; i < MD.t; i++)
-    {
-        cout << MD.INT_Arr[i] << endl;
-    }
-
+    MD.data_store(2);
+=
     vector<MatrixXd> ITER = MD.Iteration(3);
     vector<double> a = MD.Chi_sp_Function(ITER);
 

@@ -175,9 +175,14 @@ public:
     vector<MatrixXd> Prop;
     vector<MatrixXd> GELL;
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
     void readVfunc();
-    void readHN(ifstream& ifstr);
-    void readHloc(ifstream& ifstr);
+    MatrixXd Make_N_Matrix(int lineNumber);
+    MatrixXd Make_Loc_Matrix(int lineNumber);
+    void data_store(int lineNumber);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
     void NCA_self();
     void OCA_self();
