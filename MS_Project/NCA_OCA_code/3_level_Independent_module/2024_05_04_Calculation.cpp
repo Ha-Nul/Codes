@@ -411,11 +411,11 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 int main()
 {
     double beta = 10;
-    int grid = 101;
+    int grid = 701;
 
     MD_OC MD(beta,grid);
 
-    MD.data_store(2);
+    MD.data_store(99);
 
     vector<MatrixXd> ITER = MD.Iteration(25);
     vector<double> a = MD.Chi_sp_Function(ITER);
