@@ -4,14 +4,14 @@
   "G:/Install_Program/MikTex/bibtex/bst/bibtex/abbrv.bst" 1291864736 20329 b5fed53e10044d0f8112183785c759b1 ""
   "QuCIS_pub.bib" 1730522858 2039470 dc359d6be8312092c8cc226f0f9d1333 ""
   (generated)
-  "2024-11-02 QuCISpub.bbl"
   "2024-11-02 QuCISpub.blg"
-["pdflatex"] 1730522962 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-11-02 QuCISpub.tex" "2024-11-02 QuCISpub.pdf" "2024-11-02 QuCISpub" 1730522962
-  "2024-11-02 QuCISpub.aux" 1730522962 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "2024-11-02 QuCISpub.bbl" 1730522937 278090 8d09b9e3cd4e3838744c160628dc6241 "bibtex 2024-11-02 QuCISpub"
+  "2024-11-02 QuCISpub.bbl"
+["pdflatex"] 1736448648 "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-11-02 QuCISpub.tex" "2024-11-02 QuCISpub.pdf" "2024-11-02 QuCISpub" 1736448648
+  "2024-11-02 QuCISpub.aux" 1736448648 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "2024-11-02 QuCISpub.bbl" 1736448646 278090 8d09b9e3cd4e3838744c160628dc6241 "bibtex 2024-11-02 QuCISpub"
   "2024-11-02 QuCISpub.tex" 1730522932 292 c0be91a424f878b5592dafefd7886b31 ""
   "C:/Users/128kbps/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1631711725 9706441 1ba0b62526dbb03e76eb2b56d7479493 ""
-  "C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1730522957 228208 701dd51cb792a856eb8b3f496fcd100d ""
+  "C:/Users/128kbps/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1734791989 228208 701dd51cb792a856eb8b3f496fcd100d ""
   "G:/Install_Program/MikTex/fonts/enc/dvips/tex-gyre/q-rm.enc" 1525740614 2409 c64dab22331c83731e970f6020b4448b ""
   "G:/Install_Program/MikTex/fonts/tfm/public/tex-gyre/rm-qtmb.tfm" 1254938640 11372 a066756d3894728658ea86288c6ee6dc ""
   "G:/Install_Program/MikTex/fonts/tfm/public/tex-gyre/rm-qtmr.tfm" 1254938640 11388 6ff4a66774d4f963dfd3f70bfd1b75ba ""
@@ -57,5 +57,5 @@
   "e:/Cabinet_Main/Cabinet_Documents/Git/Codes/Tex/2024-11-02 QuCISpub.tex" 1730522932 292 c0be91a424f878b5592dafefd7886b31 ""
   (generated)
   "2024-11-02 QuCISpub.aux"
-  "2024-11-02 QuCISpub.pdf"
   "2024-11-02 QuCISpub.log"
+  "2024-11-02 QuCISpub.pdf"
