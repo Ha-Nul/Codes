@@ -1,0 +1,495 @@
+{
+ "cells": [
+  {
+   "kind": 1,
+   "value": "### Function define\r\n\r\nhttps://128-0915-2016.notion.site/Hloc-Nmatrix-consturct-1850d032798280b99774d41cd4501592?pvs=4",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "characteristicExpo[quasiPart_, band_] := \r\n  {band + Mod[band, 2] + (-1)^band * 2 * Abs[quasiPart - Round[quasiPart]], band, Sign[quasiPart - Round[quasiPart]]};",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033173385,
+     "endTime": 1738033173472
+    },
+    "executionOrder": 32,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "Ek[quasi_, band_, gam_] := MathieuCharacteristicA[characteristicExpo[quasi,band][[1]], gam] ",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033173472,
+     "endTime": 1738033173562
+    },
+    "executionOrder": 33,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "Etheta[quasi_,band_,gam_,thet_] := (MathieuC[4 Ek[quasi,band,gam],gam,thet] +                                  \r\nI * (-1)^band * characteristicExpo[quasi,band][[3]] * MathieuS[4 Ek[quasi,band,gam],gam,thet])/Sqrt[2 Pi]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033173563,
+     "endTime": 1738033173654
+    },
+    "executionOrder": 34,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "DEtheta[quasi_,band_,gam_,thet_] := (MathieuCPrime[4 Ek[quasi,band,gam],gam,thet] +                                  \r\nI * (-1)^band * characteristicExpo[quasi,band][[3]] * MathieuSPrime[4 Ek[quasi,band,gam],gam,thet])/Sqrt[2 Pi]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033173654,
+     "endTime": 1738033173758
+    },
+    "executionOrder": 35,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "Function Test code",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "(MathieuC[4 Ek[1,1,1], 1, 1.1] + I (-1)^2 characteristicExpo[0.8,1][[3]] MathieuS[4 Ek[1,1,1], 1, 1.1])/Sqrt[2]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><wrow><w></w><w>-</w><w>0.150094</w></wrow><w>+</w><wrow><w></w><w>0.677568</w><w></w><w>𝕚</w></wrow></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "-0.1500939232879284 + 0.6775677058887035*I",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "979ad5aa-fb73-4aec-8b58-eaba8e4264fd",
+     "metadata": {
+      "cellLabel": "Out[36]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033173758,
+     "endTime": 1738033173939
+    },
+    "executionOrder": 36,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "### Variable define (**Must refresh after run for loop cell!!**)",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "gamArr = Range[0,1,0.1];\r\nphiArr = Range[0,2 Pi, 0.1];\r\ngamArrLength = Length[gamArr];  \r\nphiArrLength = Length[phiArr];    \r\nstorage = 0;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033173939,
+     "endTime": 1738033174391
+    },
+    "executionOrder": 37,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "### E_k matrix For loop",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "goutputArrzz = Table[Ek[0.8,0,k],{k,1,gamArrLength}];\r\ngoutputArroo = Table[Ek[0.8,1,k],{k,1,gamArrLength}];\r\ngoutputArrtt = Table[Ek[0.8,2,k],{k,1,gamArrLength}];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738034028429,
+     "endTime": 1738034028696
+    },
+    "executionOrder": 54,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "output",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "Export[\"E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\testEk.txt\", \r\nTranspose[{goutputArrzz,goutputArroo,goutputArrtt}], \r\n\"Table\"]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\12_09_Mathieu\\Matrix_data\\testEk.txt</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\Codes\\\\MS_Project\\\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\testEk.txt\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "51bdd98a-7738-40a3-8959-3837f7ee7851",
+     "metadata": {
+      "cellLabel": "Out[57]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738034113571,
+     "endTime": 1738034113785
+    },
+    "executionOrder": 57,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "#### N matrix For loop activate (Later fix)",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 1,
+   "value": "[0,0] element",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "outputArrzz = Table[\r\n    Sum[\r\n        Etheta[0.8,0,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,0,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033174391,
+     "endTime": 1738033174901
+    },
+    "executionOrder": 42,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "[0,1] element",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "outputArrzo = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033174901,
+     "endTime": 1738033175276
+    },
+    "executionOrder": 43,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "[0,2] element",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "outputArrzt = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033175277,
+     "endTime": 1738033175606
+    },
+    "executionOrder": 44,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "[1,0] element",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "outputArroz = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033175606,
+     "endTime": 1738033175936
+    },
+    "executionOrder": 45,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "[1,1] element",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "outputArroo = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033175936,
+     "endTime": 1738033176284
+    },
+    "executionOrder": 46,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "[1,2] element",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "outputArrot = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033176285,
+     "endTime": 1738033176630
+    },
+    "executionOrder": 47,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "[2,0] element",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "outputArrtz = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033176630,
+     "endTime": 1738033176989
+    },
+    "executionOrder": 48,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "[2,1] element",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "outputArrto = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033176989,
+     "endTime": 1738033177334
+    },
+    "executionOrder": 49,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "[2,2] element",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "outputArrtt = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033177335,
+     "endTime": 1738033177650
+    },
+    "executionOrder": 50,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "Print[outputArr]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<pre>{-0.130832 + 0.0857832 I, -0.133877 + 0.0849854 I, -0.139617 + 0.0813722 I, \n \n&gt;   -0.147333 + 0.0745028 I, -0.155802 + 0.0639555 I, \n \n&gt;   -0.163417 + 0.0496179 I, -0.16844 + 0.0319377 I, -0.169355 + 0.0120192 I, \n \n&gt;   -0.165216 - 0.00849486 I, -0.155876 - 0.02773 I, -0.142005 - 0.0439682 I}\n</pre>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"{-0.130832 + 0.0857832 I, -0.133877 + 0.0849854 I, -0.139617 + 0.0813722 I, \\n \\n>   -0.147333 + 0.0745028 I, -0.155802 + 0.0639555 I, \\n \\n>   -0.163417 + 0.0496179 I, -0.16844 + 0.0319377 I, -0.169355 + 0.0120192 I, \\n \\n>   -0.165216 - 0.00849486 I, -0.155876 - 0.02773 I, -0.142005 - 0.0439682 I}\\n\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "067701ae-f3c1-4089-b0f3-a4a2ba0311c1",
+     "metadata": {
+      "cellLabel": "",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033177650,
+     "endTime": 1738033177861
+    },
+    "executionOrder": 51,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "Export[\"E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\test.txt\", \r\nTranspose[{outputArrzz,outputArrzo,outputArrzt,outputArroz,outputArroo,outputArrot,outputArrtz,outputArrto,outputArrtt}], \r\n\"Table\"]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\12_09_Mathieu\\Matrix_data\\test.txt</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\Codes\\\\MS_Project\\\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\test.txt\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "965b6b65-a951-4bb0-b341-ce79b8b168d8",
+     "metadata": {
+      "cellLabel": "Out[53]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033299368,
+     "endTime": 1738033299589
+    },
+    "executionOrder": 53,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738033178312,
+     "endTime": 1738033178312
+    },
+    "success": false
+   }
+  }
+ ]
+}
