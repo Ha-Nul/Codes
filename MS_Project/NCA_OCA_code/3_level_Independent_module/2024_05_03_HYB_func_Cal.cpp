@@ -169,8 +169,11 @@ void MD_OC::Dataoutput(double g_ma, double alpha)
 
 int main()
 {
-    double beta = 10;
-    int grid = 101;
+    double beta = 0;
+    int grid = 0;
+
+    cout << "** Value of beta // gamma : " << endl;
+    cin << beta << grid;
 
     MD_OC OC(beta,grid);
 
