@@ -1,0 +1,1 @@
+For[i = 1, i<= phiArrLength, i++, storage += Etheta[0.8,1,1,phiArr[[i]]] * DEtheta[0.8,1,1,phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])]  

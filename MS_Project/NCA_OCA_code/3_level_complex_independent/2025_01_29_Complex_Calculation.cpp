@@ -3,8 +3,9 @@
 #include <Eigen/Dense>
 #include <vector>
 #include <cmath>
-#include <OCA_bath.hpp>
+#include <OCA_complex.hpp>
 #include <chrono>
+#include <complex>
 
 using namespace std;
 using namespace Eigen;
@@ -48,65 +49,69 @@ void MD_OC::readVfunc()
 
 }
 
-MatrixXd MD_OC::Make_N_Matrix(int lineNumber){
+MatrixXcd MD_OC::Make_N_Matrix(int lineNumber) {
     ifstream file("/home/way_ern/Programs/Github/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_N_gam_0to1.txt");
     string line;
-    MatrixXd Nmatrix = MatrixXd::Zero(3,3);
+    MatrixXcd Nmatrix = MatrixXcd::Zero(3, 3);
     int index = 1;
 
-    if (file.is_open()){
-        for (int i = 1; i <= lineNumber; ++i){
-            getline(file,line);
-            if (i == lineNumber){
-                break; // string 자료형으로 받아왔으므로 line[0], line[1] 등에는 공백이나 문자의 형태의 데이터가 저장되어 있음
+    if (file.is_open()) {
+        for (int i = 1; i <= lineNumber; ++i) {
+            getline(file, line);
+            if (i == lineNumber) {
+                break;
             }
         }
     }
     file.close();
 
-    vector<double> elements;
+    vector<complex<double>> elements;
     istringstream iss(line);
-    double value;
+    double realPart, imagPart;
+    char comma; // To consume the comma
 
-    while (iss >> value) {
-        elements.push_back(value);
+     while (iss >> realPart >> comma >> imagPart && comma == ',') {
+        elements.emplace_back(realPart, imagPart);
     }
 
-    for (int i = 0 ; i < 3; i++) for (int j = 0 ; j < 3 ; j++){
-        Nmatrix(i,j) = elements[index];
-        index += 1;
+    index = 0;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            Nmatrix(i, j) = elements[index];
+            index++;
+        }
     }
 
     return Nmatrix;
 }
 
-MatrixXd MD_OC::Make_Loc_Matrix(int lineNumber){
+MatrixXcd MD_OC::Make_Loc_Matrix(int lineNumber) {
     ifstream file("/home/way_ern/Programs/Github/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_H_loc_gam_0to1.txt");
     string line;
-    MatrixXd Locmatrix = MatrixXd::Zero(3,3);
-    int i = 0;
-
-    if (file.is_open()){
-        for (int i = 1; i <= lineNumber; ++i){
-            getline(file,line);
-            if (i == lineNumber){
-                break; // string 자료형으로 받아왔으므로 line[0], line[1] 등에는 공백이나 문자의 형태의 데이터가 저장되어 있음
+    MatrixXcd Locmatrix = MatrixXcd::Zero(3, 3);
+    
+    if (file.is_open()) {
+        for (int i = 1; i <= lineNumber; ++i) {
+            getline(file, line);
+            if (i == lineNumber) {
+                break;
             }
         }
     }
     file.close();
 
-    vector<double> elements;
+    vector<complex<double>> elements;
     istringstream iss(line);
-    double value;
+    double realPart, imagPart;
+    char comma;
 
-    while (iss >> value) {
-        elements.push_back(value);
+     while (iss >> realPart >> comma >> imagPart && comma == ',') {
+        elements.emplace_back(realPart, imagPart);
     }
 
-    Locmatrix(0,0) = elements[1];
-    Locmatrix(1,1) = elements[2];
-    Locmatrix(2,2) = elements[3];
+    Locmatrix(0, 0) = elements[0];
+    Locmatrix(1, 1) = elements[1];
+    Locmatrix(2, 2) = elements[2];
 
     return Locmatrix;
 }
@@ -150,11 +155,11 @@ void MD_OC::OCA_T()
 void MD_OC::OCA_self()
 {
     cout << "\t ** OCA_self RUN" << endl;
-    MatrixXd Stmp;
+    MatrixXcd Stmp;
     for (int i = 0; i < t; i++)
     {
         int loop = 0;
-        Stmp = MatrixXd::Zero(3, 3);
+        Stmp = MatrixXcd::Zero(3, 3);
         for (int n = 0; n <= i; n++) for (int m = 0; m <= n; m++)
         {
             //std::chrono::system_clock::time_point start= std::chrono::system_clock::now();
@@ -196,10 +201,10 @@ void MD_OC::SELF_Energy()
 //////////////////////////////////////////////////////////////////////////////
 
 
-MatrixXd MD_OC::round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>& sigma, const vector<MatrixXd>& ite, int n, int boolean)
+MatrixXcd MD_OC::round_propagator_ite(const MatrixXcd& loc, const vector<MatrixXcd>& sigma, const vector<MatrixXcd>& ite, int n, int boolean)
 {
 
-    MatrixXd sigsum = MatrixXd::Zero(3, 3);
+    MatrixXcd sigsum = MatrixXcd::Zero(3, 3);
 
     if (n == 1)
     {
@@ -220,7 +225,7 @@ MatrixXd MD_OC::round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>
 
     //cout << sigsum << endl;
 
-    MatrixXd Bucket = MatrixXd::Zero(3, 3);
+    MatrixXcd Bucket = MatrixXcd::Zero(3, 3);
     if (boolean == 0)
     {
         Bucket = -loc * ite[n] + sigsum;
@@ -235,16 +240,16 @@ MatrixXd MD_OC::round_propagator_ite(const MatrixXd& loc, const vector<MatrixXd>
 
 
 
-vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& loc)
+vector<MatrixXcd> MD_OC::Propagator(const vector<MatrixXcd>& sig, const MatrixXcd& loc)
 {
-    vector<MatrixXd> P_arr(t, MatrixXd::Zero(3, 3));
-    vector<MatrixXd> S_arr(t, MatrixXd::Zero(3, 3));
+    vector<MatrixXcd> P_arr(t, MatrixXcd::Zero(3, 3));
+    vector<MatrixXcd> S_arr(t, MatrixXcd::Zero(3, 3));
 
-    P_arr[0] = MatrixXd::Identity(3, 3);
-    S_arr[0] = MatrixXd::Identity(3, 3);
+    P_arr[0] = MatrixXcd::Identity(3, 3);
+    S_arr[0] = MatrixXcd::Identity(3, 3);
 
-    MatrixXd sig_form = MatrixXd::Zero(3, 3);
-    MatrixXd sig_late = MatrixXd::Zero(3, 3);
+    MatrixXcd sig_form = MatrixXcd::Zero(3, 3);
+    MatrixXcd sig_late = MatrixXcd::Zero(3, 3);
 
     for (int i = 1; i < t; i++)
     {
@@ -269,7 +274,7 @@ vector<MatrixXd> MD_OC::Propagator(const vector<MatrixXd>& sig, const MatrixXd& 
 
 /////////////////////////////////////////////////////////////////////////////
 
-double MD_OC::chemical_poten(MatrixXd prop)
+double MD_OC::chemical_poten(MatrixXcd prop)
 {
     double Trace = prop.trace();
     double lambda = -(1 / tau_grid[t - 1]) * log(Trace);
@@ -279,13 +284,13 @@ double MD_OC::chemical_poten(MatrixXd prop)
 
 ///////////////////////////////////////////////////////////////////////////////
 
-vector<MatrixXd> MD_OC::Iteration(const int& n)
+vector<MatrixXcd> MD_OC::Iteration(const int& n)
 {
     cout << "** Iteration RUN " << endl;
 
-    Prop.resize(t, MatrixXd::Zero(3, 3));
-    Prop[0] = MatrixXd::Identity(3, 3);
-    MatrixXd Iden = MatrixXd::Identity(3, 3);
+    Prop.resize(t, MatrixXcd::Zero(3, 3));
+    Prop[0] = MatrixXcd::Identity(3, 3);
+    MatrixXcd Iden = MatrixXcd::Identity(3, 3);
 
     vector<double> lambda(n + 1, 0);
     double expDtauLambda;
@@ -350,10 +355,10 @@ vector<MatrixXd> MD_OC::Iteration(const int& n)
 
 //////////////////////////////////////////////////////////////////////////////
 
-void MD_OC::NCA_Chi_sp(vector<MatrixXd>& iter)
+void MD_OC::NCA_Chi_sp(vector<MatrixXcd>& iter)
 {
     Chi_Arr.resize(t);
-    MatrixXd GELL = MatrixXd::Zero(3, 3);
+    MatrixXcd GELL = MatrixXcd::Zero(3, 3);
     GELL(0, 1) = 1;
     GELL(1, 0) = 1;
 
@@ -363,9 +368,9 @@ void MD_OC::NCA_Chi_sp(vector<MatrixXd>& iter)
     }
 }
 
-void MD_OC::OCA_store(vector<MatrixXd>& iter)
+void MD_OC::OCA_store(vector<MatrixXcd>& iter)
 {
-    MatrixXd GELL = MatrixXd::Zero(3, 3);
+    MatrixXcd GELL = MatrixXcd::Zero(3, 3);
     GELL(0, 1) = 1;
     GELL(1, 0) = 1;
 
@@ -382,11 +387,11 @@ void MD_OC::OCA_store(vector<MatrixXd>& iter)
 }
 
 
-void MD_OC::OCA_Chi_sp(vector<MatrixXd>& iter)
+void MD_OC::OCA_Chi_sp(vector<MatrixXcd>& iter)
 {
     for (int i = 0; i < t; i++)
     {
-        MatrixXd Stmp = MatrixXd::Zero(3, 3);
+        MatrixXcd Stmp = MatrixXcd::Zero(3, 3);
 
         for (int n = 0; n <= i; n++) for (int m = i; m < t; m++)
         {
@@ -397,7 +402,7 @@ void MD_OC::OCA_Chi_sp(vector<MatrixXd>& iter)
     }
 }
 
-vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
+vector<double> MD_OC::Chi_sp_Function(vector<MatrixXcd> ITE)
 {
     NCA_Chi_sp(ITE);
     OCA_store(ITE);
@@ -417,7 +422,7 @@ int main()
 
     MD.data_store(99);
 
-    vector<MatrixXd> ITER = MD.Iteration(25);
+    vector<MatrixXcd> ITER = MD.Iteration(25);
     vector<double> a = MD.Chi_sp_Function(ITER);
 
     std::ofstream outputFile;
