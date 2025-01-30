@@ -28,7 +28,7 @@ void MD_OC::readVfunc()
     INT_Arr.resize(t);
 
     ifstream readFile;
-    readFile.open("/home/way_ern/Programs/Github/run/LOW_exe/20250120/INT_Arr_g1_a1.dat");
+    readFile.open("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/NCA_OCA_code/3_level_Independent_module/INT_Arr_g0.2_a0.5.dat");
 
     if (readFile.is_open())
     {
@@ -438,21 +438,26 @@ int main()
 
     MD_OC MD(beta,grid);
 
-    MD.data_store(5);
+    MD.data_store(2);
 
     vector<MatrixXcd> ITER = MD.Iteration(25);
     vector<complex<double> > a = MD.Chi_sp_Function(ITER);
 
     std::ofstream outputFile;
-    string name = "Testing.txt";
+    string name = "Testing2.txt";
 
     outputFile.open(name);
 
-    for (int j = 0; j < MD.tau_grid.size(); j++)
-    {
-        outputFile << MD.tau_grid[j] << "\t" << MD.tau_grid[MD.t - 1] * a[j] << endl;
+
+    if (outputFile.is_open()) { // 파일 열기 확인
+        for (int j = 0; j < MD.tau_grid.size(); j++) {
+        outputFile << MD.tau_grid[j] << "\t" << a[j].real() << endl; // a[j].real()로 실수부 추출
+    }
+    outputFile.close();
+    } else {
+    std::cerr << "Unable to open file: " << name << endl;
+    // 오류 처리 (예: return 1, 예외 발생 등)
     }
 
     outputFile.close();
-
 }

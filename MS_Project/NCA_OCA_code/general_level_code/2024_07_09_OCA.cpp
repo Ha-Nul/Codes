@@ -836,12 +836,12 @@ int main()
     int& size = siz;
     int& syst = sys;
 
-    size = 5;
+    size = 3;
     syst = 9;
 
     //alpha adjust
-    vector<double> alp_arr(5, 0);
-    for (int i = 0; i < 5; i++)
+    vector<double> alp_arr(2, 0);
+    for (int i = 0; i < 2; i++)
     {
         if (i == 0)
         {
@@ -849,13 +849,13 @@ int main()
         }
         if (i != 0)
         {
-            alp_arr[i] = alp_arr[i - 1] + 0.1;
+            alp_arr[i] = alp_arr[i - 1] + 0.5;
         }
     }
 
     //gamma adjust
-    vector<double> g_ma_arr(5, 0);
-    for (int i = 0; i < 5; i++)
+    vector<double> g_ma_arr(2, 0);
+    for (int i = 0; i < 2; i++)
     {
         if (i == 0)
         {
@@ -863,7 +863,7 @@ int main()
         }
         if (i != 0)
         {
-            g_ma_arr[i] = g_ma_arr[i - 1] + 0.1;
+            g_ma_arr[i] = g_ma_arr[i - 1] + 0.2;
         }
     }
 

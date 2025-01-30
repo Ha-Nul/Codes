@@ -173,23 +173,28 @@ int main()
     int grid = 0;
 
     cout << "** Value of beta // gamma : " << endl;
-    cin << beta << grid;
+    cin >> beta >> grid;
 
     MD_OC OC(beta,grid);
 
+
     double& ref_g_ma = g_ma;
     double& alp = alpha;
+
     int& syst = sys;
     double k_cutoff = 20;
 
     syst = 21;
-
+    /*
     string input;
     getline(cin, input); // 한 줄을 입력받음
 
     istringstream iss(input);
     iss >> g_ma >> alpha;
     cout << " Value of g_ma : " << g_ma << ", alpha : " << alpha << endl;
+    */
+    ref_g_ma = 0.2;
+    alp = 0.5;
 
     OC.CAL_COUP_INT_with_g_arr(alpha,k_cutoff);
     OC.Dataoutput(g_ma,alpha);

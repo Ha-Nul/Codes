@@ -27,7 +27,7 @@ void MD_OC::readVfunc()
     INT_Arr.resize(t);
 
     ifstream readFile;
-    readFile.open("/home/way_ern/Programs/Github/run/LOW_exe/20250120/INT_Arr_g1_a1.dat");
+    readFile.open("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/NCA_OCA_code/3_level_Independent_module/INT_Arr_g1_a1.dat");
 
     if (readFile.is_open())
     {
@@ -49,7 +49,7 @@ void MD_OC::readVfunc()
 }
 
 MatrixXd MD_OC::Make_N_Matrix(int lineNumber){
-    ifstream file("/home/way_ern/Programs/Github/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_N_gam_0to1.txt");
+    ifstream file("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_N_gam_0to1.txt");
     string line;
     MatrixXd Nmatrix = MatrixXd::Zero(3,3);
     int index = 1;
@@ -81,7 +81,7 @@ MatrixXd MD_OC::Make_N_Matrix(int lineNumber){
 }
 
 MatrixXd MD_OC::Make_Loc_Matrix(int lineNumber){
-    ifstream file("/home/way_ern/Programs/Github/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_H_loc_gam_0to1.txt");
+    ifstream file("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_H_loc_gam_0to1.txt");
     string line;
     MatrixXd Locmatrix = MatrixXd::Zero(3,3);
     int i = 0;
@@ -411,17 +411,17 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXd> ITE)
 int main()
 {
     double beta = 10;
-    int grid = 701;
+    int grid = 201;
 
     MD_OC MD(beta,grid);
 
-    MD.data_store(99);
+    MD.data_store(19);
 
     vector<MatrixXd> ITER = MD.Iteration(25);
     vector<double> a = MD.Chi_sp_Function(ITER);
 
     std::ofstream outputFile;
-    string name = "Testing.txt";
+    string name = "Testing2.txt";
 
     outputFile.open(name);
 
