@@ -94,7 +94,7 @@ public:
     MatrixXcd Order_param;
     MatrixXcd H_loc;
 
-    vector<double> Chi_Arr;
+    vector<complex<double> > Chi_Arr;
     vector<vector<MatrixXcd> > T;
     vector<vector<MatrixXcd> > Chi_st;
     vector<MatrixXcd> SELF_E;
@@ -118,7 +118,7 @@ public:
    MatrixXcd round_propagator_ite(const MatrixXcd& loc, const vector<MatrixXcd>& sigma, const vector<MatrixXcd>& ite, int n, int boolean);
     vector<MatrixXcd> Propagator(const vector<MatrixXcd>& array, const MatrixXcd& loc);
 
-    double chemical_poten(MatrixXcd prop);
+    complex<double> chemical_poten(MatrixXcd prop);
 
     vector<MatrixXcd> Iteration(const int& iteration);
 
@@ -132,7 +132,7 @@ public:
     void NCA_Chi_sp(vector<MatrixXcd>& ITER);
     void OCA_store(vector<MatrixXcd>& ITER);
     void OCA_Chi_sp(vector<MatrixXcd>& ITER);
-    vector<double> Chi_sp_Function(vector<MatrixXcd> Iter);
+    vector<complex<double> > Chi_sp_Function(vector<MatrixXcd> Iter);
 };
 
 /////////////////////////////////////////////////////////////////////////////////////

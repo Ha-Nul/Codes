@@ -50,71 +50,89 @@ void MD_OC::readVfunc()
 }
 
 MatrixXcd MD_OC::Make_N_Matrix(int lineNumber) {
-    ifstream file("/home/way_ern/Programs/Github/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_N_gam_0to1.txt");
-    string line;
-    MatrixXcd Nmatrix = MatrixXcd::Zero(3, 3);
-    int index = 1;
+    ifstream Refile("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/realtest.txt");
+    ifstream Imfile("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/imagtest.txt");
+    
+    if (!Refile.is_open() || !Imfile.is_open()) {
+        cerr << "Error opening files!" << endl;
+        return MatrixXcd::Zero(3, 3); // Or handle the error in a different way
+    }
 
-    if (file.is_open()) {
-        for (int i = 1; i <= lineNumber; ++i) {
-            getline(file, line);
-            if (i == lineNumber) {
-                break;
-            }
+    string realLine, imagLine;
+    MatrixXcd Nmatrix = MatrixXcd::Zero(3, 3);
+
+    // lineNumber 행까지 읽기 (두 파일 모두 lineNumber 행까지 읽어야 함)
+    for (int i = 0; i < lineNumber; ++i) {
+        if (!getline(Refile, realLine) || !getline(Imfile, imagLine)) {
+            cerr << "Error reading lines from files!" << endl;
+            return MatrixXcd::Zero(3, 3); // Or handle the error in a different way
         }
     }
-    file.close();
 
-    vector<complex<double>> elements;
-    istringstream iss(line);
+    // 실수부와 허수부를 공백(탭)으로 구분하여 읽기
+    vector<double> realParts, imagParts;
+    istringstream realIss(realLine), imagIss(imagLine);
     double realPart, imagPart;
-    char comma; // To consume the comma
 
-     while (iss >> realPart >> comma >> imagPart && comma == ',') {
-        elements.emplace_back(realPart, imagPart);
+    while (realIss >> realPart) {
+        realParts.push_back(realPart);
     }
 
-    index = 0;
+    while (imagIss >> imagPart) {
+        imagParts.push_back(imagPart);
+    }
+
+    // 두 벡터의 크기가 같은지 확인
+    if (realParts.size() != imagParts.size() || realParts.size() != 9) {
+        cerr << "Error: Inconsistent number of elements or not enough elements for 3x3 matrix." << endl;
+        return MatrixXcd::Zero(3, 3); // Or handle the error in a different way
+    }
+
+    // 복소수 행렬 생성
+    int index = 0;
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            Nmatrix(i, j) = elements[index];
+            Nmatrix(i, j) = complex<double>(realParts[index], imagParts[index]);
             index++;
         }
     }
 
     return Nmatrix;
+
 }
 
-MatrixXcd MD_OC::Make_Loc_Matrix(int lineNumber) {
-    ifstream file("/home/way_ern/Programs/Github/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_H_loc_gam_0to1.txt");
+
+MatrixXcd MD_OC::Make_Loc_Matrix(int lineNumber){
+    ifstream file("/Users/e2_602_qma/Documents/GitHub/Codes/Codes/MS_Project/Matheiu/12_09_Mathieu/Matrix_data/M_H_loc_gam_0to1.txt");
     string line;
-    MatrixXcd Locmatrix = MatrixXcd::Zero(3, 3);
-    
-    if (file.is_open()) {
-        for (int i = 1; i <= lineNumber; ++i) {
-            getline(file, line);
-            if (i == lineNumber) {
-                break;
+    MatrixXd Locmatrix = MatrixXd::Zero(3,3);
+    int i = 0;
+
+    if (file.is_open()){
+        for (int i = 1; i <= lineNumber; ++i){
+            getline(file,line);
+            if (i == lineNumber){
+                break; // string 자료형으로 받아왔으므로 line[0], line[1] 등에는 공백이나 문자의 형태의 데이터가 저장되어 있음
             }
         }
     }
     file.close();
 
-    vector<complex<double>> elements;
+    vector<double> elements;
     istringstream iss(line);
-    double realPart, imagPart;
-    char comma;
+    double value;
 
-     while (iss >> realPart >> comma >> imagPart && comma == ',') {
-        elements.emplace_back(realPart, imagPart);
+    while (iss >> value) {
+        elements.push_back(value);
     }
 
-    Locmatrix(0, 0) = elements[0];
-    Locmatrix(1, 1) = elements[1];
-    Locmatrix(2, 2) = elements[2];
+    Locmatrix(0,0) = elements[1];
+    Locmatrix(1,1) = elements[2];
+    Locmatrix(2,2) = elements[3];
 
     return Locmatrix;
 }
+
 
 void MD_OC::data_store(int lineNumber){
     readVfunc();
@@ -274,10 +292,10 @@ vector<MatrixXcd> MD_OC::Propagator(const vector<MatrixXcd>& sig, const MatrixXc
 
 /////////////////////////////////////////////////////////////////////////////
 
-double MD_OC::chemical_poten(MatrixXcd prop)
+complex<double> MD_OC::chemical_poten(MatrixXcd prop)
 {
-    double Trace = prop.trace();
-    double lambda = -(1 / tau_grid[t - 1]) * log(Trace);
+    complex<double> Trace = prop.trace();
+    complex<double> lambda = -(1 / tau_grid[t - 1]) * log(Trace);
 
     return lambda;
 }
@@ -292,9 +310,9 @@ vector<MatrixXcd> MD_OC::Iteration(const int& n)
     Prop[0] = MatrixXcd::Identity(3, 3);
     MatrixXcd Iden = MatrixXcd::Identity(3, 3);
 
-    vector<double> lambda(n + 1, 0);
-    double expDtauLambda;
-    double factor;
+    vector<complex<double> > lambda(n + 1, 0);
+    complex<double> expDtauLambda;
+    complex<double> factor;
 
     for (int i = 0; i <= n; i++)
     {
@@ -302,9 +320,9 @@ vector<MatrixXcd> MD_OC::Iteration(const int& n)
         {
             for (int j = 0; j < t; j++)
             {
-                Prop[j](0, 0) = exp(-tau_grid[j] * H_loc(0, 0));
-                Prop[j](1, 1) = exp(-tau_grid[j] * H_loc(1, 1));
-                Prop[j](2, 2) = exp(-tau_grid[j] * H_loc(2, 2));
+                Prop[j](0, 0) = std::complex<double>(exp(-tau_grid[j] * H_loc(0, 0)));
+                Prop[j](1, 1) = std::complex<double>(exp(-tau_grid[j] * H_loc(1, 1)));
+                Prop[j](2, 2) = std::complex<double>(exp(-tau_grid[j] * H_loc(2, 2)));
             }
 
             //cout << Prop[99] << endl;
@@ -402,7 +420,7 @@ void MD_OC::OCA_Chi_sp(vector<MatrixXcd>& iter)
     }
 }
 
-vector<double> MD_OC::Chi_sp_Function(vector<MatrixXcd> ITE)
+vector<complex<double> > MD_OC::Chi_sp_Function(vector<MatrixXcd> ITE)
 {
     NCA_Chi_sp(ITE);
     OCA_store(ITE);
@@ -416,14 +434,14 @@ vector<double> MD_OC::Chi_sp_Function(vector<MatrixXcd> ITE)
 int main()
 {
     double beta = 10;
-    int grid = 701;
+    int grid = 201;
 
     MD_OC MD(beta,grid);
 
-    MD.data_store(99);
+    MD.data_store(5);
 
     vector<MatrixXcd> ITER = MD.Iteration(25);
-    vector<double> a = MD.Chi_sp_Function(ITER);
+    vector<complex<double> > a = MD.Chi_sp_Function(ITER);
 
     std::ofstream outputFile;
     string name = "Testing.txt";
