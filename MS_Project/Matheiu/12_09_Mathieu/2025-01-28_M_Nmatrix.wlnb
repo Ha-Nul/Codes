@@ -16,10 +16,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033173385,
-     "endTime": 1738033173472
+     "startTime": 1738214746210,
+     "endTime": 1738214746311
     },
-    "executionOrder": 32,
+    "executionOrder": 92,
     "success": true
    }
   },
@@ -31,10 +31,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033173472,
-     "endTime": 1738033173562
+     "startTime": 1738214746311,
+     "endTime": 1738214746400
     },
-    "executionOrder": 33,
+    "executionOrder": 93,
     "success": true
    }
   },
@@ -46,10 +46,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033173563,
-     "endTime": 1738033173654
+     "startTime": 1738214746401,
+     "endTime": 1738214746535
     },
-    "executionOrder": 34,
+    "executionOrder": 94,
     "success": true
    }
   },
@@ -61,10 +61,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033173654,
-     "endTime": 1738033173758
+     "startTime": 1738214746535,
+     "endTime": 1738214746660
     },
-    "executionOrder": 35,
+    "executionOrder": 95,
     "success": true
    }
   },
@@ -92,9 +92,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "979ad5aa-fb73-4aec-8b58-eaba8e4264fd",
+     "id": "06e1c1cf-9080-4247-8874-49b385a1cb51",
      "metadata": {
-      "cellLabel": "Out[36]= ",
+      "cellLabel": "Out[96]= ",
       "isBoxData": false
      }
     }
@@ -102,10 +102,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033173758,
-     "endTime": 1738033173939
+     "startTime": 1738214746660,
+     "endTime": 1738214746896
     },
-    "executionOrder": 36,
+    "executionOrder": 96,
     "success": true
    }
   },
@@ -125,10 +125,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033173939,
-     "endTime": 1738033174391
+     "startTime": 1738214746896,
+     "endTime": 1738214747331
     },
-    "executionOrder": 37,
+    "executionOrder": 97,
     "success": true
    }
   },
@@ -148,10 +148,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738034028429,
-     "endTime": 1738034028696
+     "startTime": 1738214747331,
+     "endTime": 1738214747604
     },
-    "executionOrder": 54,
+    "executionOrder": 102,
     "success": true
    }
   },
@@ -179,9 +179,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "51bdd98a-7738-40a3-8959-3837f7ee7851",
+     "id": "b6bb882f-884b-4d84-94ab-911f3ceb6082",
      "metadata": {
-      "cellLabel": "Out[57]= ",
+      "cellLabel": "Out[105]= ",
       "isBoxData": false
      }
     }
@@ -189,10 +189,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738034113571,
-     "endTime": 1738034113785
+     "startTime": 1738214747604,
+     "endTime": 1738214747784
     },
-    "executionOrder": 57,
+    "executionOrder": 105,
     "success": true
    }
   },
@@ -214,16 +214,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrzz = Table[\r\n    Sum[\r\n        Etheta[0.8,0,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,0,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "value": "outputArrzz = Table[\r\n    Sum[\r\n        Etheta[0.8,0,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,0,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrzz = Re[outputArrzz];\r\nimagArrzz = Im[outputArrzz];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033174391,
-     "endTime": 1738033174901
+     "startTime": 1738214747784,
+     "endTime": 1738214748430
     },
-    "executionOrder": 42,
+    "executionOrder": 106,
     "success": true
    }
   },
@@ -237,16 +237,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrzo = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "value": "outputArrzo = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrzo = Re[outputArrzo];\r\nimagArrzo = Im[outputArrzo];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033174901,
-     "endTime": 1738033175276
+     "startTime": 1738214748430,
+     "endTime": 1738214748925
     },
-    "executionOrder": 43,
+    "executionOrder": 109,
     "success": true
    }
   },
@@ -260,16 +260,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrzt = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "value": "outputArrzt = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrzt = Re[outputArrzt];\r\nimagArrzt = Im[outputArrzt];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033175277,
-     "endTime": 1738033175606
+     "startTime": 1738214748925,
+     "endTime": 1738214749451
     },
-    "executionOrder": 44,
+    "executionOrder": 112,
     "success": true
    }
   },
@@ -283,16 +283,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArroz = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "value": "outputArroz = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArroz = Re[outputArroz];\r\nimagArroz = Im[outputArroz];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033175606,
-     "endTime": 1738033175936
+     "startTime": 1738214749451,
+     "endTime": 1738214749916
     },
-    "executionOrder": 45,
+    "executionOrder": 115,
     "success": true
    }
   },
@@ -306,16 +306,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArroo = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "value": "outputArroo = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArroo = Re[outputArroo];\r\nimagArroo = Im[outputArroo];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033175936,
-     "endTime": 1738033176284
+     "startTime": 1738214749916,
+     "endTime": 1738214750397
     },
-    "executionOrder": 46,
+    "executionOrder": 118,
     "success": true
    }
   },
@@ -329,16 +329,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrot = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "value": "outputArrot = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrot = Re[outputArrot];\r\nimagArrot = Im[outputArrot];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033176285,
-     "endTime": 1738033176630
+     "startTime": 1738214750397,
+     "endTime": 1738214750893
     },
-    "executionOrder": 47,
+    "executionOrder": 121,
     "success": true
    }
   },
@@ -352,16 +352,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrtz = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "value": "outputArrtz = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrtz = Re[outputArrtz];\r\nimagArrtz = Im[outputArrtz];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033176630,
-     "endTime": 1738033176989
+     "startTime": 1738214750893,
+     "endTime": 1738214751389
     },
-    "executionOrder": 48,
+    "executionOrder": 124,
     "success": true
    }
   },
@@ -375,16 +375,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrto = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "value": "outputArrto = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrto = Re[outputArrto];\r\nimagArrto = Im[outputArrto];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033176989,
-     "endTime": 1738033177334
+     "startTime": 1738214751389,
+     "endTime": 1738214751825
     },
-    "executionOrder": 49,
+    "executionOrder": 127,
     "success": true
    }
   },
@@ -398,16 +398,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrtt = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];",
+   "value": "outputArrtt = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrtt = Re[outputArrtt];\r\nimagArrtt = Im[outputArrtt];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033177335,
-     "endTime": 1738033177650
+     "startTime": 1738214751825,
+     "endTime": 1738214752290
     },
-    "executionOrder": 50,
+    "executionOrder": 130,
     "success": true
    }
   },
@@ -427,7 +427,7 @@
        "mime": "text/plain"
       }
      ],
-     "id": "067701ae-f3c1-4089-b0f3-a4a2ba0311c1",
+     "id": "583b6619-2eba-4e2e-b3d7-6ef2019509c8",
      "metadata": {
       "cellLabel": "",
       "isBoxData": false
@@ -437,32 +437,40 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033177650,
-     "endTime": 1738033177861
+     "startTime": 1738214752290,
+     "endTime": 1738214752486
     },
-    "executionOrder": 51,
+    "executionOrder": 133,
     "success": true
    }
   },
   {
+   "kind": 1,
+   "value": "Seperate Imaginary part and real part",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
    "kind": 2,
-   "value": "Export[\"E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\test.txt\", \r\nTranspose[{outputArrzz,outputArrzo,outputArrzt,outputArroz,outputArroo,outputArrot,outputArrtz,outputArrto,outputArrtt}], \r\n\"Table\"]",
+   "value": "Export[\"E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\realtest.txt\", \r\nTranspose[{realArrzz,realArrzo,realArrzt,realArroz,realArroo,realArrot,realArrtz,realArrto,realArrtt}], \r\n\"Table\"]",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\12_09_Mathieu\\Matrix_data\\test.txt</w></div>",
+       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\12_09_Mathieu\\Matrix_data\\realtest.txt</w></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\Codes\\\\MS_Project\\\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\test.txt\"",
+       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\Codes\\\\MS_Project\\\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\realtest.txt\"",
        "mime": "text/plain"
       }
      ],
-     "id": "965b6b65-a951-4bb0-b341-ce79b8b168d8",
+     "id": "92553804-5a13-42a0-8c62-e70a03f5c6d6",
      "metadata": {
-      "cellLabel": "Out[53]= ",
+      "cellLabel": "Out[134]= ",
       "isBoxData": false
      }
     }
@@ -470,10 +478,43 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033299368,
-     "endTime": 1738033299589
+     "startTime": 1738214752486,
+     "endTime": 1738214752727
     },
-    "executionOrder": 53,
+    "executionOrder": 134,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "Export[\"E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\imagtest.txt\", \r\nTranspose[{imagArrzz,imagArrzo,imagArrzt,imagArroz,imagArroo,imagArrot,imagArrtz,imagArrto,imagArrtt}], \r\n\"Table\"]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\12_09_Mathieu\\Matrix_data\\imagtest.txt</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\Codes\\\\MS_Project\\\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\imagtest.txt\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "4317f2f5-30d7-4a68-a9eb-9e6d5e46b0ec",
+     "metadata": {
+      "cellLabel": "Out[135]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738214752727,
+     "endTime": 1738214752926
+    },
+    "executionOrder": 135,
     "success": true
    }
   },
@@ -485,8 +526,8 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738033178312,
-     "endTime": 1738033178312
+     "startTime": 1738214752926,
+     "endTime": 1738214752926
     },
     "success": false
    }
