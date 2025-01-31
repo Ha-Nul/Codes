@@ -16,10 +16,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214746210,
-     "endTime": 1738214746311
+     "startTime": 1738314770479,
+     "endTime": 1738314770560
     },
-    "executionOrder": 92,
+    "executionOrder": 46,
     "success": true
    }
   },
@@ -31,10 +31,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214746311,
-     "endTime": 1738214746400
+     "startTime": 1738314771302,
+     "endTime": 1738314771386
     },
-    "executionOrder": 93,
+    "executionOrder": 47,
     "success": true
    }
   },
@@ -46,10 +46,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214746401,
-     "endTime": 1738214746535
+     "startTime": 1738314771682,
+     "endTime": 1738314771761
     },
-    "executionOrder": 94,
+    "executionOrder": 48,
     "success": true
    }
   },
@@ -61,10 +61,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214746535,
-     "endTime": 1738214746660
+     "startTime": 1738314771976,
+     "endTime": 1738314772092
     },
-    "executionOrder": 95,
+    "executionOrder": 49,
     "success": true
    }
   },
@@ -92,9 +92,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "06e1c1cf-9080-4247-8874-49b385a1cb51",
+     "id": "40abd441-e719-42a1-9dd8-135600bd5b5f",
      "metadata": {
-      "cellLabel": "Out[96]= ",
+      "cellLabel": "Out[50]= ",
       "isBoxData": false
      }
     }
@@ -102,10 +102,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214746660,
-     "endTime": 1738214746896
+     "startTime": 1738314772581,
+     "endTime": 1738314772802
     },
-    "executionOrder": 96,
+    "executionOrder": 50,
     "success": true
    }
   },
@@ -119,16 +119,57 @@
   },
   {
    "kind": 2,
-   "value": "gamArr = Range[0,1,0.1];\r\nphiArr = Range[0,2 Pi, 0.1];\r\ngamArrLength = Length[gamArr];  \r\nphiArrLength = Length[phiArr];    \r\nstorage = 0;",
+   "value": "gamArr = N@Subdivide[0,0.4,19];\r\nphiArr = N@Subdivide[0,2 Pi, 360];\r\ngamArrLength = Length[gamArr];  \r\nphiArrLength = Length[phiArr];    \r\nstorage = 0;",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214746896,
-     "endTime": 1738214747331
+     "startTime": 1738319162665,
+     "endTime": 1738319163096
     },
-    "executionOrder": 97,
+    "executionOrder": 115,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "$n_g$ value",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "ng = 0",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>0</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "0",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "6f034e05-0f1d-4bbb-a644-01f0a7e3ca7b",
+     "metadata": {
+      "cellLabel": "Out[151]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1738320203974,
+     "endTime": 1738320204175
+    },
+    "executionOrder": 151,
     "success": true
    }
   },
@@ -142,16 +183,16 @@
   },
   {
    "kind": 2,
-   "value": "goutputArrzz = Table[Ek[0.8,0,k],{k,1,gamArrLength}];\r\ngoutputArroo = Table[Ek[0.8,1,k],{k,1,gamArrLength}];\r\ngoutputArrtt = Table[Ek[0.8,2,k],{k,1,gamArrLength}];",
+   "value": "goutputArrzz = Table[Ek[0.6,0,gamArr[[k]]],{k,1,gamArrLength}];\r\ngoutputArroo = Table[Ek[0.6,1,gamArr[[k]]],{k,1,gamArrLength}];\r\ngoutputArrtt = Table[Ek[0.6,2,gamArr[[k]]],{k,1,gamArrLength}];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214747331,
-     "endTime": 1738214747604
+     "startTime": 1738320170380,
+     "endTime": 1738320170603
     },
-    "executionOrder": 102,
+    "executionOrder": 147,
     "success": true
    }
   },
@@ -165,23 +206,23 @@
   },
   {
    "kind": 2,
-   "value": "Export[\"E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\testEk.txt\", \r\nTranspose[{goutputArrzz,goutputArroo,goutputArrtt}], \r\n\"Table\"]",
+   "value": "Export[\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\NCAOCA\\\\Project6\\\\Mathieu_Complex\\\\M_c_H_loc_gam_0to0.4_0.6.txt\", \r\nTranspose[{goutputArrzz,goutputArroo,goutputArrtt}], \r\n\"Table\"]",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\12_09_Mathieu\\Matrix_data\\testEk.txt</w></div>",
+       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\NCAOCA\\Project6\\Mathieu_Complex\\M_c_H_loc_gam_0to0.4_0.6.txt</w></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\Codes\\\\MS_Project\\\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\testEk.txt\"",
+       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\NCAOCA\\\\Project6\\\\Mathieu_Complex\\\\M_c_H_loc_gam_0to0.4_0.6.txt\"",
        "mime": "text/plain"
       }
      ],
-     "id": "b6bb882f-884b-4d84-94ab-911f3ceb6082",
+     "id": "714561df-7583-4a48-8c50-56e3babc75c5",
      "metadata": {
-      "cellLabel": "Out[105]= ",
+      "cellLabel": "Out[150]= ",
       "isBoxData": false
      }
     }
@@ -189,10 +230,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214747604,
-     "endTime": 1738214747784
+     "startTime": 1738320173024,
+     "endTime": 1738320173237
     },
-    "executionOrder": 105,
+    "executionOrder": 150,
     "success": true
    }
   },
@@ -214,16 +255,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrzz = Table[\r\n    Sum[\r\n        Etheta[0.8,0,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,0,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrzz = Re[outputArrzz];\r\nimagArrzz = Im[outputArrzz];",
+   "value": "outputArrzz = Table[\r\n  NIntegrate[\r\n    Etheta[ng, 1, gamArr[[j]], i] * DEtheta[ng, 1, gamArr[[j]], i],\r\n    {i, phiArr[[1]], phiArr[[phiArrLength]]}\r\n  ],\r\n  {j, 1, gamArrLength}\r\n];\r\n\r\n\r\nrealArrzz = Re[outputArrzz];\r\nimagArrzz = Im[outputArrzz];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214747784,
-     "endTime": 1738214748430
+     "startTime": 1738320268865,
+     "endTime": 1738320276657
     },
-    "executionOrder": 106,
+    "executionOrder": 152,
     "success": true
    }
   },
@@ -237,16 +278,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrzo = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrzo = Re[outputArrzo];\r\nimagArrzo = Im[outputArrzo];",
+   "value": "outputArrzo = Table[\r\n  NIntegrate[\r\n    Etheta[ng, 1, gamArr[[j]], i] * DEtheta[ng, 1, gamArr[[j]], i],\r\n    {i, phiArr[[1]], phiArr[[phiArrLength]]}\r\n  ],\r\n  {j, 1, gamArrLength}\r\n];\r\n\r\n\r\nrealArrzo = Re[outputArrzo];\r\nimagArrzo = Im[outputArrzo];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214748430,
-     "endTime": 1738214748925
+     "startTime": 1738320276657,
+     "endTime": 1738320279717
     },
-    "executionOrder": 109,
+    "executionOrder": 155,
     "success": true
    }
   },
@@ -260,16 +301,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrzt = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrzt = Re[outputArrzt];\r\nimagArrzt = Im[outputArrzt];",
+   "value": "outputArrzt = Table[\r\n  NIntegrate[\r\n    Etheta[ng, 1, gamArr[[j]], i] * DEtheta[ng, 1, gamArr[[j]], i],\r\n    {i, phiArr[[1]], phiArr[[phiArrLength]]}\r\n  ],\r\n  {j, 1, gamArrLength}\r\n];\r\n\r\n\r\nrealArrzt = Re[outputArrzt];\r\nimagArrzt = Im[outputArrzt];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214748925,
-     "endTime": 1738214749451
+     "startTime": 1738320279717,
+     "endTime": 1738320282661
     },
-    "executionOrder": 112,
+    "executionOrder": 158,
     "success": true
    }
   },
@@ -283,16 +324,34 @@
   },
   {
    "kind": 2,
-   "value": "outputArroz = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArroz = Re[outputArroz];\r\nimagArroz = Im[outputArroz];",
+   "value": "outputArroz = Table[\r\n  NIntegrate[\r\n    Etheta[ng, 1, gamArr[[j]], i] * DEtheta[ng, 1, gamArr[[j]], i],\r\n    {i, phiArr[[1]], phiArr[[phiArrLength]]}\r\n  ],\r\n  {j, 1, gamArrLength}\r\n];\r\n\r\n\r\nrealArroz = Re[outputArroz];\r\nimagArroz = Im[outputArroz];",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<pre><span class=\"wl-message\">NIntegrate::ncvb</span>: \n   NIntegrate failed to converge to prescribed accuracy after 9\n     recursive bisections in i near {i} = {5.57132}. NIntegrate obtained \n              -18               -17\n    5.20417 10    and 1.69589 10    for the integral and error estimates.</pre>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "NIntegrate::ncvb: \n   NIntegrate failed to converge to prescribed accuracy after 9\n     recursive bisections in i near {i} = {5.57132}. NIntegrate obtained \n              -18               -17\n    5.20417 10    and 1.69589 10    for the integral and error estimates.",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "07d2c8bc-86fa-4072-abc6-3107c7bf99bd",
+     "metadata": {
+      "cellLabel": "",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214749451,
-     "endTime": 1738214749916
+     "startTime": 1738321238114,
+     "endTime": 1738321240947
     },
-    "executionOrder": 115,
+    "executionOrder": 183,
     "success": true
    }
   },
@@ -306,16 +365,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArroo = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArroo = Re[outputArroo];\r\nimagArroo = Im[outputArroo];",
+   "value": "outputArroo = Table[\r\n  NIntegrate[\r\n    Etheta[ng, 1, gamArr[[j]], i] * DEtheta[ng, 1, gamArr[[j]], i],\r\n    {i, phiArr[[1]], phiArr[[phiArrLength]]}\r\n  ],\r\n  {j, 1, gamArrLength}\r\n];\r\n\r\n\r\nrealArroo = Re[outputArroo];\r\nimagArroo = Im[outputArroo];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214749916,
-     "endTime": 1738214750397
+     "startTime": 1738320285572,
+     "endTime": 1738320288423
     },
-    "executionOrder": 118,
+    "executionOrder": 164,
     "success": true
    }
   },
@@ -329,16 +388,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrot = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrot = Re[outputArrot];\r\nimagArrot = Im[outputArrot];",
+   "value": "outputArrot = Table[\r\n  NIntegrate[\r\n    Etheta[ng, 1, gamArr[[j]], i] * DEtheta[ng, 1, gamArr[[j]], i],\r\n    {i, phiArr[[1]], phiArr[[phiArrLength]]}\r\n  ],\r\n  {j, 1, gamArrLength}\r\n];\r\n\r\n\r\nrealArrot = Re[outputArrot];\r\nimagArrot = Im[outputArrot];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214750397,
-     "endTime": 1738214750893
+     "startTime": 1738320288423,
+     "endTime": 1738320291290
     },
-    "executionOrder": 121,
+    "executionOrder": 167,
     "success": true
    }
   },
@@ -352,16 +411,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrtz = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrtz = Re[outputArrtz];\r\nimagArrtz = Im[outputArrtz];",
+   "value": "outputArrtz = Table[\r\n  NIntegrate[\r\n    Etheta[ng, 1, gamArr[[j]], i] * DEtheta[ng, 1, gamArr[[j]], i],\r\n    {i, phiArr[[1]], phiArr[[phiArrLength]]}\r\n  ],\r\n  {j, 1, gamArrLength}\r\n];\r\n\r\n\r\nrealArrtz = Re[outputArrtz];\r\nimagArrtz = Im[outputArrtz];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214750893,
-     "endTime": 1738214751389
+     "startTime": 1738320291290,
+     "endTime": 1738320294143
     },
-    "executionOrder": 124,
+    "executionOrder": 170,
     "success": true
    }
   },
@@ -375,16 +434,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrto = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrto = Re[outputArrto];\r\nimagArrto = Im[outputArrto];",
+   "value": "outputArrto = Table[\r\n  NIntegrate[\r\n    Etheta[ng, 1, gamArr[[j]], i] * DEtheta[ng, 1, gamArr[[j]], i],\r\n    {i, phiArr[[1]], phiArr[[phiArrLength]]}\r\n  ],\r\n  {j, 1, gamArrLength}\r\n];\r\n\r\nrealArrto = Re[outputArrto];\r\nimagArrto = Im[outputArrto];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214751389,
-     "endTime": 1738214751825
+     "startTime": 1738320294143,
+     "endTime": 1738320297086
     },
-    "executionOrder": 127,
+    "executionOrder": 173,
     "success": true
    }
   },
@@ -398,16 +457,16 @@
   },
   {
    "kind": 2,
-   "value": "outputArrtt = Table[\r\n    Sum[\r\n        Etheta[0.8,1,gamArr[[j]],phiArr[[i]]] * DEtheta[0.8,1,gamArr[[j]],phiArr[[i]]] * (phiArr[[2]] - phiArr[[1]])\r\n    ,{i,1,phiArrLength}]\r\n  ,{j, 1, gamArrLength}\r\n];\r\n\r\nrealArrtt = Re[outputArrtt];\r\nimagArrtt = Im[outputArrtt];",
+   "value": "outputArrtt = Table[\r\n  NIntegrate[\r\n    Etheta[ng, 1, gamArr[[j]], i] * DEtheta[ng, 1, gamArr[[j]], i],\r\n    {i, phiArr[[1]], phiArr[[phiArrLength]]}\r\n  ],\r\n  {j, 1, gamArrLength}\r\n];\r\n\r\n\r\nrealArrtt = Re[outputArrtt];\r\nimagArrtt = Im[outputArrtt];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214751825,
-     "endTime": 1738214752290
+     "startTime": 1738320297086,
+     "endTime": 1738320300031
     },
-    "executionOrder": 130,
+    "executionOrder": 176,
     "success": true
    }
   },
@@ -419,15 +478,15 @@
     {
      "items": [
       {
-       "data": "<pre>{-0.130832 + 0.0857832 I, -0.133877 + 0.0849854 I, -0.139617 + 0.0813722 I, \n \n&gt;   -0.147333 + 0.0745028 I, -0.155802 + 0.0639555 I, \n \n&gt;   -0.163417 + 0.0496179 I, -0.16844 + 0.0319377 I, -0.169355 + 0.0120192 I, \n \n&gt;   -0.165216 - 0.00849486 I, -0.155876 - 0.02773 I, -0.142005 - 0.0439682 I}\n</pre>",
+       "data": "<pre>outputArr\n</pre>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "\"{-0.130832 + 0.0857832 I, -0.133877 + 0.0849854 I, -0.139617 + 0.0813722 I, \\n \\n>   -0.147333 + 0.0745028 I, -0.155802 + 0.0639555 I, \\n \\n>   -0.163417 + 0.0496179 I, -0.16844 + 0.0319377 I, -0.169355 + 0.0120192 I, \\n \\n>   -0.165216 - 0.00849486 I, -0.155876 - 0.02773 I, -0.142005 - 0.0439682 I}\\n\"",
+       "data": "\"outputArr\\n\"",
        "mime": "text/plain"
       }
      ],
-     "id": "583b6619-2eba-4e2e-b3d7-6ef2019509c8",
+     "id": "7111cb64-0070-46c9-8bdf-39cd5a2188e3",
      "metadata": {
       "cellLabel": "",
       "isBoxData": false
@@ -437,10 +496,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214752290,
-     "endTime": 1738214752486
+     "startTime": 1738320334729,
+     "endTime": 1738320334937
     },
-    "executionOrder": 133,
+    "executionOrder": 179,
     "success": true
    }
   },
@@ -454,23 +513,23 @@
   },
   {
    "kind": 2,
-   "value": "Export[\"E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\realtest.txt\", \r\nTranspose[{realArrzz,realArrzo,realArrzt,realArroz,realArroo,realArrot,realArrtz,realArrto,realArrtt}], \r\n\"Table\"]",
+   "value": "Export[\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\NCAOCA\\\\Project6\\\\Mathieu_Complex\\\\M_c_gam_0to0.4_0_Re.txt\", \r\nTranspose[{realArrzz,realArrzo,realArrzt,realArroz,realArroo,realArrot,realArrtz,realArrto,realArrtt}], \r\n\"Table\"]",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\12_09_Mathieu\\Matrix_data\\realtest.txt</w></div>",
+       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\NCAOCA\\Project6\\Mathieu_Complex\\M_c_gam_0to0.4_0_Re.txt</w></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\Codes\\\\MS_Project\\\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\realtest.txt\"",
+       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\NCAOCA\\\\Project6\\\\Mathieu_Complex\\\\M_c_gam_0to0.4_0_Re.txt\"",
        "mime": "text/plain"
       }
      ],
-     "id": "92553804-5a13-42a0-8c62-e70a03f5c6d6",
+     "id": "98674359-7f9a-4b99-b10b-8a2b81282048",
      "metadata": {
-      "cellLabel": "Out[134]= ",
+      "cellLabel": "Out[186]= ",
       "isBoxData": false
      }
     }
@@ -478,32 +537,32 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214752486,
-     "endTime": 1738214752727
+     "startTime": 1738321278231,
+     "endTime": 1738321278442
     },
-    "executionOrder": 134,
+    "executionOrder": 186,
     "success": true
    }
   },
   {
    "kind": 2,
-   "value": "Export[\"E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\imagtest.txt\", \r\nTranspose[{imagArrzz,imagArrzo,imagArrzt,imagArroz,imagArroo,imagArrot,imagArrtz,imagArrto,imagArrtt}], \r\n\"Table\"]",
+   "value": "Export[\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\NCAOCA\\\\Project6\\\\Mathieu_Complex\\\\M_c_gam_0to0.4_0_Im.txt\", \r\nTranspose[{imagArrzz,imagArrzo,imagArrzt,imagArroz,imagArroo,imagArrot,imagArrtz,imagArrto,imagArrtt}], \r\n\"Table\"]",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\Codes\\MS_Project\\Matheiu\\12_09_Mathieu\\Matrix_data\\imagtest.txt</w></div>",
+       "data": "<div class=\"wexpr\"><w>E:\\Cabinet_Main\\Cabinet_Documents\\Git\\NCAOCA\\Project6\\Mathieu_Complex\\M_c_gam_0to0.4_0_Im.txt</w></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\Codes\\\\MS_Project\\\\Matheiu\\\\12_09_Mathieu\\\\Matrix_data\\\\imagtest.txt\"",
+       "data": "\"E:\\\\Cabinet_Main\\\\Cabinet_Documents\\\\Git\\\\NCAOCA\\\\Project6\\\\Mathieu_Complex\\\\M_c_gam_0to0.4_0_Im.txt\"",
        "mime": "text/plain"
       }
      ],
-     "id": "4317f2f5-30d7-4a68-a9eb-9e6d5e46b0ec",
+     "id": "01ac419e-7b25-43d0-a243-c5b2e94e5948",
      "metadata": {
-      "cellLabel": "Out[135]= ",
+      "cellLabel": "Out[187]= ",
       "isBoxData": false
      }
     }
@@ -511,10 +570,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1738214752727,
-     "endTime": 1738214752926
+     "startTime": 1738321359890,
+     "endTime": 1738321360073
     },
-    "executionOrder": 135,
+    "executionOrder": 187,
     "success": true
    }
   },
@@ -524,13 +583,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1738214752926,
-     "endTime": 1738214752926
-    },
-    "success": false
-   }
+   "executionSummary": {}
   }
  ]
 }
