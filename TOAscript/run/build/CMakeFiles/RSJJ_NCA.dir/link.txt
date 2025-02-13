@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/RSJJ_NCA.dir/src/dyson.cpp.o CMakeFiles/RSJJ_NCA.dir/src/selfconsistency_NCA.cpp.o -o RSJJ_NCA   -L/opt/local/lib 

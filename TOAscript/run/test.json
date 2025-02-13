@@ -1,0 +1,9 @@
+{
+    "Ntau" : 200,
+    "beta" :  beta_,
+    "Winput" : "Vfunc.txt",
+    "HlocInput" : "H_loc.dat",
+    "NmatrixInput" : "H_N.dat",
+    "Nscl" : 1,
+    "is_mixing" : false
+}
