@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[fleqn]{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{feynmp-auto}
+\newcommand{\RN}[1]{%s
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=20mm,
+ right=20mm,
+ top=15mm,
+ bottom=20mm
+ }
+\begin{document}
+\begin{fmffile}{JKP_NCA}
+    \parbox{20mm}{\begin{fmfgraph*}(70,100)
+        \fmfleft{a}
+        \fmfright{b}
+        \fmf{boson,left=0.7,label=$\mathcal{W}$}{a,b}
+        \fmf{double_arrow,label=$\mathcal{G}$}{a,b}
+        %label
+        \fmfv{lab=$\hat{N}$,lab.dist=0.05w}{a}
+        \fmfv{lab=$\hat{N}$,lab.dist=0.05w}{b}
+      \end{fmfgraph*}}
+\end{fmffile}
+\end{document}
