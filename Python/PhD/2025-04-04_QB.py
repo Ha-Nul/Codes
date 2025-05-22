@@ -361,7 +361,7 @@ def plot_evolution_at_times(times_to_plot):
             
             # 확률 밀도 플롯
             axes[i, 0].plot(x_values, prob_density / np.max(prob_density), 'b-', lw=2)
-            axes[i, 0].set_xlim(x_min, x_max)
+            axes[i, 0].set_xlim(x_min, x_max) 
             axes[i, 0].set_ylabel('Prob. Density')
             axes[i, 0].set_title(f't = {t:.1f}, Norm = {norm:.4f}, Purity = {purity:.4f}')
             axes[i, 0].grid(True, alpha=0.3)
