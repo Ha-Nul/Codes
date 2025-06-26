@@ -1,0 +1,176 @@
+{
+ "cells": [
+  {
+   "kind": 2,
+   "value": "vertex = {{0,0},{0,1},{1,0},{1,1}}",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>{</wb><wrow><w></w><wrow><w></w><wb>{</wb><wrow><w></w><w>0</w><w>,</w><w>0</w></wrow><wb>}</wb></wrow><w>,</w><wrow><w></w><wb>{</wb><wrow><w></w><w>0</w><w>,</w><w>1</w></wrow><wb>}</wb></wrow><w>,</w><wrow><w></w><wb>{</wb><wrow><w></w><w>1</w><w>,</w><w>0</w></wrow><wb>}</wb></wrow><w>,</w><wrow><w></w><wb>{</wb><wrow><w></w><w>1</w><w>,</w><w>1</w></wrow><wb>}</wb></wrow></wrow><wb>}</wb></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "{{0, 0}, {0, 1}, {1, 0}, {1, 1}}",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "5a130472-8a37-4f34-ab1e-3b920a5b41e6",
+     "metadata": {
+      "cellLabel": "Out[7]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "permMatrix = Permute[IdentityMatrix, Cycles[{{2, 4}}]]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<pre><span class=\"wl-message\">Permute::normal</span>: \n   Nonatomic expression expected at position 1 in \n    Permute[IdentityMatrix, Cycles[{{2, 4}}]].</pre>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "Permute::normal: \n   Nonatomic expression expected at position 1 in \n    Permute[IdentityMatrix, Cycles[{{2, 4}}]].",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "4e30286e-3d28-4314-bbff-1ce1a730608d",
+     "metadata": {
+      "cellLabel": "",
+      "isBoxData": false
+     }
+    },
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><w>Permute</w><wrow><w></w><wb>[</wb><wrow><w></w><w>IdentityMatrix</w><w>,</w><wrow><w></w><w>Cycles</w><wrow><w></w><wb>[</wb><wrow><w></w><wb>{</wb><wrow><w></w><wb>{</wb><wrow><w></w><w>2</w><w>,</w><w>4</w></wrow><wb>}</wb></wrow><wb>}</wb></wrow><wb>]</wb></wrow></wrow></wrow><wb>]</wb></wrow></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "Permute[IdentityMatrix, Cycles[{{2, 4}}]]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "569a8ad9-290e-4a78-8244-ff39cf38ecc6",
+     "metadata": {
+      "cellLabel": "Out[16]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "permMatrixT = Transpose[permMatrix]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wsup><w></w><wrow><w></w><w>Permute</w><wrow><w></w><wb>[</wb><wrow><w></w><w>IdentityMatrix</w><w>,</w><wrow><w></w><w>Cycles</w><wrow><w></w><wb>[</wb><wrow><w></w><wb>{</wb><wrow><w></w><wb>{</wb><wrow><w></w><w>2</w><w>,</w><w>4</w></wrow><wb>}</wb></wrow><wb>}</wb></wrow><wb>]</wb></wrow></wrow></wrow><wb>]</wb></wrow></wrow><w><wrow style=\"font-family:&quot;Helvetica&quot;;\"><w></w><w>T</w></wrow></w></wsup></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "Transpose[Permute[IdentityMatrix, Cycles[{{2, 4}}]]]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "b1b7127f-4fc1-498c-846c-e27e86ba19de",
+     "metadata": {
+      "cellLabel": "Out[17]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "NewPerm = KroneckerProduct[PerMatrix,permMatrixT];\r\nPrint[NewPerm]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<pre>KroneckerProduct[PerMatrix, Transpose[Permute[IdentityMatrix, \n \n&gt;     Cycles[{{2, 4}}]]]]\n</pre>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"KroneckerProduct[PerMatrix, Transpose[Permute[IdentityMatrix, \\n \\n>     Cycles[{{2, 4}}]]]]\\n\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "31507c55-c23b-4693-b870-576be5255a10",
+     "metadata": {
+      "cellLabel": "",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "vectorV = {10, 20, 30};\r\nPrint[\"Original Vector V: \", vectorV];\r\n\r\ntransposedV = Transpose[vectorV];\r\nPrint[\"Transpose[vectorV]: \", transposedV];\r\n",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<pre>Original Vector V: {10, 20, 30}\n</pre>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"Original Vector V: {10, 20, 30}\\n\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "a18477e1-18e9-4546-9bed-ccd797b2461a",
+     "metadata": {
+      "cellLabel": "",
+      "isBoxData": false
+     }
+    },
+    {
+     "items": [
+      {
+       "data": "<pre>Transpose[vectorV]: {10, 20, 30}\n</pre>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"Transpose[vectorV]: {10, 20, 30}\\n\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "caa96c81-b718-416b-8af2-6eabfc9d39ff",
+     "metadata": {
+      "cellLabel": "",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  }
+ ]
+}
