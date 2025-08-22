@@ -1,0 +1,170 @@
+=== HEOM Performance Analysis ===
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+RHS construction time: 0.3839864730834961
+ Total run time:  67.01s*] Elapsed 67.01s / Remaining 00:00:00:00
+ODE solver time: 67.03135704994202
+	Command being timed: "python NC10Nk6.py"
+	User time (seconds): 134.16
+	System time (seconds): 24.70
+	Percent of CPU this job got: 233%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:08.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 267252
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 61321
+	Voluntary context switches: 8797789
+	Involuntary context switches: 28320
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 536
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+=== Analysis Ends ===
+=== HEOM Performance Analysis ===
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+RHS construction time: 1.073124885559082
+ Total run time: 207.63s*] Elapsed 207.63s / Remaining 00:00:00:00
+ODE solver time: 207.6710388660431
+	Command being timed: "python NC20Nk4.py"
+	User time (seconds): 492.29
+	System time (seconds): 27.55
+	Percent of CPU this job got: 248%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:29.53
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 375688
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 105186
+	Voluntary context switches: 10641263
+	Involuntary context switches: 54755
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 536
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+=== Analysis Ends ===
+=== HEOM Performance Analysis ===
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+RHS construction time: 18.25072479248047
+ Total run time: 6347.86s] Elapsed 6347.81s / Remaining 00:00:00:00
+ODE solver time: 6348.36691236496
+	Command being timed: "python NC20Nk6.py"
+	User time (seconds): 21665.36
+	System time (seconds): 212.75
+	Percent of CPU this job got: 343%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:46:07
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3802504
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 29153793
+	Voluntary context switches: 14544948
+	Involuntary context switches: 854535
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 536
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+=== Analysis Ends ===
+=== HEOM Performance Analysis ===
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+RHS construction time: 260.23892617225647
+ [*********58%*          ] Elapsed  [*********58%*          ] Elapsed  [*********58%*          ] Elapsed  [*********58%*          ] Elapsed  [*********58%*          ] Elapsed  [*********58%*          ] Elapsed  [*********58%*          ] Elapsed  [*********58%*          ] Elapsed  [*********91%*********  ] Elapsed 100421 Total run time: 110902.87sElapsed 110902.25s / Remaining 00:00:00:00 
+ODE solver time: 110907.77792930603
+	Command being timed: "python NC20Nk8.py"
+	User time (seconds): 387146.12
+	System time (seconds): 705.85
+	Percent of CPU this job got: 348%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 30:52:50
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 47428092
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3229
+	Minor (reclaiming a frame) page faults: 329636679
+	Voluntary context switches: 18415285
+	Involuntary context switches: 10357527
+	Swaps: 0
+	File system inputs: 179288
+	File system outputs: 536
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+=== Analysis Ends ===
+=== HEOM Performance Analysis ===
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Command terminated by signal 9
+	Command being timed: "python NC20Nk10.py"
+	User time (seconds): 113.26
+	System time (seconds): 7.71
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:01.36
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 23737208
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 313
+	Minor (reclaiming a frame) page faults: 6571064
+	Voluntary context switches: 3255
+	Involuntary context switches: 2734
+	Swaps: 0
+	File system inputs: 193112
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+=== Analysis Ends ===
+=== HEOM Performance Analysis ===
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+Command terminated by signal 9
+	Command being timed: "python NC10Nk15.py"
+	User time (seconds): 90.05
+	System time (seconds): 4.84
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:34.94
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 16314652
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4101004
+	Voluntary context switches: 399
+	Involuntary context switches: 2509
+	Swaps: 0
+	File system inputs: 224
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+=== Analysis Ends ===
