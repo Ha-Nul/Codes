@@ -63,7 +63,7 @@ class ExpandingEmbezzlingState(Scene):
             bar.shift(RIGHT * (i - 9.5) * spacing_20)
             bar.shift(UP * height/2)
             
-            label = Text(f"j{i+1}", font_size=10)
+            label = Text(f"j_{i+1}", font_size=10)
             label.next_to(bar, DOWN, buff=0.1)
             
             bars_20.add(bar)
