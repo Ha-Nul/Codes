@@ -1,0 +1,71 @@
+\begin{thebibliography}{10}
+
+\bibitem{Metaltheory}
+이해웅.
+\newblock {\em 빛의 양자이론}.
+\newblock 민음사, 09 1998.
+
+\bibitem{LightTheory}
+이해웅.
+\newblock {\em 양자정보학 강의}.
+\newblock 사이언스북스, 12 2017.
+
+\bibitem{Beck2005IntroductoryQO}
+M.~Beck.
+\newblock Introductory quantum optics.
+\newblock {\em American Journal of Physics}, 73:1197--1198, 2005.
+
+\bibitem{Fssler1992GroupTM}
+A.~F{\"a}ssler, E.~N. Stifel, and Y.~sup Kim.
+\newblock Group theoretical methods and their applications.
+\newblock 1992.
+
+\bibitem{Gschwendtner2020ProgrammabilityOC}
+M.~Gschwendtner, A.~Bluhm, and A.~J. Winter.
+\newblock Programmability of covariant quantum channels.
+\newblock {\em Quantum}, 5:488, 2020.
+
+\bibitem{PhysRevLett.83.3566}
+D.~Jonathan and M.~B. Plenio.
+\newblock Entanglement-assisted local manipulation of pure quantum states.
+\newblock {\em Phys. Rev. Lett.}, 83:3566--3569, Oct 1999.
+
+\bibitem{PhysRevLett.132.140402}
+P.~Lipka-Bartosik, G.~F. Diotallevi, and P.~Bakhshinezhad.
+\newblock Fundamental limits on anomalous energy flows in correlated quantum
+  systems.
+\newblock {\em Phys. Rev. Lett.}, 132:140402, Apr 2024.
+
+\bibitem{RevModPhys.96.025005}
+P.~Lipka-Bartosik, H.~Wilming, and N.~H.~Y. Ng.
+\newblock Catalysis in quantum information theory.
+\newblock {\em Rev. Mod. Phys.}, 96:025005, Jun 2024.
+
+\bibitem{Luijk2023covariantcatalysis}
+L.~v. Luijk, R.~F. Werner, and H.~Wilming.
+\newblock Covariant catalysis requires correlations and good quantum reference
+  frames degrade little.
+\newblock {\em {Quantum}}, 7:1166, Nov. 2023.
+
+\bibitem{Nielsen1997ProgrammableQG}
+M.~A. Nielsen and I.~L. Chuang.
+\newblock Programmable quantum gate arrays.
+\newblock {\em Physical Review Letters}, 79:321--324, 1997.
+
+\bibitem{PhysRevE.77.021110}
+M.~H. Partovi.
+\newblock Entanglement versus stosszahlansatz: Disappearance of the
+  thermodynamic arrow in a high-correlation environment.
+\newblock {\em Phys. Rev. E}, 77:021110, Feb 2008.
+
+\bibitem{key}
+R.~W.~A. Richard P.~Feynman, Hey~Tony.
+\newblock {\em 파인만의 엉뚱 발랄한 컴퓨터 강의 : 계산이론}.
+\newblock 한빛미디어, 2006.
+
+\bibitem{Wilde:2013sha}
+M.~M. Wilde.
+\newblock {\em {Quantum Information Theory}}.
+\newblock Cambridge University Press, 4 2013.
+
+\end{thebibliography}

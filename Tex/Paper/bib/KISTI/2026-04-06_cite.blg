@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: 2026-04-06_cite.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: abbrv.bst
+Database file #1: citation.bib
+Warning--empty booktitle in Fssler1992GroupTM
+You've used 13 entries,
+            2118 wiz_defined-function locations,
+            594 strings with 5786 characters,
+and the built_in function-call counts, 3730 in all, are:
+= -- 350
+> -- 158
+< -- 0
++ -- 63
+- -- 50
+* -- 250
+:= -- 652
+add.period$ -- 39
+call.type$ -- 13
+change.case$ -- 60
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 149
+empty$ -- 317
+format.name$ -- 50
+if$ -- 766
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 17
+newline$ -- 68
+num.names$ -- 26
+pop$ -- 69
+preamble$ -- 1
+purify$ -- 51
+quote$ -- 0
+skip$ -- 88
+stack$ -- 0
+substring$ -- 219
+swap$ -- 13
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 44
+warning$ -- 1
+while$ -- 35
+width$ -- 15
+write$ -- 139
+(There was 1 warning)
